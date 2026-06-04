@@ -133,7 +133,7 @@ function writePage(pathname, html) {
   const file = pathname === "/" ? "index.html" : path.join(pathname.slice(1), "index.html");
   const target = path.join(root, file);
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  if (deployBasePath) html = html.replaceAll('href="/', `href="${deployBasePath}/"`).replaceAll('src="/', `src="${deployBasePath}/"`);
+  if (deployBasePath) html = html.replaceAll('href="/', `href="${deployBasePath}/`).replaceAll('src="/', `src="${deployBasePath}/`);
   fs.writeFileSync(target, html);
 }
 
