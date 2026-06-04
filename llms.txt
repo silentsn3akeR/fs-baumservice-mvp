@@ -18,11 +18,11 @@ Diese Datei fasst die wichtigsten belegten Informationen fuer Suchmaschinen, KI-
 FS Baumservice ist ein regionaler Baumservice aus Bisingen-Steinhofen fuer Baumfaellung, Baumpflege, Heckenschnitt, Wurzelstockfraesen und Rollrasen in Bisingen, Balingen, Geislingen, Hechingen und im Zollernalbkreis.
 
 ## Leistungen
-- Baumfällung: Sichere Baumfällung auch auf engem Grundstück: FS Baumservice arbeitet mit Seilklettertechnik, Hubarbeitsgeräten und bei Bedarf Kranunterstützung. Seite: http://fs-baumservice.de/leistungen/baumfaellung/
-- Baumpflege: Baumpflege für Vitalität, Sicherheit und gesunde Kronen im Raum Bisingen, Balingen, Geislingen und Hechingen. Seite: http://fs-baumservice.de/leistungen/baumpflege/
-- Heckenschnitt: Sauberer Heckenschnitt und gepflegte Grundstücksbereiche für Privatkunden und gewerbliche Flächen im Zollernalbkreis. Seite: http://fs-baumservice.de/leistungen/heckenschnitt/
-- Wurzelstockfräsen: Wurzelstock entfernen lassen: FS Baumservice fräst störende Baumstümpfe im Raum Bisingen, Balingen und Geislingen. Seite: http://fs-baumservice.de/leistungen/wurzelstockfraesen/
-- Rollrasen: Rollrasen und Rasenvorbereitung für schnell nutzbare Grünflächen in Bisingen, Balingen, Geislingen und Umgebung. Seite: http://fs-baumservice.de/leistungen/rollrasen/
+- Baumf├ñllung: Sichere Baumf├ñllung auch auf engem Grundst├╝ck: FS Baumservice arbeitet mit Seilklettertechnik, Hubarbeitsger├ñten und bei Bedarf Kranunterst├╝tzung. Seite: http://fs-baumservice.de/leistungen/baumfaellung/
+- Baumpflege: Baumpflege f├╝r Vitalit├ñt, Sicherheit und gesunde Kronen im Raum Bisingen, Balingen, Geislingen und Hechingen. Seite: http://fs-baumservice.de/leistungen/baumpflege/
+- Heckenschnitt: Sauberer Heckenschnitt und gepflegte Grundst├╝cksbereiche f├╝r Privatkunden und gewerbliche Fl├ñchen im Zollernalbkreis. Seite: http://fs-baumservice.de/leistungen/heckenschnitt/
+- Wurzelstockfr├ñsen: Wurzelstock entfernen lassen: FS Baumservice fr├ñst st├Ârende Baumst├╝mpfe im Raum Bisingen, Balingen und Geislingen. Seite: http://fs-baumservice.de/leistungen/wurzelstockfraesen/
+- Rollrasen: Rollrasen und Rasenvorbereitung f├╝r schnell nutzbare Gr├╝nfl├ñchen in Bisingen, Balingen, Geislingen und Umgebung. Seite: http://fs-baumservice.de/leistungen/rollrasen/
 
 ## Einsatzgebiet
 - Bisingen
