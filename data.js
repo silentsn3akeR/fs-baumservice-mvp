@@ -3,7 +3,7 @@ export const services = [
     "slug": "baumfaellung",
     "name": "Baumfällung",
     "title": "Baumfällung in Bisingen, Balingen und Umgebung",
-    "description": "Sichere Baumfällung auch auf engem Grundstück: FS Baumservice arbeitet mit Seilklettertechnik, Hubarbeitsgeräten und bei Bedarf Kranunterstützung.",
+    "description": "Auch für schwierige Fällungen auf beengtem Raum sind wir von der Berufsgenossenschaft für Gartenbau qualifiziert und ausgerüstet. Gerne beraten wir Sie bei eventuell notwendigen Genehmigungsverfahren oder übernehmen diese Aufgabe komplett. Wir fällen alle Bäume auch in direkter Nähe zu Häusern oder an unzugänglichen Orten oder in dicht bewachsenen Gärten. Verschiedene Abseiltechniken ermöglichen es uns, Bäume stückweise abzutragen, ohne dass angrenzende Häuser oder Pflanzen Schaden nehmen. Je nach Bedingungen vor Ort setzen wir ggf. einen Autokran, Hubsteiger oder die Seilklettertechnik ein.",
     "image": "baumfaellung-bisingen-seilklettertechnik.jpg",
     "intro": "Wenn ein Baum krank, instabil, zu groß oder am falschen Standort steht, zählt eine ruhige Planung. FS Baumservice unterstützt private und gewerbliche Kunden bei sicheren Fällarbeiten in Bisingen, Balingen, Geislingen, Hechingen und im Zollernalbkreis.",
     "uses": [

@@ -65,6 +65,7 @@ function appLayout(body, title, description) {
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -253,6 +254,11 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     <h2 class="app-section-title">Direkt aus dem Einsatz.</h2>
     <p class="lead-text" style="max-width: 800px; margin-bottom: 50px;">Keine gestellten Bilder. Sehen Sie unsere aktuellen Fällungen und Arbeiten live auf Instagram <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a>.</p>
     
+    <!-- Live Interactive Instagram Widget -->
+    <div style="margin-bottom: 50px;">
+      <div class="elfsight-app-eb3d9ab0-9b43-41dc-ac1e-355b2d715dfc" data-elfsight-app-lazy></div>
+    </div>
+    
     <div style="margin-top: 30px;">
       ${instaVideoHtml}
     </div>
@@ -436,6 +442,11 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
   <section class="app-section" style="padding-top: 100px;">
     <h1 class="app-section-title" style="color:var(--white);">Direkt aus dem Einsatz. <br><span class="lime-text">Live von Instagram.</span></h1>
     <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
+    
+    <div style="margin-top: 60px;">
+      <!-- Live Interactive Instagram Widget -->
+      <div class="elfsight-app-eb3d9ab0-9b43-41dc-ac1e-355b2d715dfc" data-elfsight-app-lazy></div>
+    </div>
     
     <div style="margin-top: 60px;">
       ${instaVideoHtml}
