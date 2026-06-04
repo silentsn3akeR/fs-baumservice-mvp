@@ -73,7 +73,7 @@ function appLayout(body, title, description) {
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="${deployBasePath}/assets/css/styles.css?v=2">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -123,7 +123,7 @@ function appLayout(body, title, description) {
     ${bottomBar()}
   </div>
   
-  <script src="${deployBasePath}/assets/js/site.js" defer></script>
+  <script src="${deployBasePath}/assets/js/site.js?v=2" defer></script>
   
   <script>
     // 4-Step Configurator Logic
