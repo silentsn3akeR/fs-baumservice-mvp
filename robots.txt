@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /?author=
+Disallow: /?cat=
+Disallow: /?m=
+Sitemap: https://silentsn3akeR.github.io/fs-baumservice-mvp/sitemap.xml
