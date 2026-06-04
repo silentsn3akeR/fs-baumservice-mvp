@@ -371,3 +371,40 @@ if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
     });
   });
 }
+
+/* ── ANIMATED STAT COUNTERS ── */
+(function() {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  const ease = t => t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.counter);
+    const isDecimal = el.dataset.counter.includes('.');
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = ease(progress) * target;
+      el.textContent = isDecimal ? value.toFixed(1) : Math.round(value).toString();
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = el.dataset.counter;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => io.observe(el));
+})();

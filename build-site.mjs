@@ -201,7 +201,7 @@ function layout({ pathname, title, description, h1, body, imageName = "baumservi
     <div class="nav-wrap">
       <a class="brand" href="/" aria-label="FS Baumservice Startseite">
         <span class="brand-mark"><img src="/assets/img/fs-baumservice-logo-original.jpg" alt="" width="52" height="52"></span>
-        <span><strong>FS Baumservice</strong><small>Florian Stuck Baumservice</small></span>
+        <span><small>Florian Stuck</small><strong>Baumservice</strong></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
       <nav id="main-nav" class="site-nav" aria-label="Hauptnavigation">
@@ -483,7 +483,7 @@ function statsStrip() {
   return `<section class="stats-strip" aria-label="Auf einen Blick">
     <div class="stats-inner">
       <div class="stats-item">
-        <strong class="stats-num">5</strong>
+        <strong class="stats-num" data-counter="5">5</strong>
         <span class="stats-label">Leistungsbereiche</span>
       </div>
       <div class="stats-item">
@@ -495,7 +495,7 @@ function statsStrip() {
         <span class="stats-label">Baumpflege-Standard</span>
       </div>
       <div class="stats-item">
-        <strong class="stats-num">&#x2265;90</strong>
+        <strong class="stats-num">≥90</strong>
         <span class="stats-label">cm Zugang Wurzelfräse</span>
       </div>
     </div>
