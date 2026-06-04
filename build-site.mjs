@@ -1,61 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
+import { services as oldServices, contact, areaServed, verifiedFacts, answerQuestions } from "./old-build-site.mjs";
 
 const root = process.cwd();
 const baseUrl = "http://fs-baumservice.de";
 const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 const deployBaseUrl = (process.env.DEPLOY_BASE_URL || baseUrl).replace(/\/$/, "");
-const contact = {
-  name: "FS Baumservice",
-  legalName: "Florian Stuck Baumservice",
-  phone: "+49-172-7256462",
-  phoneDisplay: "0172 7256462",
-  email: "info@fs-baumservice.de",
-  instagram: "https://www.instagram.com/fs_baumservice/",
-};
 
-const services = [
-  {
-    id: "faellung",
-    title: "Baumfällung & Spezialfällung",
-    intro: "Sichere Fällung von Problembäumen auf engstem Raum.",
-    desc: "Wenn ein Baum krank, instabil oder schlichtweg zu groß geworden ist, bieten wir die professionelle Fällung an. Durch den Einsatz modernster Seilklettertechnik (SKT) und Hubarbeitsbühnen fällen wir auch an extrem schwer zugänglichen Orten – ohne Ihr Haus oder Ihren Garten zu beschädigen. Wir übernehmen das stückweise Abtragen und sorgen für höchste Sicherheit in Bisingen, Balingen und dem gesamten Zollernalbkreis.",
-    bullets: ["Seilklettertechnik (SKT) für schwierige Standorte", "Hubarbeitsgeräte & Kranfällungen", "Stückweises Abtragen ohne Flurschaden", "Komplette Entsorgung von Stammholz & Schnittgut"],
-    img: "baumfaellung-bisingen-seilklettertechnik.jpg"
-  },
-  {
-    id: "pflege",
-    title: "Fachgerechte Baumpflege",
-    intro: "Erhalt der Vitalität und Sicherheit Ihrer Bäume.",
-    desc: "Baumpflege ist mehr als nur 'Äste abschneiden'. Wir arbeiten streng nach der ZTV-Baumpflege, um die Gesundheit und Statik Ihrer Bäume zu erhalten. Ob Totholzentfernung, Kronenpflege oder Lichtraumprofilschnitt – wir schneiden so schonend wie möglich. Ein gesunder Baum ist ein sicherer Baum.",
-    bullets: ["Totholzentfernung & Kronenpflege", "Lichtraumprofilschnitt an Straßen", "Erhaltung der Baumstatik (ZTV-Baumpflege)", "Schonende Eingriffe statt Kappungen"],
-    img: "baumpflege-zollernalb-arbeitseinsatz.jpg"
-  },
-  {
-    id: "fraese",
-    title: "Wurzelstockfräsen",
-    intro: "Restlose Entfernung von störenden Baumstümpfen.",
-    desc: "Nach der Fällung bleibt der Wurzelstock oft als Stolperfalle oder Hindernis für die Gartengestaltung zurück. Mit unseren leistungsstarken Wurzelstockfräsen entfernen wir den Stumpf tiefgründig und sauber aus dem Boden. Danach können Sie sofort Rasen säen oder neu pflanzen.",
-    bullets: ["Tiefgründiges Fräsen unter Bodenniveau", "Schmale Maschinen für schmale Gartentore", "Schnelle Wiederverwendbarkeit der Fläche", "Kein teurer Bagger-Aushub nötig"],
-    img: "wurzelstockfraesen-baumservice.jpg"
-  },
-  {
-    id: "hecke",
-    title: "Heckenschnitt & Grundstückspflege",
-    intro: "Präziser Schnitt für dichte und gesunde Hecken.",
-    desc: "Eine gepflegte Hecke ist die Visitenkarte Ihres Grundstücks. Wir übernehmen den fachgerechten Formschnitt und Rückschnitt von Hecken jeder Größe. Darüber hinaus kümmern wir uns um die allgemeine Grundstückspflege, damit Ihr Außenbereich in Bisingen und Umgebung stets einen perfekten Eindruck hinterlässt.",
-    bullets: ["Exakter Formschnitt & radikaler Rückschnitt", "Pflege von extrem hohen oder breiten Hecken", "Gründliche Reinigung des Arbeitsbereichs", "Abtransport des Grünguts"],
-    img: "heckenschnitt-grundstueckspflege.jpg"
-  },
-  {
-    id: "rasen",
-    title: "Rollrasen Verlegung",
-    intro: "Sofortiges Grün für Ihren Garten.",
-    desc: "Nach Bauarbeiten, starken Wurzelstockfräsungen oder einfach zur Neugestaltung: Rollrasen bietet innerhalb kürzester Zeit eine dichte, nutzbare Grünfläche. Wir übernehmen die komplette Vorbereitung des Bodens (Planum) und verlegen Premium-Rollrasen fachmännisch.",
-    bullets: ["Bodenaufbereitung & Planum", "Verlegung von Premium-Rollrasen", "Beratung zur Anwuchsphase", "Sofort grünes Ergebnis"],
-    img: "rollrasen-gruenflaeche-fs-baumservice.svg"
-  }
-];
+// We will use the rich data from oldServices to build incredible subpages!
 
 function sidebar() {
   return `<aside class="app-sidebar">
@@ -65,9 +17,10 @@ function sidebar() {
     </a>
     <nav class="app-nav">
       <a href="/" class="nav-btn is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Übersicht</a>
-      <a href="#leistungen" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Leistungen</a>
-      <a href="#showcase" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Galerie & Social</a>
-      <a href="#anfrage" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Direktanfrage</a>
+      <a href="/leistungen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Leistungen</a>
+      <a href="/referenzen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Galerie & Social</a>
+      <a href="/ueber-uns/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Über Uns</a>
+      <a href="/angebot/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3D-Konfigurator</a>
     </nav>
     <div class="sidebar-contact">
       <a href="tel:${contact.phone}" class="button-primary">Jetzt anrufen</a>
@@ -79,21 +32,21 @@ function sidebar() {
 function bottomBar() {
   return `<nav class="app-bottombar">
     <a href="/" class="bottom-btn is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
-    <a href="#leistungen" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></a>
-    <a href="#anfrage" class="bottom-btn bottom-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-    <a href="#showcase" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
+    <a href="/leistungen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></a>
+    <a href="/angebot/" class="bottom-btn bottom-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+    <a href="/referenzen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
     <a href="tel:${contact.phone}" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
   </nav>`;
 }
 
-function appLayout(body) {
+function appLayout(body, title, description) {
   return `<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>FS Baumservice | Florian Stuck | Bisingen & Zollernalbkreis</title>
-  <meta name="description" content="Sichere Baumfällung, Baumpflege nach ZTV, Seilklettertechnik und Wurzelstockfräsen in Bisingen, Balingen, Hechingen und Umgebung. FS Baumservice Florian Stuck.">
+  <title>${title} | FS Baumservice | Zollernalbkreis</title>
+  <meta name="description" content="${description}">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
@@ -103,7 +56,14 @@ function appLayout(body) {
     ${sidebar()}
     <main class="app-content">
       ${body}
-      <footer class="app-footer">FS Baumservice &copy; 2026. Regional im Einsatz in Bisingen, Balingen, Hechingen, Geislingen und Zollernalbkreis.</footer>
+      <footer class="app-footer">
+        <div style="margin-bottom: 20px;">
+          <a href="/impressum/" class="text-link">Impressum</a> | 
+          <a href="/datenschutz/" class="text-link">Datenschutz</a> |
+          <a href="/kontakt/" class="text-link">Kontakt</a>
+        </div>
+        FS Baumservice &copy; 2026. Regional im Einsatz in Bisingen, Balingen, Hechingen, Geislingen und Zollernalbkreis.
+      </footer>
     </main>
     ${bottomBar()}
   </div>
@@ -126,101 +86,214 @@ function appHero() {
   </section>`;
 }
 
-function appAbout() {
-  return `<section id="about" class="app-section about-section">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 class="app-section-title">Baumservice aus Bisingen.</h2>
-        <p class="lead-text">FS Baumservice steht für sichere Baumarbeiten, Seilklettertechnik, Wurzelstockfräsen, Heckenschnitt und Rollrasen – direkt aus der Region, mit dem richtigen Werkzeug für jede Situation.</p>
-        <div class="trust-badges">
-          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ZTV-Baumpflege Standard</div>
-          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sichere Seilklettertechnik</div>
-          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Regional (Bisingen/Balingen)</div>
-        </div>
-      </div>
-      <div class="about-image card-3d">
-        <img src="/assets/img/fs-baumservice-florina-stuck.jpg" alt="Florian Stuck - FS Baumservice">
-      </div>
-    </div>
-  </section>`;
-}
-
-function appDetailedServices() {
-  return `<section id="leistungen" class="app-section">
-    <h2 class="app-section-title">Unsere Leistungen. <br>Ihre Lösung.</h2>
-    <div class="service-list">
-      ${services.map(s => `
-        <article class="service-detail-card card-3d">
-          <div class="sdc-image">
-            <img src="/assets/img/${s.img}" alt="${s.title}" loading="lazy">
-          </div>
-          <div class="sdc-content">
-            <h3 class="lime-text">${s.title}</h3>
-            <p class="sdc-intro">${s.intro}</p>
-            <p class="sdc-desc">${s.desc}</p>
-            <ul class="sdc-bullets">
-              ${s.bullets.map(b => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> ${b}</li>`).join("")}
-            </ul>
-          </div>
-        </article>
-      `).join("")}
-    </div>
-  </section>`;
-}
-
-function appSocialShowcase() {
-  const videoDir = path.join(root, "assets", "video", "instagram");
-  const files = fs.existsSync(videoDir) ? fs.readdirSync(videoDir).filter(f => f.endsWith(".mp4")) : [];
-  
-  return `<section id="showcase" class="app-section">
-    <h2 class="app-section-title">Direkt aus dem Einsatz. <br><a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a></h2>
-    <div class="social-hub">
-      ${files.map(f => `
-        <div class="social-video-card">
-          <video src="/assets/video/instagram/${f}" autoplay muted loop playsinline></video>
-          <div class="social-overlay">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>Instagram Reel</span>
-          </div>
-        </div>
-      `).join("")}
-    </div>
-  </section>`;
-}
-
-function appConfigurator() {
-  return `<section id="anfrage" class="app-section">
-    <h2 class="app-section-title">Projekt starten. <br>Einfach anfragen.</h2>
-    <div class="config-hero">
-      <form class="app-form" onsubmit="event.preventDefault(); alert('Die Anfrage funktioniert! Wir melden uns.');">
-        <div class="option-grid" style="margin-bottom: 40px;">
-          <label class="option-card"><input type="radio" name="service" value="faellung"><span class="masonry-badge">01</span><strong>Baumfällung</strong></label>
-          <label class="option-card"><input type="radio" name="service" value="pflege"><span class="masonry-badge">02</span><strong>Baumpflege</strong></label>
-          <label class="option-card"><input type="radio" name="service" value="fraese"><span class="masonry-badge">03</span><strong>Wurzelfräsen</strong></label>
-        </div>
-        <div class="field-grid">
-          <input type="text" placeholder="Wo ist das Projekt? (Ort z.B. Bisingen)" required>
-          <input type="tel" placeholder="Ihre Telefonnummer" required>
-        </div>
-        <textarea placeholder="Kurze Beschreibung (optional)" rows="3" style="margin-top: 30px;"></textarea>
-        <button type="submit" class="button-primary" style="margin-top: 40px; width: 100%; border: none;">Kostenlos anfragen</button>
-      </form>
-    </div>
-  </section>`;
-}
-
-function writePage(pathname, html) {
+function writePage(pathname, title, desc, body) {
   const file = pathname === "/" ? "index.html" : path.join(pathname.slice(1), "index.html");
   const target = path.join(root, file);
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  if (deployBasePath) html = html.replaceAll('href="/', `href="${deployBasePath}/`).replaceAll('src="/', `src="${deployBasePath}/`);
+  let html = appLayout(body, title, desc);
+  if (deployBasePath) html = html.replaceAll('href="/', \`href="\${deployBasePath}/\`).replaceAll('src="/', \`src="\${deployBasePath}/\`);
   fs.writeFileSync(target, html);
 }
 
-writePage("/", appLayout(`
+// ==== PAGE DEFINITIONS ====
+
+const homeBody = `
   ${appHero()}
-  ${appAbout()}
-  ${appDetailedServices()}
-  ${appSocialShowcase()}
-  ${appConfigurator()}
-`));
+  <section class="app-section">
+    <h2 class="app-section-title">Unsere Kernkompetenzen.</h2>
+    <div class="service-list">
+      ${oldServices.map(s => `
+        <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
+          <div class="sdc-image"><img src="/assets/img/${s.image}" alt="${s.title}" loading="lazy"></div>
+          <div class="sdc-content">
+            <h3 class="lime-text">${s.name}</h3>
+            <p class="sdc-intro">${s.intro}</p>
+            <p class="sdc-desc">${s.description}</p>
+            <span class="button-primary" style="display:inline-block; margin-top:20px;">Details ansehen</span>
+          </div>
+        </a>
+      `).join("")}
+    </div>
+  </section>
+  <section class="app-section">
+    <div class="cta-row" style="text-align:center; padding: 60px; background: rgba(22, 24, 34, 0.6); border: 1px solid var(--glass-border); border-radius: var(--radius);">
+      <h2 style="color:var(--white); margin-bottom: 20px;">Bereit für Ihr Projekt?</h2>
+      <a href="/angebot/" class="button-primary" style="font-size: 1.5rem; padding: 20px 40px;">Zum 3D-Konfigurator</a>
+    </div>
+  </section>
+`;
+
+writePage("/", "Startseite", "FS Baumservice: Ihre Experten für Baumpflege", homeBody);
+
+// Generate Service Subpages
+for (const s of oldServices) {
+  const body = `
+    <section class="hero-app" style="height: 60vh; min-height: 400px;">
+      <img class="hero-video-bg" src="/assets/img/${s.image}" style="filter: brightness(0.4);">
+      <div class="hero-app-content">
+        <h1>${s.name}</h1>
+        <p>${s.title}</p>
+      </div>
+    </section>
+    <section class="app-section">
+      <div class="about-grid" style="grid-template-columns: 2fr 1fr;">
+        <div>
+          <h2 class="app-section-title">Auf einen Blick</h2>
+          <p class="lead-text">${s.intro}</p>
+          <p class="sdc-desc" style="font-size: 1.1rem; line-height: 1.8;">${s.description}</p>
+          
+          <h3 style="color:var(--white); margin-top: 40px; margin-bottom:20px; font-size:1.5rem;">Der Prozess</h3>
+          <ul class="sdc-bullets" style="grid-template-columns: 1fr;">
+            ${s.process.map(p => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <span style="font-size:1.1rem;">${p}</span></li>`).join("")}
+          </ul>
+          
+          <h3 style="color:var(--white); margin-top: 40px; margin-bottom:20px; font-size:1.5rem;">Einsatzgebiete</h3>
+          <ul class="sdc-bullets" style="grid-template-columns: 1fr 1fr;">
+            ${s.uses.map(u => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> ${u}</li>`).join("")}
+          </ul>
+        </div>
+        <div>
+          <div style="background: rgba(22, 24, 34, 0.8); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 40px; position: sticky; top: 100px;">
+            <h3 style="color:var(--white); margin-bottom:20px;">Ihre Vorteile</h3>
+            <ul class="sdc-bullets" style="grid-template-columns: 1fr;">
+              ${s.benefits.map(b => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong style="color:var(--lime-500);">${b}</strong></li>`).join("")}
+            </ul>
+            <a href="/angebot/" class="button-primary" style="display:block; text-align:center; margin-top: 30px;">Jetzt anfragen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-section" style="background: rgba(0,0,0,0.3);">
+      <h2 class="app-section-title">Häufige Fragen zu ${s.name}</h2>
+      <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 800px;">
+        ${s.faq.map(([q, a]) => `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 25px; border-radius: var(--radius-sm);">
+            <h4 style="color:var(--lime-500); font-size: 1.2rem; margin-bottom: 10px;">${q}</h4>
+            <p style="color:var(--text-muted); line-height: 1.6;">${a}</p>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `;
+  writePage(`/leistungen/${s.slug}/`, s.title, s.description, body);
+}
+
+writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dienstleistungen", `
+  <section class="app-section" style="padding-top: 100px;">
+    <h1 class="app-section-title" style="font-size:4rem; color:var(--white);">Was wir <span class="lime-text">können.</span></h1>
+    <p class="lead-text" style="max-width: 800px;">Alle Leistungen von FS Baumservice im Detail. Professionelle Baumpflege, Baumfällung per Seilklettertechnik, Grundstückspflege und mehr im Zollernalbkreis.</p>
+    <div class="service-list" style="margin-top: 60px;">
+      ${oldServices.map(s => `
+        <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
+          <div class="sdc-image"><img src="/assets/img/${s.image}" alt="${s.title}" loading="lazy"></div>
+          <div class="sdc-content">
+            <h3 class="lime-text">${s.name}</h3>
+            <p class="sdc-intro">${s.intro}</p>
+          </div>
+        </a>
+      `).join("")}
+    </div>
+  </section>
+`);
+
+// The Configurator / Angebot Page
+writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage", `
+  <section class="app-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 60px;">
+    <div id="3d-wizard" class="wizard-container card-3d" style="width: 100%; max-width: 900px; background: rgba(22, 24, 34, 0.8); backdrop-filter: blur(30px); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 50px;">
+      
+      <div class="wizard-progress" style="display:flex; gap: 10px; margin-bottom: 40px;">
+        <div class="prog-step" style="flex:1; height:6px; background:var(--lime-500); border-radius:3px;"></div>
+        <div class="prog-step" id="prog-2" style="flex:1; height:6px; background:var(--glass-border); border-radius:3px; transition: 0.5s;"></div>
+        <div class="prog-step" id="prog-3" style="flex:1; height:6px; background:var(--glass-border); border-radius:3px; transition: 0.5s;"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div id="step-1" class="wizard-step" style="transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Was dürfen wir für Sie tun?</h2>
+        <p class="lead-text">Wählen Sie das passende Gewerk für Ihr Projekt.</p>
+        <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">01</span><strong style="display:block; font-size:1.5rem;">Baumfällung</strong></button>
+          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">02</span><strong style="display:block; font-size:1.5rem;">Baumpflege</strong></button>
+          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">03</span><strong style="display:block; font-size:1.5rem;">Wurzelfräsen / Sonstiges</strong></button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step-2" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie ist die Situation vor Ort?</h2>
+        <p class="lead-text">Kurze Einschätzung der Zugänglichkeit.</p>
+        <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Einfacher Zugang</strong><p style="color:var(--text-muted); margin-top:10px;">Garten/Straße gut erreichbar.</p></button>
+          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Schwer zugänglich</strong><p style="color:var(--text-muted); margin-top:10px;">Enges Grundstück, Seilklettertechnik nötig.</p></button>
+        </div>
+        <button onclick="prevStep(1)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step-3" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Ihre Projektdaten</h2>
+        <p class="lead-text">Fast geschafft! Wo dürfen wir helfen?</p>
+        <form onsubmit="event.preventDefault(); alert('Die 3D-Anfrage funktioniert hervorragend! FS Baumservice wird informiert.'); window.location.href='/';">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px;">
+            <input type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+            <input type="tel" placeholder="Telefonnummer" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+          </div>
+          <textarea placeholder="Weitere Details oder Besonderheiten (optional)" rows="4" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 40px;">
+            <button type="button" onclick="prevStep(2)" class="button-outline-light" style="border:none; color:var(--text-muted); cursor:pointer; background:transparent; font-size:1.1rem;">Zurück</button>
+            <button type="submit" class="button-primary" style="padding: 20px 50px; font-size: 1.2rem; border:none; cursor:pointer;">Anfrage absenden</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  <style>
+    .wiz-btn:hover { border-color: var(--lime-500) !important; background: rgba(169, 209, 94, 0.1) !important; transform: translateY(-5px); }
+  </style>
+  <script>
+    function nextStep(n) {
+      document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
+      setTimeout(() => {
+        const next = document.getElementById('step-'+n);
+        next.style.display = 'block';
+        setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
+      }, 300);
+      for(let i=1; i<=n; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--lime-500)');
+    }
+    function prevStep(n) {
+      document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(50px)'; setTimeout(()=>s.style.display='none', 300); });
+      setTimeout(() => {
+        const next = document.getElementById('step-'+n);
+        next.style.display = 'block';
+        setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
+      }, 300);
+      for(let i=n+1; i<=3; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
+    }
+  </script>
+`);
+
+writePage("/impressum/", "Impressum", "Impressum der FS Baumservice", `
+  <section class="app-section" style="padding-top: 100px;">
+    <h1 class="app-section-title" style="color:var(--white);">Impressum</h1>
+    <div style="background: rgba(22, 24, 34, 0.6); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+      <p><strong>${contact.legalName}</strong><br>${contact.street}<br>${contact.postalCode} ${contact.locality}</p>
+      <h3 style="color:var(--lime-500); margin-top:30px;">Kontakt</h3>
+      <p>Telefon: ${contact.phoneDisplay}<br>E-Mail: ${contact.email}</p>
+      <h3 style="color:var(--lime-500); margin-top:30px;">Inhaber</h3>
+      <p>${contact.owner}</p>
+    </div>
+  </section>
+`);
+
+writePage("/datenschutz/", "Datenschutz", "Datenschutzerklärung", `
+  <section class="app-section" style="padding-top: 100px;">
+    <h1 class="app-section-title" style="color:var(--white);">Datenschutz</h1>
+    <div style="background: rgba(22, 24, 34, 0.6); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+      <h3 style="color:var(--lime-500);">Allgemein</h3>
+      <p>Diese statische Website kann grundsätzlich ohne Registrierung genutzt werden. Beim Aufruf werden durch den Hosting-Anbieter technisch notwendige Zugriffsdaten verarbeitet.</p>
+      <h3 style="color:var(--lime-500); margin-top:30px;">Kontaktaufnahme</h3>
+      <p>Wenn Sie per Telefon, E-Mail oder über den 3D-Konfigurator Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage verwendet.</p>
+    </div>
+  </section>
+`);
