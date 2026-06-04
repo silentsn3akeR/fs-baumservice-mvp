@@ -57,6 +57,7 @@ function appLayout(body, title, description) {
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
+  <meta name="view-transition" content="same-origin">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <style>
     /* Topbar Inline Styling for Instant Delivery */

@@ -226,3 +226,14 @@ input:focus, textarea:focus { border-color: var(--lime-500) !important; backgrou
 .app-footer { padding: 60px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 80px; }
 
 @media (max-width: 768px) { .app-content { padding-bottom: 120px; } .wizard-container { margin-bottom: 80px; } }
+
+/* APP ANIMATIONS */
+@keyframes appFadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.app-content { animation: appFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.card-3d, .app-section { animation: appFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
+::view-transition-old(root) { animation: 0.3s ease-in both fade-out, 0.3s ease-in both slide-out; }
+::view-transition-new(root) { animation: 0.4s ease-out both fade-in, 0.4s ease-out both slide-in; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes slide-in { from { transform: translateY(20px); } to { transform: translateY(0); } }
+@keyframes slide-out { from { transform: translateY(0); } to { transform: translateY(-20px); } }
