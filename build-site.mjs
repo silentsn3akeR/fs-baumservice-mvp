@@ -592,11 +592,13 @@ function hero({ eyebrow, h1, text, imageName, buttons = true, shimmer = false, t
 }
 
 function cardGrid(items) {
-  return `<div class="card-grid">${items.map((item) => `<article class="card reveal">
-    ${item.image ? `<img src="${image(item.image)}" alt="${esc(item.alt)}" loading="lazy">` : ""}
-    <h3>${item.title}</h3>
-    <p>${item.text}</p>
-    ${item.href ? `<a class="text-link" href="${item.href}">${item.link || "Mehr erfahren"}</a>` : ""}
+  return `<div class="card-grid">${items.map((item) => `<article class="card-3d reveal preserve-3d">
+    <div class="card-3d-content">
+      ${item.image ? `<img src="${image(item.image)}" alt="${esc(item.alt)}" loading="lazy">` : ""}
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+      ${item.href ? `<a class="text-link" href="${item.href}">${item.link || "Mehr erfahren"}</a>` : ""}
+    </div>
   </article>`).join("")}</div>`;
 }
 

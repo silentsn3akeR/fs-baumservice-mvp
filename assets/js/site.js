@@ -334,22 +334,32 @@ if (rondellEl) {
   rondellStartAuto();
 }
 
-// ── Card 3D Tilt on Hover ──────────────────────────────
+// ── Card 3D Tilt & Glow on Hover ────────────────────────
 if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
-  document.querySelectorAll(".card").forEach((card) => {
+  document.querySelectorAll(".card-3d").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      const rotX = -(y - 0.5) * 10;
-      const rotY = (x - 0.5) * 10;
-      card.style.transform = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px)`;
-      card.style.transition = "transform 0.08s ease";
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Update mouse position for the glow effect
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+
+      // 3D Tilt calculation
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotX = -((y - centerY) / centerY) * 12; // Max 12 deg tilt
+      const rotY = ((x - centerX) / centerX) * 12;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-10px)`;
+      card.style.transition = "transform 0.1s ease";
     });
+    
     card.addEventListener("mouseleave", () => {
       card.style.transform = "";
-      card.style.transition = "transform .32s cubic-bezier(.22,.9,.36,1)";
-      setTimeout(() => { card.style.transition = ""; }, 320);
+      card.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
+      setTimeout(() => { card.style.transition = ""; }, 500);
     });
   });
 }
