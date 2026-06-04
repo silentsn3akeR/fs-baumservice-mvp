@@ -202,7 +202,9 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     <div class="service-list">
       ${services.map(s => `
         <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
-          <div class="sdc-image"><img src="/assets/img/${s.image}" alt="${s.title}" loading="lazy"></div>
+          <div class="sdc-image">
+            <video src="${deployBasePath}/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
+          </div>
           <div class="sdc-content">
             <h3 class="lime-text">${s.name}</h3>
             <p class="sdc-intro">${s.intro}</p>
@@ -413,9 +415,8 @@ for (const s of services) {
     <!-- MEDIA GALLERY (Bilder & Videos) -->
     <section class="app-section" style="background: rgba(0,0,0,0.2);">
       <h2 class="app-section-title">Eindrücke aus der Praxis</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px;">
-        ${hasVid ? '<div class="card-3d" style="height: 300px; overflow:hidden;"><video src="' + vidSrc + '" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>' : ''}
-        <div class="card-3d" style="height: 300px; overflow:hidden;"><img src="/assets/img/' + s.image + '" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px;">
+        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="' + deployBasePath + '/assets/video/instagram/' + v + '" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
       </div>
     </section>
 
@@ -452,8 +453,13 @@ writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
         </div>
       </div>
       <div class="about-image card-3d">
-        <img src="/assets/img/fs-baumservice-florina-stuck.jpg" alt="Florian Stuck - FS Baumservice">
+        <video src="${deployBasePath}/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video>
       </div>
+    </div>
+    
+    <div style="margin-top: 80px;">
+      <h2 class="app-section-title">Unser Alltag. Live.</h2>
+      ${instaVideoHtml}
     </div>
   </section>
 `);
