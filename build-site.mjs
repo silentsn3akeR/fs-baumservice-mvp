@@ -11,7 +11,7 @@ const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 const instaVideoDir = path.join(root, "assets", "video", "instagram");
 const instaVideos = fs.existsSync(instaVideoDir) ? fs.readdirSync(instaVideoDir).filter(f => f.endsWith(".mp4")) : [];
 const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #1a1a1a;"><video src="${deployBasePath}/assets/video/instagram/${v}" controls muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.95; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.95"></video></div>`).join("")}
+  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #1a1a1a;"><video src="/assets/video/instagram/${v}" controls muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.95; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.95"></video></div>`).join("")}
 </div>`;
 
 const imgDir = path.join(root, "assets", "img");
@@ -58,7 +58,7 @@ function bottomBar() {
   return `<nav class="app-bottombar">
     <a href="/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
     <a href="/leistungen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></a>
-    <a href="${deployBasePath}/angebot/" class="bottom-btn bottom-fab" style="color: #0f1016;"><svg viewBox="0 0 24 24" fill="none" stroke="#0f1016" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+    <a href="/angebot/" class="bottom-btn bottom-fab" style="color: #0f1016;"><svg viewBox="0 0 24 24" fill="none" stroke="#0f1016" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
     <a href="/referenzen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
     <a href="https://wa.me/${contact.phone.replace(/[^0-9]/g, "")}" class="bottom-btn" style="color:#25D366;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
   </nav>`;
@@ -73,7 +73,7 @@ function appLayout(body, title, description) {
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
-  <link rel="stylesheet" href="${deployBasePath}/assets/css/styles.css?v=2">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=2">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -123,7 +123,7 @@ function appLayout(body, title, description) {
     ${bottomBar()}
   </div>
   
-  <script src="${deployBasePath}/assets/js/site.js?v=2" defer></script>
+  <script src="/assets/js/site.js?v=2" defer></script>
   
   <script>
     // 4-Step Configurator Logic
@@ -172,7 +172,7 @@ function writePage(pathname, title, desc, body) {
   const target = path.join(root, file);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   let html = appLayout(body, title, desc);
-  if (deployBasePath) html = html.replaceAll('href="/', `href="${deployBasePath}/`).replaceAll('src="/', `src="${deployBasePath}/`);
+  if (deployBasePath) html = html.replaceAll('href="/', `href="/`).replaceAll('src="/', `src="/`);
   fs.writeFileSync(target, html);
 }
 
@@ -182,7 +182,7 @@ function writePage(pathname, title, desc, body) {
 
 writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen und Umgebung.", `
   <section class="hero-app">
-    <video class="hero-video-bg" src="${deployBasePath}/assets/video/instagram/20260219_DU9IjqCCPH5_1.mp4" autoplay muted loop playsinline></video>
+    <video class="hero-video-bg" src="/assets/video/instagram/20260219_DU9IjqCCPH5_1.mp4" autoplay muted loop playsinline></video>
     <div class="hero-app-content">
       <h1>Sichere Planung.<br><span class="lime-text">Saubere Arbeit.</span></h1>
       <p>Willkommen beim FS Baumservice. Ihr Premium-Partner für Baumpflege, stückweise Baumfällung und Wurzelfräsen im Zollernalbkreis.</p>
@@ -215,7 +215,7 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
       ${services.map(s => `
         <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
           <div class="sdc-image">
-            <video src="${deployBasePath}/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" controls preload="metadata" style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
+            <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" controls preload="metadata" style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
           </div>
           <div class="sdc-content">
             <h3 class="lime-text">${s.name}</h3>
@@ -366,10 +366,10 @@ for (const s of services) {
   const videoDir = path.join(root, "assets", "video", "instagram");
   const videos = fs.existsSync(videoDir) ? fs.readdirSync(videoDir).filter(f => f.endsWith(".mp4")) : [];
   const hasVid = videos.length > 0;
-  const vidSrc = hasVid ? `${deployBasePath}/assets/video/instagram/${videos[Math.floor(Math.random() * videos.length)]}` : '';
+  const vidSrc = hasVid ? `/assets/video/instagram/${videos[Math.floor(Math.random() * videos.length)]}` : '';
   const heroMedia = hasVid 
     ? `<video class="hero-video-bg" src="${vidSrc}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>`
-    : `<img class="hero-video-bg" src="${deployBasePath}/assets/img/${s.image}" style="filter: brightness(0.3);">`;
+    : `<img class="hero-video-bg" src="/assets/img/${s.image}" style="filter: brightness(0.3);">`;
 
   const body = `
     <section class="hero-app" style="height: 60vh; min-height: 400px;">
@@ -434,7 +434,7 @@ for (const s of services) {
       <h2 class="app-section-title">Eindrücke aus der Praxis</h2>
       <p style="color:var(--text-muted); margin-bottom: 30px; font-size:1.1rem;">Bilder und Videos direkt von unseren Baustellen rund um das Thema ${s.name}.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
-        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="${deployBasePath}/assets/video/instagram/' + v + '" controls preload="metadata" style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
+        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="/assets/video/instagram/' + v + '" controls preload="metadata" style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
       </div>
       <div style="margin-top: 30px;">
         ${imgGalleryHtml}
