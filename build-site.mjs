@@ -96,6 +96,10 @@ function appLayout(body, title, description) {
       .app-topbar { display: flex; }
       .app-content { padding-top: 70px; } /* Push content down on mobile */
     }
+    @media (max-width: 450px) {
+      .topbar-actions { display: none; }
+      .topbar-brand span { font-size: 1rem; }
+    }
     .brand-mark img { width: 50px; height: 50px; border-radius: var(--radius-sm); object-fit: cover; }
     .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--white); margin-bottom: 40px; }
   </style>
