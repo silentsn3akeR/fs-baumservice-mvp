@@ -12,6 +12,12 @@ const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat
   ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><video src="/assets/video/instagram/${v}" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></video></div>`).join("")}
 </div>`;
 
+const imgDir = path.join(root, "assets", "img");
+const imgFiles = fs.existsSync(imgDir) ? fs.readdirSync(imgDir).filter(f => f.endsWith(".jpg") && f !== "fs-baumservice-logo-original.jpg") : [];
+const imgGalleryHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+  ${imgFiles.map(i => `<div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/assets/img/${i}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div>`).join("")}
+</div>`;
+
 function topBar() {
   return `<header class="app-topbar">
     <a href="/" class="topbar-brand">
@@ -262,6 +268,12 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     <div style="margin-top: 30px;">
       ${instaVideoHtml}
     </div>
+    
+    <h3 style="color:var(--white); margin-top: 60px; margin-bottom: 20px; font-size:1.8rem;">Einblick in unsere Projekte</h3>
+    <p style="color:var(--text-muted); margin-bottom: 30px; font-size:1.1rem;">Von der Seilklettertechnik bis zum Hubsteiger-Einsatz. Hier sehen Sie unsere Ausrüstung und Technik im echten Einsatz rund um Bisingen.</p>
+    <div style="margin-top: 30px;">
+      ${imgGalleryHtml}
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -423,8 +435,12 @@ for (const s of services) {
     <!-- MEDIA GALLERY (Bilder & Videos) -->
     <section class="app-section" style="background: rgba(0,0,0,0.2);">
       <h2 class="app-section-title">Eindrücke aus der Praxis</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px;">
+      <p style="color:var(--text-muted); margin-bottom: 30px; font-size:1.1rem;">Bilder und Videos direkt von unseren Baustellen rund um das Thema ${s.name}.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
         ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="/assets/video/instagram/' + v + '" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
+      </div>
+      <div style="margin-top: 30px;">
+        ${imgGalleryHtml}
       </div>
     </section>
 
@@ -451,6 +467,12 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
     <div style="margin-top: 60px;">
       ${instaVideoHtml}
     </div>
+    
+    <div style="margin-top: 80px;">
+      <h2 class="app-section-title">Unsere Fotogalerie</h2>
+      <p style="color:var(--text-muted); margin-bottom: 30px;">Zusätzlich zu unseren Instagram-Videos finden Sie hier unsere gesammelten Eindrücke, Maschinen und Kletter-Aktionen in hochauflösenden Bildern.</p>
+      ${imgGalleryHtml}
+    </div>
   </section>
 `);
 
@@ -470,9 +492,27 @@ writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
       </div>
     </div>
     
+    <div style="margin-top: 60px; background: rgba(0,0,0,0.2); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border);">
+      <h2 style="color:var(--lime-500); font-size: 1.8rem; margin-bottom: 20px;">Unser Anspruch. Ihre Sicherheit.</h2>
+      <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+        Die Pflege, Beurteilung und im Ernstfall auch Fällung von Bäumen ist keine Aufgabe für Laien. Sie erfordert tiefgreifendes Wissen über die Baumstatik, Krankheiten und modernste Sicherungstechniken. Genau deshalb haben wir uns auf die schwierigen Fälle spezialisiert: Standorte, an denen kein Platz für große Maschinen ist, Dächer, die direkt unter der Baumkrone liegen oder Bäume, die durch Stürme gefährlich instabil geworden sind.
+      </p>
+      <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+        <strong>Unsere Ausrüstung ist unser Stolz:</strong> Von präzisen Hubsteigern über schweres Gerät bis hin zur manuellen, baumschonenden Seilklettertechnik (SKT). Wir bringen für jede Herausforderung genau das richtige Werkzeug mit.
+      </p>
+      <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+        Als lokales Unternehmen im Zollernalbkreis (Bisingen, Balingen, Hechingen) sind wir schnell vor Ort, arbeiten transparent und verlassen jedes Grundstück so sauber, wie wir es vorgefunden haben.
+      </p>
+    </div>
+    
     <div style="margin-top: 80px;">
       <h2 class="app-section-title">Unser Alltag. Live.</h2>
       ${instaVideoHtml}
+    </div>
+    
+    <div style="margin-top: 80px;">
+      <h2 class="app-section-title">Maschinen & Einsatzbilder</h2>
+      ${imgGalleryHtml}
     </div>
   </section>
 `);
