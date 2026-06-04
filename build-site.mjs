@@ -182,7 +182,7 @@ function layout({ pathname, title, description, h1, body, imageName = "baumservi
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${url(image(imageName))}">
-  <link rel="icon" href="/assets/img/fs-logo-original.jpg" type="image/jpeg">
+  <link rel="icon" href="/assets/img/fs-baumservice-logo-original.jpg" type="image/jpeg">
   <link rel="preload" href="/assets/css/styles.css" as="style">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
@@ -197,7 +197,7 @@ function layout({ pathname, title, description, h1, body, imageName = "baumservi
     </div>
     <div class="nav-wrap">
       <a class="brand" href="/" aria-label="FS Baumservice Startseite">
-        <span class="brand-mark"><img src="/assets/img/fs-logo-original.jpg" alt="" width="52" height="52"></span>
+        <span class="brand-mark"><img src="/assets/img/fs-baumservice-logo-original.jpg" alt="" width="52" height="52"></span>
         <span><strong>FS Baumservice</strong><small>Florian Stuck Baumservice</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
