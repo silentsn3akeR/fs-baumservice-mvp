@@ -527,10 +527,22 @@ p { margin: 0 0 18px; }
   display: inline-flex; color: var(--bronze);
   font-weight: 900; margin-bottom: 10px;
 }
+.video-card {
+  background: var(--deep); border-color: rgba(255,255,255,.09); color: white;
+  transition: transform .32s cubic-bezier(.22,.9,.36,1), box-shadow .32s ease;
+}
+@media (hover: hover) {
+  .video-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 24px 60px rgba(0,0,0,.28), 0 0 0 1px rgba(234,107,31,.25);
+  }
+}
 .video-card video {
   width: 100%; aspect-ratio: 9 / 14; object-fit: cover;
   background: #0d241d; border-bottom: 3px solid var(--safety); display: block;
 }
+.video-card span { color: rgba(185,223,111,.75); }
+.video-card h3 { color: white; font-size: 1rem; }
 .video-card div { padding: 18px; }
 
 /* ─────────────────────────────────────────────
@@ -899,6 +911,223 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* ─────────────────────────────────────────────
+   HERO TRUST CARD (Glassmorphism floating)
+   ───────────────────────────────────────────── */
+.hero-trust-card {
+  position: absolute;
+  right: max(24px, calc((100% - 1220px) / 2 + 24px));
+  bottom: 96px;
+  z-index: 3;
+  animation: heroFadeUp .9s 1.1s cubic-bezier(.22,.9,.36,1) both;
+  pointer-events: none;
+}
+.htc-inner {
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(28px) saturate(1.3);
+  -webkit-backdrop-filter: blur(28px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 20px;
+  padding: 20px 22px;
+  width: 288px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.32), 0 8px 16px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.12);
+  animation: htcFloat 7s 2s ease-in-out infinite;
+}
+.htc-status-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 14px; padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.11);
+}
+.htc-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  background: #4ded83;
+  box-shadow: 0 0 0 3px rgba(77,237,131,.28);
+  animation: htcPulse 2.4s ease-in-out infinite;
+}
+.htc-status { font-size: .8rem; font-weight: 700; opacity: .75; letter-spacing: .02em; }
+.htc-items { display: grid; gap: 12px; }
+.htc-item { display: flex; align-items: center; gap: 11px; }
+.htc-icon {
+  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+  background: rgba(234,107,31,.18); border: 1px solid rgba(234,107,31,.28);
+  display: grid; place-items: center; color: var(--safety);
+}
+.htc-icon svg { display: block; }
+.htc-item > div { display: flex; flex-direction: column; }
+.htc-item strong { font-size: .86rem; font-weight: 900; color: white; display: block; margin-bottom: 1px; line-height: 1.25; }
+.htc-item small { font-size: .74rem; color: rgba(255,255,255,.56); line-height: 1.35; }
+@keyframes htcFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes htcPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(77,237,131,.28); }
+  50% { box-shadow: 0 0 0 6px rgba(77,237,131,.10); }
+}
+
+/* ── Hero H1 shimmer gradient ── */
+.hero-h1-shimmer {
+  display: block;
+  background: linear-gradient(
+    110deg,
+    #fff 0%, #fff 18%,
+    rgba(255,185,95,.92) 32%,
+    #fff 48%,
+    rgba(255,155,50,.82) 65%,
+    #fff 82%, #fff 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: headlineShimmer 5.5s linear infinite;
+}
+@keyframes headlineShimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ─────────────────────────────────────────────
+   SOCIAL RONDELL SECTION
+   ───────────────────────────────────────────── */
+.rondell-section {
+  background: linear-gradient(155deg, var(--deep) 0%, #0b2820 45%, #162e22 100%);
+  padding: 96px 24px; position: relative;
+  overflow: hidden; isolation: isolate; color: white; max-width: none;
+}
+.rondell-section .section-head { max-width: 680px; }
+.rondell-section .eyebrow { color: rgba(255,190,110,.82); }
+.rondell-section h2 { color: white; }
+.rondell-section .section-head > p { color: rgba(255,255,255,.58); }
+.rondell-orb {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; z-index: 0;
+  filter: blur(90px); opacity: .13;
+  animation: orbDrift 20s ease-in-out infinite;
+}
+.rondell-orb-a { width: 500px; height: 500px; background: var(--leaf); top: -120px; left: 5%; }
+.rondell-orb-b { width: 350px; height: 350px; background: var(--safety); bottom: -80px; right: 8%; animation-delay: -10s; }
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33%       { transform: translate(25px,-20px) scale(1.06); }
+  66%       { transform: translate(-18px,12px) scale(0.94); }
+}
+.rondell-inner { max-width: 1220px; margin: 0 auto; position: relative; z-index: 1; }
+
+/* 3D CoverFlow scene */
+.rondell-scene {
+  perspective: 1400px; height: 400px;
+  position: relative; margin: 52px 0; user-select: none;
+}
+.rondell-ring {
+  width: 100%; height: 100%;
+  position: relative; transform-style: preserve-3d;
+}
+.rondell-spotlight {
+  position: absolute; left: 50%; top: 50%;
+  width: 440px; height: 440px;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle, rgba(234,107,31,.2) 0%, transparent 70%);
+  filter: blur(24px); border-radius: 50%; pointer-events: none; z-index: 0;
+}
+.rondell-card {
+  position: absolute; width: 256px; height: 360px;
+  left: 50%; top: 50%; margin-left: -128px; margin-top: -180px;
+  border-radius: 18px; overflow: hidden;
+  transition: transform .68s cubic-bezier(.4,0,.2,1), opacity .48s ease, box-shadow .4s ease;
+  cursor: pointer;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 8px 20px rgba(0,0,0,.3);
+  border: 1px solid rgba(255,255,255,.11);
+}
+.rondell-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; display: block; }
+.rondell-card.is-active { box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 12px 32px var(--glow); cursor: default; }
+.rondell-card.is-active img { transform: scale(1.02); }
+.rondell-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 42%, rgba(4,12,9,.92) 100%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 18px;
+}
+.rondell-badge {
+  display: inline-flex; background: var(--safety); color: white;
+  font-size: .7rem; font-weight: 900; text-transform: uppercase; letter-spacing: .06em;
+  padding: 3px 9px; border-radius: 999px; margin-bottom: 7px; width: fit-content;
+}
+.rondell-card-title {
+  font-family: 'Outfit', Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: .97rem; font-weight: 800; color: white; margin: 0; line-height: 1.3;
+}
+
+/* caption + controls */
+.rondell-caption { text-align: center; margin-bottom: 24px; min-height: 82px; }
+.rondell-caption h3 { font-size: clamp(1.3rem,2.5vw,2rem); color: white; margin-bottom: 6px; }
+.rondell-caption p { color: rgba(255,255,255,.58); font-size: .97rem; margin: 0; }
+.rondell-controls { display: flex; justify-content: center; align-items: center; gap: 20px; }
+.rondell-btn {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.22);
+  color: white; font-size: 1.6rem; cursor: pointer;
+  backdrop-filter: blur(10px); transition: background .2s, transform .2s;
+  display: grid; place-items: center;
+}
+.rondell-btn:hover { background: rgba(255,255,255,.18); transform: scale(1.07); }
+.rondell-dots-wrap { display: flex; gap: 7px; align-items: center; }
+.rondell-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,.3); border: 0; cursor: pointer;
+  transition: background .28s, width .28s; padding: 0; min-width: 44px; min-height: 44px;
+  display: grid; place-items: center;
+}
+.rondell-dot::after {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,.3); transition: background .28s, width .28s;
+  display: block;
+}
+.rondell-dot.is-active::after { background: var(--leaf); width: 24px; border-radius: 999px; }
+.rondell-ig-link { margin-top: 36px; text-align: center; }
+.rondell-ig-link a {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.8);
+  text-decoration: none; font-weight: 800; font-size: .92rem;
+  background: rgba(255,255,255,.06); backdrop-filter: blur(12px);
+  transition: background .22s, color .22s, border-color .22s;
+}
+.rondell-ig-link a:hover { background: rgba(255,255,255,.12); color: white; border-color: rgba(255,255,255,.38); }
+.rondell-ig-icon {
+  width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   OPTION CARD PREMIUM ICONS (Configurator)
+   ───────────────────────────────────────────── */
+.option-card { position: relative; flex-direction: row; gap: 14px; }
+.option-card input[type="radio"] {
+  position: absolute; top: 14px; right: 14px;
+  width: 16px; height: 16px; accent-color: var(--safety); cursor: pointer;
+}
+.option-icon {
+  width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(14,48,38,.07), rgba(234,107,31,.07));
+  border: 1px solid rgba(223,211,192,.85);
+  display: grid; place-items: center;
+  color: var(--forest); transition: background .2s, border-color .2s;
+}
+.option-icon svg { width: 22px; height: 22px; }
+.option-card:has(input:checked) .option-icon {
+  background: linear-gradient(135deg, rgba(234,107,31,.14), rgba(185,116,56,.12));
+  border-color: var(--safety); color: var(--safety);
+}
+.option-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ── Screen reader only ── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ─────────────────────────────────────────────
    RESPONSIVE – TABLET / MOBILE (≤ 860px)
    ───────────────────────────────────────────── */
 @media (max-width: 860px) {
@@ -941,6 +1170,17 @@ input:focus, textarea:focus, select:focus {
   .mobile-actionbar { display: flex; }
   .hero .cta-row { flex-direction: column; align-items: flex-start; }
   .hero .cta-row .button { width: auto; }
+  /* Trust card: hidden on mobile (hero already crowded) */
+  .hero-trust-card { display: none; }
+  /* Rondell on mobile: smaller scene, touch-friendly */
+  .rondell-section { padding: 64px 20px; }
+  .rondell-scene { height: 320px; margin: 36px 0; }
+  .rondell-card { width: 200px; height: 280px; margin-left: -100px; margin-top: -140px; }
+  .rondell-caption h3 { font-size: 1.3rem; }
+  .rondell-btn { width: 48px; height: 48px; font-size: 1.4rem; }
+  .rondell-ig-link a { padding: 12px 20px; font-size: .88rem; }
+  /* Option grid: single column on mobile */
+  .option-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 500px) {

@@ -63,6 +63,7 @@
         <span>Wurzelfräse ab 90 cm Zugang</span>
       </div>
     </div>
+    
   </section>
   <section class="configurator-shell" data-configurator>
     <aside class="configurator-side" aria-label="Fortschritt">
@@ -93,8 +94,32 @@
       <section class="config-step is-active" data-step="1" aria-labelledby="step-1-title">
         <div class="config-step-head"><p class="eyebrow">Schritt 1</p><h2 id="step-1-title">Welche Leistung wird benötigt?</h2><p>Wählen Sie den Bereich, der am besten passt. Wenn die Situation unklar ist, ist “Ich bin unsicher” genau richtig.</p></div>
         <div class="option-grid">
-          <label class="option-card"><input type="radio" name="leistung" value="Baumfällung" required><span><strong>Baumfällung</strong><small>Sichere Baumfällung auch auf engem Grundstück: FS Baumservice arbeitet mit Seilklettertechnik, Hubarbeitsgeräten und bei Bedarf Kranunterstützung.</small></span></label><label class="option-card"><input type="radio" name="leistung" value="Baumpflege" required><span><strong>Baumpflege</strong><small>Baumpflege für Vitalität, Sicherheit und gesunde Kronen im Raum Bisingen, Balingen, Geislingen und Hechingen.</small></span></label><label class="option-card"><input type="radio" name="leistung" value="Heckenschnitt" required><span><strong>Heckenschnitt</strong><small>Sauberer Heckenschnitt und gepflegte Grundstücksbereiche für Privatkunden und gewerbliche Flächen im Zollernalbkreis.</small></span></label><label class="option-card"><input type="radio" name="leistung" value="Wurzelstockfräsen" required><span><strong>Wurzelstockfräsen</strong><small>Wurzelstock entfernen lassen: FS Baumservice fräst störende Baumstümpfe im Raum Bisingen, Balingen und Geislingen.</small></span></label><label class="option-card"><input type="radio" name="leistung" value="Rollrasen" required><span><strong>Rollrasen</strong><small>Rollrasen und Rasenvorbereitung für schnell nutzbare Grünflächen in Bisingen, Balingen, Geislingen und Umgebung.</small></span></label>
-          <label class="option-card"><input type="radio" name="leistung" value="Unsicher"><span><strong>Ich bin unsicher</strong><small>FS Baumservice soll die passende Leistung vor Ort einschätzen.</small></span></label>
+          <label class="option-card">
+            <input type="radio" name="leistung" value="Baumfällung" required>
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><polygon points="12 2 16 9 13 9 16 15 13 15 15 22 9 22 11 15 8 15 11 9 8 9"/></svg></div>
+            <span><strong>Baumfällung</strong><small>Sichere Baumfällung auch auf engem Grundstück: FS Baumservice arbeitet mit Seilklettertechnik, Hubarbeitsgeräten und bei Bedarf Kranunterstützung.</small></span>
+          </label><label class="option-card">
+            <input type="radio" name="leistung" value="Baumpflege" required>
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M12 22V12"/><path d="M12 12C10 8 6 6 3 8c0 3 2 5 5 5l4-1z"/><path d="M12 12C14 8 18 6 21 8c0 3-2 5-5 5l-4-1z"/></svg></div>
+            <span><strong>Baumpflege</strong><small>Baumpflege für Vitalität, Sicherheit und gesunde Kronen im Raum Bisingen, Balingen, Geislingen und Hechingen.</small></span>
+          </label><label class="option-card">
+            <input type="radio" name="leistung" value="Heckenschnitt" required>
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
+            <span><strong>Heckenschnitt</strong><small>Sauberer Heckenschnitt und gepflegte Grundstücksbereiche für Privatkunden und gewerbliche Flächen im Zollernalbkreis.</small></span>
+          </label><label class="option-card">
+            <input type="radio" name="leistung" value="Wurzelstockfräsen" required>
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+            <span><strong>Wurzelstockfräsen</strong><small>Wurzelstock entfernen lassen: FS Baumservice fräst störende Baumstümpfe im Raum Bisingen, Balingen und Geislingen.</small></span>
+          </label><label class="option-card">
+            <input type="radio" name="leistung" value="Rollrasen" required>
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M2 20h20"/><path d="M6 20V10c0-4 3-7 6-7"/><path d="M18 20V10c0-4-3-7-6-7"/><path d="M12 13v7"/></svg></div>
+            <span><strong>Rollrasen</strong><small>Rollrasen und Rasenvorbereitung für schnell nutzbare Grünflächen in Bisingen, Balingen, Geislingen und Umgebung.</small></span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="leistung" value="Unsicher">
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <span><strong>Ich bin unsicher</strong><small>FS Baumservice soll die passende Leistung vor Ort einsch&auml;tzen.</small></span>
+          </label>
         </div>
       </section>
       <section class="config-step" data-step="2" aria-labelledby="step-2-title">

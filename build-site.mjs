@@ -360,12 +360,67 @@ function mediaSlots() {
   </section>`;
 }
 
+function socialRondell() {
+  const photos = [
+    { img: "baumfaellung-bisingen-seilklettertechnik.jpg", alt: "Baumfällung mit Seilklettertechnik in Bisingen", title: "Baumfällung mit Seilklettertechnik", desc: "Kontrollierte Fällung an beengtem Standort · Bisingen", badge: "Baumfällung" },
+    { img: "baumpflege-zollernalb-arbeitseinsatz.jpg", alt: "Baumpflege im Zollernalbkreis", title: "Baumpflege im Zollernalbkreis", desc: "Kronenpflege für Vitalität und Sicherheit", badge: "Baumpflege" },
+    { img: "baumservice-maschineneinsatz-bisingen.jpg", alt: "Maschineneinsatz von FS Baumservice in Bisingen", title: "Maschineneinsatz vor Ort", desc: "Technik passend zum Standort · Bisingen", badge: "Maschinenarbeit" },
+    { img: "baumservice-luftbild-projekt.jpg", alt: "Luftaufnahme Projekteinsatz Zollernalbkreis", title: "Projekteinsatz aus der Luft", desc: "Drohnenübersicht bei Baumarbeiten · Zollernalbkreis", badge: "Projekteinsatz" },
+    { img: "drohne-026.jpg", alt: "Drohnenaufnahme Baumservice Zollernalb", title: "Drohnenaufnahme Arbeitseinsatz", desc: "Dokumentation der Projekteinsätze · Region", badge: "Dokumentation" },
+    { img: "heckenschnitt-grundstueckspflege.jpg", alt: "Heckenschnitt und Grundstückspflege", title: "Heckenschnitt & Grundstückspflege", desc: "Gepflegte Außenbereiche für Privat und Gewerbe", badge: "Heckenschnitt" },
+    { img: "wurzelstockfraesen-baumservice.jpg", alt: "Wurzelstockfräsen im Einsatz Zollernalbkreis", title: "Wurzelstockfräsen im Einsatz", desc: "Störende Baumstümpfe entfernen · Zollernalbkreis", badge: "Wurzelfräse" },
+  ];
+  return `<section class="rondell-section reveal" aria-labelledby="rondell-title">
+    <div class="rondell-orb rondell-orb-a" aria-hidden="true"></div>
+    <div class="rondell-orb rondell-orb-b" aria-hidden="true"></div>
+    <div class="rondell-inner">
+      <div class="section-head">
+        <p class="eyebrow">Aus unseren Projekten</p>
+        <h2 id="rondell-title">Baumarbeiten in Bisingen, Balingen und Umgebung</h2>
+        <p>Echte Einsatzfotos aus dem Zollernalbkreis – Baumfällung, Baumpflege, Grundstückspflege.</p>
+      </div>
+      <div class="rondell" data-rondell aria-label="Projektfotogalerie">
+        <div class="rondell-scene" aria-hidden="true">
+          <div class="rondell-spotlight" aria-hidden="true"></div>
+          <div class="rondell-ring" data-rondell-ring>
+            ${photos.map((p) => `<article class="rondell-card" data-rondell-card data-title="${esc(p.title)}" data-desc="${esc(p.desc)}">
+              <img src="${image(p.img)}" alt="${esc(p.alt)}" loading="lazy">
+              <div class="rondell-overlay">
+                <span class="rondell-badge">${esc(p.badge)}</span>
+                <h3 class="rondell-card-title">${esc(p.title)}</h3>
+              </div>
+            </article>`).join("")}
+          </div>
+        </div>
+        <div class="rondell-caption">
+          <p class="eyebrow" data-rondell-counter>01 / 07</p>
+          <h3 data-rondell-caption-title>${esc(photos[0].title)}</h3>
+          <p data-rondell-caption-desc>${esc(photos[0].desc)}</p>
+        </div>
+        <div class="rondell-controls">
+          <button class="rondell-btn" data-rondell-prev type="button" aria-label="Vorheriges Bild">&#8249;</button>
+          <div class="rondell-dots-wrap" aria-label="Bild auswählen">
+            ${photos.map((_, i) => `<button class="rondell-dot${i === 0 ? " is-active" : ""}" data-rondell-dot="${i}" type="button"><span class="sr-only">Bild ${i + 1}</span></button>`).join("")}
+          </div>
+          <button class="rondell-btn" data-rondell-next type="button" aria-label="Nächstes Bild">&#8250;</button>
+        </div>
+        <div class="rondell-ig-link">
+          <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer">
+            <span class="rondell-ig-icon" aria-hidden="true"></span>
+            Weitere Einblicke auf @fs_baumservice
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
 function instagramVideoGallery() {
   const videoDir = path.join(root, "assets", "video", "instagram");
   const files = fs.existsSync(videoDir)
     ? fs.readdirSync(videoDir).filter((file) => file.toLowerCase().endsWith(".mp4")).sort()
     : [];
-  if (!files.length) return mediaSlots();
+  if (!files.length) return socialRondell();
   return `<section class="section video-gallery reveal" aria-labelledby="video-gallery-title">
     <div class="section-head">
       <p class="eyebrow">Freigegebene Social-Media-Clips</p>
@@ -474,7 +529,43 @@ function processSection() {
   </section>`;
 }
 
-function hero({ eyebrow, h1, text, imageName, buttons = true }) {
+function serviceIcon(slug) {
+  const icons = {
+    baumfaellung: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><polygon points="12 2 16 9 13 9 16 15 13 15 15 22 9 22 11 15 8 15 11 9 8 9"/></svg>',
+    baumpflege: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M12 22V12"/><path d="M12 12C10 8 6 6 3 8c0 3 2 5 5 5l4-1z"/><path d="M12 12C14 8 18 6 21 8c0 3-2 5-5 5l-4-1z"/></svg>',
+    heckenschnitt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>',
+    wurzelstockfraesen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>',
+    rollrasen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M2 20h20"/><path d="M6 20V10c0-4 3-7 6-7"/><path d="M18 20V10c0-4-3-7-6-7"/><path d="M12 13v7"/></svg>',
+  };
+  return icons[slug] || '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+}
+
+function heroTrustCard() {
+  return `<aside class="hero-trust-card" aria-label="Kurzprofil FS Baumservice">
+  <div class="htc-inner">
+    <div class="htc-status-row">
+      <span class="htc-dot" aria-hidden="true"></span>
+      <span class="htc-status">Direkt erreichbar &middot; Bisingen</span>
+    </div>
+    <div class="htc-items">
+      <div class="htc-item">
+        <div class="htc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="18" height="18"><polygon points="12 2 16 9 13 9 16 15 13 15 15 22 9 22 11 15 8 15 11 9 8 9"/></svg></div>
+        <div><strong>Sichere Baumarbeiten</strong><small>Seilklettertechnik &amp; Hubger&auml;t</small></div>
+      </div>
+      <div class="htc-item">
+        <div class="htc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><strong>ZTV-Baumpflege Standard</strong><small>Fachgerechte Ausf&uuml;hrung</small></div>
+      </div>
+      <div class="htc-item">
+        <div class="htc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><strong>Bisingen &middot; Balingen &middot; Hechingen</strong><small>Zollernalbkreis &amp; Region</small></div>
+      </div>
+    </div>
+  </div>
+</aside>`;
+}
+
+function hero({ eyebrow, h1, text, imageName, buttons = true, shimmer = false, trustCard = false }) {
   return `<section class="hero">
     <div class="hero-media">
       <img src="${image(imageName)}" alt="FS Baumservice bei Baumarbeiten im regionalen Einsatz" width="1600" height="460" fetchpriority="high">
@@ -482,7 +573,7 @@ function hero({ eyebrow, h1, text, imageName, buttons = true }) {
     <div class="hero-dna" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="eyebrow">${eyebrow}</p>
-      <h1>${h1}</h1>
+      <h1>${shimmer ? `<span class="hero-h1-shimmer">${h1}</span>` : h1}</h1>
       <p>${text}</p>
       ${buttons ? `<div class="cta-row">
         <a class="button" href="/angebot/">Kostenlose Anfrage starten</a>
@@ -496,6 +587,7 @@ function hero({ eyebrow, h1, text, imageName, buttons = true }) {
         <span>Wurzelfräse ab 90 cm Zugang</span>
       </div>
     </div>
+    ${trustCard ? heroTrustCard() : ""}
   </section>`;
 }
 
@@ -549,6 +641,8 @@ writePage("/", layout({
     h1: "Baumfällung &amp; Baumpflege in Bisingen, Balingen und Umgebung",
     text: "FS Baumservice steht für sichere Baumarbeiten, Seilklettertechnik, Wurzelstockfräsen, Heckenschnitt und Rollrasen – direkt aus der Region, mit dem richtigen Werkzeug für jede Situation.",
     imageName: "baumfaellung-bisingen-seilklettertechnik.jpg",
+    shimmer: true,
+    trustCard: true,
   })}
   ${statsStrip()}
   <section class="section">
@@ -571,6 +665,7 @@ writePage("/", layout({
     ])}
   </section>
   ${projectCarousel()}
+  ${socialRondell()}
   ${instagramVideoGallery()}
   ${ctaBand()}`,
 }));
@@ -644,7 +739,7 @@ writePage("/referenzen/", layout({
     { title: "Pflege im Kronenbereich", text: "Beispielhafte Arbeiten aus Baumpflege und Grundstückspflege.", image: "baumpflege-zollernalb-arbeitseinsatz.jpg", alt: "Baumpflege im Kronenbereich", href: "/leistungen/baumpflege/" },
     { title: "Wurzelstock entfernen", text: "Nach Fällungen kann die Fläche durch Fräsen wieder nutzbar werden.", image: "wurzelstockfraesen-baumservice.jpg", alt: "Wurzelstockfräse bei der Arbeit", href: "/leistungen/wurzelstockfraesen/" },
     { title: "Maschinenunterstützte Arbeiten", text: "Technik wird nach Situation vor Ort passend ausgewählt.", image: "baumservice-luftbild-projekt.jpg", alt: "Maschinenunterstützte Baumservice Arbeiten", href: "/kontakt/" },
-  ])}</section>${projectCarousel()}${instagramVideoGallery()}${ctaBand()}`,
+  ])}</section>${projectCarousel()}${socialRondell()}${instagramVideoGallery()}${ctaBand()}`,
 }));
 
 writePage("/angebot/", layout({
@@ -690,8 +785,16 @@ writePage("/angebot/", layout({
       <section class="config-step is-active" data-step="1" aria-labelledby="step-1-title">
         <div class="config-step-head"><p class="eyebrow">Schritt 1</p><h2 id="step-1-title">Welche Leistung wird benötigt?</h2><p>Wählen Sie den Bereich, der am besten passt. Wenn die Situation unklar ist, ist “Ich bin unsicher” genau richtig.</p></div>
         <div class="option-grid">
-          ${services.map((s) => `<label class="option-card"><input type="radio" name="leistung" value="${s.name}" required><span><strong>${s.name}</strong><small>${s.description}</small></span></label>`).join("")}
-          <label class="option-card"><input type="radio" name="leistung" value="Unsicher"><span><strong>Ich bin unsicher</strong><small>FS Baumservice soll die passende Leistung vor Ort einschätzen.</small></span></label>
+          ${services.map((s) => `<label class="option-card">
+            <input type="radio" name="leistung" value="${esc(s.name)}" required>
+            <div class="option-icon" aria-hidden="true">${serviceIcon(s.slug)}</div>
+            <span><strong>${esc(s.name)}</strong><small>${esc(s.description)}</small></span>
+          </label>`).join("")}
+          <label class="option-card">
+            <input type="radio" name="leistung" value="Unsicher">
+            <div class="option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <span><strong>Ich bin unsicher</strong><small>FS Baumservice soll die passende Leistung vor Ort einsch&auml;tzen.</small></span>
+          </label>
         </div>
       </section>
       <section class="config-step" data-step="2" aria-labelledby="step-2-title">
