@@ -165,5 +165,62 @@ input:focus, textarea:focus { border-color: var(--lime-500) !important; backgrou
 .option-card input { position: absolute; opacity: 0; }
 .option-card strong { font-size: 1.2rem; color: var(--white); display: block; margin-bottom: 5px; }
 
+/* About Section */
+.about-section { position: relative; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.lead-text { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; }
+.trust-badges { display: flex; flex-direction: column; gap: 15px; }
+.trust-badge { display: flex; align-items: center; gap: 15px; font-weight: 800; font-size: 1.1rem; color: var(--white); background: rgba(255,255,255,0.03); padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid var(--glass-border); transition: all 0.3s; }
+.trust-badge:hover { background: rgba(169, 209, 94, 0.1); border-color: var(--lime-500); transform: translateX(10px); }
+.trust-badge svg { color: var(--lime-500); width: 24px; height: 24px; }
+.about-image { border-radius: var(--radius); overflow: hidden; position: relative; border: 1px solid var(--glass-border); }
+.about-image img { width: 100%; height: auto; display: block; filter: grayscale(0.2) contrast(1.1); transition: transform 0.5s; }
+.about-image:hover img { transform: scale(1.05); }
+
+/* Detailed Services */
+.service-list { display: flex; flex-direction: column; gap: 40px; }
+.service-detail-card { 
+  display: grid; grid-template-columns: 350px 1fr; gap: 40px; 
+  background: rgba(22, 24, 34, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border); padding: 40px; border-radius: var(--radius);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.service-detail-card:hover { border-color: rgba(169, 209, 94, 0.4); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+.sdc-image { border-radius: var(--radius-sm); overflow: hidden; position: relative; }
+.sdc-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; filter: contrast(1.1); transition: transform 0.6s; }
+.service-detail-card:hover .sdc-image img { transform: scale(1.1); }
+.lime-text { color: var(--lime-500); font-size: 2rem; margin-top: 0; margin-bottom: 10px; }
+.sdc-intro { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+.sdc-desc { color: var(--text-muted); margin-bottom: 30px; }
+.sdc-bullets { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.sdc-bullets li { display: flex; align-items: flex-start; gap: 10px; color: var(--white); font-weight: 500; font-size: 0.95rem; }
+.sdc-bullets svg { color: var(--lime-500); width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+
+/* Social Video Hub (Visual Banger) */
+.social-hub { 
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; 
+}
+.social-video-card {
+  position: relative; border-radius: var(--radius); overflow: hidden; height: 500px;
+  border: 1px solid var(--glass-border); transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4); cursor: none;
+}
+.social-video-card video {
+  width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3) contrast(1.2); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.social-video-card:hover video { filter: grayscale(0) contrast(1.1); transform: scale(1.05); }
+.social-overlay {
+  position: absolute; inset: 0; background: linear-gradient(to top, var(--slate-950) 0%, transparent 50%);
+  display: flex; align-items: flex-end; padding: 30px; gap: 15px; color: var(--white); font-weight: 800; font-size: 1.2rem;
+}
+.social-overlay svg { color: var(--lime-500); width: 28px; height: 28px; }
+
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .service-detail-card { grid-template-columns: 1fr; }
+  .sdc-image { height: 250px; }
+  .sdc-bullets { grid-template-columns: 1fr; }
+}
+
 /* Footer */
-.app-footer { padding: 60px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; text-align: center; }
+.app-footer { padding: 60px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 80px; }
