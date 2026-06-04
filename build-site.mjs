@@ -9,7 +9,7 @@ const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 const instaVideoDir = path.join(root, "assets", "video", "instagram");
 const instaVideos = fs.existsSync(instaVideoDir) ? fs.readdirSync(instaVideoDir).filter(f => f.endsWith(".mp4")) : [];
 const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><video src="${deployBasePath}/assets/video/instagram/${v}" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></video></div>`).join("")}
+  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><video src="/assets/video/instagram/${v}" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></video></div>`).join("")}
 </div>`;
 
 function topBar() {
@@ -86,6 +86,8 @@ function appLayout(body, title, description) {
       .app-topbar { display: flex; }
       .app-content { padding-top: 70px; } /* Push content down on mobile */
     }
+    .brand-mark img { width: 50px; height: 50px; border-radius: var(--radius-sm); object-fit: cover; }
+    .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--white); margin-bottom: 40px; }
   </style>
 </head>
 <body>
@@ -203,7 +205,7 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
       ${services.map(s => `
         <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
           <div class="sdc-image">
-            <video src="${deployBasePath}/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
+            <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
           </div>
           <div class="sdc-content">
             <h3 class="lime-text">${s.name}</h3>
@@ -416,7 +418,7 @@ for (const s of services) {
     <section class="app-section" style="background: rgba(0,0,0,0.2);">
       <h2 class="app-section-title">Eindrücke aus der Praxis</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px;">
-        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="' + deployBasePath + '/assets/video/instagram/' + v + '" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
+        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="/assets/video/instagram/' + v + '" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
       </div>
     </section>
 
@@ -453,7 +455,7 @@ writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
         </div>
       </div>
       <div class="about-image card-3d">
-        <video src="${deployBasePath}/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+        <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video>
       </div>
     </div>
     
