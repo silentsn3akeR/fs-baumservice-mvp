@@ -345,55 +345,95 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
 
 // The rest of the subpages (Leistungen detail pages)
 for (const s of services) {
+  const videoDir = path.join(root, "assets", "video", "instagram");
+  const videos = fs.existsSync(videoDir) ? fs.readdirSync(videoDir).filter(f => f.endsWith(".mp4")) : [];
+  // Use a different video for each service if possible, or fallback to image
+  const hasVid = videos.length > 0;
+  const vidSrc = hasVid ? `/assets/video/instagram/\${videos[Math.floor(Math.random() * videos.length)]}` : '';
+  const heroMedia = hasVid 
+    ? `<video class="hero-video-bg" src="\${vidSrc}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>`
+    : `<img class="hero-video-bg" src="/assets/img/\${s.image}" style="filter: brightness(0.3);">`;
+
   const body = `
     <section class="hero-app" style="height: 60vh; min-height: 400px;">
-      <img class="hero-video-bg" src="/assets/img/${s.image}" style="filter: brightness(0.4);">
+      \${heroMedia}
       <div class="hero-app-content">
-        <h1>${s.name}</h1>
-        <p>${s.title}</p>
+        <h1>\${s.name}</h1>
+        <p>\${s.title}</p>
       </div>
     </section>
+    
+    <!-- EXPERTEN-TIPP (Neuer Mehrwert) -->
+    <section class="app-section" style="background: rgba(169, 209, 94, 0.05); border-bottom: 1px solid var(--glass-border);">
+      <div style="max-width: 900px; margin: 0 auto; display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h2 style="color:var(--lime-500); font-size: 2rem; margin-bottom: 15px;">Experten-Wissen: Warum \${s.name}?</h2>
+          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+            Viele Hausbesitzer warten zu lange. Ein rechtzeitiger Eingriff spart nicht nur Geld, sondern verhindert auch massive Schäden an Gebäuden oder dem Umfeld. Vertrauen Sie auf unsere lokale Expertise im Zollernalbkreis. Wir begutachten jeden Fall individuell und ehrlich.
+          </p>
+        </div>
+        <div class="card-3d" style="flex: 1; min-width: 300px; padding: 30px; background: rgba(0,0,0,0.4);">
+          <h4 style="color:var(--white); margin-bottom: 10px;">Ihre Sicherheit zählt</h4>
+          <ul style="list-style:none; padding:0; color:var(--text-muted); line-height: 1.8;">
+            <li>✓ Vermeidung von Sturmschäden</li>
+            <li>✓ Fachgerechte ZTV-Standards</li>
+            <li>✓ Voller Versicherungsschutz bei Ausführung durch Profis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="app-section">
       <div class="about-grid" style="grid-template-columns: 2fr 1fr;">
         <div>
           <h2 class="app-section-title">Auf einen Blick</h2>
-          <p class="lead-text">${s.intro}</p>
-          <p class="sdc-desc" style="font-size: 1.1rem; line-height: 1.8;">${s.description}</p>
+          <p class="lead-text">\${s.intro}</p>
+          <p class="sdc-desc" style="font-size: 1.1rem; line-height: 1.8;">\${s.description}</p>
           
-          <h3 style="color:var(--white); margin-top: 40px; margin-bottom:20px; font-size:1.5rem;">Der Prozess</h3>
+          <h3 style="color:var(--white); margin-top: 50px; margin-bottom:20px; font-size:1.5rem;">Wie wir bei der \${s.name} vorgehen</h3>
           <ul class="sdc-bullets" style="grid-template-columns: 1fr;">
-            ${s.process.map(p => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <span style="font-size:1.1rem;">${p}</span></li>`).join("")}
+            \${s.process.map(p => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <span style="font-size:1.1rem;">\${p}</span></li>`).join("")}
           </ul>
           
-          <h3 style="color:var(--white); margin-top: 40px; margin-bottom:20px; font-size:1.5rem;">Einsatzgebiete</h3>
+          <h3 style="color:var(--white); margin-top: 50px; margin-bottom:20px; font-size:1.5rem;">Häufige Einsatzgebiete</h3>
           <ul class="sdc-bullets" style="grid-template-columns: 1fr 1fr;">
-            ${s.uses.map(u => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> ${u}</li>`).join("")}
+            \${s.uses.map(u => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> \${u}</li>`).join("")}
           </ul>
         </div>
         <div>
           <div style="background: rgba(22, 24, 34, 0.8); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 40px; position: sticky; top: 100px;">
             <h3 style="color:var(--white); margin-bottom:20px;">Ihre Vorteile</h3>
             <ul class="sdc-bullets" style="grid-template-columns: 1fr;">
-              ${s.benefits.map(b => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong style="color:var(--lime-500);">${b}</strong></li>`).join("")}
+              \${s.benefits.map(b => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong style="color:var(--lime-500);">\${b}</strong></li>`).join("")}
             </ul>
             <a href="/angebot/" class="button-primary" style="display:block; text-align:center; margin-top: 30px;">Jetzt 3D-Anfrage starten</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="app-section" style="background: rgba(0,0,0,0.3);">
-      <h2 class="app-section-title">Häufige Fragen zu ${s.name}</h2>
+    
+    <!-- MEDIA GALLERY (Bilder & Videos) -->
+    <section class="app-section" style="background: rgba(0,0,0,0.2);">
+      <h2 class="app-section-title">Eindrücke aus der Praxis</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px;">
+        \${hasVid ? `<div class="card-3d" style="height: 300px; overflow:hidden;"><video src="\${vidSrc}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>` : ''}
+        <div class="card-3d" style="height: 300px; overflow:hidden;"><img src="/assets/img/\${s.image}" style="width:100%; height:100%; object-fit:cover;"></div>
+      </div>
+    </section>
+
+    <section class="app-section" style="background: rgba(0,0,0,0.4);">
+      <h2 class="app-section-title">Häufige Fragen zu \${s.name}</h2>
       <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 800px;">
-        ${s.faq.map(([q, a]) => `
+        \${s.faq.map(([q, a]) => `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 25px; border-radius: var(--radius-sm);">
-            <h4 style="color:var(--lime-500); font-size: 1.2rem; margin-bottom: 10px;">${q}</h4>
-            <p style="color:var(--text-muted); line-height: 1.6;">${a}</p>
+            <h4 style="color:var(--lime-500); font-size: 1.2rem; margin-bottom: 10px;">\${q}</h4>
+            <p style="color:var(--text-muted); line-height: 1.6;">\${a}</p>
           </div>
         `).join("")}
       </div>
     </section>
   `;
-  writePage(`/leistungen/${s.slug}/`, s.title, s.description, body);
+  writePage(\`/leistungen/\${s.slug}/\`, s.title, s.description, body);
 }
 
 writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Feed", `
