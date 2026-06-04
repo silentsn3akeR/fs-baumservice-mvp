@@ -1551,3 +1551,108 @@ dd { color: rgba(255,255,255,.88); }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ── DARK MODE BUGFIXES ── */
+
+/* Buttons: explicit colors, never inherit from dark context */
+.button            { color: #fff !important; }
+.button-light      { background: #fff !important; color: var(--deep) !important; }
+.button-outline,
+.button-outline-light { color: #fff !important; border-color: rgba(255,255,255,.45) !important; }
+.button-secondary  { color: #fff !important; background: transparent !important; border: 2px solid rgba(255,255,255,.35) !important; }
+.button-wa         { color: #fff !important; }
+
+/* WhatsApp button always green+white */
+.button-wa { background: var(--whatsapp) !important; }
+
+/* Contact form: transparent wrapper, dark fields */
+.contact-form, form { background: transparent !important; }
+.field-grid, .form-area, .configurator-shell {
+  background: rgba(255,255,255,.05) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-radius: var(--radius);
+}
+
+/* Input/select/textarea auto-fill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(43,45,62,.9) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* Non-hero H1: cap size on subpages */
+.contact-hero h1,
+.section > h1,
+.leistung-hero h1 {
+  font-size: clamp(2.4rem, 7vw, 5rem) !important;
+}
+
+/* Mobile: clamp all H1 harder */
+@media (max-width: 600px) {
+  h1 { font-size: clamp(2.6rem, 9vw, 4.2rem) !important; }
+  .hero h1 { font-size: clamp(2.8rem, 10vw, 4.8rem) !important; }
+}
+
+/* Section even/odd: only very subtle, never breaks text */
+.section:nth-of-type(even) { background: rgba(255,255,255,.02) !important; }
+
+/* Nav toggle button: dark bg with white text */
+.nav-toggle {
+  background: rgba(255,255,255,.1) !important;
+  border-color: rgba(255,255,255,.2) !important;
+  color: white !important;
+}
+
+/* Checkbox/consent text */
+.consent-text, .form-note, [class*="consent"] {
+  color: rgba(255,255,255,.6) !important;
+}
+
+/* Option cards in configurator */
+.option-card {
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  color: rgba(255,255,255,.88) !important;
+}
+.option-card:hover, .option-card.is-selected {
+  border-color: var(--leaf) !important;
+  background: rgba(142,196,64,.1) !important;
+}
+.option-card h3, .option-card strong { color: white !important; }
+.option-card p, .option-card small { color: rgba(255,255,255,.65) !important; }
+
+/* ── CRITICAL MOBILE FIXES ── */
+/* H1 zu groß auf Mobile — hart begrenzen */
+@media (max-width: 860px) {
+  h1 { font-size: clamp(2.2rem, 8vw, 3.2rem) !important; line-height: 1.05 !important; }
+  .hero h1 { font-size: clamp(2.4rem, 9vw, 3.6rem) !important; }
+}
+
+/* Process/light sections: dark background erzwingen */
+.section:has(.process-steps),
+.section { background: transparent !important; }
+
+/* Weißes auf weißem Bug: button-light explizit */
+.button-light, a.button-light {
+  background: #ffffff !important;
+  color: #1d1f2b !important;
+  border: none !important;
+}
+
+/* Unsichtbarer "Jetzt anrufen" Button Fix */
+.cta-band a.button,
+.footer-cta a.button,
+section a.button-light { color: #1d1f2b !important; }
+
+/* Configurator weißer Hintergrund fix */
+.configurator-shell, .configurator, .configurator-main {
+  background: rgba(255,255,255,.06) !important;
+  color: rgba(255,255,255,.88) !important;
+}
+
+/* Ghost Zahlen auf hellem Hintergrund fix */
+.process-step-num { color: var(--leaf) !important; opacity: .15 !important; }
+
+/* Alle weißen section-Hintergründe entfernen */
+body .section[style*="background"],
+body .section { background: transparent !important; }
