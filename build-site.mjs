@@ -183,8 +183,11 @@ function layout({ pathname, title, description, h1, body, imageName = "baumservi
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${url(image(imageName))}">
   <link rel="icon" href="/assets/img/fs-baumservice-logo-original.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/assets/css/styles.css" as="style">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>
 <body>
@@ -242,6 +245,7 @@ function layout({ pathname, title, description, h1, body, imageName = "baumservi
   </footer>
   <div class="mobile-actionbar" aria-label="Schnellkontakt">
     <a href="tel:${contact.phone}">Anrufen</a>
+    <a href="https://wa.me/${contact.phone.replace(/[^0-9]/g, "").replace(/^49/, "49")}" class="wa-bar" rel="noopener noreferrer">WhatsApp</a>
     <a href="/angebot/">Anfrage</a>
   </div>
   <script src="/assets/js/site.js" defer></script>
@@ -420,6 +424,56 @@ function videoTitle(file, index) {
   return titles[index] || file.replace(/[-_]/g, " ").replace(/\.mp4$/i, "");
 }
 
+function statsStrip() {
+  return `<section class="stats-strip" aria-label="Auf einen Blick">
+    <div class="stats-inner">
+      <div class="stats-item">
+        <strong class="stats-num">5</strong>
+        <span class="stats-label">Leistungsbereiche</span>
+      </div>
+      <div class="stats-item">
+        <strong class="stats-num">4+</strong>
+        <span class="stats-label">Regionen im Einsatz</span>
+      </div>
+      <div class="stats-item">
+        <strong class="stats-num">ZTV</strong>
+        <span class="stats-label">Baumpflege-Standard</span>
+      </div>
+      <div class="stats-item">
+        <strong class="stats-num">&#x2265;90</strong>
+        <span class="stats-label">cm Zugang Wurzelfräse</span>
+      </div>
+    </div>
+  </section>`;
+}
+
+function processSection() {
+  const steps = [
+    ["01", "Anfrage", "Kurze Beschreibung per Telefon, WhatsApp oder über das Anfrageformular. Ein Foto hilft bei der ersten Einschätzung."],
+    ["02", "Besichtigung", "Besichtigung vor Ort für eine genaue Einschätzung des Aufwands und der besten Vorgehensweise."],
+    ["03", "Umsetzung", "Termingerechte, sichere Durchführung – mit der passenden Technik für Ihren Standort und Ihr Grundstück."],
+    ["04", "Abschluss", "Saubere Übergabe, Entsorgung auf Wunsch, direkter Ansprechpartner von Anfang bis Ende."],
+  ];
+  return `<section class="section">
+    <div class="section-head reveal">
+      <p class="eyebrow">Ablauf</p>
+      <h2>So läuft Ihr Auftrag ab</h2>
+      <p>Von der ersten Nachricht bis zum sauberen Abschluss: kurze Wege, direkte Kommunikation.</p>
+    </div>
+    <div class="process-steps">
+      ${steps.map(([num, title, text]) => `<div class="process-step reveal">
+        <span class="process-step-num">${num}</span>
+        <h3>${title}</h3>
+        <p>${text}</p>
+      </div>`).join("")}
+    </div>
+    <div class="process-cta reveal">
+      <a class="button" href="/angebot/">Jetzt Anfrage starten</a>
+      <a class="button button-secondary" href="tel:${contact.phone}">${contact.phoneDisplay}</a>
+    </div>
+  </section>`;
+}
+
 function hero({ eyebrow, h1, text, imageName, buttons = true }) {
   return `<section class="hero">
     <div class="hero-media">
@@ -427,15 +481,19 @@ function hero({ eyebrow, h1, text, imageName, buttons = true }) {
     </div>
     <div class="hero-dna" aria-hidden="true"></div>
     <div class="hero-content">
-      <p class="eyebrow reveal">${eyebrow}</p>
+      <p class="eyebrow">${eyebrow}</p>
       <h1>${h1}</h1>
       <p>${text}</p>
-      ${buttons ? `<div class="cta-row"><a class="button" href="/angebot/">Anfrage konfigurieren</a><a class="button button-secondary" href="tel:${contact.phone}">Jetzt anrufen</a></div>` : ""}
+      ${buttons ? `<div class="cta-row">
+        <a class="button" href="/angebot/">Kostenlose Anfrage starten</a>
+        <a class="button button-wa" href="https://wa.me/${contact.phone.replace(/\D/g, "")}" rel="noopener noreferrer">WhatsApp</a>
+        <a class="button button-secondary" href="tel:${contact.phone}">${contact.phoneDisplay}</a>
+      </div>` : ""}
       <p class="trustline">Sicher. Sauber. Zuverlässig. Regional im Einsatz.</p>
       <div class="hero-badges" aria-label="Kurzfakten">
         <span>Seilklettertechnik</span>
         <span>ZTV-Baumpflege</span>
-        <span>Wurzelfräse ab ca. 90 cm</span>
+        <span>Wurzelfräse ab 90 cm Zugang</span>
       </div>
     </div>
   </section>`;
@@ -455,7 +513,11 @@ function ctaBand() {
     <p class="eyebrow">Anfrage</p>
     <h2>Kurze Wege, klare Einschätzung.</h2>
     <p>Für eine erste Einordnung reichen oft Ort, gewünschte Leistung und ein paar Fotos. Vor Ort wird der Ablauf sauber abgestimmt.</p>
-    <div class="cta-row"><a class="button" href="/angebot/">Anfrage konfigurieren</a><a class="button button-secondary" href="tel:${contact.phone}">Jetzt anrufen</a></div>
+    <div class="cta-row">
+      <a class="button" href="/angebot/">Kostenlose Anfrage starten</a>
+      <a class="button button-secondary" href="tel:${contact.phone}">Jetzt anrufen</a>
+      <a class="button button-outline-light" href="https://wa.me/${contact.phone.replace(/\D/g, "")}" rel="noopener noreferrer">WhatsApp</a>
+    </div>
   </section>`;
 }
 
@@ -484,18 +546,20 @@ writePage("/", layout({
   schema: [answerSchema(answerQuestions)],
   body: `${hero({
     eyebrow: "Baumservice aus Bisingen",
-    h1: "Baumfällung & Baumpflege in Bisingen, Balingen und Umgebung",
-    text: "FS Baumservice ist Ihr regionaler Ansprechpartner für sichere Baumarbeiten, Seilklettertechnik, Wurzelstockfräsen, Heckenschnitt und Rollrasen.",
+    h1: "Baumfällung &amp; Baumpflege in Bisingen, Balingen und Umgebung",
+    text: "FS Baumservice steht für sichere Baumarbeiten, Seilklettertechnik, Wurzelstockfräsen, Heckenschnitt und Rollrasen – direkt aus der Region, mit dem richtigen Werkzeug für jede Situation.",
     imageName: "baumfaellung-bisingen-seilklettertechnik.jpg",
   })}
+  ${statsStrip()}
   <section class="section">
     <div class="section-head"><p class="eyebrow">Leistungen</p><h2>Baumarbeiten und Grundstückspflege aus einer Hand</h2><p>Klare Leistungen, saubere Abstimmung und regionale Nähe im Zollernalbkreis.</p></div>
     ${cardGrid(services.map((s) => ({ title: s.name, text: s.description, href: `/leistungen/${s.slug}/`, image: s.image, alt: `${s.name} von FS Baumservice im Raum Bisingen`, link: "Mehr erfahren" })))}
   </section>
   <section class="band split">
-    <div><p class="eyebrow">Warum FS Baumservice?</p><h2>Sicher geplant, sauber ausgeführt.</h2><p>Die aktuelle Leistungsbeschreibung nennt schwierige Fällungen auf engem Raum, Seilklettertechnik, Hubarbeitsgeräte, Wurzelfräse und Entsorgung als zentrale Arbeitsbereiche.</p></div>
-    <ul class="check-list"><li>sichere Arbeitsweise auch bei beengten Verhältnissen</li><li>Baumpflege mit Blick auf Vitalität und Umfeld</li><li>eigene Wurzelfräse für störende Baumstümpfe</li><li>direkter Kontakt mit Besichtigung vor Ort</li></ul>
+    <div><p class="eyebrow">Warum FS Baumservice?</p><h2>Sicher geplant, sauber ausgeführt.</h2><p>Von schwierigen Fällungen auf engem Raum bis zur Pflege großer Kronen: FS Baumservice setzt die richtige Technik ein – und bleibt direkter Ansprechpartner von der Besichtigung bis zur Übergabe.</p></div>
+    <ul class="check-list"><li>Sichere Arbeitsweise auch bei beengten Verhältnissen</li><li>Baumpflege mit Blick auf Vitalität und Umfeld</li><li>Eigene Wurzelfräse für störende Baumstümpfe</li><li>Direkter Kontakt mit Besichtigung vor Ort</li></ul>
   </section>
+  ${processSection()}
   ${entitySummary()}
   ${answerBlock()}
   <section class="section">
