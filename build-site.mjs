@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { services, contact, areaServed, verifiedFacts, answerQuestions } from "./data.js";
+import { impressumHtml, datenschutzHtml } from "./data-legal.js";
+import { ratgeberHtml } from "./data-ratgeber.js";
 
 const root = process.cwd();
 const baseUrl = "http://fs-baumservice.de";
@@ -40,6 +42,7 @@ function sidebar() {
     <nav class="app-nav">
       <a href="/" class="nav-btn is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Übersicht</a>
       <a href="/leistungen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Leistungen</a>
+      <a href="/ratgeber/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Preise & Ratgeber</a>
       <a href="/referenzen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Galerie & Insta</a>
       <a href="/ueber-uns/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Über Uns</a>
       <a href="/angebot/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3D-Anfrage</a>
@@ -530,9 +533,6 @@ writePage("/kontakt/", "Kontakt", "Treten Sie mit uns in Verbindung", `
   </section>
 `);
 
-writePage("/impressum/", "Impressum", "Impressum der FS Baumservice", `
-  <section class="app-section" style="padding-top: 100px;"><h1 class="app-section-title">Impressum</h1></section>
-`);
-writePage("/datenschutz/", "Datenschutz", "Datenschutz", `
-  <section class="app-section" style="padding-top: 100px;"><h1 class="app-section-title">Datenschutz</h1></section>
-`);
+writePage("/ratgeber/", "Preise, Ratgeber & Baumlexikon", "Infos zu Baumfällung, Kosten und Baumkrankheiten.", ratgeberHtml);
+writePage("/impressum/", "Impressum", "Impressum der FS Baumservice", impressumHtml);
+writePage("/datenschutz/", "Datenschutz", "Datenschutz", datenschutzHtml);

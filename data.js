@@ -10,7 +10,7 @@ export const services = [
       "beengte Grundstücke",
       "Bäume nahe an Gebäuden",
       "schwer zugängliche Standorte",
-      "st├Ârende oder nicht mehr standsichere Bäume"
+      "störende oder nicht mehr standsichere Bäume"
     ],
     "process": [
       "Besichtigung und Einschätzung vor Ort",
@@ -27,7 +27,7 @@ export const services = [
     "faq": [
       [
         "Wann muss ein Baum gefällt werden?",
-        "Eine Fällung kann n├Âtig werden, wenn ein Baum nicht mehr standsicher ist, Schäden verursacht, Baumaßnahmen blockiert oder aus Sicherheitsgründen entfernt werden muss. Die Entscheidung sollte vor Ort geprüft werden."
+        "Eine Fällung kann nötig werden, wenn ein Baum nicht mehr standsicher ist, Schäden verursacht, Baumaßnahmen blockiert oder aus Sicherheitsgründen entfernt werden muss. Die Entscheidung sollte vor Ort geprüft werden."
       ],
       [
         "Kann ein Baum auch auf engem Grundstück gefällt werden?",
@@ -35,7 +35,7 @@ export const services = [
       ],
       [
         "Was passiert mit Holz und Schnittgut?",
-        "Die zeitnahe und umweltgerechte Entsorgung geh├Ârt zum angebotenen Leistungsumfang und wird vorab abgestimmt."
+        "Die zeitnahe und umweltgerechte Entsorgung gehört zum angebotenen Leistungsumfang und wird vorab abgestimmt."
       ]
     ]
   },
@@ -45,7 +45,7 @@ export const services = [
     "title": "Baumpflege vom Baumservice in der Region Zollernalb",
     "description": "Baumpflege für Vitalität, Sicherheit und gesunde Kronen im Raum Bisingen, Balingen, Geislingen und Hechingen.",
     "image": "baumpflege-zollernalb-arbeitseinsatz.jpg",
-    "intro": "Gute Baumpflege betrachtet nicht nur einzelne ├äste, sondern den ganzen Baum mit Standort, Krone und Umfeld. FS Baumservice plant sinnvolle Pflegemaßnahmen und führt sie schonend aus.",
+    "intro": "Gute Baumpflege betrachtet nicht nur einzelne Äste, sondern den ganzen Baum mit Standort, Krone und Umfeld. FS Baumservice plant sinnvolle Pflegemaßnahmen und führt sie schonend aus.",
     "uses": [
       "Kronenpflege",
       "Totholzentfernung",
@@ -75,7 +75,7 @@ export const services = [
       ],
       [
         "Kann ich Fotos für eine erste Einschätzung senden?",
-        "Ja, Fotos k├Ânnen helfen. Für eine belastbare Einschätzung ist meist trotzdem ein Blick vor Ort sinnvoll."
+        "Ja, Fotos können helfen. Für eine belastbare Einschätzung ist meist trotzdem ein Blick vor Ort sinnvoll."
       ]
     ]
   },
@@ -115,7 +115,7 @@ export const services = [
       ],
       [
         "Wann ist der richtige Zeitpunkt für Heckenschnitt?",
-        "Der passende Zeitpunkt hängt von Pflanzenart, Umfang und gesetzlichen Vorgaben ab. Vor gr├Âßeren Rückschnitten sollte das kurz abgestimmt werden."
+        "Der passende Zeitpunkt hängt von Pflanzenart, Umfang und gesetzlichen Vorgaben ab. Vor größeren Rückschnitten sollte das kurz abgestimmt werden."
       ]
     ]
   },
@@ -123,13 +123,13 @@ export const services = [
     "slug": "wurzelstockfraesen",
     "name": "Wurzelstockfräsen",
     "title": "Wurzelstockfräsen nach Baumfällungen",
-    "description": "Wurzelstock entfernen lassen: FS Baumservice fräst st├Ârende Baumstümpfe im Raum Bisingen, Balingen und Geislingen.",
+    "description": "Wurzelstock entfernen lassen: FS Baumservice fräst störende Baumstümpfe im Raum Bisingen, Balingen und Geislingen.",
     "image": "wurzelstockfraesen-baumservice.jpg",
-    "intro": "Nach einer Baumfällung bleibt oft ein st├Ârender Wurzelstock zurück. Mit der passenden Frästechnik wird die Fläche wieder nutzbar, etwa für Rasen, Bepflanzung oder neue Gestaltung.",
+    "intro": "Nach einer Baumfällung bleibt oft ein störender Wurzelstock zurück. Mit der passenden Frästechnik wird die Fläche wieder nutzbar, etwa für Rasen, Bepflanzung oder neue Gestaltung.",
     "uses": [
       "Baumstümpfe nach Fällungen",
       "Vorbereitung für Rollrasen oder Beete",
-      "st├Ârende Wurzeln in Gartenflächen",
+      "störende Wurzeln in Gartenflächen",
       "enge Zugänge ab etwa 90 cm laut aktueller Leistungsseite"
     ],
     "process": [
@@ -141,7 +141,7 @@ export const services = [
     "benefits": [
       "eigene Wurzelfräse laut aktueller Website",
       "wieder nutzbare Fläche",
-      "auch bei schmalen Durchfahrten m├Âglich",
+      "auch bei schmalen Durchfahrten möglich",
       "saubere Ergänzung zur Baumfällung"
     ],
     "faq": [
@@ -155,7 +155,7 @@ export const services = [
       ],
       [
         "Muss der Baum vorher von FS Baumservice gefällt worden sein?",
-        "Nein. Auch bestehende Baumstümpfe k├Ânnen nach Prüfung vor Ort gefräst werden."
+        "Nein. Auch bestehende Baumstümpfe können nach Prüfung vor Ort gefräst werden."
       ]
     ]
   },
