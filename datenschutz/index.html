@@ -4,10 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>Datenschutz | FS Baumservice | Zollernalbkreis</title>
-  <meta name="description" content="Datenschutzerklärung">
+  <meta name="description" content="Datenschutz">
   <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css">
+  <style>
+    /* Topbar Inline Styling for Instant Delivery */
+    .app-topbar {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; height: 70px;
+      background: rgba(15, 17, 26, 0.9); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000; align-items: center; justify-content: space-between; padding: 0 20px;
+    }
+    .topbar-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-weight: 800; font-size: 1.1rem; }
+    .topbar-brand img { width: 40px; height: 40px; border-radius: 8px; }
+    .topbar-actions { display: flex; align-items: center; gap: 15px; }
+    .tb-icon { display: flex; align-items: center; gap: 6px; text-decoration: none; font-weight: 700; }
+    .tb-phone { color: white; }
+    .tb-phone svg { width: 20px; height: 20px; }
+    .tb-wa { background: #25D366; color: #000; padding: 8px 14px; border-radius: 20px; font-size: 0.9rem; }
+    .tb-wa svg { width: 18px; height: 18px; }
+    @media (max-width: 1024px) {
+      .app-topbar { display: flex; }
+      .app-content { padding-top: 70px; } /* Push content down on mobile */
+    }
+  </style>
 </head>
 <body>
+  <header class="app-topbar">
+    <a href="/fs-baumservice-mvp/" class="topbar-brand">
+      <img src="/fs-baumservice-mvp/assets/img/fs-baumservice-logo-original.jpg" alt="Logo">
+      <span>FS Baumservice</span>
+    </a>
+    <div class="topbar-actions">
+      <a href="tel:+49-172-7256462" class="tb-icon tb-phone" aria-label="Anrufen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="https://wa.me/491727256462" class="tb-icon tb-wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
+    </div>
+  </header>
   <div class="custom-cursor"></div>
   <div class="custom-cursor-follower"></div>
   <div class="app-container">
@@ -19,7 +51,7 @@
     <nav class="app-nav">
       <a href="/fs-baumservice-mvp/" class="nav-btn is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Übersicht</a>
       <a href="/fs-baumservice-mvp/leistungen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Leistungen</a>
-      <a href="/fs-baumservice-mvp/referenzen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Referenzen & Insta</a>
+      <a href="/fs-baumservice-mvp/referenzen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Galerie & Insta</a>
       <a href="/fs-baumservice-mvp/ueber-uns/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Über Uns</a>
       <a href="/fs-baumservice-mvp/angebot/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3D-Anfrage</a>
     </nav>
@@ -30,23 +62,15 @@
   </aside>
     <main class="app-content">
       
-  <section class="app-section" style="padding-top: 100px;">
-    <h1 class="app-section-title" style="color:var(--white);">Datenschutz</h1>
-    <div style="background: rgba(22, 24, 34, 0.6); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-      <h3 style="color:var(--lime-500);">Allgemein</h3>
-      <p>Diese statische Website kann grundsätzlich ohne Registrierung genutzt werden. Beim Aufruf werden durch den Hosting-Anbieter technisch notwendige Zugriffsdaten verarbeitet.</p>
-      <h3 style="color:var(--lime-500); margin-top:30px;">Kontaktaufnahme</h3>
-      <p>Wenn Sie per Telefon, E-Mail oder über den 3D-Konfigurator Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage verwendet.</p>
-    </div>
-  </section>
+  <section class="app-section" style="padding-top: 100px;"><h1 class="app-section-title">Datenschutz</h1></section>
 
-      <footer class="app-footer">
-        <div style="margin-bottom: 20px;">
-          <a href="/fs-baumservice-mvp/impressum/" class="text-link">Impressum</a> | 
-          <a href="/fs-baumservice-mvp/datenschutz/" class="text-link">Datenschutz</a> |
+      <footer class="app-footer" style="padding: 60px 20px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 60px;">
+        <div style="margin-bottom: 20px; display:flex; justify-content:center; gap: 20px; flex-wrap:wrap;">
+          <a href="/fs-baumservice-mvp/impressum/" class="text-link">Impressum</a>
+          <a href="/fs-baumservice-mvp/datenschutz/" class="text-link">Datenschutz</a>
           <a href="/fs-baumservice-mvp/kontakt/" class="text-link">Kontakt</a>
         </div>
-        FS Baumservice &copy; 2026. Regional im Einsatz in Bisingen, Balingen, Hechingen, Geislingen und Zollernalbkreis.
+        <p style="color:var(--text-muted);">FS Baumservice &copy; 2026. Regional im Einsatz in Bisingen, Balingen, Hechingen, Geislingen und Zollernalbkreis.</p>
       </footer>
     </main>
     <nav class="app-bottombar">
@@ -54,7 +78,7 @@
     <a href="/fs-baumservice-mvp/leistungen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></a>
     <a href="/fs-baumservice-mvp/angebot/" class="bottom-btn bottom-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
     <a href="/fs-baumservice-mvp/referenzen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
-    <a href="tel:+49-172-7256462" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+    <a href="https://wa.me/491727256462" class="bottom-btn" style="color:#25D366;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
   </nav>
   </div>
   
@@ -64,7 +88,7 @@
   <script src="/fs-baumservice-mvp/assets/js/site.js" defer></script>
   
   <script>
-    // Configurator Logic
+    // 4-Step Configurator Logic
     function nextStep(n) {
       document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
       setTimeout(() => {
@@ -85,7 +109,7 @@
             setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
         }
       }, 300);
-      for(let i=n+1; i<=3; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
+      for(let i=n+1; i<=4; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
     }
     
     // Active Navigation state setup based on current URL
