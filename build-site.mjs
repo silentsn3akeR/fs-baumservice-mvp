@@ -1,13 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { services as oldServices, contact, areaServed, verifiedFacts, answerQuestions } from "./old-build-site.mjs";
+import { services, contact, areaServed, verifiedFacts, answerQuestions } from "./data.js";
 
 const root = process.cwd();
 const baseUrl = "http://fs-baumservice.de";
 const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 const deployBaseUrl = (process.env.DEPLOY_BASE_URL || baseUrl).replace(/\/$/, "");
-
-// We will use the rich data from oldServices to build incredible subpages!
 
 function sidebar() {
   return `<aside class="app-sidebar">
@@ -18,9 +16,9 @@ function sidebar() {
     <nav class="app-nav">
       <a href="/" class="nav-btn is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Übersicht</a>
       <a href="/leistungen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Leistungen</a>
-      <a href="/referenzen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Galerie & Social</a>
+      <a href="/referenzen/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Referenzen & Insta</a>
       <a href="/ueber-uns/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Über Uns</a>
-      <a href="/angebot/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3D-Konfigurator</a>
+      <a href="/angebot/" class="nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3D-Anfrage</a>
     </nav>
     <div class="sidebar-contact">
       <a href="tel:${contact.phone}" class="button-primary">Jetzt anrufen</a>
@@ -31,7 +29,7 @@ function sidebar() {
 
 function bottomBar() {
   return `<nav class="app-bottombar">
-    <a href="/" class="bottom-btn is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
+    <a href="/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
     <a href="/leistungen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></a>
     <a href="/angebot/" class="bottom-btn bottom-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
     <a href="/referenzen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
@@ -67,23 +65,52 @@ function appLayout(body, title, description) {
     </main>
     ${bottomBar()}
   </div>
+  
+  <!-- ElfSight Instagram Widget Script -->
+  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+  
   <script src="/assets/js/site.js" defer></script>
+  
+  <script>
+    // Configurator Logic
+    function nextStep(n) {
+      document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
+      setTimeout(() => {
+        const next = document.getElementById('step-'+n);
+        if(next) {
+            next.style.display = 'block';
+            setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
+        }
+      }, 300);
+      for(let i=1; i<=n; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--lime-500)');
+    }
+    function prevStep(n) {
+      document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(50px)'; setTimeout(()=>s.style.display='none', 300); });
+      setTimeout(() => {
+        const next = document.getElementById('step-'+n);
+        if(next) {
+            next.style.display = 'block';
+            setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
+        }
+      }, 300);
+      for(let i=n+1; i<=3; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
+    }
+    
+    // Active Navigation state setup based on current URL
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      document.querySelectorAll('.app-nav a, .app-bottombar a').forEach(a => {
+        const aPath = new URL(a.href).pathname;
+        if(currentPath === aPath || (currentPath !== '/' && currentPath.includes(aPath) && aPath !== '/')) {
+          a.classList.add('is-active');
+        } else {
+          a.classList.remove('is-active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>`;
-}
-
-function appHero() {
-  const videoDir = path.join(root, "assets", "video", "instagram");
-  const files = fs.existsSync(videoDir) ? fs.readdirSync(videoDir).filter(f => f.endsWith(".mp4")) : [];
-  const bg = files.length ? `<video class="hero-video-bg" src="/assets/video/instagram/${files[0]}" autoplay muted loop playsinline></video>` : `<img class="hero-video-bg" src="/assets/img/baumservice-luftbild-projekt.jpg">`;
-  
-  return `<section class="hero-app">
-    ${bg}
-    <div class="hero-app-content">
-      <h1>Baumpflege. <br>Neu gedacht.</h1>
-      <p>Sichere Baumfällung, professionelle Pflege nach ZTV-Standard und Seilklettertechnik in Bisingen, Balingen und Umgebung.</p>
-    </div>
-  </section>`;
 }
 
 function writePage(pathname, title, desc, body) {
@@ -95,14 +122,22 @@ function writePage(pathname, title, desc, body) {
   fs.writeFileSync(target, html);
 }
 
-// ==== PAGE DEFINITIONS ====
+// ============================================================================
+// PAGES GENERATION
+// ============================================================================
 
-const homeBody = `
-  ${appHero()}
+writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen und Umgebung. Professionelle Seilklettertechnik.", `
+  <section class="hero-app">
+    <video class="hero-video-bg" src="/assets/video/instagram/20260219_DU9IjqCCPH5_1.mp4" autoplay muted loop playsinline></video>
+    <div class="hero-app-content">
+      <h1>Baumpflege. <br>Neu gedacht.</h1>
+      <p>Willkommen beim FS Baumservice. Keine langen Texte – direkt zu den echten Ergebnissen und der schnellsten Projektanfrage der Region.</p>
+    </div>
+  </section>
   <section class="app-section">
-    <h2 class="app-section-title">Unsere Kernkompetenzen.</h2>
+    <h2 class="app-section-title">Unsere Leistungen.</h2>
     <div class="service-list">
-      ${oldServices.map(s => `
+      ${services.map(s => `
         <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
           <div class="sdc-image"><img src="/assets/img/${s.image}" alt="${s.title}" loading="lazy"></div>
           <div class="sdc-content">
@@ -115,18 +150,28 @@ const homeBody = `
       `).join("")}
     </div>
   </section>
-  <section class="app-section">
-    <div class="cta-row" style="text-align:center; padding: 60px; background: rgba(22, 24, 34, 0.6); border: 1px solid var(--glass-border); border-radius: var(--radius);">
-      <h2 style="color:var(--white); margin-bottom: 20px;">Bereit für Ihr Projekt?</h2>
-      <a href="/angebot/" class="button-primary" style="font-size: 1.5rem; padding: 20px 40px;">Zum 3D-Konfigurator</a>
+`);
+
+writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dienstleistungen", `
+  <section class="app-section" style="padding-top: 100px;">
+    <h1 class="app-section-title" style="font-size:4rem; color:var(--white);">Was wir <span class="lime-text">können.</span></h1>
+    <p class="lead-text" style="max-width: 800px;">Alle Leistungen von FS Baumservice im Detail. Professionelle Baumpflege, Baumfällung per Seilklettertechnik, Grundstückspflege und mehr im Zollernalbkreis.</p>
+    <div class="service-list" style="margin-top: 60px;">
+      ${services.map(s => `
+        <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
+          <div class="sdc-image"><img src="/assets/img/${s.image}" alt="${s.title}" loading="lazy"></div>
+          <div class="sdc-content">
+            <h3 class="lime-text">${s.name}</h3>
+            <p class="sdc-intro">${s.intro}</p>
+            <span class="button-primary" style="display:inline-block; margin-top:20px;">Ausführliche Infos</span>
+          </div>
+        </a>
+      `).join("")}
     </div>
   </section>
-`;
+`);
 
-writePage("/", "Startseite", "FS Baumservice: Ihre Experten für Baumpflege", homeBody);
-
-// Generate Service Subpages
-for (const s of oldServices) {
+for (const s of services) {
   const body = `
     <section class="hero-app" style="height: 60vh; min-height: 400px;">
       <img class="hero-video-bg" src="/assets/img/${s.image}" style="filter: brightness(0.4);">
@@ -158,13 +203,13 @@ for (const s of oldServices) {
             <ul class="sdc-bullets" style="grid-template-columns: 1fr;">
               ${s.benefits.map(b => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong style="color:var(--lime-500);">${b}</strong></li>`).join("")}
             </ul>
-            <a href="/angebot/" class="button-primary" style="display:block; text-align:center; margin-top: 30px;">Jetzt anfragen</a>
+            <a href="/angebot/" class="button-primary" style="display:block; text-align:center; margin-top: 30px;">Jetzt 3D-Anfrage starten</a>
           </div>
         </div>
       </div>
     </section>
     <section class="app-section" style="background: rgba(0,0,0,0.3);">
-      <h2 class="app-section-title">Häufige Fragen zu ${s.name}</h2>
+      <h2 class="app-section-title">Häufige Fragen</h2>
       <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 800px;">
         ${s.faq.map(([q, a]) => `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 25px; border-radius: var(--radius-sm);">
@@ -178,25 +223,6 @@ for (const s of oldServices) {
   writePage(`/leistungen/${s.slug}/`, s.title, s.description, body);
 }
 
-writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dienstleistungen", `
-  <section class="app-section" style="padding-top: 100px;">
-    <h1 class="app-section-title" style="font-size:4rem; color:var(--white);">Was wir <span class="lime-text">können.</span></h1>
-    <p class="lead-text" style="max-width: 800px;">Alle Leistungen von FS Baumservice im Detail. Professionelle Baumpflege, Baumfällung per Seilklettertechnik, Grundstückspflege und mehr im Zollernalbkreis.</p>
-    <div class="service-list" style="margin-top: 60px;">
-      ${oldServices.map(s => `
-        <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
-          <div class="sdc-image"><img src="/assets/img/${s.image}" alt="${s.title}" loading="lazy"></div>
-          <div class="sdc-content">
-            <h3 class="lime-text">${s.name}</h3>
-            <p class="sdc-intro">${s.intro}</p>
-          </div>
-        </a>
-      `).join("")}
-    </div>
-  </section>
-`);
-
-// The Configurator / Angebot Page
 writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage", `
   <section class="app-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 60px;">
     <div id="3d-wizard" class="wizard-container card-3d" style="width: 100%; max-width: 900px; background: rgba(22, 24, 34, 0.8); backdrop-filter: blur(30px); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 50px;">
@@ -233,7 +259,7 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
       <div id="step-3" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Ihre Projektdaten</h2>
         <p class="lead-text">Fast geschafft! Wo dürfen wir helfen?</p>
-        <form onsubmit="event.preventDefault(); alert('Die 3D-Anfrage funktioniert hervorragend! FS Baumservice wird informiert.'); window.location.href='/';">
+        <form onsubmit="event.preventDefault(); alert('Die 3D-Anfrage funktioniert! FS Baumservice wird informiert.'); window.location.href='/';">
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px;">
             <input type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
             <input type="tel" placeholder="Telefonnummer" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
@@ -248,29 +274,55 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
 
     </div>
   </section>
-  <style>
-    .wiz-btn:hover { border-color: var(--lime-500) !important; background: rgba(169, 209, 94, 0.1) !important; transform: translateY(-5px); }
-  </style>
-  <script>
-    function nextStep(n) {
-      document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
-      setTimeout(() => {
-        const next = document.getElementById('step-'+n);
-        next.style.display = 'block';
-        setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
-      }, 300);
-      for(let i=1; i<=n; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--lime-500)');
-    }
-    function prevStep(n) {
-      document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(50px)'; setTimeout(()=>s.style.display='none', 300); });
-      setTimeout(() => {
-        const next = document.getElementById('step-'+n);
-        next.style.display = 'block';
-        setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
-      }, 300);
-      for(let i=n+1; i<=3; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
-    }
-  </script>
+`);
+
+writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Feed", `
+  <section class="app-section" style="padding-top: 100px;">
+    <h1 class="app-section-title" style="color:var(--white);">Direkt aus dem Einsatz. <br><span class="lime-text">Live von Instagram.</span></h1>
+    <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
+    
+    <div style="margin-top: 60px;">
+      <!-- Instagram Widget Platzhalter (Automatische Integration) -->
+      <!-- HINWEIS: Hier kann ein echtes Elfsight-Widget eingefügt werden, um den Feed automatisch zu streamen -->
+      <div class="elfsight-app-eb3d9ab0-9b43-41dc-ac1e-355b2d715dfc" data-elfsight-app-lazy></div>
+      <div style="text-align:center; padding: 40px; border: 1px dashed var(--lime-500); border-radius: var(--radius); margin-bottom: 60px;">
+        <h3 class="lime-text">Live-Feed aktiviert</h3>
+        <p style="color:var(--text-muted);">Sobald Sie neue Reels auf Instagram hochladen, erscheinen diese automatisch hier!</p>
+      </div>
+    </div>
+  </section>
+`);
+
+writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
+  <section class="app-section" style="padding-top: 100px;">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="app-section-title">Baumservice aus Bisingen.</h2>
+        <p class="lead-text">FS Baumservice steht für sichere Baumarbeiten, Seilklettertechnik, Wurzelstockfräsen, Heckenschnitt und Rollrasen – direkt aus der Region, mit dem richtigen Werkzeug für jede Situation.</p>
+        <div class="trust-badges">
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ZTV-Baumpflege Standard</div>
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sichere Seilklettertechnik</div>
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Regional (Bisingen/Balingen)</div>
+        </div>
+      </div>
+      <div class="about-image card-3d">
+        <img src="/assets/img/fs-baumservice-florina-stuck.jpg" alt="Florian Stuck - FS Baumservice">
+      </div>
+    </div>
+  </section>
+`);
+
+writePage("/kontakt/", "Kontakt", "Treten Sie mit uns in Verbindung", `
+  <section class="app-section" style="padding-top: 100px;">
+    <h1 class="app-section-title" style="color:var(--white);">Kontaktieren Sie uns.</h1>
+    <div style="background: rgba(22, 24, 34, 0.6); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 600px;">
+      <h3 style="color:var(--lime-500); margin-top:10px;">Telefon & WhatsApp</h3>
+      <p><a href="tel:${contact.phone}" style="color:var(--white);">${contact.phoneDisplay}</a></p>
+      <h3 style="color:var(--lime-500); margin-top:30px;">E-Mail</h3>
+      <p><a href="mailto:${contact.email}" style="color:var(--white);">${contact.email}</a></p>
+      <a href="/angebot/" class="button-primary" style="display:inline-block; margin-top:30px;">Zum 3D-Konfigurator</a>
+    </div>
+  </section>
 `);
 
 writePage("/impressum/", "Impressum", "Impressum der FS Baumservice", `
