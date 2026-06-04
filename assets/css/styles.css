@@ -5,23 +5,23 @@
    ===================================================== */
 
 :root {
-  --forest: #0e3026;
-  --deep: #071b15;
+  --forest: #2b2d3e;
+  --deep: #1d1f2b;
   --logo-bg: #34313d;
-  --moss: #516f46;
-  --leaf: #b9df6f;
-  --cream: #f4efe3;
-  --paper: #fffaf1;
-  --graphite: #202521;
-  --muted: #65706b;
+  --moss: #464a62;
+  --leaf: #8ec440;
+  --cream: #f0f2f5;
+  --paper: #f8f9fb;
+  --graphite: #1d1f2b;
+  --muted: #6b7285;
   --safety: #ea6b1f;
   --bronze: #b97438;
-  --line: #dfd3c0;
+  --line: #d0d4de;
   --glow: rgba(234, 107, 31, .24);
   --glow-strong: rgba(234, 107, 31, .42);
-  --shadow: 0 4px 6px rgba(7,27,21,.04), 0 12px 40px rgba(7,27,21,.12), 0 30px 60px rgba(7,27,21,.08);
-  --shadow-strong: 0 8px 12px rgba(7,27,21,.06), 0 20px 60px rgba(7,27,21,.18), 0 40px 80px rgba(7,27,21,.12);
-  --shadow-card: 0 2px 4px rgba(7,27,21,.04), 0 8px 24px rgba(7,27,21,.09);
+  --shadow: 0 4px 6px rgba(29,31,43,.04), 0 12px 40px rgba(29,31,43,.12), 0 30px 60px rgba(29,31,43,.08);
+  --shadow-strong: 0 8px 12px rgba(29,31,43,.06), 0 20px 60px rgba(29,31,43,.18), 0 40px 80px rgba(29,31,43,.12);
+  --shadow-card: 0 2px 4px rgba(29,31,43,.04), 0 8px 24px rgba(29,31,43,.09);
   --whatsapp: #25D366;
   --radius: 14px;
   --radius-sm: 8px;
@@ -36,7 +36,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   line-height: 1.65;
-  background: linear-gradient(180deg, #f5ede0 0%, #ede4d5 100%);
+  background: linear-gradient(180deg, #f0f2f5 0%, #e8eaef 100%);
   overflow-x: hidden;
 }
 body::before {
@@ -44,8 +44,8 @@ body::before {
   position: fixed; inset: 0;
   pointer-events: none; z-index: -1;
   background-image:
-    linear-gradient(rgba(14,48,38,.038) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14,48,38,.028) 1px, transparent 1px);
+    linear-gradient(rgba(43,45,62,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,45,62,.025) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), transparent 70%);
 }
@@ -77,20 +77,20 @@ p { margin: 0 0 18px; }
    ───────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(245, 237, 224, .88);
+  background: rgba(240, 242, 245, .88);
   backdrop-filter: blur(32px) saturate(1.5);
-  border-bottom: 1px solid rgba(223,211,192,.7);
-  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 40px rgba(7,27,21,.06);
+  border-bottom: 1px solid rgba(208,212,222,.7);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 40px rgba(29,31,43,.06);
   transition: box-shadow .28s ease, background .28s ease;
 }
 .site-header.is-compact {
-  background: rgba(245, 237, 224, .96);
-  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 16px 52px rgba(7,27,21,.13);
+  background: rgba(240, 242, 245, .96);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 16px 52px rgba(29,31,43,.13);
 }
 .topbar {
   display: flex; gap: 22px; justify-content: center;
   padding: 7px 20px;
-  background: linear-gradient(90deg, var(--deep) 0%, #122d21 50%, var(--forest) 100%);
+  background: linear-gradient(90deg, var(--deep) 0%, #26293a 50%, var(--forest) 100%);
   color: white; font-size: .875rem;
 }
 .topbar a {
@@ -125,13 +125,13 @@ p { margin: 0 0 18px; }
 .site-nav { display: flex; align-items: center; gap: 2px; }
 .site-nav a {
   text-decoration: none; padding: 10px 15px; border-radius: 999px;
-  font-weight: 800; font-size: .92rem; color: #2b3a31;
+  font-weight: 800; font-size: .92rem; color: #2b2d3e;
   transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
 .site-nav a[aria-current="page"],
 .site-nav a:hover {
   background: rgba(255,255,255,.9);
-  box-shadow: inset 0 0 0 1px rgba(223,211,192,.9), 0 6px 18px rgba(7,27,21,.08);
+  box-shadow: inset 0 0 0 1px rgba(223,211,192,.9), 0 6px 18px rgba(29,31,43,.08);
   transform: translateY(-1px);
 }
 .nav-toggle {
@@ -139,7 +139,7 @@ p { margin: 0 0 18px; }
   border-radius: 999px; padding: 10px 18px; font-weight: 800; cursor: pointer;
   transition: background .2s, box-shadow .2s;
 }
-.nav-toggle:hover { box-shadow: 0 4px 12px rgba(7,27,21,.1); }
+.nav-toggle:hover { box-shadow: 0 4px 12px rgba(29,31,43,.1); }
 
 /* ─────────────────────────────────────────────
    HERO
@@ -156,9 +156,9 @@ p { margin: 0 0 18px; }
   position: absolute; inset: 0;
   background:
     linear-gradient(90deg,
-      rgba(4, 12, 9, .97) 0%,
-      rgba(7, 24, 17, .84) 35%,
-      rgba(14, 48, 38, .26) 100%),
+      rgba(15, 16, 24, .97) 0%,
+      rgba(29, 31, 43, .84) 35%,
+      rgba(43, 45, 62, .26) 100%),
     linear-gradient(180deg,
       rgba(0,0,0,.22) 0%,
       transparent 38%,
@@ -312,13 +312,13 @@ p { margin: 0 0 18px; }
    STATS STRIP
    ───────────────────────────────────────────── */
 .stats-strip {
-  background: linear-gradient(135deg, var(--deep) 0%, #0d2e22 60%, #152b1e 100%);
+  background: linear-gradient(135deg, var(--deep) 0%, #22243a 60%, #1f2135 100%);
   color: white; position: relative; overflow: hidden;
 }
 .stats-strip::before {
   content: "";
   position: absolute; inset: 0;
-  background: repeating-linear-gradient(105deg, rgba(185,223,111,.05) 0 1px, transparent 1px 40px);
+  background: repeating-linear-gradient(105deg, rgba(142,196,64,.06) 0 1px, transparent 1px 40px);
   pointer-events: none;
 }
 .stats-strip::after {
@@ -409,7 +409,7 @@ p { margin: 0 0 18px; }
    BANDS (dark full-width sections)
    ───────────────────────────────────────────── */
 .band {
-  background: linear-gradient(135deg, var(--deep) 0%, var(--forest) 55%, #1e3d2e 100%);
+  background: linear-gradient(135deg, var(--deep) 0%, var(--forest) 55%, #2e3149 100%);
   color: white;
   max-width: none;
   padding-left: max(24px, calc((100% - 1220px) / 2));
@@ -539,9 +539,9 @@ p { margin: 0 0 18px; }
 }
 .video-card video {
   width: 100%; aspect-ratio: 9 / 14; object-fit: cover;
-  background: #0d241d; border-bottom: 3px solid var(--safety); display: block;
+  background: #1a1c2a; border-bottom: 3px solid var(--safety); display: block;
 }
-.video-card span { color: rgba(185,223,111,.75); }
+.video-card span { color: rgba(142,196,64,.85); }
 .video-card h3 { color: white; font-size: 1rem; }
 .video-card div { padding: 18px; }
 
@@ -567,7 +567,7 @@ p { margin: 0 0 18px; }
 .carousel-slide::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(4,12,9,.88), rgba(7,27,21,.4) 50%, rgba(7,27,21,.08));
+  background: linear-gradient(90deg, rgba(15,16,24,.88), rgba(29,31,43,.4) 50%, rgba(29,31,43,.08));
 }
 .carousel-caption {
   position: absolute; left: 36px; bottom: 36px; z-index: 1;
@@ -714,7 +714,7 @@ p { margin: 0 0 18px; }
   min-height: 120px;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.option-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(7,27,21,.1); }
+.option-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(29,31,43,.1); }
 .option-card:has(input:checked) {
   border-color: var(--safety);
   box-shadow: inset 0 0 0 1px rgba(234,107,31,.28), 0 16px 36px rgba(234,107,31,.13);
@@ -747,7 +747,7 @@ p { margin: 0 0 18px; }
 .form-note { color: var(--muted); font-size: .92rem; margin-top: 16px; }
 .next-step-panel {
   margin-top: 18px; padding: 18px; border-radius: 10px;
-  background: linear-gradient(135deg, rgba(14,48,38,.07), rgba(234,107,31,.07));
+  background: linear-gradient(135deg, rgba(43,45,62,.07), rgba(234,107,31,.07));
   border: 1px solid rgba(223,211,192,.88);
 }
 .next-step-panel ol { margin-bottom: 0; padding-left: 20px; }
@@ -772,7 +772,7 @@ figcaption, .note { color: var(--muted); font-size: .9rem; }
   border-radius: 10px; padding: 20px 22px; margin: 12px 0;
   transition: box-shadow .22s ease;
 }
-.faq details:hover { box-shadow: 0 8px 24px rgba(7,27,21,.08); }
+.faq details:hover { box-shadow: 0 8px 24px rgba(29,31,43,.08); }
 .faq summary {
   cursor: pointer; font-weight: 900; list-style: none;
 }
@@ -807,7 +807,7 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--forest);
-  box-shadow: 0 0 0 3px rgba(14,48,38,.1);
+  box-shadow: 0 0 0 3px rgba(43,45,62,.1);
 }
 .checkbox { grid-template-columns: auto 1fr !important; align-items: start; font-weight: 500 !important; }
 .checkbox input { width: auto; margin-top: 6px; }
@@ -990,7 +990,7 @@ input:focus, textarea:focus, select:focus {
    SOCIAL RONDELL SECTION
    ───────────────────────────────────────────── */
 .rondell-section {
-  background: linear-gradient(155deg, var(--deep) 0%, #0b2820 45%, #162e22 100%);
+  background: linear-gradient(155deg, var(--deep) 0%, #22243a 45%, #2b2d3e 100%);
   padding: 96px 24px; position: relative;
   overflow: hidden; isolation: isolate; color: white; max-width: none;
 }
@@ -1043,7 +1043,7 @@ input:focus, textarea:focus, select:focus {
 .rondell-card.is-active img { transform: scale(1.02); }
 .rondell-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 42%, rgba(4,12,9,.92) 100%);
+  background: linear-gradient(180deg, transparent 42%, rgba(15,16,24,.92) 100%);
   display: flex; flex-direction: column; justify-content: flex-end; padding: 18px;
 }
 .rondell-badge {
@@ -1108,7 +1108,7 @@ input:focus, textarea:focus, select:focus {
 }
 .option-icon {
   width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
-  background: linear-gradient(135deg, rgba(14,48,38,.07), rgba(234,107,31,.07));
+  background: linear-gradient(135deg, rgba(43,45,62,.07), rgba(234,107,31,.07));
   border: 1px solid rgba(223,211,192,.85);
   display: grid; place-items: center;
   color: var(--forest); transition: background .2s, border-color .2s;
@@ -1144,7 +1144,7 @@ input:focus, textarea:focus, select:focus {
   .hero { min-height: min(90vh, 680px); padding-top: 58px; padding-bottom: 68px; }
   .hero::after {
     background:
-      linear-gradient(160deg, rgba(4,12,9,.95) 0%, rgba(7,24,17,.82) 55%, rgba(14,48,38,.65) 100%),
+      linear-gradient(160deg, rgba(15,16,24,.95) 0%, rgba(29,31,43,.82) 55%, rgba(43,45,62,.65) 100%),
       linear-gradient(180deg, rgba(0,0,0,.2) 0%, transparent 40%, rgba(0,0,0,.4) 100%);
   }
   h1 { font-size: clamp(2rem, 9vw, 3.4rem); }
