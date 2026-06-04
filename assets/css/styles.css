@@ -160,14 +160,15 @@ p { margin: 0 0 18px; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg,
-      rgba(15, 16, 24, .97) 0%,
-      rgba(29, 31, 43, .84) 35%,
-      rgba(43, 45, 62, .26) 100%),
+    linear-gradient(105deg,
+      rgba(15, 16, 24, .98) 0%,
+      rgba(29, 31, 43, .92) 40%,
+      rgba(29, 31, 43, .55) 70%,
+      rgba(43, 45, 62, .18) 100%),
     linear-gradient(180deg,
-      rgba(0,0,0,.22) 0%,
-      transparent 38%,
-      rgba(0,0,0,.36) 100%);
+      rgba(0,0,0,.28) 0%,
+      transparent 35%,
+      rgba(0,0,0,.52) 100%);
   z-index: -1;
 }
 /* Premium bottom glow strip */
@@ -1003,26 +1004,11 @@ input:focus, textarea:focus, select:focus {
   50% { box-shadow: 0 0 0 6px rgba(77,237,131,.10); }
 }
 
-/* ── Hero H1 shimmer gradient ── */
+/* ── Hero H1 shimmer gradient — subtle lime flash, always readable ── */
 .hero-h1-shimmer {
   display: block;
-  background: linear-gradient(
-    110deg,
-    #fff 0%, #fff 18%,
-    rgba(255,185,95,.92) 32%,
-    #fff 48%,
-    rgba(255,155,50,.82) 65%,
-    #fff 82%, #fff 100%
-  );
-  background-size: 220% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: headlineShimmer 5.5s linear infinite;
-}
-@keyframes headlineShimmer {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
+  color: #fff;
+  text-shadow: 0 2px 40px rgba(142,196,64,.18), 0 0 80px rgba(142,196,64,.08);
 }
 
 /* ─────────────────────────────────────────────
@@ -1251,4 +1237,131 @@ input:focus, textarea:focus, select:focus {
   .process-steps { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
   .hero-badges span { font-size: .84rem; padding: 7px 13px; }
+}
+
+/* ══════════════════════════════════════════════
+   PREMIUM POLISH — final layer
+   ══════════════════════════════════════════════ */
+
+/* Hero H1: crisp white, subtle depth */
+.hero h1 {
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0,0,0,.35), 0 0 60px rgba(142,196,64,.12);
+}
+
+/* Hero body text: ensure full opacity */
+.hero-content p {
+  color: rgba(255,255,255,.93);
+  text-shadow: 0 1px 8px rgba(0,0,0,.4);
+}
+
+/* Eyebrow in hero: white + lime line */
+.hero .eyebrow {
+  color: var(--leaf);
+  font-weight: 900;
+}
+
+/* Stats label contrast fix */
+.stats-label {
+  color: rgba(255,255,255,.78);
+}
+
+/* Nav active/hover: use brand slate tint instead of generic grey */
+.site-nav a[aria-current="page"],
+.site-nav a:hover {
+  background: rgba(29,31,43,.08);
+  box-shadow: inset 0 0 0 1.5px rgba(29,31,43,.14), 0 4px 12px rgba(29,31,43,.07);
+  color: var(--deep);
+}
+
+/* Section H2: tighter tracking for premium feel */
+.section-head h2 {
+  letter-spacing: -.025em;
+}
+
+/* Process steps: section bg slightly off-white for contrast */
+.section:has(.process-steps) {
+  background: var(--paper);
+}
+
+/* Stats item: subtle lime top border on hover */
+.stats-item {
+  border-top: 2px solid transparent;
+  transition: border-color .3s ease;
+}
+.stats-item:hover {
+  border-top-color: var(--leaf);
+}
+
+/* CTA / footer band: stronger overlay */
+.cta-band, .footer-cta-band {
+  position: relative; overflow: hidden;
+}
+.cta-band::before, .footer-cta-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: .04; pointer-events: none;
+}
+
+/* Footer text contrast */
+.site-footer { color: rgba(255,255,255,.88); }
+.site-footer h3 { color: #fff; }
+.site-footer a { opacity: .8; transition: opacity .2s; }
+.site-footer a:hover { opacity: 1; color: var(--leaf); }
+
+/* Rondell caption text: ensure readable */
+.rondell-caption h3 { text-shadow: 0 2px 12px rgba(0,0,0,.5); }
+.rondell-caption p { color: rgba(255,255,255,.85); }
+
+/* Cards: sharper shadow hierarchy */
+.card {
+  box-shadow: 0 1px 2px rgba(29,31,43,.04), 0 4px 16px rgba(29,31,43,.07), 0 12px 32px rgba(29,31,43,.05);
+  transition: transform .28s cubic-bezier(.4,0,.2,1), box-shadow .28s ease;
+}
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(29,31,43,.06), 0 16px 48px rgba(29,31,43,.14), 0 32px 64px rgba(29,31,43,.08);
+  }
+}
+
+/* FAQ contrast fix */
+.faq details summary { color: var(--graphite); font-weight: 800; }
+
+/* Trustline text: bolder */
+.trustline { font-weight: 800; letter-spacing: .01em; }
+
+/* Hero bottom: add subtle vignette depth */
+.hero-content { padding-bottom: 12px; }
+
+/* Button: sharper glow on primary */
+.button:focus-visible {
+  outline: 2px solid var(--leaf);
+  outline-offset: 3px;
+}
+
+/* Rondell active card: lime bottom border accent */
+.rondell-card[aria-current="true"],
+.rondell-card.is-active {
+  box-shadow: 0 0 0 3px var(--leaf), 0 24px 60px rgba(0,0,0,.45) !important;
+}
+
+/* Brand mark: logo-bg border */
+.brand-mark {
+  border: 1.5px solid rgba(142,196,64,.25);
+}
+
+/* Section head eyebrow: lime accent line left */
+.section-head .eyebrow::before {
+  background: var(--leaf);
+  width: 18px; height: 2px;
+}
+
+/* Reduce-motion: kill any residual animations */
+@media (prefers-reduced-motion: reduce) {
+  .hero-h1-shimmer { animation: none !important; }
+  .stats-num { transition: none !important; }
+  .service-card::before { animation: none !important; }
 }
