@@ -6,6 +6,12 @@ const root = process.cwd();
 const baseUrl = "http://fs-baumservice.de";
 const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 
+const instaVideoDir = path.join(root, "assets", "video", "instagram");
+const instaVideos = fs.existsSync(instaVideoDir) ? fs.readdirSync(instaVideoDir).filter(f => f.endsWith(".mp4")) : [];
+const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><video src="${deployBasePath}/assets/video/instagram/${v}" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></video></div>`).join("")}
+</div>`;
+
 function topBar() {
   return `<header class="app-topbar">
     <a href="/" class="topbar-brand">
@@ -243,17 +249,8 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     <h2 class="app-section-title">Direkt aus dem Einsatz.</h2>
     <p class="lead-text" style="max-width: 800px; margin-bottom: 50px;">Keine gestellten Bilder. Sehen Sie unsere aktuellen Fällungen und Arbeiten live auf Instagram <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a>.</p>
     
-    <div style="background: #000; border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 20px; overflow: hidden; position: relative;">
-      <!-- Elfsight Widget Placeholder -->
-      <div class="elfsight-app-eb3d9ab0-9b43-41dc-ac1e-355b2d715dfc" data-elfsight-app-lazy></div>
-      <!-- Fallback / Demo wenn Widget nicht geladen ist -->
-      <div style="display:flex; justify-content:center; align-items:center; padding: 60px; text-align:center;">
-        <div>
-          <h3 style="color: var(--lime-500); margin-bottom: 20px;">Live-Instagram Feed aktiv</h3>
-          <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 30px;">Hier werden künftig vollautomatisch Ihre Insta-Reels und Bilder geladen. Das sorgt für massiven WOW-Effekt bei jedem Kundenbesuch!</p>
-          <a href="${contact.instagram}" target="_blank" class="button-outline-light">Instagram Profil öffnen</a>
-        </div>
-      </div>
+    <div style="margin-top: 30px;">
+      ${instaVideoHtml}
     </div>
   </section>
 
@@ -438,8 +435,7 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
     <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
     
     <div style="margin-top: 60px;">
-      <!-- Instagram Widget Platzhalter (Automatische Integration) -->
-      <div class="elfsight-app-eb3d9ab0-9b43-41dc-ac1e-355b2d715dfc" data-elfsight-app-lazy></div>
+      ${instaVideoHtml}
     </div>
   </section>
 `);
