@@ -31,8 +31,8 @@ const localBusinessLd = JSON.stringify({
 
 const instaVideoDir = path.join(root, "assets", "video", "instagram");
 const instaVideos = fs.existsSync(instaVideoDir) ? fs.readdirSync(instaVideoDir).filter(f => f.endsWith(".mp4")) : [];
-const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #1a1a1a;"><video src="/assets/video/instagram/${v}" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.95; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.95"></video></div>`).join("")}
+const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;">
+  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #1a1a1a;"><video src="/assets/video/instagram/${v}" autoplay muted loop playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.95; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.95"></video></div>`).join("")}
 </div>`;
 
 const imgDir = path.join(root, "assets", "img");
@@ -673,16 +673,17 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
   
   <section class="app-section" style="padding-top: 100px;">
     <h1 class="app-section-title" style="color:var(--white);">Direkt aus dem Einsatz. <br><span class="lime-text">Live von Instagram.</span></h1>
-    <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
-    
-    <div style="margin-top: 60px;">
-      ${instaVideoHtml}
-    </div>
-    
-    <div style="margin-top: 80px;">
-      <h2 class="app-section-title">Unsere Fotogalerie</h2>
-      <p style="color:var(--text-muted); margin-bottom: 30px;">Zusätzlich zu unseren Instagram-Videos finden Sie hier unsere gesammelten Eindrücke, Maschinen und Kletter-Aktionen in hochauflösenden Bildern.</p>
+
+    <div style="margin-top: 40px; margin-bottom: 80px;">
+      <h2 class="app-section-title" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">Fotogalerie</h2>
+      <p style="color:var(--text-muted); margin-bottom: 30px;">Eindrücke, Maschinen und Kletter-Aktionen direkt aus der Region Bisingen.</p>
       ${imgGalleryHtml}
+    </div>
+
+    <div style="margin-top: 40px;">
+      <h2 class="app-section-title" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">Instagram <span class="lime-text">Videos</span></h2>
+      <p style="color:var(--text-muted); margin-bottom: 30px;">Folgen Sie <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer" class="lime-text">@fs_baumservice</a> für die neuesten Clips direkt aus dem Einsatz.</p>
+      ${instaVideoHtml}
     </div>
   </section>
 `);
