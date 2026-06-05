@@ -20,7 +20,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Florian Stuck Baumservice","description":"Professionelle Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen und Rollrasen im Zollernalbkreis.","url":"https://fs-baumservice.de","telephone":"+49-172-7256462","email":"info@fs-baumservice.de","address":{"@type":"PostalAddress","streetAddress":"Balinger Str. 59","postalCode":"72406","addressLocality":"Bisingen-Steinhofen","addressCountry":"DE"},"areaServed":[{"@type":"City","name":"Bisingen"},{"@type":"City","name":"Bisingen-Steinhofen"},{"@type":"City","name":"Balingen"},{"@type":"City","name":"Geislingen"},{"@type":"City","name":"Hechingen"},{"@type":"City","name":"Zollernalbkreis"}],"image":"https://fs-baumservice.de/assets/img/baumservice-header-bisingen.jpg","sameAs":["https://www.instagram.com/fs_baumservice/","https://www.facebook.com/FS.Baumservice"]}</script>
-  <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css?v=16">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -132,6 +132,28 @@
     </div>
   </section>
 
+  <!-- Stats Counter Strip -->
+  <section class="stats-strip app-section" style="padding: 70px 60px;">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="200" data-suffix="+">0</span>
+        <span class="stat-label">Projekte erfolgreich abgeschlossen</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="5" data-suffix=" Jahre">0</span>
+        <span class="stat-label">Regionale Erfahrung im Zollernalbkreis</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="0" data-prefix="0 €" data-suffix="">–</span>
+        <span class="stat-label">Kosten für die erste Beratung</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100" data-suffix="% SKT">0</span>
+        <span class="stat-label">Saubere Übergabe, jedes Mal</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Leistungen -->
   <section class="app-section">
     <h2 class="app-section-title">Was wir <span class="lime-text">können.</span></h2>
@@ -200,26 +222,39 @@
   <section class="app-section" style="background: rgba(22, 24, 34, 0.6); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
     <h2 class="app-section-title">Unser <span class="lime-text">Ablauf.</span></h2>
     <p class="lead-text" style="max-width: 800px; margin-bottom: 60px;">Von der ersten Anfrage bis zum sauberen Grundstück. Klar, transparent und ohne versteckte Kosten.</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-      <div class="card-3d" style="padding: 40px;">
-        <h3 style="color: var(--lime-500); font-size: 2rem; margin-bottom: 20px;">01.</h3>
-        <h4 style="color: var(--white); font-size: 1.3rem; margin-bottom: 15px;">Die 3D-Anfrage</h4>
-        <p style="color: var(--text-muted);">Nutzen Sie unseren Konfigurator oder schreiben Sie uns per WhatsApp. Beschreiben Sie kurz Ihr Projekt.</p>
+    <div class="timeline" style="max-width: 680px;">
+      <div class="timeline-track"></div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card-3d">
+          <span class="timeline-num">01.</span>
+          <h4>Die 3D-Anfrage</h4>
+          <p>Nutzen Sie unseren Konfigurator oder schreiben Sie uns per WhatsApp. Beschreiben Sie kurz Ihr Projekt.</p>
+        </div>
       </div>
-      <div class="card-3d" style="padding: 40px;">
-        <h3 style="color: var(--lime-500); font-size: 2rem; margin-bottom: 20px;">02.</h3>
-        <h4 style="color: var(--white); font-size: 1.3rem; margin-bottom: 15px;">Besichtigung</h4>
-        <p style="color: var(--text-muted);">Wir schauen uns den Baum oder das Grundstück vor Ort an und besprechen die sicherste Technik.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card-3d">
+          <span class="timeline-num">02.</span>
+          <h4>Besichtigung</h4>
+          <p>Wir schauen uns den Baum oder das Grundstück vor Ort an und besprechen die sicherste Technik.</p>
+        </div>
       </div>
-      <div class="card-3d" style="padding: 40px;">
-        <h3 style="color: var(--lime-500); font-size: 2rem; margin-bottom: 20px;">03.</h3>
-        <h4 style="color: var(--white); font-size: 1.3rem; margin-bottom: 15px;">Umsetzung</h4>
-        <p style="color: var(--text-muted);">Termingerechte, sichere Durchführung. Ob Seilklettertechnik oder schweres Gerät – wir sind bereit.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card-3d">
+          <span class="timeline-num">03.</span>
+          <h4>Umsetzung</h4>
+          <p>Termingerechte, sichere Durchführung. Ob Seilklettertechnik oder schweres Gerät – wir sind bereit.</p>
+        </div>
       </div>
-      <div class="card-3d" style="padding: 40px;">
-        <h3 style="color: var(--lime-500); font-size: 2rem; margin-bottom: 20px;">04.</h3>
-        <h4 style="color: var(--white); font-size: 1.3rem; margin-bottom: 15px;">Übergabe</h4>
-        <p style="color: var(--text-muted);">Wir verlassen das Grundstück sauber und räumen auf Wunsch das gesamte Schnittgut ab.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card-3d">
+          <span class="timeline-num">04.</span>
+          <h4>Übergabe</h4>
+          <p>Wir verlassen das Grundstück sauber und räumen auf Wunsch das gesamte Schnittgut ab.</p>
+        </div>
       </div>
     </div>
     <div style="text-align: center; margin-top: 60px;">
@@ -241,42 +276,166 @@
     <h3 style="color:var(--white); margin-top: 60px; margin-bottom: 20px; font-size:1.8rem;">Einblick in unsere Projekte</h3>
     <p style="color:var(--text-muted); margin-bottom: 30px; font-size:1.1rem;">Von der Seilklettertechnik bis zum Hubsteiger-Einsatz. Hier sehen Sie unsere Ausrüstung und Technik im echten Einsatz rund um Bisingen.</p>
     <div style="margin-top: 30px;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-  <div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/20180314_104619.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/IMG_0274.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/IMG_0718.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/SAM_0275.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/SAM_0337.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/baumfaellung-bisingen-seilklettertechnik.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/baumpflege-zollernalb-arbeitseinsatz.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/baumservice-header-bisingen.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/baumservice-luftbild-projekt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/baumservice-maschineneinsatz-bisingen.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/drohne-026.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/florian_stuck_bk002.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/heckenschnitt-grundstueckspflege.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div><div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/fs-baumservice-mvp/assets/img/wurzelstockfraesen-baumservice.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div>
+      <div class="masonry-grid">
+  <div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/20180314_104619.jpg" loading="lazy" alt="Baumarbeiten FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumarbeiten FS Baumservice Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/IMG_0274.jpg" loading="lazy" alt="Baumarbeiten FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumarbeiten FS Baumservice Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/IMG_0718.jpg" loading="lazy" alt="Baumarbeiten FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumarbeiten FS Baumservice Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/SAM_0275.jpg" loading="lazy" alt="Baumarbeiten FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumarbeiten FS Baumservice Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/SAM_0337.jpg" loading="lazy" alt="Baumarbeiten FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumarbeiten FS Baumservice Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/baumfaellung-bisingen-seilklettertechnik.jpg" loading="lazy" alt="Baumfaellung Bisingen Seilklettertechnik – FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumfaellung Bisingen Seilklettertechnik</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/baumpflege-zollernalb-arbeitseinsatz.jpg" loading="lazy" alt="Baumpflege Zollernalb Arbeitseinsatz – FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumpflege Zollernalb Arbeitseinsatz</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/baumservice-header-bisingen.jpg" loading="lazy" alt="Baumservice Header Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumservice Header Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/baumservice-luftbild-projekt.jpg" loading="lazy" alt="Baumservice Luftbild Projekt">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumservice Luftbild Projekt</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/baumservice-maschineneinsatz-bisingen.jpg" loading="lazy" alt="Baumservice Maschineneinsatz Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumservice Maschineneinsatz Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/drohne-026.jpg" loading="lazy" alt="Baumarbeiten FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Baumarbeiten FS Baumservice Bisingen</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/florian_stuck_bk002.jpg" loading="lazy" alt="Florian Stuck Bk002 – FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Florian Stuck Bk002</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/heckenschnitt-grundstueckspflege.jpg" loading="lazy" alt="Heckenschnitt Grundstueckspflege – FS Baumservice Bisingen">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Heckenschnitt Grundstueckspflege</h3>
+    </div>
+  </div><div class="masonry-item">
+    <img src="/fs-baumservice-mvp/assets/img/wurzelstockfraesen-baumservice.jpg" loading="lazy" alt="Wurzelstockfraesen Baumservice">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>Wurzelstockfraesen Baumservice</h3>
+    </div>
+  </div>
 </div>
+    </div>
+  </section>
+
+  <!-- Warum FS Baumservice -->
+  <section class="app-section" style="background: rgba(22,24,34,0.5); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <h2 class="app-section-title">Warum <span class="lime-text">FS Baumservice?</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Maximale Sicherheit</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Wir arbeiten nach ZTV-Baumpflege-Standard und setzen modernste Seilklettertechnik (SKT) ein — auch auf engstem Raum und ohne Kran.</p>
+      </div>
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Regional & schnell</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Als lokales Unternehmen aus Bisingen sind wir schnell vor Ort. Bei Notfällen versuchen wir noch am gleichen Tag zu reagieren.</p>
+      </div>
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Saubere Übergabe</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Wir verlassen kein Grundstück unaufgeräumt. Schnittgut wird auf Wunsch vollständig abtransportiert — ohne versteckte Zusatzkosten.</p>
+      </div>
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Transparente Preise</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Kein Angebot ohne Besichtigung, kein Nachschlag ohne Absprache. Was wir anbieten, gilt — fair und verständlich erklärt.</p>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="app-section" style="background: rgba(0,0,0,0.3);">
     <h2 class="app-section-title">Häufige Fragen.</h2>
-    <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto;">
-      
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 30px; border-radius: var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size: 1.3rem; margin-bottom: 15px;">Wer ist FS Baumservice?</h4>
-          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6;">FS Baumservice ist Florian Stuck Baumservice aus Bisingen-Steinhofen und bietet Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen und Rollrasen in Bisingen, Balingen, Geislingen, Hechingen und im Zollernalbkreis an.</p>
-        </div>
-      
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 30px; border-radius: var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size: 1.3rem; margin-bottom: 15px;">Wie kann man FS Baumservice kontaktieren?</h4>
-          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6;">FS Baumservice ist telefonisch unter 0172 7256462 und per E-Mail an info@fs-baumservice.de erreichbar.</p>
-        </div>
-      
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 30px; border-radius: var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size: 1.3rem; margin-bottom: 15px;">Welche Leistungen bietet FS Baumservice an?</h4>
-          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6;">Die Website nennt Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen, Rollrasen und die Entsorgung von Schnittgut und Stammholz.</p>
-        </div>
-      
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 30px; border-radius: var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size: 1.3rem; margin-bottom: 15px;">Wo arbeitet FS Baumservice?</h4>
-          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6;">Der regionale Fokus liegt auf Bisingen, Balingen, Geislingen, Hechingen und dem Zollernalbkreis.</p>
-        </div>
-      
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 30px; border-radius: var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size: 1.3rem; margin-bottom: 15px;">Was ist bei den Angaben nicht zu behaupten?</h4>
-          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6;">Nicht belegt sind Kundenbewertungen, Notdienst-Angaben, Gründungsjahr oder zusätzliche Zertifikate. Diese Aussagen sollen ohne Inhaberprüfung nicht verwendet werden.</p>
-        </div>
-      
+    <div class="faq-list" style="max-width: 900px; margin: 0 auto;">
+      <div class="faq-item">
+  <button class="faq-question" aria-expanded="false">
+    <span>Wer ist FS Baumservice?</span>
+    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="faq-answer" hidden><p>FS Baumservice ist Florian Stuck Baumservice aus Bisingen-Steinhofen und bietet Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen und Rollrasen in Bisingen, Balingen, Geislingen, Hechingen und im Zollernalbkreis an.</p></div>
+</div><div class="faq-item">
+  <button class="faq-question" aria-expanded="false">
+    <span>Wie kann man FS Baumservice kontaktieren?</span>
+    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="faq-answer" hidden><p>FS Baumservice ist telefonisch unter 0172 7256462 und per E-Mail an info@fs-baumservice.de erreichbar.</p></div>
+</div><div class="faq-item">
+  <button class="faq-question" aria-expanded="false">
+    <span>Welche Leistungen bietet FS Baumservice an?</span>
+    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="faq-answer" hidden><p>Die Website nennt Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen, Rollrasen und die Entsorgung von Schnittgut und Stammholz.</p></div>
+</div><div class="faq-item">
+  <button class="faq-question" aria-expanded="false">
+    <span>Wo arbeitet FS Baumservice?</span>
+    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="faq-answer" hidden><p>Der regionale Fokus liegt auf Bisingen, Balingen, Geislingen, Hechingen und dem Zollernalbkreis.</p></div>
+</div><div class="faq-item">
+  <button class="faq-question" aria-expanded="false">
+    <span>Was ist bei den Angaben nicht zu behaupten?</span>
+    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="faq-answer" hidden><p>Nicht belegt sind Kundenbewertungen, Notdienst-Angaben, Gründungsjahr oder zusätzliche Zertifikate. Diese Aussagen sollen ohne Inhaberprüfung nicht verwendet werden.</p></div>
+</div>
     </div>
   </section>
 
@@ -299,7 +458,7 @@
   </nav>
   </div>
   
-  <script src="/fs-baumservice-mvp/assets/js/site.js?v=9" defer></script>
+  <script src="/fs-baumservice-mvp/assets/js/site.js?v=15" defer></script>
   
   <script>
     // 4-Step Configurator Logic
