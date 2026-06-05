@@ -6,10 +6,9 @@
   <title>Kontakt aufnehmen – FS Baumservice Bisingen | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="Rufen Sie uns an, schreiben Sie per WhatsApp oder nutzen Sie unseren 3D-Konfigurator. Schnelle Reaktionszeit im Zollernalbkreis.">
   <meta name="view-transition" content="same-origin">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="preload" href="/fs-baumservice-mvp/assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://fs-baumservice.de/kontakt/">
+  <link rel="icon" href="/fs-baumservice-mvp/assets/img/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FS Baumservice">
   <meta property="og:locale" content="de_DE">
@@ -20,7 +19,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Florian Stuck Baumservice","description":"Professionelle Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen und Rollrasen im Zollernalbkreis.","url":"https://fs-baumservice.de","telephone":"+49-172-7256462","email":"info@fs-baumservice.de","address":{"@type":"PostalAddress","streetAddress":"Balinger Str. 59","postalCode":"72406","addressLocality":"Bisingen-Steinhofen","addressCountry":"DE"},"areaServed":[{"@type":"City","name":"Bisingen"},{"@type":"City","name":"Bisingen-Steinhofen"},{"@type":"City","name":"Balingen"},{"@type":"City","name":"Geislingen"},{"@type":"City","name":"Hechingen"},{"@type":"City","name":"Zollernalbkreis"}],"image":"https://fs-baumservice.de/assets/img/baumservice-header-bisingen.jpg","sameAs":["https://www.instagram.com/fs_baumservice/","https://www.facebook.com/FS.Baumservice"]}</script>
-  <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css?v=17">
+  <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css?v=18">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -96,7 +95,7 @@
     <main class="app-content">
       
   <section class="hero-app" style="height: 40vh; min-height: 300px;">
-    <video class="hero-video-bg" src="/fs-baumservice-mvp/assets/video/instagram/20260319_DWFOXXbCIA2_1.mp4" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+    <video class="hero-video-bg" src="/fs-baumservice-mvp/assets/video/instagram/20260331_DWigl6XCGvF_1.mp4" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
     <div class="hero-app-content">
       <h1>Kontakt.</h1>
       <p>Kein Formular-Chaos — einfach anrufen oder schreiben.</p>
@@ -231,9 +230,22 @@
   </nav>
   </div>
   
-  <script src="/fs-baumservice-mvp/assets/js/site.js?v=15" defer></script>
+  <script src="/fs-baumservice-mvp/assets/js/site.js?v=16" defer></script>
   
   <script>
+    // Wizard selection tracker + WhatsApp deeplink
+    const _wiz = {};
+    window.wizSelect = function(step, val) { _wiz[step] = val; };
+    window.buildWALink = function(ort, tel, details) {
+      const s = _wiz[1]||'Baumservice'; const u = _wiz[2]||''; const a = _wiz[3]||'';
+      const msg = 'Hallo FS Baumservice!%0A%0AIch interessiere mich für: '+encodeURIComponent(s)
+        +(u?'%0ADringlichkeit: '+encodeURIComponent(u):'')
+        +(a?'%0AZugang: '+encodeURIComponent(a):'')
+        +(ort?'%0AOrt: '+encodeURIComponent(ort):'')
+        +(tel?'%0ATelefon: '+encodeURIComponent(tel):'')
+        +(details?'%0ADetails: '+encodeURIComponent(details):'');
+      return 'https://wa.me/491727256462?text='+msg;
+    };
     // 4-Step Configurator Logic
     function nextStep(n) {
       document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });

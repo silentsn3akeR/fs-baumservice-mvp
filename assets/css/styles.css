@@ -1,4 +1,20 @@
-/* Google Fonts loaded via <link> in <head> for faster render */
+/* Self-hosted Outfit — DSGVO-compliant, no external requests */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/assets/fonts/outfit-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/assets/fonts/outfit-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
   /* Slate/Navy & Lime DNA */
@@ -600,4 +616,95 @@ body::after {
   .hero-app-content h1,
   .hero-app-content > p,
   .hero-app-content > div { animation: none !important; }
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.testimonial-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.testimonial-stars {
+  color: var(--lime-500);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+.testimonial-text {
+  color: rgba(255,255,255,0.88);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.testimonial-name {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.testimonial-loc {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+.testimonial-loc::before { content: '·'; margin-right: 6px; }
+.testimonial-service {
+  margin-left: auto;
+  background: rgba(169,209,94,0.12);
+  color: var(--lime-400);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(169,209,94,0.2);
+}
+
+/* ============================================================
+   SEASONAL STRIP
+   ============================================================ */
+#seasonal-strip {
+  margin: 0;
+  padding: 14px 60px;
+  background: linear-gradient(90deg, rgba(169,209,94,0.12) 0%, rgba(139,179,66,0.06) 100%);
+  border-bottom: 1px solid rgba(169,209,94,0.2);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.9rem;
+}
+#seasonal-strip .ssn-icon { font-size: 1.3rem; flex-shrink: 0; }
+#seasonal-strip .ssn-label {
+  font-weight: 700;
+  color: var(--lime-400);
+  margin-right: 4px;
+}
+#seasonal-strip .ssn-text { color: var(--text-muted); }
+#seasonal-strip .ssn-cta {
+  margin-left: auto;
+  color: var(--lime-500);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+#seasonal-strip .ssn-cta:hover { color: var(--lime-400); }
+@media (max-width: 768px) {
+  #seasonal-strip { padding: 12px 20px; }
+  #seasonal-strip .ssn-cta { display: none; }
 }

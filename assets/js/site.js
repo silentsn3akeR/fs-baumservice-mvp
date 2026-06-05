@@ -173,3 +173,20 @@ window.prevStep = function(n) {
   }, 300);
   for(let i=n+1; i<=4; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
 }
+
+// Seasonal service tip strip
+(function() {
+  const el = document.getElementById('seasonal-strip');
+  if (!el) return;
+  const m = new Date().getMonth() + 1;
+  const seasons = [
+    { months: [3,4,5], icon: '🌱', label: 'Frühling:', text: 'Jetzt ideale Zeit für Kronenpflege und Totholzentfernung.', cta: 'Baumpflege anfragen →', href: '/leistungen/baumpflege/' },
+    { months: [6,7,8], icon: '☀️', label: 'Sommer:', text: 'Hitzestress gefährdet Bäume. Jetzt Kontrolle und Heckenschnitt (nach Brutzeit).', cta: 'Termin anfragen →', href: '/angebot/' },
+    { months: [9,10,11], icon: '🍂', label: 'Herbst:', text: 'Die beste Zeit für Baumfällungen und Wurzelstockfräsen.', cta: 'Angebot einholen →', href: '/angebot/' },
+    { months: [12,1,2], icon: '❄️', label: 'Winter:', text: 'Sturmschäden? Sicherheitsprüfung oder Fällung bei laubfreier Sicht.', cta: 'Beratung anfragen →', href: '/kontakt/' },
+  ];
+  const season = seasons.find(s => s.months.includes(m));
+  if (!season) return;
+  el.innerHTML = '<span class="ssn-icon">'+season.icon+'</span><span class="ssn-label">'+season.label+'</span><span class="ssn-text">'+season.text+'</span><a class="ssn-cta" href="'+season.href+'">'+season.cta+'</a>';
+  el.hidden = false;
+})();
