@@ -132,7 +132,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=10">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=11">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -191,7 +191,7 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=10" defer></script>
+  <script src="/assets/js/site.js?v=11" defer></script>
   
   <script>
     // 4-Step Configurator Logic

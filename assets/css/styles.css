@@ -244,7 +244,12 @@ input:focus, textarea:focus { border-color: var(--lime-500) !important; backgrou
 /* APP ANIMATIONS */
 @keyframes appFadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .app-content { animation: appFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.card-3d, .app-section { animation: appFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
+.app-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.app-section.is-visible { opacity: 1; transform: none; }
 ::view-transition-old(root) { animation: 0.3s ease-in both fade-out, 0.3s ease-in both slide-out; }
 ::view-transition-new(root) { animation: 0.4s ease-out both fade-in, 0.4s ease-out both slide-in; }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }

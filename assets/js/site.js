@@ -90,6 +90,19 @@ if (timelineEl && timelineTrack && timelineItems.length && 'IntersectionObserver
   timelineItems.forEach(item => itemObs.observe(item));
 }
 
+// Section scroll-in animation
+if ('IntersectionObserver' in window) {
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        sectionObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.app-section').forEach(sec => sectionObs.observe(sec));
+}
+
 // 4-Step Configurator Logic
 window.nextStep = function(n) {
   document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
