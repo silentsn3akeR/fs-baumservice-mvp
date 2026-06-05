@@ -85,11 +85,14 @@ body {
     display: flex; position: fixed; bottom: 0; left: 0; right: 0; height: 80px;
     background: rgba(15, 16, 22, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(169, 209, 94, 0.2); z-index: 100;
-    justify-content: space-around; align-items: center; padding: 0 10px; padding-bottom: env(safe-area-inset-bottom);
+    justify-content: flex-start; overflow-x: auto; overflow-y: hidden; align-items: center; padding: 0 20px; gap: 30px; padding-bottom: env(safe-area-inset-bottom);
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
+  .app-bottombar::-webkit-scrollbar { display: none; }
   .bottom-btn {
     display: flex; flex-direction: column; align-items: center; gap: 5px;
     color: var(--text-muted); font-size: 0.75rem; font-weight: 700; transition: all 0.3s;
+    flex-shrink: 0;
   }
   .bottom-btn.is-active, .bottom-btn:hover { color: var(--lime-500); transform: translateY(-3px); }
   .bottom-btn svg { width: 24px; height: 24px; }
