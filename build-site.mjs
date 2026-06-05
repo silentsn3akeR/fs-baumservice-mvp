@@ -62,7 +62,7 @@ function bottomBar() {
     <a href="/ratgeber/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></a>
     <a href="/referenzen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
     <a href="/ueber-uns/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
-    <a href="/angebot/" class="bottom-btn bottom-fab" style="color: #0f1016;"><svg viewBox="0 0 24 24" fill="none" stroke="#0f1016" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+    <a href="https://wa.me/\${contact.phone.replace(/[^0-9]/g, '')}" class="bottom-btn bottom-fab" style="background: #25D366; color: #0f1016; border-color: #25D366;"><svg viewBox="0 0 24 24" fill="none" stroke="#0f1016" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
   </nav>`;
 }
 
@@ -564,7 +564,7 @@ writePage("/datenschutz/", "Datenschutz", "Datenschutz", datenschutzHtml);
 
 writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dienstleistungen", `
 <section class="hero-app" style="height: 40vh; min-height: 300px;">
-  <video class="hero-video-bg" src="/assets/video/instagram/\${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
   <div class="hero-app-content">
     <h1>Unsere Leistungen</h1>
     <p>Professionelle Baumpflege & Fällung</p>
@@ -574,18 +574,18 @@ writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dien
     <h1 class="app-section-title" style="font-size:4rem; color:var(--white);">Was wir <span class="lime-text">können.</span></h1>
     <p class="lead-text" style="max-width: 800px;">Alle Leistungen von FS Baumservice im Detail. Professionelle Baumpflege, Baumfällung per Seilklettertechnik, Grundstückspflege und mehr im Zollernalbkreis.</p>
     <div class="service-list" style="margin-top: 60px;">
-      \${services.map(s => \`
-        <a href="/leistungen/\${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
+      ${services.map(s => `
+        <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
           <div class="sdc-image">
-            <video src="/assets/video/instagram/\${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
+            <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
           </div>
           <div class="sdc-content">
-            <h3 class="lime-text">\${s.name}</h3>
-            <p class="sdc-intro">\${s.intro}</p>
+            <h3 class="lime-text">${s.name}</h3>
+            <p class="sdc-intro">${s.intro}</p>
             <span class="button-primary" style="display:inline-block; margin-top:20px;">Details & Infos</span>
           </div>
         </a>
-      \`).join("")}
+      `).join("")}
     </div>
 </section>
 `);
@@ -593,7 +593,7 @@ writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dien
 writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage", `
 
 <section class="hero-app" style="height: 40vh; min-height: 300px;">
-  <video class="hero-video-bg" src="/assets/video/instagram/\${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
   <div class="hero-app-content">
     <h1>3D-Anfrage</h1>
     <p>Kostenfrei und unverbindlich</p>
