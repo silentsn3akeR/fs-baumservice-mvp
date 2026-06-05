@@ -71,6 +71,25 @@ if (menuToggle && sidebar && overlay) {
   overlay.addEventListener("click", toggleMenu);
 }
 
+// Ablauf Timeline Scroll Animation
+const timelineEl = document.querySelector('.timeline');
+const timelineTrack = document.querySelector('.timeline-track');
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+if (timelineEl && timelineTrack && timelineItems.length && 'IntersectionObserver' in window) {
+  const trackObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) timelineTrack.classList.add('animate');
+  }, { threshold: 0.15 });
+  trackObs.observe(timelineEl);
+
+  const itemObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in-view');
+    });
+  }, { threshold: 0.25 });
+  timelineItems.forEach(item => itemObs.observe(item));
+}
+
 // 4-Step Configurator Logic
 window.nextStep = function(n) {
   document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
