@@ -142,7 +142,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=14">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=15">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -201,7 +201,7 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=14" defer></script>
+  <script src="/assets/js/site.js?v=15" defer></script>
   
   <script>
     // 4-Step Configurator Logic
@@ -630,51 +630,108 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
   </section>
 `);
 
-writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
-    <section class="hero-app" style="height: 40vh; min-height: 300px;">
-      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
-      <div class="hero-app-content">
-        <h1>Über Uns</h1>
-        <p>Ihr regionaler Baumservice</p>
-      </div>
-    </section>
-  
-  <section class="app-section" style="padding-top: 100px;">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 class="app-section-title">Baumservice aus Bisingen.</h2>
-        <p class="lead-text">FS Baumservice steht für sichere Baumarbeiten, Seilklettertechnik, Wurzelstockfräsen, Heckenschnitt und Rollrasen – direkt aus der Region.</p>
-        <div class="trust-badges">
-          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ZTV-Baumpflege Standard</div>
-          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sichere Seilklettertechnik</div>
+writePage("/ueber-uns/", "Über Florian Stuck – FS Baumservice aus Bisingen", "Ihr persönlicher Baumprofi aus Bisingen-Steinhofen. Seilklettertechnik, ZTV-Baumpflege und ehrliche Arbeit im Zollernalbkreis.", `
+  <section class="hero-app" style="height: 50vh; min-height: 340px;">
+    <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+    <div class="hero-app-content">
+      <h1>${contact.owner}.<br><span class="lime-text">Ihr Baumpfleger.</span></h1>
+      <p>Lokaler Baumservice aus ${contact.locality} — persönlich, schnell, direkt.</p>
+    </div>
+  </section>
+
+  <!-- Founder Intro -->
+  <section class="app-section">
+    <div class="about-grid" style="gap: 60px; align-items: start;">
+      <div>
+        <h2 class="app-section-title" style="font-size: clamp(1.8rem, 4vw, 3rem);">Hinter FS Baumservice<br><span class="lime-text">steht Florian.</span></h2>
+        <p class="lead-text">Kein anonymer Betrieb. Wenn Sie anrufen, sprechen Sie mit dem Mann, der auch auf den Baum klettert.</p>
+        <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.8; margin-bottom:20px;">Ich bin Florian Stuck und habe FS Baumservice in Bisingen-Steinhofen aufgebaut, weil ich glaube, dass gute Baumarbeit lokale Kenntnis, das richtige Gerät und echte Verantwortung braucht.</p>
+        <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.8; margin-bottom:20px;">Mein Schwerpunkt sind die schwierigen Fälle: Bäume direkt am Haus, auf engem Grundstück, nach Sturmschäden oder dort, wo kein Kran hinkommt. Dafür setze ich auf moderne Seilklettertechnik (SKT) und bringe genau das Gerät mit, das die Situation wirklich braucht.</p>
+        <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.8;">Als lokales Unternehmen bin ich schnell vor Ort, arbeite transparent und verlasse jedes Grundstück so sauber, wie ich es vorgefunden habe.</p>
+        <div class="trust-badges" style="margin-top: 35px;">
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> ZTV-Baumpflege Standard</div>
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Seilklettertechnik (SKT)</div>
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Eigene Wurzelfräse (ab 90 cm Durchfahrt)</div>
+          <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Hubsteiger & schweres Gerät</div>
         </div>
       </div>
-      <div class="about-image card-3d">
+      <div class="about-image card-3d" style="min-height: 420px;">
         <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video>
       </div>
     </div>
-    
-    <div style="margin-top: 60px; background: rgba(0,0,0,0.2); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border);">
-      <h2 style="color:var(--lime-500); font-size: 1.8rem; margin-bottom: 20px;">Unser Anspruch. Ihre Sicherheit.</h2>
-      <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-        Die Pflege, Beurteilung und im Ernstfall auch Fällung von Bäumen ist keine Aufgabe für Laien. Sie erfordert tiefgreifendes Wissen über die Baumstatik, Krankheiten und modernste Sicherungstechniken. Genau deshalb haben wir uns auf die schwierigen Fälle spezialisiert: Standorte, an denen kein Platz für große Maschinen ist, Dächer, die direkt unter der Baumkrone liegen oder Bäume, die durch Stürme gefährlich instabil geworden sind.
-      </p>
-      <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-        <strong>Unsere Ausrüstung ist unser Stolz:</strong> Von präzisen Hubsteigern über schweres Gerät bis hin zur manuellen, baumschonenden Seilklettertechnik (SKT). Wir bringen für jede Herausforderung genau das richtige Werkzeug mit.
-      </p>
-      <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-        Als lokales Unternehmen im Zollernalbkreis (Bisingen, Balingen, Hechingen) sind wir schnell vor Ort, arbeiten transparent und verlassen jedes Grundstück so sauber, wie wir es vorgefunden haben.
-      </p>
+  </section>
+
+  <!-- Versprechen -->
+  <section class="app-section" style="background: rgba(22,24,34,0.6); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <h2 class="app-section-title">Unser <span class="lime-text">Versprechen.</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; background: var(--glass-border); border-radius: var(--radius); overflow: hidden;">
+      <div style="background: var(--slate-950); padding: 44px 36px;">
+        <div style="width:50px;height:50px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3 style="color:var(--white); font-size:1.3rem; font-weight:800; margin:0 0 14px;">Persönlich</h3>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7;">Sie haben immer einen direkten Ansprechpartner — keine Callcenter, kein Subunternehmer. Was vereinbart wird, gilt.</p>
+      </div>
+      <div style="background: var(--slate-950); padding: 44px 36px;">
+        <div style="width:50px;height:50px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="color:var(--white); font-size:1.3rem; font-weight:800; margin:0 0 14px;">Sauber</h3>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7;">Kein Grundstück wird unaufgeräumt verlassen. Schnittgut und Stammholz werden auf Wunsch vollständig abtransportiert.</p>
+      </div>
+      <div style="background: var(--slate-950); padding: 44px 36px;">
+        <div style="width:50px;height:50px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 style="color:var(--white); font-size:1.3rem; font-weight:800; margin:0 0 14px;">Transparent</h3>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7;">Kein Angebot ohne Besichtigung, kein Nachschlag ohne Absprache. Ehrliche Einschätzung — auch wenn der Rat lautet: abwarten.</p>
+      </div>
     </div>
-    
-    <div style="margin-top: 80px;">
-      <h2 class="app-section-title">Unser Alltag. Live.</h2>
-      ${instaVideoHtml}
+  </section>
+
+  <!-- Ausrüstung -->
+  <section class="app-section">
+    <h2 class="app-section-title">Unsere <span class="lime-text">Ausrüstung.</span></h2>
+    <p class="lead-text" style="max-width:700px; margin-bottom:50px;">Jede Situation braucht das richtige Werkzeug. Wir investieren in Technik, damit wir auch dort arbeiten können, wo andere nicht hinkommen.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div class="card-3d" style="padding:32px;">
+        <h4 style="color:var(--lime-500); font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 10px; font-weight:800;">Seilklettertechnik (SKT)</h4>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7; font-size:0.95rem;">Baumschonende Kletterarbeit für enge Standorte, Kronenpflege und kontrolliertes stückweises Abtragen ohne Kran.</p>
+      </div>
+      <div class="card-3d" style="padding:32px;">
+        <h4 style="color:var(--lime-500); font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 10px; font-weight:800;">Hubsteiger</h4>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7; font-size:0.95rem;">Für größere Kronenbereiche oder wenn ein stabiler Standpunkt außerhalb des Baums gebraucht wird. Schnell und präzise.</p>
+      </div>
+      <div class="card-3d" style="padding:32px;">
+        <h4 style="color:var(--lime-500); font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 10px; font-weight:800;">Eigene Wurzelfräse</h4>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7; font-size:0.95rem;">Passiert durch Durchfahrten ab ca. 90 cm Breite. Fräst Baumstümpfe bodenbündig aus — die Fläche ist danach sofort wieder nutzbar.</p>
+      </div>
+      <div class="card-3d" style="padding:32px;">
+        <h4 style="color:var(--lime-500); font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 10px; font-weight:800;">Schweres Gerät</h4>
+        <p style="color:var(--text-muted); margin:0; line-height:1.7; font-size:0.95rem;">Für Projekte, bei denen Kran oder Radlader sinnvoll sind. Wir koordinieren den richtigen Geräteeinsatz für jede Baustelle.</p>
+      </div>
     </div>
-    
-    <div style="margin-top: 80px;">
-      <h2 class="app-section-title">Maschinen & Einsatzbilder</h2>
-      ${imgGalleryHtml}
+  </section>
+
+  <!-- Live Feed -->
+  <section class="app-section" style="background: rgba(0,0,0,0.2); border-top: 1px solid var(--glass-border);">
+    <h2 class="app-section-title">Unser Alltag. <span class="lime-text">Live.</span></h2>
+    <p class="lead-text" style="max-width:700px; margin-bottom:50px;">Keine gestellten Fotos. Direkt von der Baustelle — Seilarbeit, Fällungen, Maschineneinsatz.</p>
+    <div style="margin-bottom: 60px;">${instaVideoHtml}</div>
+    <h3 style="color:var(--white); font-size:1.8rem; font-weight:800; margin-bottom:30px;">Maschinen & Einsatzbilder</h3>
+    ${imgGalleryHtml}
+  </section>
+
+  <!-- CTA Close -->
+  <section class="app-section" style="background: rgba(22,24,34,0.8); border-top: 1px solid var(--glass-border); text-align: center;">
+    <h2 class="app-section-title" style="max-width:700px; margin:0 auto 20px;">Bereit für Ihr <span class="lime-text">Projekt?</span></h2>
+    <p class="lead-text" style="max-width:600px; margin:0 auto 50px;">Kostenlose Besichtigung, ehrliches Angebot. Rufen Sie an oder starten Sie jetzt die 3D-Anfrage.</p>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <a href="tel:${contact.phone}" class="button-primary btn-pulse" style="display:inline-flex; align-items:center; gap:10px; padding:18px 36px; font-size:1.1rem; text-decoration:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        ${contact.phoneDisplay}
+      </a>
+      <a href="/angebot/" class="hero-cta-outline" style="padding:18px 36px; font-size:1.1rem;">3D-Anfrage starten →</a>
     </div>
   </section>
 `);
