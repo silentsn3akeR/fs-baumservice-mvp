@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fs-baumservice.de/sitemap.xml

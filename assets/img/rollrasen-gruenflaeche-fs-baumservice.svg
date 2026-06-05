@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Rollrasen und Grünfläche FS Baumservice</title>
+  <desc id="desc">Grafisches Platzhaltermotiv für Rollrasen, Rasenvorbereitung und gepflegte Grünflächen</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f5f1"/>
+      <stop offset="1" stop-color="#e9e2d6"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b9df6f"/>
+      <stop offset=".55" stop-color="#708b4a"/>
+      <stop offset="1" stop-color="#1f4d36"/>
+    </linearGradient>
+    <linearGradient id="roll" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d6ef8f"/>
+      <stop offset="1" stop-color="#6f8d46"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#071b15" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#sky)"/>
+  <path d="M0 695c214-84 428-98 642-42 250 66 483 52 699-40 70-30 124-46 259-58v645H0z" fill="#0e3026"/>
+  <path d="M0 760c260-86 496-88 708-7 232 89 455 70 680-30 60-27 118-43 212-50v527H0z" fill="url(#grass)"/>
+  <g opacity=".22" stroke="#f7f5f1" stroke-width="3">
+    <path d="M-80 952c238-116 458-126 660-30 214 101 432 86 652-42 111-65 249-94 420-88"/>
+    <path d="M-80 1018c238-116 458-126 660-30 214 101 432 86 652-42 111-65 249-94 420-88"/>
+    <path d="M-80 1084c238-116 458-126 660-30 214 101 432 86 652-42 111-65 249-94 420-88"/>
+  </g>
+  <g filter="url(#shadow)">
+    <ellipse cx="1050" cy="725" rx="250" ry="82" fill="#183b2c" opacity=".35"/>
+    <path d="M742 650c92-84 262-111 392-65 118 42 163 122 91 180-76 61-240 79-365 40-132-41-203-126-118-205z" fill="url(#roll)"/>
+    <path d="M878 609c110 4 208 36 256 84 26 26 28 54 4 76" fill="none" stroke="#f7f5f1" stroke-width="18" stroke-linecap="round" opacity=".42"/>
+    <path d="M792 674c160-16 317 18 432 91" fill="none" stroke="#0e3026" stroke-width="10" stroke-linecap="round" opacity=".38"/>
+  </g>
+  <g transform="translate(116,112)">
+    <rect width="232" height="78" rx="8" fill="#34313d"/>
+    <path d="M50 20H31v26M182 20h19v26M31 54v19h42M201 54v19h-42" fill="none" stroke="#f7f5f1" stroke-width="5"/>
+    <path d="M113 23c-13 3-22 12-23 25-16-1-28 9-28 23 0 15 12 25 27 25 7 0 13-2 18-6 5 8 14 12 24 12 15 0 27-10 30-24 13-2 22-12 22-25 0-15-13-27-29-27-5 0-9 1-13 3-5-7-13-11-28-6z" fill="#b9df6f"/>
+    <text x="116" y="139" fill="#34313d" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800" text-anchor="middle">Rollrasen</text>
+  </g>
+</svg>
