@@ -56,3 +56,17 @@ if ("IntersectionObserver" in window) {
   
   sections.forEach((s) => observer.observe(s));
 }
+
+
+// Mobile Menu Logic
+const menuToggle = document.querySelector(".mobile-menu-toggle");
+const sidebar = document.querySelector(".app-sidebar");
+const overlay = document.querySelector(".mobile-overlay");
+if (menuToggle && sidebar && overlay) {
+  const toggleMenu = () => {
+    sidebar.classList.toggle("is-open");
+    overlay.classList.toggle("is-active");
+  };
+  menuToggle.addEventListener("click", toggleMenu);
+  overlay.addEventListener("click", toggleMenu);
+}
