@@ -11,7 +11,7 @@ const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 const instaVideoDir = path.join(root, "assets", "video", "instagram");
 const instaVideos = fs.existsSync(instaVideoDir) ? fs.readdirSync(instaVideoDir).filter(f => f.endsWith(".mp4")) : [];
 const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #1a1a1a;"><video src="/assets/video/instagram/${v}" controls muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.95; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.95"></video></div>`).join("")}
+  ${instaVideos.map(v => `<div class="card-3d" style="aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius-sm); background: #1a1a1a;"><video src="/assets/video/instagram/${v}" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.95; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.95"></video></div>`).join("")}
 </div>`;
 
 const imgDir = path.join(root, "assets", "img");
@@ -75,7 +75,7 @@ function appLayout(body, title, description) {
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=8">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=9">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -126,7 +126,7 @@ function appLayout(body, title, description) {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=8" defer></script>
+  <script src="/assets/js/site.js?v=9" defer></script>
   
   <script>
     // 4-Step Configurator Logic
@@ -218,7 +218,7 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
       ${services.map(s => `
         <a href="/leistungen/${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
           <div class="sdc-image">
-            <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" controls preload="metadata" style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
+            <video src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
           </div>
           <div class="sdc-content">
             <h3 class="lime-text">${s.name}</h3>
@@ -437,7 +437,7 @@ for (const s of services) {
       <h2 class="app-section-title">Eindrücke aus der Praxis</h2>
       <p style="color:var(--text-muted); margin-bottom: 30px; font-size:1.1rem;">Bilder und Videos direkt von unseren Baustellen rund um das Thema ${s.name}.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
-        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="/assets/video/instagram/' + v + '" controls preload="metadata" style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
+        ${instaVideos.sort(() => 0.5 - Math.random()).slice(0, 4).map(v => '<div class="card-3d" style="aspect-ratio: 9/16; overflow:hidden;"><video src="/assets/video/instagram/' + v + '" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>').join("")}
       </div>
       <div style="margin-top: 30px;">
         ${imgGalleryHtml}
@@ -455,6 +455,14 @@ for (const s of services) {
 }
 
 writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Feed", `
+    <section class="hero-app" style="height: 40vh; min-height: 300px;">
+      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+      <div class="hero-app-content">
+        <h1>Galerie & Insta</h1>
+        <p>Echte Einsätze im Zollernalbkreis</p>
+      </div>
+    </section>
+  
   <section class="app-section" style="padding-top: 100px;">
     <h1 class="app-section-title" style="color:var(--white);">Direkt aus dem Einsatz. <br><span class="lime-text">Live von Instagram.</span></h1>
     <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
@@ -472,6 +480,14 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
 `);
 
 writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
+    <section class="hero-app" style="height: 40vh; min-height: 300px;">
+      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+      <div class="hero-app-content">
+        <h1>Über Uns</h1>
+        <p>Ihr regionaler Baumservice</p>
+      </div>
+    </section>
+  
   <section class="app-section" style="padding-top: 100px;">
     <div class="about-grid">
       <div class="about-text">
@@ -513,6 +529,14 @@ writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
 `);
 
 writePage("/kontakt/", "Kontakt", "Treten Sie mit uns in Verbindung", `
+    <section class="hero-app" style="height: 40vh; min-height: 300px;">
+      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+      <div class="hero-app-content">
+        <h1>Kontakt</h1>
+        <p>Wir freuen uns auf Ihre Anfrage</p>
+      </div>
+    </section>
+  
   <section class="app-section" style="padding-top: 100px;">
     <h1 class="app-section-title" style="color:var(--white);">Kontaktieren Sie uns.</h1>
     <div style="background: rgba(22, 24, 34, 0.6); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 600px;">
@@ -525,6 +549,15 @@ writePage("/kontakt/", "Kontakt", "Treten Sie mit uns in Verbindung", `
   </section>
 `);
 
-writePage("/ratgeber/", "Preise, Ratgeber & Baumlexikon", "Infos zu Baumfällung, Kosten und Baumkrankheiten.", ratgeberHtml);
+const ratgeberHero = `
+    <section class="hero-app" style="height: 40vh; min-height: 300px;">
+      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+      <div class="hero-app-content">
+        <h1>Ratgeber</h1>
+        <p>Preise, Tipps und Baumlexikon</p>
+      </div>
+    </section>
+  `;
+writePage("/ratgeber/", "Preise, Ratgeber & Baumlexikon", "Infos zu Baumfällung, Kosten und Baumkrankheiten.", ratgeberHero + ratgeberHtml);
 writePage("/impressum/", "Impressum", "Impressum der FS Baumservice", impressumHtml);
 writePage("/datenschutz/", "Datenschutz", "Datenschutz", datenschutzHtml);
