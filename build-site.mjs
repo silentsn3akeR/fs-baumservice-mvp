@@ -141,7 +141,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=18">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=19">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -200,9 +200,10 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=16" defer></script>
+  <script src="/assets/js/site.js?v=17" defer></script>
   
   <script>
+    window.__BASE__ = '${deployBasePath}';
     // Wizard selection tracker + WhatsApp deeplink
     const _wiz = {};
     window.wizSelect = function(step, val) { _wiz[step] = val; };
