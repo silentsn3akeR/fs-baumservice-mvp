@@ -178,12 +178,13 @@ window.prevStep = function(n) {
 (function() {
   const el = document.getElementById('seasonal-strip');
   if (!el) return;
+  const base = (window.__BASE__ || '');
   const m = new Date().getMonth() + 1;
   const seasons = [
-    { months: [3,4,5], icon: '🌱', label: 'Frühling:', text: 'Jetzt ideale Zeit für Kronenpflege und Totholzentfernung.', cta: 'Baumpflege anfragen →', href: '/leistungen/baumpflege/' },
-    { months: [6,7,8], icon: '☀️', label: 'Sommer:', text: 'Hitzestress gefährdet Bäume. Jetzt Kontrolle und Heckenschnitt (nach Brutzeit).', cta: 'Termin anfragen →', href: '/angebot/' },
-    { months: [9,10,11], icon: '🍂', label: 'Herbst:', text: 'Die beste Zeit für Baumfällungen und Wurzelstockfräsen.', cta: 'Angebot einholen →', href: '/angebot/' },
-    { months: [12,1,2], icon: '❄️', label: 'Winter:', text: 'Sturmschäden? Sicherheitsprüfung oder Fällung bei laubfreier Sicht.', cta: 'Beratung anfragen →', href: '/kontakt/' },
+    { months: [3,4,5], icon: '🌱', label: 'Frühling:', text: 'Jetzt ideale Zeit für Kronenpflege und Totholzentfernung.', cta: 'Baumpflege anfragen →', href: base+'/leistungen/baumpflege/' },
+    { months: [6,7,8], icon: '☀️', label: 'Sommer:', text: 'Hitzestress gefährdet Bäume. Jetzt Kontrolle und Heckenschnitt (nach Brutzeit).', cta: 'Termin anfragen →', href: base+'/angebot/' },
+    { months: [9,10,11], icon: '🍂', label: 'Herbst:', text: 'Die beste Zeit für Baumfällungen und Wurzelstockfräsen.', cta: 'Angebot einholen →', href: base+'/angebot/' },
+    { months: [12,1,2], icon: '❄️', label: 'Winter:', text: 'Sturmschäden? Sicherheitsprüfung oder Fällung bei laubfreier Sicht.', cta: 'Beratung anfragen →', href: base+'/kontakt/' },
   ];
   const season = seasons.find(s => s.months.includes(m));
   if (!season) return;
