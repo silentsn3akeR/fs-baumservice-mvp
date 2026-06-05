@@ -23,7 +23,7 @@ export const impressumHtml = `
       </p>
 
       <h3 style="color:var(--lime-500); margin-top: 30px;">EU-Streitschlichtung</h3>
-      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" class="lime-text">https://ec.europa.eu/consumers/odr/</a>.<br> Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="lime-text">https://ec.europa.eu/consumers/odr/</a>.<br> Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
 
       <h3 style="color:var(--lime-500); margin-top: 30px;">Verbraucher­streit­beilegung/Universal­schlichtungs­stelle</h3>
       <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>

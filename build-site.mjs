@@ -5,7 +5,7 @@ import { impressumHtml, datenschutzHtml } from "./data-legal.js";
 import { ratgeberHtml } from "./data-ratgeber.js";
 
 const root = process.cwd();
-const baseUrl = "http://fs-baumservice.de";
+const baseUrl = "https://fs-baumservice.de";
 const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
 
 const instaVideoDir = path.join(root, "assets", "video", "instagram");
@@ -62,7 +62,7 @@ function bottomBar() {
     <a href="/ratgeber/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></a>
     <a href="/referenzen/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="21 15 16 10 5 21"/></svg></a>
     <a href="/ueber-uns/" class="bottom-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
-    <a href="https://wa.me/\${contact.phone.replace(/[^0-9]/g, '')}" class="bottom-btn bottom-fab" style="background: #25D366; color: #0f1016; border-color: #25D366;"><svg viewBox="0 0 24 24" fill="none" stroke="#0f1016" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+    <a href="https://wa.me/${contact.phone.replace(/[^0-9]/g, "")}" class="bottom-btn bottom-fab" aria-label="WhatsApp" style="background: #25D366; color: #0f1016; border-color: #25D366;"><svg viewBox="0 0 24 24" fill="none" stroke="#0f1016" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
   </nav>`;
 }
 
@@ -98,7 +98,7 @@ function appLayout(body, title, description) {
       .app-content { padding-top: 70px; } /* Push content down on mobile */
     }
     @media (max-width: 450px) {
-      .topbar-actions { display: none; }
+      .tb-wa { display: none; }
       .topbar-brand span { font-size: 1rem; }
     }
     .brand-mark img { width: 50px; height: 50px; border-radius: var(--radius-sm); object-fit: cover; }
@@ -264,7 +264,7 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
   <!-- Massive Instagram Widget -->
   <section class="app-section">
     <h2 class="app-section-title">Direkt aus dem Einsatz.</h2>
-    <p class="lead-text" style="max-width: 800px; margin-bottom: 50px;">Keine gestellten Bilder. Sehen Sie unsere aktuellen Fällungen und Arbeiten live auf Instagram <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a>.</p>
+    <p class="lead-text" style="max-width: 800px; margin-bottom: 50px;">Keine gestellten Bilder. Sehen Sie unsere aktuellen Fällungen und Arbeiten live auf Instagram <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer" class="lime-text">@fs_baumservice</a>.</p>
     
     <div style="margin-top: 30px;">
       ${instaVideoHtml}
@@ -465,7 +465,7 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
   
   <section class="app-section" style="padding-top: 100px;">
     <h1 class="app-section-title" style="color:var(--white);">Direkt aus dem Einsatz. <br><span class="lime-text">Live von Instagram.</span></h1>
-    <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
+    <p class="lead-text">Folgen Sie <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer" class="lime-text">@fs_baumservice</a> für die neuesten Videos und Fällarbeiten direkt aus der Region Bisingen.</p>
     
     <div style="margin-top: 60px;">
       ${instaVideoHtml}
