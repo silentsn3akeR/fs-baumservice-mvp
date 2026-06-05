@@ -7,6 +7,27 @@ import { ratgeberHtml } from "./data-ratgeber.js";
 const root = process.cwd();
 const baseUrl = "https://fs-baumservice.de";
 const deployBasePath = (process.env.DEPLOY_BASE_PATH || "").replace(/\/$/, "");
+const ogImage = `${baseUrl}/assets/img/baumservice-header-bisingen.jpg`;
+
+const localBusinessLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": contact.legalName,
+  "description": "Professionelle Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen und Rollrasen im Zollernalbkreis.",
+  "url": baseUrl,
+  "telephone": contact.phone,
+  "email": contact.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": contact.street,
+    "postalCode": contact.postalCode,
+    "addressLocality": contact.locality,
+    "addressCountry": "DE"
+  },
+  "areaServed": areaServed.map(a => ({ "@type": "City", "name": a })),
+  "image": ogImage,
+  "sameAs": [contact.instagram, contact.facebook]
+});
 
 const instaVideoDir = path.join(root, "assets", "video", "instagram");
 const instaVideos = fs.existsSync(instaVideoDir) ? fs.readdirSync(instaVideoDir).filter(f => f.endsWith(".mp4")) : [];
@@ -67,7 +88,8 @@ function bottomBar() {
   </nav>`;
 }
 
-function appLayout(body, title, description) {
+function appLayout(body, title, description, pathname = "/") {
+  const canonicalUrl = `${baseUrl}${pathname}`;
   return `<!doctype html>
 <html lang="de">
 <head>
@@ -76,6 +98,17 @@ function appLayout(body, title, description) {
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
+  <link rel="canonical" href="${canonicalUrl}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FS Baumservice">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="${title} | FS Baumservice">
+  <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${ogImage}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <script type="application/ld+json">${localBusinessLd}</script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=9">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
@@ -181,7 +214,7 @@ function writePage(pathname, title, desc, body) {
   const file = pathname === "/" ? "index.html" : path.join(pathname.slice(1), "index.html");
   const target = path.join(root, file);
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  let html = appLayout(body, title, desc);
+  let html = appLayout(body, title, desc, pathname);
   if (deployBasePath) html = html.replaceAll('href="/', `href="${deployBasePath}/`).replaceAll('src="/', `src="${deployBasePath}/`);
   fs.writeFileSync(target, html);
 }
