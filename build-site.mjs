@@ -200,7 +200,7 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=17" defer></script>
+  <script src="/assets/js/site.js?v=18" defer></script>
   
   <script>
     window.__BASE__ = '${deployBasePath}';

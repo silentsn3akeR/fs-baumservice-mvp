@@ -146,8 +146,14 @@ if ('IntersectionObserver' in window) {
         sectionObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0 });
   document.querySelectorAll('.app-section').forEach(sec => sectionObs.observe(sec));
+  // Reveal any sections already in / above viewport after load (tall single-section pages)
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.app-section:not(.is-visible)').forEach(s => {
+      if (s.getBoundingClientRect().top < window.innerHeight) s.classList.add('is-visible');
+    });
+  });
 }
 
 // 4-Step Configurator Logic
