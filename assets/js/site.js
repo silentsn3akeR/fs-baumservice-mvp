@@ -70,3 +70,27 @@ if (menuToggle && sidebar && overlay) {
   menuToggle.addEventListener("click", toggleMenu);
   overlay.addEventListener("click", toggleMenu);
 }
+
+// 4-Step Configurator Logic
+window.nextStep = function(n) {
+  document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
+  setTimeout(() => {
+    const next = document.getElementById('step-'+n);
+    if(next) {
+        next.style.display = 'block';
+        setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
+    }
+  }, 300);
+  for(let i=1; i<=n; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--lime-500)');
+}
+window.prevStep = function(n) {
+  document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(50px)'; setTimeout(()=>s.style.display='none', 300); });
+  setTimeout(() => {
+    const next = document.getElementById('step-'+n);
+    if(next) {
+        next.style.display = 'block';
+        setTimeout(() => { next.style.opacity='1'; next.style.transform='translateX(0)'; }, 50);
+    }
+  }, 300);
+  for(let i=n+1; i<=4; i++) document.getElementById('prog-'+i)?.style.setProperty('background', 'var(--glass-border)');
+}

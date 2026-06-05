@@ -72,7 +72,16 @@
   </aside>
     <main class="app-content">
       
-  <section class="app-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 60px;">
+
+<section class="hero-app" style="height: 40vh; min-height: 300px;">
+  <video class="hero-video-bg" src="/fs-baumservice-mvp/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <div class="hero-app-content">
+    <h1>3D-Anfrage</h1>
+    <p>Kostenfrei und unverbindlich</p>
+  </div>
+</section>
+
+<section class="app-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 20px;">
     <div id="3d-wizard" class="wizard-container card-3d" style="width: 100%; max-width: 900px; background: rgba(22, 24, 34, 0.8); backdrop-filter: blur(30px); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 50px;">
       
       <div class="wizard-progress" style="display:flex; gap: 10px; margin-bottom: 40px;">

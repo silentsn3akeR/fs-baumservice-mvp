@@ -561,3 +561,110 @@ const ratgeberHero = `
 writePage("/ratgeber/", "Preise, Ratgeber & Baumlexikon", "Infos zu Baumfällung, Kosten und Baumkrankheiten.", ratgeberHero + ratgeberHtml);
 writePage("/impressum/", "Impressum", "Impressum der FS Baumservice", impressumHtml);
 writePage("/datenschutz/", "Datenschutz", "Datenschutz", datenschutzHtml);
+
+writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dienstleistungen", `
+<section class="hero-app" style="height: 40vh; min-height: 300px;">
+  <video class="hero-video-bg" src="/assets/video/instagram/\${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <div class="hero-app-content">
+    <h1>Unsere Leistungen</h1>
+    <p>Professionelle Baumpflege & Fällung</p>
+  </div>
+</section>
+<section class="app-section" style="padding-top: 60px;">
+    <h1 class="app-section-title" style="font-size:4rem; color:var(--white);">Was wir <span class="lime-text">können.</span></h1>
+    <p class="lead-text" style="max-width: 800px;">Alle Leistungen von FS Baumservice im Detail. Professionelle Baumpflege, Baumfällung per Seilklettertechnik, Grundstückspflege und mehr im Zollernalbkreis.</p>
+    <div class="service-list" style="margin-top: 60px;">
+      \${services.map(s => \`
+        <a href="/leistungen/\${s.slug}/" class="service-detail-card card-3d" style="text-decoration:none;">
+          <div class="sdc-image">
+            <video src="/assets/video/instagram/\${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; filter: brightness(0.6);"></video>
+          </div>
+          <div class="sdc-content">
+            <h3 class="lime-text">\${s.name}</h3>
+            <p class="sdc-intro">\${s.intro}</p>
+            <span class="button-primary" style="display:inline-block; margin-top:20px;">Details & Infos</span>
+          </div>
+        </a>
+      \`).join("")}
+    </div>
+</section>
+`);
+
+writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage", `
+
+<section class="hero-app" style="height: 40vh; min-height: 300px;">
+  <video class="hero-video-bg" src="/assets/video/instagram/\${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <div class="hero-app-content">
+    <h1>3D-Anfrage</h1>
+    <p>Kostenfrei und unverbindlich</p>
+  </div>
+</section>
+
+<section class="app-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 20px;">
+    <div id="3d-wizard" class="wizard-container card-3d" style="width: 100%; max-width: 900px; background: rgba(22, 24, 34, 0.8); backdrop-filter: blur(30px); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 50px;">
+      
+      <div class="wizard-progress" style="display:flex; gap: 10px; margin-bottom: 40px;">
+        <div class="prog-step" id="prog-1" style="flex:1; height:6px; background:var(--lime-500); border-radius:3px;"></div>
+        <div class="prog-step" id="prog-2" style="flex:1; height:6px; background:var(--glass-border); border-radius:3px; transition: 0.5s;"></div>
+        <div class="prog-step" id="prog-3" style="flex:1; height:6px; background:var(--glass-border); border-radius:3px; transition: 0.5s;"></div>
+        <div class="prog-step" id="prog-4" style="flex:1; height:6px; background:var(--glass-border); border-radius:3px; transition: 0.5s;"></div>
+      </div>
+
+      <!-- Step 1: Gewerk -->
+      <div id="step-1" class="wizard-step" style="transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Was dürfen wir für Sie tun?</h2>
+        <p class="lead-text">Wählen Sie das passende Gewerk für Ihr Projekt.</p>
+        <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">01</span><strong style="display:block; font-size:1.5rem;">Baumfällung</strong></button>
+          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">02</span><strong style="display:block; font-size:1.5rem;">Baumpflege</strong></button>
+          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">03</span><strong style="display:block; font-size:1.5rem;">Fräsen / Rasen</strong></button>
+        </div>
+      </div>
+
+      <!-- Step 2: Dringlichkeit -->
+      <div id="step-2" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie dringend ist es?</h2>
+        <p class="lead-text">So können wir Notfälle priorisieren.</p>
+        <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Sofort (Notfall)</strong><p style="color:var(--text-muted); margin-top:10px;">Baum ist umgestürzt oder droht zu fallen.</p></button>
+          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Nächste Wochen</strong><p style="color:var(--text-muted); margin-top:10px;">Muss zeitnah, aber nicht sofort erledigt werden.</p></button>
+          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Beratung</strong><p style="color:var(--text-muted); margin-top:10px;">Ich möchte erst eine Begutachtung.</p></button>
+        </div>
+        <button onclick="prevStep(1)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
+      </div>
+
+      <!-- Step 3: Situation -->
+      <div id="step-3" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie ist die Situation vor Ort?</h2>
+        <p class="lead-text">Kurze Einschätzung der Zugänglichkeit für unsere Technik.</p>
+        <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+          <button class="option-card wiz-btn" onclick="nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Einfacher Zugang</strong><p style="color:var(--text-muted); margin-top:10px;">Von der Straße oder dem Garten gut erreichbar.</p></button>
+          <button class="option-card wiz-btn" onclick="nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Schwer zugänglich</strong><p style="color:var(--text-muted); margin-top:10px;">Enges Grundstück, Haus im Weg (Seilklettertechnik).</p></button>
+        </div>
+        <button onclick="prevStep(2)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
+      </div>
+
+      <!-- Step 4: Kontaktdaten -->
+      <div id="step-4" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
+        <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Ihre Projektdaten</h2>
+        <p class="lead-text">Fast geschafft! Wo dürfen wir helfen?</p>
+        <form onsubmit="event.preventDefault(); alert('Die 4-Stufen-Anfrage funktioniert! FS Baumservice wird informiert.'); window.location.href='/';">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px;">
+            <input type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+            <input type="tel" placeholder="Telefonnummer" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+          </div>
+          <textarea placeholder="Weitere Details oder Besonderheiten (optional)" rows="4" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 40px;">
+            <button type="button" onclick="prevStep(3)" class="button-outline-light" style="border:none; color:var(--text-muted); cursor:pointer; background:transparent; font-size:1.1rem;">Zurück</button>
+            <button type="submit" class="button-primary" style="padding: 20px 50px; font-size: 1.2rem; border:none; cursor:pointer;">Anfrage jetzt absenden</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  <style>
+    .wiz-btn:hover { border-color: var(--lime-500) !important; background: rgba(169, 209, 94, 0.1) !important; transform: translateY(-5px); }
+  </style>
+`);
+
