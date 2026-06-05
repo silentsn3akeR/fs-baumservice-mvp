@@ -38,6 +38,16 @@ const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat
 const imgDir = path.join(root, "assets", "img");
 const imgFiles = fs.existsSync(imgDir) ? fs.readdirSync(imgDir).filter(f => f.endsWith(".jpg") && f !== "fs-baumservice-logo-original.jpg") : [];
 
+function faqItem(q, a) {
+  return `<div class="faq-item">
+  <button class="faq-question" aria-expanded="false">
+    <span>${q}</span>
+    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="faq-answer" hidden><p>${a}</p></div>
+</div>`;
+}
+
 function imgAlt(filename) {
   const base = filename.replace(/\.[^.]+$/, "");
   // Generic filenames: pure dates, IMG_xxxx, SAM_xxxx, drohne-NNN, etc.
@@ -132,7 +142,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=12">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=13">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -191,7 +201,7 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=12" defer></script>
+  <script src="/assets/js/site.js?v=13" defer></script>
   
   <script>
     // 4-Step Configurator Logic
@@ -369,13 +379,8 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
   <!-- FAQ -->
   <section class="app-section" style="background: rgba(0,0,0,0.3);">
     <h2 class="app-section-title">Häufige Fragen.</h2>
-    <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto;">
-      ${answerQuestions.map(([q, a]) => `
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 30px; border-radius: var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size: 1.3rem; margin-bottom: 15px;">${q}</h4>
-          <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6;">${a}</p>
-        </div>
-      `).join("")}
+    <div class="faq-list" style="max-width: 900px; margin: 0 auto;">
+      ${answerQuestions.map(([q, a]) => faqItem(q, a)).join("")}
     </div>
   </section>
 `);
@@ -535,8 +540,8 @@ for (const s of services) {
 
     <section class="app-section" style="background: rgba(0,0,0,0.4);">
       <h2 class="app-section-title">Häufige Fragen zu ${s.name}</h2>
-      <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 800px;">
-        ${s.faq.map(([q, a]) => '<!-- FAQ Item --><div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 25px; border-radius: var(--radius-sm);"><h4 style="color:var(--lime-500); font-size: 1.2rem; margin-bottom: 10px;">' + q + '</h4><p style="color:var(--text-muted); line-height: 1.6;">' + a + '</p></div>').join("")}
+      <div class="faq-list" style="max-width: 800px;">
+        ${s.faq.map(([q, a]) => faqItem(q, a)).join("")}
       </div>
     </section>
   `;
@@ -706,17 +711,13 @@ writePage("/kontakt/", "Kontakt aufnehmen – FS Baumservice Bisingen", "Rufen S
   <!-- FAQ -->
   <section class="app-section" style="background:rgba(0,0,0,0.3);">
     <h2 class="app-section-title">Häufige Fragen.</h2>
-    <div style="display:flex; flex-direction:column; gap:20px; max-width:860px;">
+    <div class="faq-list" style="max-width:860px;">
       ${[
         ["Wie schnell reagieren Sie auf Anfragen?", "In der Regel melden wir uns noch am gleichen Tag. Bei Notfällen (umgestürzter Baum, Sturmschäden) versuchen wir innerhalb weniger Stunden vor Ort zu sein."],
         ["Kann ich Fotos per WhatsApp schicken?", "Ja — und das empfehlen wir sogar. Ein Bild sagt mehr als tausend Worte. Schicken Sie uns einfach ein Foto des Baums oder Grundstücks, dann können wir schneller einschätzen, was nötig ist."],
         ["Gibt es eine kostenlose Besichtigung?", "Ja. Die erste Begutachtung vor Ort ist für Sie kostenlos und unverbindlich. Erst nach dem Ortstermin erhalten Sie ein transparentes Angebot."],
         ["In welchen Orten arbeiten Sie?", "Primär im Zollernalbkreis: Bisingen, Balingen, Hechingen, Geislingen und umliegende Gemeinden. Bei größeren Projekten auch darüber hinaus — sprechen Sie uns einfach an."]
-      ].map(([q, a]) => `
-        <div style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); padding:28px 32px; border-radius:var(--radius-sm);">
-          <h4 style="color:var(--lime-500); font-size:1.15rem; margin:0 0 12px;">${q}</h4>
-          <p style="color:var(--text-muted); margin:0; line-height:1.7;">${a}</p>
-        </div>`).join("")}
+      ].map(([q, a]) => faqItem(q, a)).join("")}
     </div>
   </section>
 `);

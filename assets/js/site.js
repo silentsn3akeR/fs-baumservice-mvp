@@ -90,6 +90,28 @@ if (timelineEl && timelineTrack && timelineItems.length && 'IntersectionObserver
   timelineItems.forEach(item => itemObs.observe(item));
 }
 
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('is-open');
+
+    // Close all open siblings in the same list
+    btn.closest('.faq-list')?.querySelectorAll('.faq-item.is-open').forEach(open => {
+      open.classList.remove('is-open');
+      open.querySelector('.faq-answer').hidden = true;
+      open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      item.classList.add('is-open');
+      answer.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
 // Section scroll-in animation
 if ('IntersectionObserver' in window) {
   const sectionObs = new IntersectionObserver((entries) => {
