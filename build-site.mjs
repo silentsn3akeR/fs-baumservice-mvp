@@ -37,8 +37,28 @@ const instaVideoHtml = `<div style="display: grid; grid-template-columns: repeat
 
 const imgDir = path.join(root, "assets", "img");
 const imgFiles = fs.existsSync(imgDir) ? fs.readdirSync(imgDir).filter(f => f.endsWith(".jpg") && f !== "fs-baumservice-logo-original.jpg") : [];
-const imgGalleryHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-  ${imgFiles.map(i => `<div class="card-3d" style="aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); background: #000;"><img src="/assets/img/${i}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: all 0.3s;" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.85)'; this.style.transform='scale(1)';"></div>`).join("")}
+
+function imgAlt(filename) {
+  const base = filename.replace(/\.[^.]+$/, "");
+  // Generic filenames: pure dates, IMG_xxxx, SAM_xxxx, drohne-NNN, etc.
+  if (/^(IMG|SAM|DSC|drohne)[_-]?\d+$/i.test(base) || /^\d{8}[_-]\d+$/.test(base)) {
+    return "Baumarbeiten FS Baumservice Bisingen";
+  }
+  return base.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
+const imgGalleryHtml = `<div class="masonry-grid">
+  ${imgFiles.map(f => {
+    const label = imgAlt(f);
+    const suffix = label.includes("Baumservice") ? "" : " – FS Baumservice Bisingen";
+    return `<div class="masonry-item">
+    <img src="/assets/img/${f}" loading="lazy" alt="${label}${suffix}">
+    <div class="masonry-overlay">
+      <span class="masonry-badge">FS Baumservice</span>
+      <h3>${label}</h3>
+    </div>
+  </div>`;
+  }).join("")}
 </div>`;
 
 function topBar() {
