@@ -142,7 +142,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=16">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=17">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -339,7 +339,7 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
   </section>
 
   <!-- Ablauf / Process -->
-  <section class="app-section" style="background: rgba(22, 24, 34, 0.6); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+  <section class="app-section section-tree-rings">
     <h2 class="app-section-title">Unser <span class="lime-text">Ablauf.</span></h2>
     <p class="lead-text" style="max-width: 800px; margin-bottom: 60px;">Von der ersten Anfrage bis zum sauberen Grundstück. Klar, transparent und ohne versteckte Kosten.</p>
     <div class="timeline" style="max-width: 680px;">

@@ -503,3 +503,101 @@ input:focus, textarea:focus { border-color: var(--lime-500) !important; backgrou
 .stat-num {
   text-shadow: 0 0 50px rgba(169,209,94,0.6), 0 0 100px rgba(169,209,94,0.25);
 }
+
+/* ============================================================
+   DESIGN LANGUAGE — TEXTURE · DEPTH · MICROINTERACTIONS
+   ============================================================ */
+
+/* Diagonal topographic hairlines on body background */
+body {
+  background:
+    repeating-linear-gradient(
+      -55deg,
+      transparent 0,
+      transparent 38px,
+      rgba(255, 255, 255, 0.017) 38px,
+      rgba(255, 255, 255, 0.017) 39px
+    ),
+    var(--slate-950);
+}
+
+/* Film-grain noise overlay (fixed, just below cursor) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Ablauf / Process section — tree-ring watermark */
+.section-tree-rings {
+  background: rgba(22, 24, 34, 0.6);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+.section-tree-rings::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -120px;
+  width: 560px;
+  height: 560px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 560'%3E%3Ccircle cx='280' cy='280' r='45' fill='none' stroke='%23a9d15e' stroke-width='1.5'/%3E%3Ccircle cx='280' cy='280' r='90' fill='none' stroke='%23a9d15e' stroke-width='1.5'/%3E%3Ccircle cx='280' cy='280' r='135' fill='none' stroke='%23a9d15e' stroke-width='1.5'/%3E%3Ccircle cx='280' cy='280' r='180' fill='none' stroke='%23a9d15e' stroke-width='1.5'/%3E%3Ccircle cx='280' cy='280' r='225' fill='none' stroke='%23a9d15e' stroke-width='1.5'/%3E%3Ccircle cx='280' cy='280' r='270' fill='none' stroke='%23a9d15e' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Card subtle lime-ring glow (resting gradient-border simulation) */
+.card-3d {
+  box-shadow: 0 0 0 1px rgba(169, 209, 94, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Button tactile press feedback */
+.button-primary:active {
+  transform: scale(0.965) translateY(1px) !important;
+  box-shadow: 0 4px 14px rgba(169, 209, 94, 0.22) !important;
+  transition-duration: 0.08s !important;
+}
+
+/* Premium masonry badge — gradient fill + inset highlight */
+.masonry-badge {
+  background: linear-gradient(135deg, rgba(169, 209, 94, 0.95) 0%, rgba(139, 179, 66, 0.9) 100%);
+  color: #0f1016;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  font-size: 0.63rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* HUD-style trust badge — inset left lime accent */
+.trust-badge {
+  box-shadow: inset 3px 0 0 var(--lime-500), 0 4px 18px rgba(0, 0, 0, 0.25);
+  border-color: rgba(169, 209, 94, 0.15);
+}
+
+/* Honour user motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .app-section { opacity: 1 !important; transform: none !important; }
+  .timeline-item { opacity: 1 !important; transform: none !important; }
+  .timeline-track { height: calc(100% - 50px) !important; }
+  .hero-app-content h1,
+  .hero-app-content > p,
+  .hero-app-content > div { animation: none !important; }
+}
