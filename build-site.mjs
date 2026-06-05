@@ -132,7 +132,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=11">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=12">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -191,7 +191,7 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=11" defer></script>
+  <script src="/assets/js/site.js?v=12" defer></script>
   
   <script>
     // 4-Step Configurator Logic
@@ -617,23 +617,106 @@ writePage("/ueber-uns/", "Über Uns", "Baumservice aus Bisingen", `
   </section>
 `);
 
-writePage("/kontakt/", "Kontakt", "Treten Sie mit uns in Verbindung", `
-    <section class="hero-app" style="height: 40vh; min-height: 300px;">
-      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
-      <div class="hero-app-content">
-        <h1>Kontakt</h1>
-        <p>Wir freuen uns auf Ihre Anfrage</p>
+writePage("/kontakt/", "Kontakt aufnehmen – FS Baumservice Bisingen", "Rufen Sie uns an, schreiben Sie per WhatsApp oder nutzen Sie unseren 3D-Konfigurator. Schnelle Reaktionszeit im Zollernalbkreis.", `
+  <section class="hero-app" style="height: 40vh; min-height: 300px;">
+    <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+    <div class="hero-app-content">
+      <h1>Kontakt.</h1>
+      <p>Kein Formular-Chaos — einfach anrufen oder schreiben.</p>
+    </div>
+  </section>
+
+  <!-- Contact Method Cards -->
+  <section class="app-section">
+    <h2 class="app-section-title">So erreichen Sie <span class="lime-text">uns.</span></h2>
+    <p class="lead-text" style="max-width: 700px; margin-bottom: 50px;">Wir sind ein kleines Team und melden uns persönlich — meistens noch am gleichen Tag.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 70px;">
+      <!-- Phone -->
+      <a href="tel:${contact.phone}" class="card-3d contact-method-card" style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; padding:40px; text-decoration:none; border:1px solid var(--glass-border); border-radius:var(--radius); transition:border-color 0.3s, transform 0.3s;">
+        <div style="width:56px; height:56px; background:rgba(169,209,94,0.12); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:26px;height:26px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <p style="color:var(--text-muted); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 6px;">Telefon</p>
+          <h3 style="color:var(--white); font-size:1.6rem; font-weight:900; margin:0 0 8px;">${contact.phoneDisplay}</h3>
+          <p style="color:var(--text-muted); margin:0; font-size:0.95rem;">Mo–Sa, auch kurzfristig erreichbar</p>
+        </div>
+        <span style="color:var(--lime-500); font-weight:800; font-size:0.95rem; margin-top:auto;">Jetzt anrufen →</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/${contact.phone.replace(/[^0-9]/g, "")}" class="card-3d contact-method-card" style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; padding:40px; text-decoration:none; border:1px solid var(--glass-border); border-radius:var(--radius); transition:border-color 0.3s, transform 0.3s;" target="_blank" rel="noopener noreferrer">
+        <div style="width:56px; height:56px; background:rgba(37,211,102,0.12); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" style="width:26px;height:26px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div>
+          <p style="color:var(--text-muted); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 6px;">WhatsApp</p>
+          <h3 style="color:var(--white); font-size:1.6rem; font-weight:900; margin:0 0 8px;">${contact.phoneDisplay}</h3>
+          <p style="color:var(--text-muted); margin:0; font-size:0.95rem;">Fotos schicken, Projekt beschreiben</p>
+        </div>
+        <span style="color:#25D366; font-weight:800; font-size:0.95rem; margin-top:auto;">Chat starten →</span>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:${contact.email}" class="card-3d contact-method-card" style="display:flex; flex-direction:column; align-items:flex-start; gap:20px; padding:40px; text-decoration:none; border:1px solid var(--glass-border); border-radius:var(--radius); transition:border-color 0.3s, transform 0.3s;">
+        <div style="width:56px; height:56px; background:rgba(169,209,94,0.12); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:26px;height:26px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <p style="color:var(--text-muted); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 6px;">E-Mail</p>
+          <h3 style="color:var(--white); font-size:1.3rem; font-weight:900; margin:0 0 8px; word-break:break-all;">${contact.email}</h3>
+          <p style="color:var(--text-muted); margin:0; font-size:0.95rem;">Antwort meist innerhalb 24 Stunden</p>
+        </div>
+        <span style="color:var(--lime-500); font-weight:800; font-size:0.95rem; margin-top:auto;">E-Mail schreiben →</span>
+      </a>
+    </div>
+
+    <!-- Address + Service Area -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-bottom:70px;">
+      <div style="background:rgba(22,24,34,0.6); border:1px solid var(--glass-border); border-radius:var(--radius); padding:40px;">
+        <h3 style="color:var(--lime-500); font-size:1.1rem; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 20px;">Standort</h3>
+        <p style="color:var(--white); font-size:1.2rem; font-weight:700; margin:0 0 6px;">${contact.legalName}</p>
+        <p style="color:var(--text-muted); margin:0 0 4px;">${contact.street}</p>
+        <p style="color:var(--text-muted); margin:0 0 30px;">${contact.postalCode} ${contact.locality}</p>
+        <a href="https://maps.google.com/?q=${encodeURIComponent(contact.street + ', ' + contact.postalCode + ' ' + contact.locality)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; color:var(--lime-500); font-weight:700; text-decoration:none; font-size:0.95rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          In Google Maps öffnen →
+        </a>
       </div>
-    </section>
-  
-  <section class="app-section" style="padding-top: 100px;">
-    <h1 class="app-section-title" style="color:var(--white);">Kontaktieren Sie uns.</h1>
-    <div style="background: rgba(22, 24, 34, 0.6); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 600px;">
-      <h3 style="color:var(--lime-500); margin-top:10px;">Telefon & WhatsApp</h3>
-      <p><a href="tel:${contact.phone}" style="color:var(--white);">${contact.phoneDisplay}</a></p>
-      <h3 style="color:var(--lime-500); margin-top:30px;">E-Mail</h3>
-      <p><a href="mailto:${contact.email}" style="color:var(--white);">${contact.email}</a></p>
-      <a href="/angebot/" class="button-primary" style="display:inline-block; margin-top:30px;">Zum 3D-Konfigurator</a>
+      <div style="background:rgba(22,24,34,0.6); border:1px solid var(--glass-border); border-radius:var(--radius); padding:40px;">
+        <h3 style="color:var(--lime-500); font-size:1.1rem; text-transform:uppercase; letter-spacing:0.1em; margin:0 0 20px;">Einsatzgebiet</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          ${areaServed.map(a => `<span style="background:rgba(169,209,94,0.1); border:1px solid rgba(169,209,94,0.3); color:var(--lime-500); padding:6px 14px; border-radius:20px; font-weight:700; font-size:0.9rem;">${a}</span>`).join("")}
+        </div>
+        <p style="color:var(--text-muted); margin:24px 0 0; font-size:0.95rem;">Auch umliegende Gemeinden auf Anfrage.</p>
+      </div>
+    </div>
+
+    <!-- CTA Strip -->
+    <div style="background:linear-gradient(135deg, rgba(169,209,94,0.12) 0%, rgba(169,209,94,0.04) 100%); border:1px solid rgba(169,209,94,0.25); border-radius:var(--radius); padding:50px 40px; display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;">
+      <div>
+        <h3 style="color:var(--white); font-size:1.8rem; font-weight:900; margin:0 0 10px;">Lieber alles strukturiert angeben?</h3>
+        <p style="color:var(--text-muted); margin:0; font-size:1.1rem;">Unser 3D-Konfigurator führt Sie in 4 Schritten zur fertigen Anfrage.</p>
+      </div>
+      <a href="/angebot/" class="button-primary btn-pulse" style="white-space:nowrap; padding:18px 36px; font-size:1.1rem; text-decoration:none; flex-shrink:0;">Konfigurator starten →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="app-section" style="background:rgba(0,0,0,0.3);">
+    <h2 class="app-section-title">Häufige Fragen.</h2>
+    <div style="display:flex; flex-direction:column; gap:20px; max-width:860px;">
+      ${[
+        ["Wie schnell reagieren Sie auf Anfragen?", "In der Regel melden wir uns noch am gleichen Tag. Bei Notfällen (umgestürzter Baum, Sturmschäden) versuchen wir innerhalb weniger Stunden vor Ort zu sein."],
+        ["Kann ich Fotos per WhatsApp schicken?", "Ja — und das empfehlen wir sogar. Ein Bild sagt mehr als tausend Worte. Schicken Sie uns einfach ein Foto des Baums oder Grundstücks, dann können wir schneller einschätzen, was nötig ist."],
+        ["Gibt es eine kostenlose Besichtigung?", "Ja. Die erste Begutachtung vor Ort ist für Sie kostenlos und unverbindlich. Erst nach dem Ortstermin erhalten Sie ein transparentes Angebot."],
+        ["In welchen Orten arbeiten Sie?", "Primär im Zollernalbkreis: Bisingen, Balingen, Hechingen, Geislingen und umliegende Gemeinden. Bei größeren Projekten auch darüber hinaus — sprechen Sie uns einfach an."]
+      ].map(([q, a]) => `
+        <div style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); padding:28px 32px; border-radius:var(--radius-sm);">
+          <h4 style="color:var(--lime-500); font-size:1.15rem; margin:0 0 12px;">${q}</h4>
+          <p style="color:var(--text-muted); margin:0; line-height:1.7;">${a}</p>
+        </div>`).join("")}
     </div>
   </section>
 `);

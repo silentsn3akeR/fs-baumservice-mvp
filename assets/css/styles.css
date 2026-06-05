@@ -258,6 +258,10 @@ input:focus, textarea:focus { border-color: var(--lime-500) !important; backgrou
 @keyframes slide-out { from { transform: translateY(0); } to { transform: translateY(-20px); } }
 
 
+/* Contact Method Cards */
+.contact-method-card:hover { border-color: rgba(169,209,94,0.4) !important; transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+@media (max-width: 768px) { .contact-method-card { padding: 28px !important; } }
+
 /* Ablauf Timeline */
 .timeline {
   position: relative;
