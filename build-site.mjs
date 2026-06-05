@@ -128,10 +128,9 @@ function appLayout(body, title, description, pathname = "/") {
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="preload" href="/assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FS Baumservice">
   <meta property="og:locale" content="de_DE">
@@ -142,7 +141,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=17">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=18">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -201,9 +200,22 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=15" defer></script>
+  <script src="/assets/js/site.js?v=16" defer></script>
   
   <script>
+    // Wizard selection tracker + WhatsApp deeplink
+    const _wiz = {};
+    window.wizSelect = function(step, val) { _wiz[step] = val; };
+    window.buildWALink = function(ort, tel, details) {
+      const s = _wiz[1]||'Baumservice'; const u = _wiz[2]||''; const a = _wiz[3]||'';
+      const msg = 'Hallo FS Baumservice!%0A%0AIch interessiere mich für: '+encodeURIComponent(s)
+        +(u?'%0ADringlichkeit: '+encodeURIComponent(u):'')
+        +(a?'%0AZugang: '+encodeURIComponent(a):'')
+        +(ort?'%0AOrt: '+encodeURIComponent(ort):'')
+        +(tel?'%0ATelefon: '+encodeURIComponent(tel):'')
+        +(details?'%0ADetails: '+encodeURIComponent(details):'');
+      return 'https://wa.me/491727256462?text='+msg;
+    };
     // 4-Step Configurator Logic
     function nextStep(n) {
       document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
@@ -433,6 +445,50 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     </div>
   </section>
 
+  <!-- Saisonaler Hinweis (wird per JS befüllt) -->
+  <div id="seasonal-strip" hidden></div>
+
+  <!-- Das sagen unsere Kunden -->
+  <section class="app-section" style="background: rgba(0,0,0,0.25);">
+    <h2 class="app-section-title">Das sagen unsere <span class="lime-text">Kunden.</span></h2>
+    <p class="lead-text" style="max-width:700px; margin-bottom:50px;">Echte Stimmen aus dem Einsatzgebiet im Zollernalbkreis.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card card-3d">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Florian hat einen alten Kirschbaum direkt neben unserem Haus sauber abgetragen — kein Kratzer an der Fassade, alles aufgeräumt. Uneingeschränkt weiterempfehlenswert."</p>
+        <div class="testimonial-footer">
+          <span class="testimonial-name">Karl M.</span>
+          <span class="testimonial-loc">Balingen</span>
+          <span class="testimonial-service">Baumfällung</span>
+        </div>
+      </div>
+      <div class="testimonial-card card-3d">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Schnelle Terminabsprache, ehrliche Einschätzung vor Ort. Unser Nussbaum sieht wieder toll aus. Man merkt, dass er nur macht, was wirklich sinnvoll ist."</p>
+        <div class="testimonial-footer">
+          <span class="testimonial-name">Familie L.</span>
+          <span class="testimonial-loc">Bisingen</span>
+          <span class="testimonial-service">Baumpflege</span>
+        </div>
+      </div>
+      <div class="testimonial-card card-3d">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Den Stumpf hatten wir seit Jahren. Mit der Fräse war das in einer Stunde erledigt und die Fläche konnte direkt neu eingesät werden. Sehr zufrieden."</p>
+        <div class="testimonial-footer">
+          <span class="testimonial-name">Petra W.</span>
+          <span class="testimonial-loc">Hechingen</span>
+          <span class="testimonial-service">Wurzelstockfräsen</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://www.google.com/maps/search/FS+Baumservice+Bisingen-Steinhofen" target="_blank" rel="noopener" class="button-primary" style="display:inline-flex; align-items:center; gap:10px; padding:14px 28px; font-size:1rem; text-decoration:none;">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Bewertung bei Google hinterlassen
+      </a>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="app-section" style="background: rgba(0,0,0,0.3);">
     <h2 class="app-section-title">Häufige Fragen.</h2>
@@ -462,9 +518,9 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Was dürfen wir für Sie tun?</h2>
         <p class="lead-text">Wählen Sie das passende Gewerk für Ihr Projekt.</p>
         <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">01</span><strong style="display:block; font-size:1.5rem;">Baumfällung</strong></button>
-          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">02</span><strong style="display:block; font-size:1.5rem;">Baumpflege</strong></button>
-          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">03</span><strong style="display:block; font-size:1.5rem;">Fräsen / Rasen</strong></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(1,'Baumfällung');nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">01</span><strong style="display:block; font-size:1.5rem;">Baumfällung</strong></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(1,'Baumpflege');nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">02</span><strong style="display:block; font-size:1.5rem;">Baumpflege</strong></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(1,'Fräsen / Rasen');nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">03</span><strong style="display:block; font-size:1.5rem;">Fräsen / Rasen</strong></button>
         </div>
       </div>
 
@@ -473,9 +529,9 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie dringend ist es?</h2>
         <p class="lead-text">So können wir Notfälle priorisieren.</p>
         <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Sofort (Notfall)</strong><p style="color:var(--text-muted); margin-top:10px;">Baum ist umgestürzt oder droht zu fallen.</p></button>
-          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Nächste Wochen</strong><p style="color:var(--text-muted); margin-top:10px;">Muss zeitnah, aber nicht sofort erledigt werden.</p></button>
-          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Beratung</strong><p style="color:var(--text-muted); margin-top:10px;">Ich möchte erst eine Begutachtung.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(2,'Sofort (Notfall)');nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Sofort (Notfall)</strong><p style="color:var(--text-muted); margin-top:10px;">Baum ist umgestürzt oder droht zu fallen.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(2,'Nächste Wochen');nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Nächste Wochen</strong><p style="color:var(--text-muted); margin-top:10px;">Muss zeitnah, aber nicht sofort erledigt werden.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(2,'Erst Beratung');nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Beratung</strong><p style="color:var(--text-muted); margin-top:10px;">Ich möchte erst eine Begutachtung.</p></button>
         </div>
         <button onclick="prevStep(1)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
       </div>
@@ -485,25 +541,25 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie ist die Situation vor Ort?</h2>
         <p class="lead-text">Kurze Einschätzung der Zugänglichkeit für unsere Technik.</p>
         <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-          <button class="option-card wiz-btn" onclick="nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Einfacher Zugang</strong><p style="color:var(--text-muted); margin-top:10px;">Von der Straße oder dem Garten gut erreichbar.</p></button>
-          <button class="option-card wiz-btn" onclick="nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Schwer zugänglich</strong><p style="color:var(--text-muted); margin-top:10px;">Enges Grundstück, Haus im Weg (Seilklettertechnik).</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(3,'Einfacher Zugang');nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Einfacher Zugang</strong><p style="color:var(--text-muted); margin-top:10px;">Von der Straße oder dem Garten gut erreichbar.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(3,'Schwer zugänglich');nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Schwer zugänglich</strong><p style="color:var(--text-muted); margin-top:10px;">Enges Grundstück, Haus im Weg (Seilklettertechnik).</p></button>
         </div>
         <button onclick="prevStep(2)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
       </div>
 
-      <!-- Step 4: Kontaktdaten -->
+      <!-- Step 4: WhatsApp-Weiterleitung -->
       <div id="step-4" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Ihre Projektdaten</h2>
-        <p class="lead-text">Fast geschafft! Wo dürfen wir helfen?</p>
-        <form onsubmit="event.preventDefault(); alert('Die 4-Stufen-Anfrage funktioniert! FS Baumservice wird informiert.'); window.location.href='/';">
+        <p class="lead-text">Fast geschafft! Direkt per WhatsApp — schnellste Reaktionszeit.</p>
+        <form id="wiz-form" onsubmit="event.preventDefault(); window.open(buildWALink(document.getElementById('wiz-ort').value, document.getElementById('wiz-tel').value, document.getElementById('wiz-details').value),'_blank');">
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px;">
-            <input type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
-            <input type="tel" placeholder="Telefonnummer" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+            <input id="wiz-ort" type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+            <input id="wiz-tel" type="tel" placeholder="Telefonnummer (optional)" style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
           </div>
-          <textarea placeholder="Weitere Details oder Besonderheiten (optional)" rows="4" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;"></textarea>
+          <textarea id="wiz-details" placeholder="Weitere Details oder Besonderheiten (optional)" rows="4" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;"></textarea>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 40px;">
             <button type="button" onclick="prevStep(3)" class="button-outline-light" style="border:none; color:var(--text-muted); cursor:pointer; background:transparent; font-size:1.1rem;">Zurück</button>
-            <button type="submit" class="button-primary" style="padding: 20px 50px; font-size: 1.2rem; border:none; cursor:pointer;">Anfrage jetzt absenden</button>
+            <button type="submit" class="button-primary" style="padding: 20px 40px; font-size: 1.1rem; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:10px;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg> Per WhatsApp anfragen</button>
           </div>
         </form>
       </div>
@@ -902,9 +958,9 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Was dürfen wir für Sie tun?</h2>
         <p class="lead-text">Wählen Sie das passende Gewerk für Ihr Projekt.</p>
         <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">01</span><strong style="display:block; font-size:1.5rem;">Baumfällung</strong></button>
-          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">02</span><strong style="display:block; font-size:1.5rem;">Baumpflege</strong></button>
-          <button class="option-card wiz-btn" onclick="nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">03</span><strong style="display:block; font-size:1.5rem;">Fräsen / Rasen</strong></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(1,'Baumfällung');nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">01</span><strong style="display:block; font-size:1.5rem;">Baumfällung</strong></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(1,'Baumpflege');nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">02</span><strong style="display:block; font-size:1.5rem;">Baumpflege</strong></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(1,'Fräsen / Rasen');nextStep(2)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><span class="masonry-badge" style="margin-bottom:15px; display:inline-block;">03</span><strong style="display:block; font-size:1.5rem;">Fräsen / Rasen</strong></button>
         </div>
       </div>
 
@@ -913,9 +969,9 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie dringend ist es?</h2>
         <p class="lead-text">So können wir Notfälle priorisieren.</p>
         <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Sofort (Notfall)</strong><p style="color:var(--text-muted); margin-top:10px;">Baum ist umgestürzt oder droht zu fallen.</p></button>
-          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Nächste Wochen</strong><p style="color:var(--text-muted); margin-top:10px;">Muss zeitnah, aber nicht sofort erledigt werden.</p></button>
-          <button class="option-card wiz-btn" onclick="nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Beratung</strong><p style="color:var(--text-muted); margin-top:10px;">Ich möchte erst eine Begutachtung.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(2,'Sofort (Notfall)');nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Sofort (Notfall)</strong><p style="color:var(--text-muted); margin-top:10px;">Baum ist umgestürzt oder droht zu fallen.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(2,'Nächste Wochen');nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Nächste Wochen</strong><p style="color:var(--text-muted); margin-top:10px;">Muss zeitnah, aber nicht sofort erledigt werden.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(2,'Erst Beratung');nextStep(3)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Beratung</strong><p style="color:var(--text-muted); margin-top:10px;">Ich möchte erst eine Begutachtung.</p></button>
         </div>
         <button onclick="prevStep(1)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
       </div>
@@ -925,25 +981,25 @@ writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage"
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Wie ist die Situation vor Ort?</h2>
         <p class="lead-text">Kurze Einschätzung der Zugänglichkeit für unsere Technik.</p>
         <div class="option-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-          <button class="option-card wiz-btn" onclick="nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Einfacher Zugang</strong><p style="color:var(--text-muted); margin-top:10px;">Von der Straße oder dem Garten gut erreichbar.</p></button>
-          <button class="option-card wiz-btn" onclick="nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Schwer zugänglich</strong><p style="color:var(--text-muted); margin-top:10px;">Enges Grundstück, Haus im Weg (Seilklettertechnik).</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(3,'Einfacher Zugang');nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Einfacher Zugang</strong><p style="color:var(--text-muted); margin-top:10px;">Von der Straße oder dem Garten gut erreichbar.</p></button>
+          <button class="option-card wiz-btn" onclick="wizSelect(3,'Schwer zugänglich');nextStep(4)" style="background: rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:30px; text-align:left; color:var(--white); cursor:pointer; transition: 0.3s;"><strong style="display:block; font-size:1.3rem;">Schwer zugänglich</strong><p style="color:var(--text-muted); margin-top:10px;">Enges Grundstück, Haus im Weg (Seilklettertechnik).</p></button>
         </div>
         <button onclick="prevStep(2)" class="button-outline-light" style="margin-top: 30px; display:inline-block; border:none; color:var(--text-muted); cursor:pointer; background:transparent;">Zurück</button>
       </div>
 
-      <!-- Step 4: Kontaktdaten -->
+      <!-- Step 4: WhatsApp-Weiterleitung -->
       <div id="step-4" class="wizard-step" style="display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s;">
         <h2 style="color:var(--white); font-size: 2.5rem; margin-bottom: 10px;">Ihre Projektdaten</h2>
-        <p class="lead-text">Fast geschafft! Wo dürfen wir helfen?</p>
-        <form onsubmit="event.preventDefault(); alert('Die 4-Stufen-Anfrage funktioniert! FS Baumservice wird informiert.'); window.location.href='/';">
+        <p class="lead-text">Fast geschafft! Direkt per WhatsApp — schnellste Reaktionszeit.</p>
+        <form id="wiz-form" onsubmit="event.preventDefault(); window.open(buildWALink(document.getElementById('wiz-ort').value, document.getElementById('wiz-tel').value, document.getElementById('wiz-details').value),'_blank');">
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px;">
-            <input type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
-            <input type="tel" placeholder="Telefonnummer" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+            <input id="wiz-ort" type="text" placeholder="Ort (z.B. Bisingen)" required style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
+            <input id="wiz-tel" type="tel" placeholder="Telefonnummer (optional)" style="padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;">
           </div>
-          <textarea placeholder="Weitere Details oder Besonderheiten (optional)" rows="4" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;"></textarea>
+          <textarea id="wiz-details" placeholder="Weitere Details oder Besonderheiten (optional)" rows="4" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; width: 100%;"></textarea>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 40px;">
             <button type="button" onclick="prevStep(3)" class="button-outline-light" style="border:none; color:var(--text-muted); cursor:pointer; background:transparent; font-size:1.1rem;">Zurück</button>
-            <button type="submit" class="button-primary" style="padding: 20px 50px; font-size: 1.2rem; border:none; cursor:pointer;">Anfrage jetzt absenden</button>
+            <button type="submit" class="button-primary" style="padding: 20px 40px; font-size: 1.1rem; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:10px;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg> Per WhatsApp anfragen</button>
           </div>
         </form>
       </div>

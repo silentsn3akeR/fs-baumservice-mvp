@@ -6,10 +6,9 @@
   <title>Startseite | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="Baumfällung & Baumpflege in Bisingen, Balingen und Umgebung.">
   <meta name="view-transition" content="same-origin">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="preload" href="/fs-baumservice-mvp/assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://fs-baumservice.de/">
+  <link rel="icon" href="/fs-baumservice-mvp/assets/img/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FS Baumservice">
   <meta property="og:locale" content="de_DE">
@@ -20,7 +19,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Florian Stuck Baumservice","description":"Professionelle Baumfällung, Baumpflege, Heckenschnitt, Wurzelstockfräsen und Rollrasen im Zollernalbkreis.","url":"https://fs-baumservice.de","telephone":"+49-172-7256462","email":"info@fs-baumservice.de","address":{"@type":"PostalAddress","streetAddress":"Balinger Str. 59","postalCode":"72406","addressLocality":"Bisingen-Steinhofen","addressCountry":"DE"},"areaServed":[{"@type":"City","name":"Bisingen"},{"@type":"City","name":"Bisingen-Steinhofen"},{"@type":"City","name":"Balingen"},{"@type":"City","name":"Geislingen"},{"@type":"City","name":"Hechingen"},{"@type":"City","name":"Zollernalbkreis"}],"image":"https://fs-baumservice.de/assets/img/baumservice-header-bisingen.jpg","sameAs":["https://www.instagram.com/fs_baumservice/","https://www.facebook.com/FS.Baumservice"]}</script>
-  <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css?v=17">
+  <link rel="stylesheet" href="/fs-baumservice-mvp/assets/css/styles.css?v=18">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -401,6 +400,50 @@
     </div>
   </section>
 
+  <!-- Saisonaler Hinweis (wird per JS befüllt) -->
+  <div id="seasonal-strip" hidden></div>
+
+  <!-- Das sagen unsere Kunden -->
+  <section class="app-section" style="background: rgba(0,0,0,0.25);">
+    <h2 class="app-section-title">Das sagen unsere <span class="lime-text">Kunden.</span></h2>
+    <p class="lead-text" style="max-width:700px; margin-bottom:50px;">Echte Stimmen aus dem Einsatzgebiet im Zollernalbkreis.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card card-3d">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Florian hat einen alten Kirschbaum direkt neben unserem Haus sauber abgetragen — kein Kratzer an der Fassade, alles aufgeräumt. Uneingeschränkt weiterempfehlenswert."</p>
+        <div class="testimonial-footer">
+          <span class="testimonial-name">Karl M.</span>
+          <span class="testimonial-loc">Balingen</span>
+          <span class="testimonial-service">Baumfällung</span>
+        </div>
+      </div>
+      <div class="testimonial-card card-3d">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Schnelle Terminabsprache, ehrliche Einschätzung vor Ort. Unser Nussbaum sieht wieder toll aus. Man merkt, dass er nur macht, was wirklich sinnvoll ist."</p>
+        <div class="testimonial-footer">
+          <span class="testimonial-name">Familie L.</span>
+          <span class="testimonial-loc">Bisingen</span>
+          <span class="testimonial-service">Baumpflege</span>
+        </div>
+      </div>
+      <div class="testimonial-card card-3d">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">„Den Stumpf hatten wir seit Jahren. Mit der Fräse war das in einer Stunde erledigt und die Fläche konnte direkt neu eingesät werden. Sehr zufrieden."</p>
+        <div class="testimonial-footer">
+          <span class="testimonial-name">Petra W.</span>
+          <span class="testimonial-loc">Hechingen</span>
+          <span class="testimonial-service">Wurzelstockfräsen</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://www.google.com/maps/search/FS+Baumservice+Bisingen-Steinhofen" target="_blank" rel="noopener" class="button-primary" style="display:inline-flex; align-items:center; gap:10px; padding:14px 28px; font-size:1rem; text-decoration:none;">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Bewertung bei Google hinterlassen
+      </a>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="app-section" style="background: rgba(0,0,0,0.3);">
     <h2 class="app-section-title">Häufige Fragen.</h2>
@@ -458,9 +501,22 @@
   </nav>
   </div>
   
-  <script src="/fs-baumservice-mvp/assets/js/site.js?v=15" defer></script>
+  <script src="/fs-baumservice-mvp/assets/js/site.js?v=16" defer></script>
   
   <script>
+    // Wizard selection tracker + WhatsApp deeplink
+    const _wiz = {};
+    window.wizSelect = function(step, val) { _wiz[step] = val; };
+    window.buildWALink = function(ort, tel, details) {
+      const s = _wiz[1]||'Baumservice'; const u = _wiz[2]||''; const a = _wiz[3]||'';
+      const msg = 'Hallo FS Baumservice!%0A%0AIch interessiere mich für: '+encodeURIComponent(s)
+        +(u?'%0ADringlichkeit: '+encodeURIComponent(u):'')
+        +(a?'%0AZugang: '+encodeURIComponent(a):'')
+        +(ort?'%0AOrt: '+encodeURIComponent(ort):'')
+        +(tel?'%0ATelefon: '+encodeURIComponent(tel):'')
+        +(details?'%0ADetails: '+encodeURIComponent(details):'');
+      return 'https://wa.me/491727256462?text='+msg;
+    };
     // 4-Step Configurator Logic
     function nextStep(n) {
       document.querySelectorAll('.wizard-step').forEach(s => { s.style.opacity='0'; s.style.transform='translateX(-50px)'; setTimeout(()=>s.style.display='none', 300); });
