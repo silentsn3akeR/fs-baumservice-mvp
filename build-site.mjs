@@ -142,7 +142,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=13">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=14">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -201,7 +201,7 @@ function appLayout(body, title, description, pathname = "/") {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=13" defer></script>
+  <script src="/assets/js/site.js?v=14" defer></script>
   
   <script>
     // 4-Step Configurator Logic
@@ -296,6 +296,28 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     </div>
   </section>
 
+  <!-- Stats Counter Strip -->
+  <section class="stats-strip app-section" style="padding: 70px 60px;">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="200" data-suffix="+">0</span>
+        <span class="stat-label">Projekte erfolgreich abgeschlossen</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="5" data-suffix=" Jahre">0</span>
+        <span class="stat-label">Regionale Erfahrung im Zollernalbkreis</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="0" data-prefix="0 €" data-suffix="">–</span>
+        <span class="stat-label">Kosten für die erste Beratung</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100" data-suffix="% SKT">0</span>
+        <span class="stat-label">Saubere Übergabe, jedes Mal</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Leistungen -->
   <section class="app-section">
     <h2 class="app-section-title">Was wir <span class="lime-text">können.</span></h2>
@@ -373,6 +395,41 @@ writePage("/", "Startseite", "Baumfällung & Baumpflege in Bisingen, Balingen un
     <p style="color:var(--text-muted); margin-bottom: 30px; font-size:1.1rem;">Von der Seilklettertechnik bis zum Hubsteiger-Einsatz. Hier sehen Sie unsere Ausrüstung und Technik im echten Einsatz rund um Bisingen.</p>
     <div style="margin-top: 30px;">
       ${imgGalleryHtml}
+    </div>
+  </section>
+
+  <!-- Warum FS Baumservice -->
+  <section class="app-section" style="background: rgba(22,24,34,0.5); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <h2 class="app-section-title">Warum <span class="lime-text">FS Baumservice?</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Maximale Sicherheit</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Wir arbeiten nach ZTV-Baumpflege-Standard und setzen modernste Seilklettertechnik (SKT) ein — auch auf engstem Raum und ohne Kran.</p>
+      </div>
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Regional & schnell</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Als lokales Unternehmen aus Bisingen sind wir schnell vor Ort. Bei Notfällen versuchen wir noch am gleichen Tag zu reagieren.</p>
+      </div>
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Saubere Übergabe</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Wir verlassen kein Grundstück unaufgeräumt. Schnittgut wird auf Wunsch vollständig abtransportiert — ohne versteckte Zusatzkosten.</p>
+      </div>
+      <div class="card-3d" style="padding: 36px;">
+        <div style="width:48px;height:48px;background:rgba(169,209,94,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-500)" stroke-width="2" style="width:24px;height:24px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 style="color:var(--white);font-size:1.25rem;margin:0 0 12px;font-weight:800;">Transparente Preise</h3>
+        <p style="color:var(--text-muted);margin:0;line-height:1.7;">Kein Angebot ohne Besichtigung, kein Nachschlag ohne Absprache. Was wir anbieten, gilt — fair und verständlich erklärt.</p>
+      </div>
     </div>
   </section>
 

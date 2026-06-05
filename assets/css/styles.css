@@ -258,6 +258,44 @@ input:focus, textarea:focus { border-color: var(--lime-500) !important; backgrou
 @keyframes slide-out { from { transform: translateY(0); } to { transform: translateY(-20px); } }
 
 
+/* Stats Counter Strip */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.stat-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 30px 20px; border-right: 1px solid var(--glass-border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--lime-500);
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+  text-shadow: 0 0 30px var(--lime-glow);
+}
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 140px;
+}
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item { border-bottom: 1px solid var(--glass-border); border-right: 1px solid var(--glass-border); }
+  .stat-item:nth-child(odd) { border-right: 1px solid var(--glass-border); }
+  .stat-item:nth-child(even) { border-right: none; }
+  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+}
+
 /* FAQ Accordion */
 .faq-list { display: flex; flex-direction: column; gap: 12px; }
 .faq-item { border: 1px solid var(--glass-border); border-radius: var(--radius-sm); overflow: hidden; background: rgba(255,255,255,0.03); transition: border-color 0.3s; }
