@@ -141,7 +141,7 @@ function appLayout(body, title, description, pathname = "/") {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script type="application/ld+json">${localBusinessLd}</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=19">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
