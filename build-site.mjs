@@ -579,7 +579,7 @@ for (const s of services) {
   const hasVid = videos.length > 0;
   const vidSrc = hasVid ? `/assets/video/instagram/${videos[Math.floor(Math.random() * videos.length)]}` : '';
   const heroMedia = hasVid 
-    ? `<video class="hero-video-bg" src="${vidSrc}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>`
+    ? `<video class="hero-video-bg" src="${vidSrc}" autoplay muted loop playsinline></video>`
     : `<img class="hero-video-bg" src="/assets/img/${s.image}" style="filter: brightness(0.3);">`;
 
   const body = `
@@ -664,7 +664,7 @@ for (const s of services) {
 
 writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Feed", `
     <section class="hero-app" style="height: 40vh; min-height: 300px;">
-      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline></video>
       <div class="hero-app-content">
         <h1>Galerie & Insta</h1>
         <p>Echte Einsätze im Zollernalbkreis</p>
@@ -689,7 +689,7 @@ writePage("/referenzen/", "Social Media & Referenzen", "Echte Bilder und Live-Fe
 
 writePage("/ueber-uns/", "Über Florian Stuck – FS Baumservice aus Bisingen", "Ihr persönlicher Baumprofi aus Bisingen-Steinhofen. Seilklettertechnik, ZTV-Baumpflege und ehrliche Arbeit im Zollernalbkreis.", `
   <section class="hero-app" style="height: 50vh; min-height: 340px;">
-    <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+    <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline></video>
     <div class="hero-app-content">
       <h1>${contact.owner}.<br><span class="lime-text">Ihr Baumpfleger.</span></h1>
       <p>Lokaler Baumservice aus ${contact.locality} — persönlich, schnell, direkt.</p>
@@ -795,7 +795,7 @@ writePage("/ueber-uns/", "Über Florian Stuck – FS Baumservice aus Bisingen", 
 
 writePage("/kontakt/", "Kontakt aufnehmen – FS Baumservice Bisingen", "Rufen Sie uns an, schreiben Sie per WhatsApp oder nutzen Sie unseren 3D-Konfigurator. Schnelle Reaktionszeit im Zollernalbkreis.", `
   <section class="hero-app" style="height: 40vh; min-height: 300px;">
-    <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+    <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline></video>
     <div class="hero-app-content">
       <h1>Kontakt.</h1>
       <p>Kein Formular-Chaos — einfach anrufen oder schreiben.</p>
@@ -895,7 +895,7 @@ writePage("/kontakt/", "Kontakt aufnehmen – FS Baumservice Bisingen", "Rufen S
 
 const ratgeberHero = `
     <section class="hero-app" style="height: 40vh; min-height: 300px;">
-      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+      <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline></video>
       <div class="hero-app-content">
         <h1>Ratgeber</h1>
         <p>Preise, Tipps und Baumlexikon</p>
@@ -908,7 +908,7 @@ writePage("/datenschutz/", "Datenschutz", "Datenschutz", datenschutzHtml);
 
 writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dienstleistungen", `
 <section class="hero-app" style="height: 40vh; min-height: 300px;">
-  <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline></video>
   <div class="hero-app-content">
     <h1>Unsere Leistungen</h1>
     <p>Professionelle Baumpflege & Fällung</p>
@@ -937,7 +937,7 @@ writePage("/leistungen/", "Alle Leistungen", "Übersicht unserer Baumpflege-Dien
 writePage("/angebot/", "3D Konfigurator", "Schnelle und einfache Projektanfrage", `
 
 <section class="hero-app" style="height: 40vh; min-height: 300px;">
-  <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline style="filter: brightness(0.3);"></video>
+  <video class="hero-video-bg" src="/assets/video/instagram/${instaVideos[Math.floor(Math.random() * instaVideos.length)]}" autoplay muted loop playsinline></video>
   <div class="hero-app-content">
     <h1>3D-Anfrage</h1>
     <p>Kostenfrei und unverbindlich</p>
