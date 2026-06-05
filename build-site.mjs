@@ -35,8 +35,7 @@ function topBar() {
 }
 
 function sidebar() {
-  return `<div class="mobile-overlay"></div>
-  <aside class="app-sidebar">
+  return `<aside class="app-sidebar">
     <a class="brand" href="/">
       <div class="brand-mark"><img src="/assets/img/fs-baumservice-logo-original.jpg" alt="Logo"></div>
       <div class="brand-text"><strong>FS Baumservice</strong><small>Florian Stuck</small></div>
@@ -76,7 +75,7 @@ function appLayout(body, title, description) {
   <title>${title} | FS Baumservice | Zollernalbkreis</title>
   <meta name="description" content="${description}">
   <meta name="view-transition" content="same-origin">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=6">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=7">
   <style>
     /* Topbar Inline Styling for Instant Delivery */
     .app-topbar {
@@ -110,6 +109,7 @@ function appLayout(body, title, description) {
   ${topBar()}
   <div class="custom-cursor"></div>
   <div class="custom-cursor-follower"></div>
+  <div class="mobile-overlay"></div>
   <div class="app-container">
     ${sidebar()}
     <main class="app-content">
@@ -126,7 +126,7 @@ function appLayout(body, title, description) {
     ${bottomBar()}
   </div>
   
-  <script src="/assets/js/site.js?v=6" defer></script>
+  <script src="/assets/js/site.js?v=7" defer></script>
   
   <script>
     // 4-Step Configurator Logic
