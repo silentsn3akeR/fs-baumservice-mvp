@@ -18,7 +18,7 @@ export async function render() {
 </section>
 
 <section class="section shell" aria-labelledby="lage-h">
-  ${protocol('01 — Ausgangslage', { id: "lage-h" })}
+  ${protocol('01 — Ausgangslage', { id: "lage-h", h: 2 })}
   <div class="decon mt-4">
     <div class="decon-stage">
       <div class="dc-media plate">
@@ -72,7 +72,7 @@ export async function render() {
 
 <section class="section dark" aria-labelledby="kontext-h">
   <div class="shell stack-3">
-    ${protocol('02 — Blick von oben', { id: "kontext-h" })}
+    ${protocol('02 — Blick von oben', { id: "kontext-h", h: 2 })}
     <div class="evidence mt-4">
       <div class="ev-media plate">
         ${img({

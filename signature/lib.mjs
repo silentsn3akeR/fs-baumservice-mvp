@@ -31,8 +31,10 @@ export function img({ master, slot, widths, sizes, alt, ratio, eager = false, po
   </picture>`;
 }
 
-export const protocol = (label, opts = {}) =>
-  `<p class="protocol${opts.end ? " protocol--end" : ""}"${opts.id ? ` id="${opts.id}"` : ""}>${label}</p>`;
+export const protocol = (label, opts = {}) => {
+  const tag = opts.h ? `h${opts.h}` : "p";
+  return `<${tag} class="protocol${opts.end ? " protocol--end" : ""}"${opts.id ? ` id="${opts.id}"` : ""}>${label}</${tag}>`;
+};
 
 /* ---------- Shell ---------- */
 export function pageShell({ title, desc, path: pagePath, body, current, headerOnPaper = false }) {
@@ -93,20 +95,20 @@ export function footer() {
         <p class="muted" style="font-size:var(--small);max-width:26em">Baumarbeiten mit Seilklettertechnik und passender Technik — inhabergeführt, im Zollernalbkreis zuhause.</p>
       </div>
       <div class="foot-col">
-        <h4>Leistungen</h4>
+        <p class="foot-h">Leistungen</p>
         <a href="/spezialfaellung/">Spezialfällung</a>
         <a href="/#leistungen">Baumfällung</a>
         <a href="/#leistungen">Baumpflege</a>
         <a href="/#leistungen">Wurzelstockfräsen</a>
       </div>
       <div class="foot-col">
-        <h4>Betrieb</h4>
+        <p class="foot-h">Betrieb</p>
         <a href="/projekte/winterfaellung-am-wohnhaus/">Einsatzdokumentation</a>
         <a href="/kontakt/">Kontakt &amp; Anfrage</a>
         <a href="${FS.instagram}" rel="noopener">Instagram</a>
       </div>
       <div class="foot-col">
-        <h4>Rechtliches</h4>
+        <p class="foot-h">Rechtliches</p>
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
       </div>

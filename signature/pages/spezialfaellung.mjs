@@ -25,7 +25,7 @@ export async function render() {
 </section>
 
 <section class="section shell" aria-labelledby="spezialfall-h">
-  ${protocol('Wann ist eine Fällung ein Spezialfall?', { id: "spezialfall-h" })}
+  ${protocol('Wann ist eine Fällung ein Spezialfall?', { id: "spezialfall-h", h: 2 })}
   <div class="grid grid--12 mt-4">
     <div style="grid-column: span 7" class="stack-3">
       <p class="lead">Sobald ein Baum nicht frei fallen darf, wird aus einer Fällung eine Rückbau-Aufgabe: Die Krone wird gesichert, Stück für Stück abgetragen und jedes Segment kontrolliert abgelassen.</p>
@@ -44,7 +44,7 @@ export async function render() {
 
 <section class="section dark" aria-labelledby="methode-h">
   <div class="shell stack-3">
-    ${protocol('Methode — drei Werkzeuge, ein Prinzip', { id: "methode-h" })}
+    ${protocol('Methode — drei Werkzeuge, ein Prinzip', { id: "methode-h", h: 2 })}
     <div class="evidence mt-4">
       <div class="ev-media plate">
         ${img({
@@ -101,7 +101,7 @@ export async function render() {
 </section>
 
 <section class="section shell" aria-labelledby="einsatz-h">
-  ${protocol('Acht Sekunden am Seil — <span class="leaf">aus der Ego-Perspektive</span>', { id: "einsatz-h" })}
+  ${protocol('Acht Sekunden am Seil — <span class="leaf">aus der Ego-Perspektive</span>', { id: "einsatz-h", h: 2 })}
   <div class="evidence evidence--portrait mt-4">
     <div class="ev-media vchapter">
       <div class="plate">
@@ -131,7 +131,7 @@ export async function render() {
 </section>
 
 <section class="section shell" aria-labelledby="technik-h" style="padding-top:0">
-  ${protocol('Technik-Register', { id: "technik-h" })}
+  ${protocol('Technik-Register', { id: "technik-h", h: 2 })}
   <div class="mt-4">
     <div class="tech-row">
       <span class="t-name">Seilklettertechnik</span>

@@ -19,7 +19,7 @@ export async function render() {
 </section>
 
 <section class="section shell" aria-labelledby="flow-h" style="padding-top:0">
-  ${protocol('Anfrage — <span class="leaf">dauert etwa zwei Minuten</span>', { id: "flow-h" })}
+  ${protocol('Anfrage — <span class="leaf">dauert etwa zwei Minuten</span>', { id: "flow-h", h: 2 })}
   <form class="flow mt-4" id="anfrage" method="post" action="#">
     <fieldset>
       <legend><b>01</b> — Worum geht es?</legend>
@@ -81,7 +81,7 @@ export async function render() {
 
 <section class="section dark" aria-labelledby="einzug-h">
   <div class="shell stack-3">
-    <p class="protocol" id="einzug-h">Ablauf nach der Anfrage</p>
+    <h2 class="protocol" id="einzug-h">Ablauf nach der Anfrage</h2>
     <div class="steps mt-4">
       <div class="step" style="border-color: var(--paper)">
         <span class="st-key">innerhalb kurzer Zeit</span>

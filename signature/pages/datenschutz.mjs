@@ -9,7 +9,7 @@ export async function render() {
 <section class="section shell" style="padding-top: var(--space-5); max-width: 60rem">
   ${protocol('Datenschutz — <span class="leaf">in Prüfung</span>')}
   <div class="prose stack-3 mt-4">
-    <h1 class="title">Datenschutzerklärung</h1>
+    <h1 class="title">Datenschutz&shy;erklärung</h1>
     <p class="flow-note">Preview-Hinweis: Fassung für den Neubau — wird vor Veröffentlichung juristisch geprüft und mit dem finalen Hosting-Setup abgeglichen.</p>
     <h2 style="font-size:1.1rem" class="title">1. Datenschutz auf einen Blick</h2>
     <p>Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>

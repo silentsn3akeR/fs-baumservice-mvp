@@ -1,0 +1,147 @@
+{
+ "gate": "AUDIT_GATES_V1",
+ "date": "2026-08-18",
+ "contrast": [
+  {
+   "pair": "ink auf paper (Text)",
+   "ratio": 10.67,
+   "required": 4.5,
+   "verdict": "PASS"
+  },
+  {
+   "pair": "slate auf paper (Sekundärtext)",
+   "ratio": 5.9,
+   "required": 4.5,
+   "verdict": "PASS"
+  },
+  {
+   "pair": "paper auf ink_deep (Text dunkel)",
+   "ratio": 12.99,
+   "required": 4.5,
+   "verdict": "PASS"
+  },
+  {
+   "pair": "leaf auf ink_deep (Akzenttext dunkel)",
+   "ratio": 9.1,
+   "required": 4.5,
+   "verdict": "PASS"
+  },
+  {
+   "pair": "leaf_deep auf paper (Akzenttext hell)",
+   "ratio": 3.53,
+   "required": 4.5,
+   "verdict": "FAIL"
+  },
+  {
+   "pair": "ink_deep auf leaf (CTA solid)",
+   "ratio": 9.1,
+   "required": 4.5,
+   "verdict": "PASS"
+  },
+  {
+   "pair": "mist auf paper (nur Hairline, kein Text)",
+   "ratio": 2.11,
+   "required": 1.0,
+   "verdict": "PASS"
+  }
+ ],
+ "pages": {
+  "/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 13"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 12"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 13"
+   ],
+   "weight": {
+    "html_kb": 14,
+    "total_all_refs_kb": 7916,
+    "critical_kb": 43
+   }
+  },
+  "/spezialfaellung/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 13"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 13"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 13"
+   ],
+   "weight": {
+    "html_kb": 13,
+    "total_all_refs_kb": 7402,
+    "critical_kb": 42
+   }
+  },
+  "/projekte/winterfaellung-am-wohnhaus/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "weight": {
+    "html_kb": 9,
+    "total_all_refs_kb": 5076,
+    "critical_kb": 39
+   }
+  },
+  "/kontakt/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 10"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "weight": {
+    "html_kb": 7,
+    "total_all_refs_kb": 37,
+    "critical_kb": 37
+   }
+  },
+  "/impressum/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 12"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 12"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 12"
+   ],
+   "weight": {
+    "html_kb": 4,
+    "total_all_refs_kb": 33,
+    "critical_kb": 33
+   }
+  },
+  "/datenschutz/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 11"
+   ],
+   "weight": {
+    "html_kb": 4,
+    "total_all_refs_kb": 34,
+    "critical_kb": 34
+   }
+  }
+ },
+ "keyboard_sample": "33 fokussierbare Elemente; erste: A.skip, A.wordmark, A"
+}

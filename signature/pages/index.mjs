@@ -32,7 +32,7 @@ export async function render() {
 
 <!-- ============ LEISTUNGS-REGISTER ============ -->
 <section class="section shell" id="leistungen" aria-labelledby="leistungen-h">
-  ${protocol('Leistungen — <span class="leaf">nach Situation, nicht nach Katalog</span>', { id: "leistungen-h" })}
+  ${protocol('Leistungen — <span class="leaf">nach Situation, nicht nach Katalog</span>', { id: "leistungen-h", h: 2 })}
 
   <div class="feature-split mt-4">
     <a class="plate" href="/spezialfaellung/" aria-label="Zur Spezialfällung">
@@ -87,7 +87,7 @@ export async function render() {
 <!-- ============ AKT II — BEWEIS ============ -->
 <section class="section dark" aria-labelledby="beweis-h">
   <div class="shell stack-3">
-    ${protocol('Arbeit zeigt mehr als ein Versprechen', { id: "beweis-h" })}
+    ${protocol('Arbeit zeigt mehr als ein Versprechen', { id: "beweis-h", h: 2 })}
     <div class="evidence evidence--portrait mt-4">
       <div class="ev-media plate">
         ${img({
@@ -157,7 +157,7 @@ export async function render() {
 
 <!-- ============ AKT IV — AKTION ============ -->
 <section class="section shell" aria-labelledby="prozess-h">
-  ${protocol('Ablauf', { id: "prozess-h" })}
+  ${protocol('Ablauf', { id: "prozess-h", h: 2 })}
   <div class="steps mt-4">
     <div class="step">
       <span class="st-key">Kontakt</span>
