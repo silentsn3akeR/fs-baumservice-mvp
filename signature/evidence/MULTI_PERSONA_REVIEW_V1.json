@@ -1,0 +1,28 @@
+{
+  "gate": "MULTI_PERSONA_REVIEW_V1",
+  "date": "2026-08-18",
+  "method": "Adversariale Einzelblicke, konkrete Konflikte aufgeloest — kein Score-Durchschnitt.",
+  "findings": [
+    { "persona": "Creative Director", "finding": "Hero-Headline verdeckte den Kletterer; Gruen auf zwei Zeilen zu laut", "resolution": "FIXED — Headline verkleinert/tiefer, Gruen auf eine Sinnzeile ('nicht einfach'), Motiv freigestellt" },
+    { "persona": "Senior Brand Designer", "finding": "Klammer-Motiv muss System sein, nicht Deko", "resolution": "FIXED — Wortmarke, Arbeitszonen-Annotation, Fokus-Ring, Flow-Rand nutzen dasselbe Gerät" },
+    { "persona": "Senior Web Designer", "finding": "Register-Namen liefen in Beschreibungsspalte (Wurzelstockfraesen)", "resolution": "FIXED — Spalten-Minima + kleinere Registernamen" },
+    { "persona": "UX Lead", "finding": "Register-Zeilen verlinkten zirkulaer auf /#leistungen", "resolution": "FIXED — entlinkt bis Detailflaechen existieren; Pfeil nur auf echten Links" },
+    { "persona": "Principal Frontend", "finding": "Grid-Blowout durch min-content (SEILKLETTERTECHNIK), H-Overflow /spezialfaellung/", "resolution": "FIXED — min-width:0 auf Grid-Items, weiche Trennungen, Overflow-Sweep 360-1920 sauber" },
+    { "persona": "Mobile Lead", "finding": "Header brach 768-1024 unschoen um; Hero-Annotation markierte das Auto statt des Kletterers", "resolution": "FIXED — Scroll-Nav bis 64rem; Annotation je Breakpoint repositioniert" },
+    { "persona": "Accessibility", "finding": "leaf_deep 3.53:1; Heading-Spruenge (Footer h4, Kontakt h3); kleine Klickziele; Datenschutz-Overflow mobil", "resolution": "FIXED — Token #5d6f3c (4.69:1), Protokoll-Headings als h2, Footer-Ueberschriften als p, Padding vergroessert, weiche Trennung; Rest-PARTIAL: kompakte Mono-Links erfuellen AA 24px, nicht AAA 44px" },
+    { "persona": "Performance", "finding": "2 Video-Loops ueber 2.5MB-Budget; Fonts via Google CDN", "resolution": "FIXED (Loops crf28, POV neu geschnitten 2.4MB) / OPEN (Fonts: Release-TODO Self-Hosting, in Datenschutz transparent benannt)" },
+    { "persona": "SEO", "finding": "Preview darf nicht indexiert werden; Alt-Routen muessen ueberleben", "resolution": "FIXED — noindex auf allen Preview-Seiten; Redirect-Map mit KEEP/301-Plan dokumentiert" },
+    { "persona": "Content", "finding": "Floskel-Gefahr; unbelegte Zahlen", "resolution": "PASS — Hedges ('laut bisheriger Praxis'), keine erfundenen Masse/Bewertungen/Notdienste; max 3 Monumente auf Home eingehalten" },
+    { "persona": "Media/Provenance", "finding": "Irrefuehrende Dateinamen (heckenschnitt-, wurzelstockfraesen-*.jpg); Duplikat-Blob; beschaedigtes JPEG", "resolution": "FIXED — media.json bindet nach Inhalt, Duplikat als EIN Asset, M-13 DAMAGED gesperrt; Heckenschnitt/Rollrasen bewusst ohne Fake-Bild" },
+    { "persona": "Truth", "finding": "Telefonkonflikt 0172/0173; Kran-Eigentum; Projektorte", "resolution": "FIXED (sichtbar) — Impressum-Chip 'wird verifiziert', Kran als Partnertechnik ausgewiesen, Orte nur Regions-Granularitaet; C-004/C-014 bleiben OWNER-Blocker fuer Release" },
+    { "persona": "Privacy", "finding": "Formular ohne definierten Upload-/Speicherpfad", "resolution": "FIXED — bewusst mailto-Flow ohne Server-Speicherung, Fotohinweis statt Upload; Datenschutz-Text passt zur Implementierung" },
+    { "persona": "QA", "finding": "Lazy-Images unsichtbar in Capture; No-JS/Broken-Media ungeprueft", "resolution": "FIXED — Capture-Sweep; No-JS voll nutzbar, Broken-Media wuerdevoll, Reduced-Motion zeigt alles" },
+    { "persona": "Operations", "finding": "Gefahr von Datei-Wildwuchs und Einweg-Skripten (Alt-MVP hatte fix_*.js-Chaos)", "resolution": "PASS — deterministische Pipeline (media_build.py), Namensschema <master>__<slot>__<w>, Build ohne Dependencies" },
+    { "persona": "Brownfield-Architekt", "finding": "Alt-Routen/Substanz duerfen nicht verloren gehen", "resolution": "PASS — Quell-Freeze unangetastet auf main; Rebuild additiv unter signature/; Redirect-Plan vorhanden" }
+  ],
+  "unresolved": [
+    "COMPETITOR_SWAP nur PARTIAL — Spezifitaet haengt bewusst an Medien+Protokoll, optional mehr logo-abgeleitete Mikrodetails",
+    "AAA-Klickziele (44px) fuer kompakte Mono-Links nicht erreicht (AA erfuellt)",
+    "Google-Fonts-CDN bis Self-Hosting-Freigabe"
+  ]
+}

@@ -51,36 +51,36 @@ export async function render() {
   </div>
 
   <div class="register" role="list">
-    <a class="register-row" role="listitem" href="/#leistungen">
+    <div class="register-row" role="listitem">
       <span class="reg-name">Baumfällung</span>
       <span class="reg-desc">Kontrollierte Fällung, wenn ein Baum nicht mehr standsicher ist oder weichen muss — inklusive Beratung zu Genehmigungen.</span>
       <span class="reg-meta">Seilklettertechnik · Abtrag in Sektionen</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </a>
-    <a class="register-row" role="listitem" href="/#leistungen">
+    </div>
+    <div class="register-row" role="listitem">
       <span class="reg-name">Baumpflege</span>
       <span class="reg-desc">Kronenpflege und Totholzentfernung — geschnitten wird, was dem Baum nützt, nach ZTV-Baumpflege.</span>
       <span class="reg-meta">Erhalt vor Eingriff</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </a>
-    <a class="register-row" role="listitem" href="/#leistungen">
+    </div>
+    <div class="register-row" role="listitem">
       <span class="reg-name">Wurzelstockfräsen</span>
       <span class="reg-desc">Stümpfe raus, Fläche nutzbar — die Fräse kommt laut bisheriger Praxis durch Zugänge ab rund 90 cm.</span>
       <span class="reg-meta">Durchfahrt ab ca. 90 cm</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </a>
-    <a class="register-row" role="listitem" href="/#leistungen">
+    </div>
+    <div class="register-row" role="listitem">
       <span class="reg-name">Heckenschnitt &amp; Grundstück</span>
       <span class="reg-desc">Form- und Rückschnitt, saubere Kanten, Schnittgut geräumt.</span>
       <span class="reg-meta">Privat &amp; Gewerbe</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </a>
-    <a class="register-row" role="listitem" href="/#leistungen">
+    </div>
+    <div class="register-row" role="listitem">
       <span class="reg-name">Rollrasen</span>
       <span class="reg-desc">Vorbereitung und Verlegung, wenn eine Fläche schnell wieder grün sein soll — auch nach Fällung und Fräsung.</span>
       <span class="reg-meta">Anschluss an Baumarbeiten</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </a>
+    </div>
   </div>
 </section>
 

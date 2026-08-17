@@ -271,8 +271,10 @@ a { color: inherit; }
   text-transform: uppercase; color: var(--slate); justify-self: start;
 }
 .register-row .reg-arrow { font-family: var(--font-mono); font-size: .9rem; justify-self: end; opacity: 0; transition: opacity .15s ease, translate .15s ease; }
-.register-row:hover { background: color-mix(in srgb, var(--paper-dim) 60%, var(--paper)); }
-.register-row:hover .reg-arrow { opacity: 1; translate: .3rem 0; }
+a.register-row:hover { background: color-mix(in srgb, var(--paper-dim) 60%, var(--paper)); }
+a.register-row:hover .reg-arrow { opacity: 1; translate: .3rem 0; }
+.register-row .reg-arrow { display: none; }
+a.register-row .reg-arrow { display: block; }
 .register-row--featured { grid-template-columns: 1fr; padding-block: 0; border-bottom: none; text-decoration: none; }
 a.register-row { color: inherit; }
 

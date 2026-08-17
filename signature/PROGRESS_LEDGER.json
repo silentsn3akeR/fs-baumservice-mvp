@@ -1,0 +1,51 @@
+{
+  "ledger": "FS_ULTRA_PLUS_SINGLE_RUN_V1",
+  "date": "2026-08-18",
+  "repo": {
+    "brownfield_main": "C:/Users/s/.gemini/antigravity-ide/scratch/fs-baumservice-mvp @ a3f03ad (unangetastet)",
+    "work_worktree": "C:/Obscura/projects/fs-baumservice-signature",
+    "branch": "signature/ultra-plus-v1",
+    "pushed": false, "pr": false, "merge": false
+  },
+  "phases": {
+    "0_fresh_truth": "DONE",
+    "1_source_freeze": "DONE (Routen, Claims, Medien-SHAs, Konflikte)",
+    "2_claim_authority": "DONE (claims.json, 16 Claims, Zustaende)",
+    "3_media_authority": "DONE (media.json, 22 Master, Lineage, Duplikat/Damaged markiert)",
+    "4_logo_dna": "DONE (Pixelanalyse: #34323E/#B5D36E/#EAEAEC, Klammer-Form, Typo-Paar)",
+    "5_media_forensics": "DONE (5 Szenen-Cluster, 7 Reels shot-segmentiert, Fehlbenennungen erkannt)",
+    "6_ia": "DONE (Slice-IA + Redirect-Plan)",
+    "7_art_direction_freeze": "DONE (ART_DIRECTION.md)",
+    "8_tokens": "DONE (site.css TOKENS, A11y-verifiziert, Perf-Budget)",
+    "9_static_home": "DONE",
+    "10_static_wow_redteam": "DONE (STATIC_WOW_GATE_V1.json: 8 PASS, 1 PARTIAL)",
+    "11_fix_static": "DONE",
+    "12_motion": "DONE (Arrival, Hero-Depth<=28px, Freeze-Explain, Flow-Fokus; reduced-motion-sicher)",
+    "13_signature_project": "DONE (/projekte/winterfaellung-am-wohnhaus/)",
+    "14_spezialfaellung": "DONE",
+    "15_request_experience": "DONE (mailto-Flow, bewusst ohne Upload)",
+    "16_slice_integration": "DONE (6 Flaechen inkl. Legal-Shells)",
+    "17_responsive": "DONE (360-1920 Overflow-Sweep sauber, 200%-Zoom ohne H-Scroll)",
+    "18_a11y": "DONE mit PARTIAL (AAA-Klickziele offen; AA erfuellt)",
+    "19_performance": "DONE (kritischer Pfad 33-43KB + Fonts; Loops <=2.5MB; Budget-Report in AUDIT)",
+    "20_resilience": "DONE (no-js, broken-media, reduced-motion PASS)",
+    "21_atlas": "PARTIAL (ATLAS_PROXY_V1 DOM-Messung; kanonische Atlas-Katalog-Bindung UNKNOWN/nicht ausgefuehrt)",
+    "22_multi_persona": "DONE (16 Personas, konkrete Findings mit Fixes)",
+    "23_fix_findings": "DONE (Register entlinkt, Header 64rem, Kontrast-Token)",
+    "24_seo_redirect_legal_prep": "DONE als Plan (SEO_RELAUNCH_PREP_V1.json); Legal-Review OFFEN",
+    "25_before_after": "DONE (BROWNFIELD_TRANSFORMATION_RECORD.json)",
+    "26_final_packet": "DONE (dieser Ledger + End-of-Run-Report)"
+  },
+  "surfaces_built": ["/", "/spezialfaellung/", "/projekte/winterfaellung-am-wohnhaus/", "/kontakt/", "/impressum/", "/datenschutz/"],
+  "surfaces_pending": ["/leistungen/-Neubau (+5 Detailseiten)", "/ueber-fs/", "/wissen/", "/projekte/-Index"],
+  "release_blockers_p0": [
+    "C-004 Telefon: 0172 (dominant, foto-korroboriert) vs 0173 (Impressum) — OWNER_CONFIRM",
+    "C-014 USt-ID fehlt im Impressum — OWNER",
+    "Rechtstexte juristisch pruefen; Fonts self-hosten oder Einwilligungsloesung",
+    "Formularversand-Backend erst nach Owner-Definition (Transport/Speicherung/Loeschung)",
+    "Medienrechte final bestaetigen (OWNER_SOURCED_ASSUMED)"
+  ],
+  "owner_boundary": "NO PUSH / NO PR / NO MERGE / NO DOMAIN-REPLACEMENT — eingehalten; alles lokal committet",
+  "how_to_view": "python -m http.server 8814 --directory C:/Obscura/projects/fs-baumservice-signature/signature/dist (oder Launch-Config 'fs-signature')",
+  "how_to_rebuild": "signature/pipeline/media_build.py, dann node signature/build.mjs; Gates: pipeline/gate_renders.py + audit_gates.py"
+}
