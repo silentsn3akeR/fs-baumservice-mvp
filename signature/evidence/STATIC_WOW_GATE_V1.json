@@ -1,0 +1,21 @@
+{
+  "gate": "STATIC_WOW_GATE_V1",
+  "date": "2026-08-18",
+  "scope": ["/", "/spezialfaellung/", "/projekte/winterfaellung-am-wohnhaus/", "/kontakt/"],
+  "renders": "signature/evidence/renders/ (lokal, deterministisch via pipeline/gate_renders.py reproduzierbar)",
+  "tests": {
+    "STATIC_WOW": { "verdict": "PASS", "note": "Ohne jede Animation: Monument-Typo auf echter Einsatzaufnahme, editorialer Rhythmus, dokumentarische Beweisblöcke." },
+    "GREYSCALE": { "verdict": "PASS", "note": "Hierarchie und Lesbarkeit vollständig farbunabhängig (gate_grey_hero/register.png)." },
+    "LOGO_REMOVAL": { "verdict": "PASS", "note": "Ohne Wortmarke bleibt FS erkennbar: Klammer-Motiv, Blattgrün-Signal, Protokollsprache, eigene Einsatzmedien (gate_logoremoval.png)." },
+    "COMPETITOR_SWAP": { "verdict": "PARTIAL", "note": "Layout-Prinzipien wären kopierbar; Spezifität hängt an FS-Medien + Klammer + Protokoll-Metadaten. Bewusst akzeptiert: Substanz schlägt Deko. Nachschärfung optional über mehr logo-abgeleitete Mikrodetails." },
+    "COPY_REMOVAL": { "verdict": "PASS", "note": "Ohne Text kommunizieren Medienwahl, Arbeitszonen-Markierung und Aktionsblock weiterhin Gewerk + Ernsthaftigkeit (gate_copyremoval.png)." },
+    "REAL_MEDIA": { "verdict": "PASS", "note": "Ausschließlich reale FS-Assets aus media.json-Lineage; kein Stock, keine Platzhalter auf den 4 Slice-Flächen." },
+    "NO_EFFECT": { "verdict": "PASS", "note": "Build ist zu diesem Gate vollständig statisch." },
+    "FIRST_SCREEN": { "verdict": "PASS", "note": "Erster Screen: Wer (FS/Region), Was (Baumarbeit in Wohnlage), Warum besonders (Kletterer über Haus), Handlung (Anfrage/Telefon)." },
+    "MOBILE_COMPOSITION": { "verdict": "PASS", "note": "Eigener 4:5-Hero-Crop, eigene Zeilenbrüche, gestapeltes Register (home_390.png)." }
+  },
+  "open_findings": [
+    "Hero-Annotation: Feinjustage der Klammer-Position auf Zwischenbreiten (768/1024) ausstehend",
+    "Spezialfällung-Hero: Protokollzeile auf hellem Himmel grenzwertig — Scrim nachgezogen, Re-Check bei Responsive-Pass"
+  ]
+}

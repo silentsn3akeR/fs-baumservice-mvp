@@ -100,7 +100,37 @@ export async function render() {
   </div>
 </section>
 
-<section class="section shell" aria-labelledby="technik-h">
+<section class="section shell" aria-labelledby="einsatz-h">
+  ${protocol('Acht Sekunden am Seil — <span class="leaf">aus der Ego-Perspektive</span>', { id: "einsatz-h" })}
+  <div class="evidence evidence--portrait mt-4">
+    <div class="ev-media vchapter">
+      <div class="plate">
+        <video playsinline muted loop preload="none"
+          poster="/media/V-06__pov-daecher__720.jpg"
+          aria-label="Kurzer Einsatz-Clip aus der Kletterperspektive: Blick über Dächer, dann auf Stiefel und Sicherungsseil auf einem Ast.">
+          <source src="/media/V-06__pov-loop.mp4" type="video/mp4">
+        </video>
+        <div class="vc-overlay"><p></p></div>
+        <span class="credit">Einsatz-Clip · ohne Ton</span>
+      </div>
+      <div class="vc-chapters" role="group" aria-label="Clip-Kapitel">
+        <button type="button" data-t="1.0" data-text="Arbeitsposition über den Dächern — dokumentiert aus der Ego-Perspektive." aria-pressed="false">Über den Dächern</button>
+        <button type="button" data-t="5.2" data-text="Gesichert auf dem Ast: Tritt, Gurt und Seilführung greifen ineinander." aria-pressed="false">Tritt &amp; Seil</button>
+        <button type="button" data-resume="true" aria-pressed="false">▶ Weiter</button>
+      </div>
+    </div>
+    <div class="ev-copy">
+      <h2 class="title">So nah ist sonst niemand dran</h2>
+      <p class="prose muted">Die Kamera läuft bei uns am Helm mit. Nicht für die Show — die Aufnahmen dokumentieren Seilführung und Arbeitswege und machen nachvollziehbar, wie kontrolliert Kronenarbeit abläuft. Zwei Momente aus einem echten Einsatz, zum Anhalten und Nachschauen.</p>
+      <div class="ev-beats">
+        <div class="ev-beat"><span class="b-key">Anhalten</span><span class="b-val">Kapitel wählen — der Clip friert am passenden Moment ein und erklärt, was zu sehen ist.</span></div>
+        <div class="ev-beat"><span class="b-key">Hinweis</span><span class="b-val">Clip lädt erst beim Erreichen der Sektion; ohne Bewegtbild-Wunsch bleibt das Standbild.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section shell" aria-labelledby="technik-h" style="padding-top:0">
   ${protocol('Technik-Register', { id: "technik-h" })}
   <div class="mt-4">
     <div class="tech-row">

@@ -448,6 +448,66 @@ a.register-row { color: inherit; }
   border: 1px solid var(--leaf); padding: .5em .8em; pointer-events: none;
 }
 
+/* ============ MOTION (nur ohne Reduced-Motion, nur mit JS) ============ */
+/* Prinzip: REVEAL / EXPLAIN / FOCUS — keine Deko-Bewegung. Ohne JS ist alles sichtbar. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0; translate: 0 20px;
+    transition: opacity .65s ease, translate .65s cubic-bezier(.25, .6, .2, 1);
+  }
+  html.js .reveal.in-view { opacity: 1; translate: 0 0; }
+  html.js .reveal-media {
+    clip-path: inset(0 0 14% 0); opacity: .35;
+    transition: clip-path .9s cubic-bezier(.3, .65, .2, 1), opacity .7s ease;
+  }
+  html.js .reveal-media.in-view { clip-path: inset(0 0 0 0); opacity: 1; }
+
+  /* Brand Arrival: Hero-Zeilen steigen nacheinander */
+  html.js .hero .hero-protocol, html.js .hero .hero-headline, html.js .hero .hero-foot {
+    opacity: 0; translate: 0 26px;
+    animation: hero-rise .8s cubic-bezier(.22, .65, .2, 1) forwards;
+  }
+  html.js .hero .hero-headline { animation-delay: .12s; }
+  html.js .hero .hero-foot { animation-delay: .28s; }
+  html.js .hero .annot { opacity: 0; animation: hero-rise .7s ease .75s forwards; }
+  @keyframes hero-rise { to { opacity: 1; translate: 0 0; } }
+
+  /* Hero Depth: dezente Tiefe beim Scrollen (max ±28px, JS setzt --sy) */
+  html.js .hero-media img, html.js .page-hero .hero-media img {
+    transform: translate3d(0, calc(var(--sy, 0) * -0.055px), 0) scale(1.06);
+    will-change: transform;
+  }
+}
+
+/* ============ VIDEO-KAPITEL: REAL → FREEZE → ERKLÄREN ============ */
+.vchapter { display: grid; gap: 0; }
+.vchapter .plate { aspect-ratio: 4 / 5; position: relative; }
+.vchapter video { width: 100%; height: 100%; object-fit: cover; }
+.vc-overlay {
+  position: absolute; inset: auto 0 0 0; z-index: 2;
+  padding: .9rem; display: none;
+  background: linear-gradient(to top, color-mix(in srgb, var(--ink-deep) 88%, transparent), transparent);
+}
+.vchapter.frozen .vc-overlay { display: block; }
+.vc-overlay p {
+  font-family: var(--font-mono); font-size: .7rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--paper); max-width: 34em;
+}
+.vc-chapters { display: flex; flex-wrap: wrap; gap: .5rem; padding-top: .8rem; }
+.vc-chapters button {
+  font-family: var(--font-mono); font-size: .62rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase; cursor: pointer;
+  color: inherit; background: transparent; border: 1px solid var(--hair);
+  padding: .6em .9em;
+}
+.vc-chapters button[aria-pressed="true"] { border-color: var(--leaf); color: var(--leaf); }
+.vc-chapters button:hover { border-color: currentcolor; }
+
+/* ============ ANFRAGE-FOKUS: Klammer folgt dem aktiven Schritt ============ */
+.flow fieldset { border-left: 2px solid transparent; padding-left: 1rem; margin-left: -1rem; transition: border-color .2s ease; }
+.flow fieldset:focus-within { border-left-color: var(--leaf-deep); }
+.flow fieldset:focus-within legend b { color: var(--ink); }
+
 /* ============ UTILITIES ============ */
 .stack-2 { display: grid; gap: var(--space-2); }
 .stack-3 { display: grid; gap: var(--space-3); }
