@@ -22,9 +22,10 @@ export async function render() {
       <img src="/media/M-01__trunks__1440.webp" srcset="/media/M-01__trunks__1440.webp 1440w, /media/M-01__trunks__1920.webp 1920w" sizes="100vw" alt="" loading="eager" decoding="async">
     </picture>
   </div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="hero-inner shell">
     <p class="protocol hero-protocol"><span class="leaf">Einsatzdokumentation</span>&nbsp;· Winter · Wohngebiet</p>
-    <h1 class="monument hero-headline">Wenn ein Baum<br><span class="leafline">nicht einfach</span><br>fallen kann.</h1>
+    <h1 class="monument hero-headline"><span class="hl-line">Wenn ein Baum</span><br><span class="hl-line leafline">nicht einfach</span><br><span class="hl-line">fallen kann.</span></h1>
     <div class="hero-foot">
       <div class="hero-facts">
         <span class="fact"><b>${FS.legal}</b></span>
@@ -62,25 +63,25 @@ export async function render() {
       <span class="reg-desc">Kontrollierte Fällung, wenn ein Baum nicht mehr standsicher ist oder weichen muss — inklusive Beratung zu Genehmigungen.</span>
       <span class="reg-meta">Seilklettertechnik · Abtrag in Sektionen</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </div>
+    </a>
     <a class="register-row" role="listitem" href="/leistungen/baumpflege/">
       <span class="reg-name">Baumpflege</span>
       <span class="reg-desc">Kronenpflege und Totholzentfernung — geschnitten wird, was dem Baum nützt, nach ZTV-Baumpflege.</span>
       <span class="reg-meta">Erhalt vor Eingriff</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </div>
+    </a>
     <a class="register-row" role="listitem" href="/leistungen/wurzelstockfraesen/">
       <span class="reg-name">Wurzelstockfräsen</span>
       <span class="reg-desc">Stümpfe raus, Fläche nutzbar — die Fräse kommt laut bisheriger Praxis durch Zugänge ab rund 90 cm.</span>
       <span class="reg-meta">Durchfahrt ab ca. 90 cm</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </div>
+    </a>
     <a class="register-row" role="listitem" href="/leistungen/heckenschnitt/">
       <span class="reg-name">Heckenschnitt &amp; Grundstück</span>
       <span class="reg-desc">Form- und Rückschnitt, saubere Kanten, Schnittgut geräumt.</span>
       <span class="reg-meta">Privat &amp; Gewerbe</span>
       <span class="reg-arrow" aria-hidden="true">→</span>
-    </div>
+    </a>
     <a class="register-row" role="listitem" href="/leistungen/rollrasen/">
       <span class="reg-name">Rollrasen</span>
       <span class="reg-desc">Vorbereitung und Verlegung, wenn eine Fläche schnell wieder grün sein soll — auch nach Fällung und Fräsung.</span>
@@ -94,6 +95,7 @@ export async function render() {
 <section class="xview dark" aria-labelledby="beweis-h">
   <div class="xv-track">
     <div class="xv-stage">
+      <div class="xv-cam">
       <div class="xv-layer xv-bg" aria-hidden="true">
         ${img({
           master: "M-01", slot: "hero", widths: [960, 1440, 1920],
@@ -103,10 +105,16 @@ export async function render() {
         })}
       </div>
       <div class="xv-dim" aria-hidden="true"></div>
-      <div class="xv-layer xv-tree" aria-hidden="true">
+      <div class="xv-layer xv-treeL" aria-hidden="true">
         <picture>
-          <source media="(max-width: 47.9rem)" type="image/webp" srcset="/media/M-01__trunksmob__640.webp 640w, /media/M-01__trunksmob__960.webp 960w" sizes="100vw">
-          <img src="/media/M-01__trunks__1440.webp" srcset="/media/M-01__trunks__1440.webp 1440w, /media/M-01__trunks__1920.webp 1920w" sizes="100vw" alt="" loading="lazy" decoding="async">
+          <source media="(max-width: 47.9rem)" type="image/webp" srcset="/media/M-01__trunkLmob__640.webp 640w" sizes="100vw">
+          <img src="/media/M-01__trunkL__1440.webp" srcset="/media/M-01__trunkL__960.webp 960w, /media/M-01__trunkL__1440.webp 1440w" sizes="100vw" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="xv-layer xv-treeR" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 47.9rem)" type="image/webp" srcset="/media/M-01__trunkRmob__640.webp 640w" sizes="100vw">
+          <img src="/media/M-01__trunkR__1440.webp" srcset="/media/M-01__trunkR__960.webp 960w, /media/M-01__trunkR__1440.webp 1440w" sizes="100vw" alt="" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="xv-layer xv-human" aria-hidden="true">
@@ -116,13 +124,17 @@ export async function render() {
         </picture>
       </div>
       <span class="annot xv-zone" aria-hidden="true"><span class="annot-zone"></span></span>
+      </div>
+      <span class="xv-leader xv-leader--umfeld" aria-hidden="true"></span>
+      <span class="xv-leader xv-leader--baum" aria-hidden="true"></span>
+      <span class="xv-leader xv-leader--mensch" aria-hidden="true"></span>
       <div class="xv-label xv-label--umfeld"><b>Umfeld</b><span>Wohnhaus, Hecke, Zufahrt — alles im Fallbereich.</span></div>
       <div class="xv-label xv-label--baum"><b>Baum</b><span>Zwei Nadelbäume, Kronen bereits abgetragen.</span></div>
       <div class="xv-label xv-label--mensch"><b>Mensch</b><span>Gesichert am Doppelseil — Seilklettertechnik.</span></div>
       <div class="xv-label xv-label--raum"><b>Arbeitsraum</b><span>Jedes Stück hängt am Seil, bevor es fällt.</span></div>
       <div class="xv-copy shell">
         ${protocol('Arbeit zeigt mehr als ein Versprechen', { id: "beweis-h", h: 2 })}
-        <p class="xv-title title">Ein Einsatz, <span class="leafline" style="color:var(--leaf)">auseinandergelegt.</span></p>
+        <p class="xv-title title"><span class="xk-a">Ein Einsatz,</span> <span class="xk-b" style="color:var(--leaf)">auseinander&#8203;</span><span class="xk-c" style="color:var(--leaf)">gelegt.</span></p>
         <a class="textlink xv-cta" href="/projekte/winterfaellung-am-wohnhaus/">Ganzen Einsatz ansehen →</a>
       </div>
     </div>

@@ -42,26 +42,35 @@
     }, { passive: true });
   }
 
-  /* ---- FS_SIG_02: Semantic Exploded View (scrollgetrieben, zustandsrein) ---- */
+  /* ---- FS_SIG_02 V2: CinematicScene mit CameraRig ----
+     p -> Dramaturgie: 0-8 REALITY | 8-18 CAMERA PUSH | 18-34 BURST(Overshoot)
+     | 34-60 READ | 60-78 SNAP-REASSEMBLY | 78-100 EXIT-PUSH.
+     Deterministisch aus scrollY; Zustaende schalten Uebergaenge (Dim/Leader/Labels). */
   var xv = document.querySelector(".xview");
   if (xv) {
     if (reduced) {
       xv.classList.add("xv-static");
     } else {
       var track = xv.querySelector(".xv-track");
-      var ease = function (a, b, p) { var t = Math.min(1, Math.max(0, (p - a) / (b - a))); return t * t * (3 - 2 * t); };
+      var sm = function (a, b, p) { var t = Math.min(1, Math.max(0, (p - a) / (b - a))); return t * t * (3 - 2 * t); };
+      var back = function (t) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); };
       var xvTick = false;
       var xvUpdate = function () {
         xvTick = false;
         var r = track.getBoundingClientRect();
         var span = r.height - window.innerHeight;
         var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
-        // Separation: rein bei 30-55%, raus bei 78-100% (S4 Reassembly)
-        var sep = Math.min(ease(0.30, 0.55, p), 1 - ease(0.78, 1.0, p));
+        var ret = sm(0.60, 0.76, p);                       // Reassembly (schnell) + Settle
+        var cam = Math.min(sm(0.08, 0.18, p), 1 - ret);    // Kamera-Push halten bis Snap
+        var burst = back(sm(0.18, 0.34, p));               // Overshoot-Punch
+        var sep = Math.max(0, burst * (1 - ret));
+        var exit = sm(0.80, 1.0, p);
+        xv.style.setProperty("--cam", cam.toFixed(3));
         xv.style.setProperty("--sep", sep.toFixed(3));
-        var st = p < 0.15 ? "s0" : p < 0.30 ? "s1" : p < 0.55 ? "s2" : p < 0.78 ? "s3" : "s4";
+        xv.style.setProperty("--exit", exit.toFixed(3));
+        var st = p < 0.08 ? "s0" : p < 0.18 ? "s1" : p < 0.34 ? "s2" : p < 0.60 ? "s3" : p < 0.78 ? "s4" : "s5";
         if (xv.dataset.state !== st) xv.dataset.state = st;
-        window.__fsx = { p: +p.toFixed(3), sep: +sep.toFixed(3), state: st };
+        window.__fsx = { p: +p.toFixed(3), sep: +sep.toFixed(3), cam: +cam.toFixed(3), state: st };
       };
       var xvReq = function () { if (!xvTick) { xvTick = true; requestAnimationFrame(xvUpdate); } };
       addEventListener("scroll", xvReq, { passive: true });
@@ -101,6 +110,7 @@
         buttons.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
         if (resume) {
           vc.classList.remove("frozen");
+          vc.classList.remove("vc-punched");
           video.play().catch(function () {});
           return;
         }
@@ -114,6 +124,7 @@
             var z = btn.dataset.zone.split(",");
             fz.style.left = z[0] + "%"; fz.style.top = z[1] + "%";
           }
+          vc.classList.toggle("vc-punched", btn.dataset.punch === "true");
           if (overlay) overlay.textContent = btn.dataset.text || "";
         };
         if (video.readyState >= 1) seekAndFreeze();
