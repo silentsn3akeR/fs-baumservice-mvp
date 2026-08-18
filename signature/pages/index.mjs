@@ -16,6 +16,12 @@ export async function render() {
     <span class="annot-zone"></span>
     <span class="annot-label">Seilklettertechnik · gesichert</span>
   </div>
+  <div class="hero-media hero-occl" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 47.9rem)" type="image/webp" srcset="/media/M-01__trunksmob__640.webp 640w, /media/M-01__trunksmob__960.webp 960w" sizes="100vw">
+      <img src="/media/M-01__trunks__1440.webp" srcset="/media/M-01__trunks__1440.webp 1440w, /media/M-01__trunks__1920.webp 1920w" sizes="100vw" alt="" loading="eager" decoding="async">
+    </picture>
+  </div>
   <div class="hero-inner shell">
     <p class="protocol hero-protocol"><span class="leaf">Einsatzdokumentation</span>&nbsp;· Winter · Wohngebiet</p>
     <h1 class="monument hero-headline">Wenn ein Baum<br><span class="leafline">nicht einfach</span><br>fallen kann.</h1>
