@@ -1,0 +1,56 @@
+{
+ "doc": "MEDIA_SURFACE_COVERAGE_MATRIX_V1",
+ "date": "2026-08-18",
+ "rows": [
+  {
+   "surface": "HOME_HERO (SIG_01)",
+   "assets": [
+    "M-01 + trunks/climber-Derivate"
+   ],
+   "capabilities_used": [
+    "MONUMENT_MEDIA",
+    "DEPTH_CAPABLE",
+    "TYPOGRAPHY_OCCLUSION_GOOD",
+    "MASKABLE_TREE"
+   ]
+  },
+  {
+   "surface": "HOME_EXPLODED (SIG_02)",
+   "assets": [
+    "M-01 + trunks + climber"
+   ],
+   "capabilities_used": [
+    "DECONSTRUCTION_CAPABLE",
+    "MASKABLE_PERSON",
+    "MASKABLE_TREE"
+   ]
+  },
+  {
+   "surface": "SPEZIALFAELLUNG_PROOF (SIG_03)",
+   "assets": [
+    "V-06 pov-loop + Poster"
+   ],
+   "capabilities_used": [
+    "FREEZE_CANDIDATE",
+    "HUMAN_AUTHORITY"
+   ]
+  },
+  {
+   "surface": "PORTAL (SIG_05)",
+   "assets": [
+    "M-01 (identische Szene beidseitig)"
+   ],
+   "capabilities_used": [
+    "PORTAL_CANDIDATE"
+   ]
+  },
+  {
+   "surface": "TECHNICAL_GHOST (SIG_04)",
+   "assets": [
+    "M-03 Kandidat"
+   ],
+   "capabilities_used": [],
+   "state": "DEFERRED — keine verifizierten Zusatzfakten ueber vorhandene Chips hinaus; Stacking bewusst niedrig gehalten"
+  }
+ ]
+}

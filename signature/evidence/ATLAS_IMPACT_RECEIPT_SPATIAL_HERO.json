@@ -1,0 +1,35 @@
+{
+ "atlas_impact_receipts": [
+  {
+   "receipt_id": "AIR-SPATIAL-HERO-001",
+   "surface": "HOME_HERO",
+   "finding_ref": "SIG01-CALIBRATION-001 (Statement-Ausloeschung durch Voll-Okklusion, v1)",
+   "canonical_sources": [
+    "PATTERN-TYPE-DISPLAY-TYPOGRAPHY",
+    "PATTERN-MEDIA-IMAGE-TEXT-RELATION",
+    "PATTERN-DESIGN-ATTENTION-GUIDANCE",
+    "PATTERN-HERO-HERO-SYSTEM"
+   ],
+   "evidence_mode": "CANONICAL_RECALL_PLUS_RENDER",
+   "before_render": "renders/sig01_hero_1440.png",
+   "observation": "Erste Okklusions-Iteration verschluckte Wortenden vollstaendig (BAUM->BAU, EINFACH->EINFACI, KANN.->KANN); Annotations-Label wurde vom Stamm zerschnitten (Stacking-Context .hero-annot z2).",
+   "interpretation": "Typo-Okklusion traegt nur, wenn Buchstaben hinter dem Subjekt WIEDER AUFTAUCHEN — sonst kippt Image-Text-Relation von Tiefe in Informationsverlust.",
+   "decision": "Linker Stamm okkludiert nur oberhalb der Headline-Zone; Headline auf 4.8rem; Label ueber die Staemme (z3, Stacking-Context aufgeloest).",
+   "change": "Masken-Derivate v2 (Taper y=470), font-size clamp, .hero-annot z-index auto + Label z3.",
+   "after_render": "renders/sig01_hero_1440_v2.png + sig01_final_{1440,768,390}.png",
+   "verification": "RESOLVED",
+   "geometry_or_metric_evidence": {
+    "headline_bbox_1440": [
+     56,
+     509,
+     1369,
+     746
+    ],
+    "occl_layer_loaded": true,
+    "letters_reemerge": "M/H/N sichtbar beidseitig des Stamms",
+    "label_text_dom": "vollstaendig, z=3"
+   },
+   "notes": "Statische Identitaet: Occlusion existiert ohne Motion; Motion ergaenzt nur ~14px Typo-Slip (Foto+Maske EINE Ebene — kein Ghosting)."
+  }
+ ]
+}

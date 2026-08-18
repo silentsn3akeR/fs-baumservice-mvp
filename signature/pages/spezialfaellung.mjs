@@ -110,12 +110,14 @@ export async function render() {
           aria-label="Kurzer Einsatz-Clip aus der Kletterperspektive: Blick über Dächer, dann auf Stiefel und Sicherungsseil auf einem Ast.">
           <source src="/media/V-06__pov-loop.mp4" type="video/mp4">
         </video>
+        <div class="vc-dim" aria-hidden="true"></div>
+        <span class="vc-fzone" aria-hidden="true"></span>
         <div class="vc-overlay"><p></p></div>
         <span class="credit">Einsatz-Clip · ohne Ton</span>
       </div>
       <div class="vc-chapters" role="group" aria-label="Clip-Kapitel">
-        <button type="button" data-t="1.0" data-text="Arbeitsposition über den Dächern — dokumentiert aus der Ego-Perspektive." aria-pressed="false">Über den Dächern</button>
-        <button type="button" data-t="5.2" data-text="Gesichert auf dem Ast: Tritt, Gurt und Seilführung greifen ineinander." aria-pressed="false">Tritt &amp; Seil</button>
+        <button type="button" data-t="1.0" data-zone="30,26" data-text="Arbeitsposition über den Dächern — dokumentiert aus der Ego-Perspektive." aria-pressed="false">Über den Dächern</button>
+        <button type="button" data-t="5.2" data-zone="38,55" data-text="Gesichert auf dem Ast: Tritt, Gurt und Seilführung greifen ineinander." aria-pressed="false">Tritt &amp; Seil</button>
         <button type="button" data-resume="true" aria-pressed="false">▶ Weiter</button>
       </div>
     </div>

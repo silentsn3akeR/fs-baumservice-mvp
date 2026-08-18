@@ -512,6 +512,53 @@ a.register-row { color: inherit; }
   }
 }
 
+/* ============ FS_SIG_02 — SEMANTIC EXPLODED VIEW ============
+   S0 REALITY -> S1 FOCUS -> S2 SEPARATION -> S3 EXPLANATION -> S4 REASSEMBLY.
+   JS setzt --sep (0..1) + data-state; ohne JS/mit Reduced Motion zeigt die
+   Szene die STATIC_DECONSTRUCTION_PLATE (Ebenen leicht getrennt, Labels an). */
+.xview { position: relative; }
+.xv-track { height: 320vh; }
+.xv-stage { position: sticky; top: 0; height: 100svh; overflow: clip; }
+.xv-layer { position: absolute; inset: 0; }
+.xv-layer img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.xv-dim { position: absolute; inset: 0; background: var(--ink-deep); opacity: 0; }
+.xv-tree img { transform: translate3d(calc(var(--sep, 0) * 9px), 0, 0); }
+.xv-human img { transform: translate3d(0, calc(var(--sep, 0) * -16px), 0) scale(calc(1 + var(--sep, 0) * 0.035)); }
+.xv-dim { opacity: calc(var(--sep, 0) * 0.55); }
+.xv-zone { top: 31%; left: 44%; opacity: calc((var(--sep, 0) - .2) * 2); }
+.xv-zone .annot-zone { width: 4.2rem; height: 4.2rem; }
+.xv-label {
+  position: absolute; z-index: 3; max-width: 17rem;
+  font-family: var(--font-mono); text-transform: uppercase;
+  color: var(--paper); display: grid; gap: .3rem;
+  opacity: var(--lbl, 0); translate: 0 calc((1 - var(--lbl, 0)) * 10px);
+  transition: opacity .35s ease, translate .35s ease;
+}
+.xv-label b { font-size: .62rem; font-weight: 500; letter-spacing: .22em; color: var(--leaf); }
+.xv-label span { font-size: .68rem; font-weight: 500; letter-spacing: .1em; line-height: 1.6;
+  background: color-mix(in srgb, var(--ink-deep) 82%, transparent); padding: .5em .7em; }
+.xv-label--umfeld { top: 14%; left: var(--gutter); }
+.xv-label--baum { top: 40%; right: var(--gutter); }
+.xv-label--mensch { top: 58%; left: var(--gutter); }
+.xv-label--raum { top: 17%; left: 56%; }
+.xv-copy { position: absolute; inset: auto 0 0 0; z-index: 4; padding-block: var(--space-3); display: grid; gap: .8rem; }
+.xv-title { color: var(--paper); max-width: 18ch; }
+.xv-cta { color: var(--paper); justify-self: start; }
+/* Statische Platte (kein JS oder Reduced Motion): S3-Komposition */
+html:not(.js) .xview, .xview.xv-static { --sep: .7; --lbl: 1; }
+html:not(.js) .xv-track, .xview.xv-static .xv-track { height: auto; }
+html:not(.js) .xv-stage, .xview.xv-static .xv-stage { position: relative; height: 100svh; }
+/* Zustaende (JS) */
+.xview[data-state="s3"] .xv-label { --lbl: 1; }
+@media (max-width: 47.9rem) {
+  /* Mobile: max 3 Ebenen aktiv (bg, human, zone) — Baum-Shift aus, 2 Labels */
+  .xv-tree img { transform: none; }
+  .xv-label--baum, .xv-label--raum { display: none; }
+  .xv-label { max-width: 14rem; }
+  .xv-label--mensch { top: 62%; }
+  .xv-track { height: 260vh; }
+}
+
 /* ============ VIDEO-KAPITEL: REAL → FREEZE → ERKLÄREN ============ */
 .vchapter { display: grid; gap: 0; }
 .vchapter .plate { aspect-ratio: 4 / 5; position: relative; }
@@ -536,10 +583,37 @@ a.register-row { color: inherit; }
 .vc-chapters button[aria-pressed="true"] { border-color: var(--leaf); color: var(--leaf); }
 .vc-chapters button:hover { border-color: currentcolor; }
 
+/* FS_SIG_03 — CINEMATIC PROOF: V1 FREEZE -> V2 EXPLODE -> V3 EXPLAIN */
+.vchapter .plate { isolation: isolate; }
+.vc-dim { position: absolute; inset: 0; z-index: 1; background: var(--ink-deep); opacity: 0; transition: opacity .4s ease; }
+.vchapter video { transition: transform .5s cubic-bezier(.3,.65,.2,1); }
+.vchapter.frozen video { transform: scale(1.045); }
+.vchapter.frozen .vc-dim { opacity: .38; }
+.vc-fzone { position: absolute; z-index: 2; width: 4rem; height: 4rem; opacity: 0; transition: opacity .35s ease .15s; }
+.vc-fzone::before, .vc-fzone::after { content: ""; position: absolute; top: 0; bottom: 0; width: .9rem; border: 2px solid var(--leaf); }
+.vc-fzone::before { left: 0; border-right: 0; }
+.vc-fzone::after { right: 0; border-left: 0; }
+.vchapter.frozen .vc-fzone { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .vchapter.frozen video { transform: none; }
+}
+
 /* ============ ANFRAGE-FOKUS: Klammer folgt dem aktiven Schritt ============ */
 .flow fieldset { border-left: 2px solid transparent; padding-left: 1rem; margin-left: -1rem; transition: border-color .2s ease; }
 .flow fieldset:focus-within { border-left-color: var(--leaf-deep); }
 .flow fieldset:focus-within legend b { color: var(--ink); }
+
+/* ============ FS_SIG_05 — PORTAL ZOOM PILOT (View Transition, MPA) ============
+   Dieselbe reale Szene (M-01) morpht von der Exploded View in den Projekt-Hero.
+   Progressive Enhancement: ohne Browser-Support normale Navigation. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .xview .xv-bg img { view-transition-name: fs-scene; }
+  .page-hero .hero-media > picture img { view-transition-name: fs-scene; }
+  ::view-transition-old(fs-scene), ::view-transition-new(fs-scene) {
+    animation-duration: .45s;
+  }
+}
 
 /* ============ UTILITIES ============ */
 .stack-2 { display: grid; gap: var(--space-2); }

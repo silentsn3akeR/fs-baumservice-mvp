@@ -1,0 +1,26 @@
+{
+ "doc": "ATLAS_RESPONSIVE_DIFFERENTIAL_WOW_V1",
+ "date": "2026-08-18",
+ "principle": "DESKTOP_PASS_NE_MOBILE_PASS — jede Breite eigene Komposition",
+ "spatial_hero": {
+  "1440": "Voll-Okklusion beide Stammzonen, Typo-Slip 14px, 6 Ebenen",
+  "768": "Desktop-Quellen, engerer Crop — Label absolut neben Zone (Alt-Finding-Regime), Okklusion beide Staemme",
+  "390": "Eigener 4:5-Crop (heromob+trunksmob), 3 Tiefenebenen, 1 Annotation, rechter Stamm okkludiert Zeilenenden"
+ },
+ "exploded_view": {
+  "1440": "4 semantische Ebenen, 4 Labels + Zone, Track 320vh",
+  "768": "wie 1440 (Signale identisch sauber, occl nur Label-Helm-Beruehrung -> Nudge auf 17%/56%)",
+  "390": "3 Ebenen (Baum-Shift aus), 2 Labels, Track 260vh — persistente Multi-Label-Overlays vermieden"
+ },
+ "evidence": [
+  "renders/xv_temporal_{1440,768,390}_{0,25,50,75,100}.png",
+  "renders/sig01_final_{1440,768,390}.png"
+ ],
+ "gates": {
+  "390_CUSTOM_COMPOSITION": "PASS",
+  "768_CUSTOM_COMPOSITION": "PASS",
+  "1440_FULL_COMPOSITION": "PASS",
+  "NO_HOVER_DEPENDENCY": "PASS",
+  "NO_SUBJECT_OCCLUSION": "PASS (occl-Signal 0 nach Label-Nudge; Kletterer stets sichtbar)"
+ }
+}

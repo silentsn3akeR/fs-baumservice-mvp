@@ -1,0 +1,52 @@
+{
+ "temporal_captures": [
+  {
+   "scene_id": "FS_SIG_03_CINEMATIC_PROOF",
+   "viewport": 1440,
+   "progress_percent": 0,
+   "signals": {
+    "visible_dominant_elements": 2,
+    "annotation_count": 0,
+    "moving_layer_count": 1,
+    "primary_subject_visible": true,
+    "occlusion_events": 0,
+    "video_playing": true,
+    "video_frozen": false,
+    "active_semantic_layer_count": 1
+   },
+   "render_ref": "cp_v0.png"
+  },
+  {
+   "scene_id": "FS_SIG_03_CINEMATIC_PROOF",
+   "viewport": 1440,
+   "progress_percent": 50,
+   "signals": {
+    "visible_dominant_elements": 4,
+    "annotation_count": 2,
+    "moving_layer_count": 0,
+    "primary_subject_visible": true,
+    "occlusion_events": 0,
+    "video_playing": false,
+    "video_frozen": true,
+    "active_semantic_layer_count": 2
+   },
+   "render_ref": "cp_v3_explain.png"
+  },
+  {
+   "scene_id": "FS_SIG_03_CINEMATIC_PROOF",
+   "viewport": 1440,
+   "progress_percent": 100,
+   "signals": {
+    "visible_dominant_elements": 2,
+    "annotation_count": 0,
+    "moving_layer_count": 1,
+    "primary_subject_visible": true,
+    "occlusion_events": 0,
+    "video_playing": true,
+    "video_frozen": false,
+    "active_semantic_layer_count": 1
+   },
+   "render_ref": "cp_v5_resume.png"
+  }
+ ]
+}

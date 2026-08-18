@@ -90,31 +90,47 @@ export async function render() {
   </div>
 </section>
 
-<!-- ============ AKT II — BEWEIS ============ -->
-<section class="section dark" aria-labelledby="beweis-h">
-  <div class="shell stack-3">
-    ${protocol('Arbeit zeigt mehr als ein Versprechen', { id: "beweis-h", h: 2 })}
-    <div class="evidence evidence--portrait mt-4">
-      <div class="ev-media plate">
+<!-- ============ AKT II — BEWEIS: SEMANTIC EXPLODED VIEW (FS_SIG_02) ============ -->
+<section class="xview dark" aria-labelledby="beweis-h">
+  <div class="xv-track">
+    <div class="xv-stage">
+      <div class="xv-layer xv-bg" aria-hidden="true">
         ${img({
-          master: "V-05", slot: "maschinenflug", widths: [720],
-          sizes: "(min-width: 64rem) 55vw, 100vw",
-          alt: "Ein Minidumper hängt am Kranhaken und wird über das Dach eines Wohnhauses in den Garten gehoben.",
+          master: "M-01", slot: "hero", widths: [960, 1440, 1920],
+          sizes: "100vw",
+          mobile: { slot: "heromob", widths: [640, 960], media: "(max-width: 47.9rem)" },
+          alt: "",
         })}
-        <span class="credit">Standbild · Einsatzdokumentation</span>
       </div>
-      <div class="ev-copy">
-        <h2 class="title">Wenn die Maschine übers Haus muss</h2>
-        <p class="prose muted">Kein Zugang für Fahrzeuge? Dann fliegt die Technik. Was nach Ausnahme aussieht, ist geplante Logistik: Lasten, Wege und Sicherung sind vorher festgelegt.</p>
-        <div class="ev-beats">
-          <div class="ev-beat"><span class="b-key">Zugang</span><span class="b-val">Enges Wohngrundstück — Technik per Autokran-Unterstützung über das Gebäude gehoben.</span></div>
-          <div class="ev-beat"><span class="b-key">Sicherung</span><span class="b-val">Anschlagpunkte und Lastweg vor dem Hub festgelegt, Bereich unten geräumt.</span></div>
-          <div class="ev-beat"><span class="b-key">Abtrag</span><span class="b-val">Krone und Stamm in Sektionen — nichts fällt frei.</span></div>
-        </div>
-        <a class="textlink" href="/projekte/winterfaellung-am-wohnhaus/">Einen Einsatz im Detail ansehen →</a>
+      <div class="xv-dim" aria-hidden="true"></div>
+      <div class="xv-layer xv-tree" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 47.9rem)" type="image/webp" srcset="/media/M-01__trunksmob__640.webp 640w, /media/M-01__trunksmob__960.webp 960w" sizes="100vw">
+          <img src="/media/M-01__trunks__1440.webp" srcset="/media/M-01__trunks__1440.webp 1440w, /media/M-01__trunks__1920.webp 1920w" sizes="100vw" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="xv-layer xv-human" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 47.9rem)" type="image/webp" srcset="/media/M-01__climbermob__640.webp 640w" sizes="100vw">
+          <img src="/media/M-01__climber__1440.webp" srcset="/media/M-01__climber__960.webp 960w, /media/M-01__climber__1440.webp 1440w" sizes="100vw" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <span class="annot xv-zone" aria-hidden="true"><span class="annot-zone"></span></span>
+      <div class="xv-label xv-label--umfeld"><b>Umfeld</b><span>Wohnhaus, Hecke, Zufahrt — alles im Fallbereich.</span></div>
+      <div class="xv-label xv-label--baum"><b>Baum</b><span>Zwei Nadelbäume, Kronen bereits abgetragen.</span></div>
+      <div class="xv-label xv-label--mensch"><b>Mensch</b><span>Gesichert am Doppelseil — Seilklettertechnik.</span></div>
+      <div class="xv-label xv-label--raum"><b>Arbeitsraum</b><span>Jedes Stück hängt am Seil, bevor es fällt.</span></div>
+      <div class="xv-copy shell">
+        ${protocol('Arbeit zeigt mehr als ein Versprechen', { id: "beweis-h", h: 2 })}
+        <p class="xv-title title">Ein Einsatz, <span class="leafline" style="color:var(--leaf)">auseinandergelegt.</span></p>
+        <a class="textlink xv-cta" href="/projekte/winterfaellung-am-wohnhaus/">Ganzen Einsatz ansehen →</a>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="section dark" style="padding-top: var(--space-4)">
+  <div class="shell stack-3">
     <div class="evidence evidence--flip mt-4">
       <div class="ev-media plate">
         ${img({

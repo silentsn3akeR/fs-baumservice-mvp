@@ -1,0 +1,50 @@
+{
+ "doc": "ATLAS_SIGNATURE_RECALL_BINDINGS_V1",
+ "date": "2026-08-18",
+ "canonical_source": "CATALOG_PROJECTION_V1.json (DERIVED_READ_MODEL_ONLY)",
+ "bindings": {
+  "FS_SIG_01_SPATIAL_HERO": {
+   "patterns": [
+    "PATTERN-HERO-HERO-SYSTEM",
+    "PATTERN-TYPE-DISPLAY-TYPOGRAPHY",
+    "PATTERN-MEDIA-DOCUMENTARY-PHOTOGRAPHY",
+    "PATTERN-MEDIA-IMAGE-TEXT-RELATION",
+    "PATTERN-DESIGN-ATTENTION-GUIDANCE"
+   ],
+   "anti_watch": [
+    "ANTI-WEB-VIDEO-HERO-BLOAT (vermieden: Standbild)",
+    "ANTI-WEB-GENERIC-STOCK-AESTHETIC (vermieden: M-01 real)"
+   ]
+  },
+  "FS_SIG_02_SEMANTIC_EXPLODED_VIEW": {
+   "patterns": [
+    "PATTERN-DESIGN-ATTENTION-GUIDANCE",
+    "PATTERN-LAYOUT-EDITORIAL",
+    "PATTERN-MEDIA-DOCUMENTARY-PHOTOGRAPHY",
+    "PATTERN-MEDIA-IMAGE-COMPOSITION"
+   ],
+   "anti_watch": [
+    "ANTI-WEB-SCROLL-HIJACKING (vermieden: natives Scrollen, reine Funktion von scrollY)",
+    "ANTI-WEB-OVERANIMATION (Peak-Staffelung S2/S3)"
+   ]
+  },
+  "FS_SIG_03_CINEMATIC_PROOF": {
+   "patterns": [
+    "PATTERN-MEDIA-DOCUMENTARY-PHOTOGRAPHY",
+    "PATTERN-DESIGN-ATTENTION-GUIDANCE"
+   ],
+   "anti_watch": [
+    "ANTI-WEB-UNCONTROLLED-AUTOPLAY (muted, in-view, anhaltbar)",
+    "Regel MOTION_UP=>INFO_DOWN eingehalten (Labels nur im Freeze)"
+   ]
+  },
+  "FS_SIG_05_PORTAL_ZOOM": {
+   "patterns": [
+    "PATTERN-DESIGN-ATTENTION-GUIDANCE"
+   ],
+   "anti_watch": [
+    "PURE_DECORATION (verneint: semantische Szenen-Kontinuitaet)"
+   ]
+  }
+ }
+}
