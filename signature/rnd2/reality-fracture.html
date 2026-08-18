@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>RND F — Reality Fracture</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root { --ink:#26242e; --leaf:#b5d36e; --paper:#edecef; }
+  * { margin:0; box-sizing:border-box; }
+  html,body { height:100%; background:#1c1a22; overflow:hidden; font-family:Archivo,sans-serif; }
+  .vp { position:fixed; inset:0; perspective:1000px; perspective-origin:50% 45%; }
+  .world { position:absolute; inset:0; transform-style:preserve-3d; transition: transform 3s cubic-bezier(.35,.7,.25,1); }
+  .open .world { transform: translateZ(240px); }
+  .snap .world { transition: transform .85s cubic-bezier(.55,0,.15,1); transform: translateZ(0); }
+
+  .pl { position:absolute; inset:0; transform-style:preserve-3d;
+    transition: transform 2.4s cubic-bezier(.3,.85,.25,1), filter 2.4s ease; }
+  .pl img { width:100%; height:100%; object-fit:cover; object-position:50% 32%; display:block; }
+  .pl::after { content:""; position:absolute; inset:0; opacity:0; transition: opacity 2.4s ease; pointer-events:none; }
+
+  /* OEFFNUNG entlang der realen Stammkanten — grosse architektonische Platten */
+  .open .sL { transform: rotateY(20deg) translate3d(-17%, 0, -130px); filter: brightness(.82); }
+  .open .sL::after { background: linear-gradient(100deg, transparent 40%, rgba(0,0,0,.5)); opacity:1; }
+  .open .sM { transform: translateZ(-70px) scale(.97); filter: brightness(.75); }
+  .open .sR { transform: rotateY(-18deg) translate3d(16%, 0, -110px); filter: brightness(.8); }
+  .open .sR::after { background: linear-gradient(260deg, transparent 40%, rgba(0,0,0,.5)); opacity:1; }
+  .open .tL { transform: rotateY(9deg) translate3d(-6%, -1%, 160px) scale(1.05); }
+  .open .tR { transform: rotateY(-8deg) translate3d(7%, -2%, 200px) scale(1.09); }
+  .open .hu { transform: translateZ(110px) scale(1.12); }
+  .snap .pl { transition: transform .85s cubic-bezier(.55,0,.2,1.06), filter .7s ease; transform:none; filter:none; }
+  .snap .pl::after { opacity:0; transition: opacity .5s ease; }
+
+  /* Bruchlinien = echte Stamm-Mittellinien */
+  .fx { position:absolute; inset:0; pointer-events:none; z-index:5; }
+  .fx i { position:absolute; top:0; bottom:0; width:2px; background:var(--leaf); opacity:0;
+    transform:scaleY(0); transform-origin:50% 0; }
+  .fx .f1 { left:31%; rotate:2.4deg; } .fx .f2 { left:63.5%; rotate:-1.6deg; }
+  .crack .fx i { opacity:.95; transform:scaleY(1); transition: transform .18s cubic-bezier(.7,0,.3,1), opacity .15s ease; }
+  .open .fx i { opacity:0; transition: opacity .6s ease .5s; }
+
+  .st { position:fixed; left:6vw; bottom:8vh; z-index:7; pointer-events:none; }
+  .st span { display:block; color:var(--paper); font-weight:880; font-variation-settings:"wdth" 122;
+    text-transform:uppercase; font-size:min(6.6vw,5.2rem); line-height:.95; opacity:0; transform:translateY(60px);
+    transition:opacity .45s ease, transform .6s cubic-bezier(.16,.84,.24,1); }
+  .st .b { color:var(--leaf); transition-delay:.1s; }
+  .open .st span { opacity:1; transform:none; }
+  .snap .st span { opacity:0; transition: opacity .3s ease; }
+
+  .veil { position:fixed; inset:0; background:var(--ink); opacity:1; transition:opacity .7s ease; pointer-events:none; z-index:9; }
+  .on .veil { opacity:0; }
+  .tag { position:fixed; left:1.2rem; top:1rem; color:var(--paper); font-family:"IBM Plex Mono",monospace;
+    font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; opacity:.75; z-index:10; }
+  .tag b { color:var(--leaf); font-weight:500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    body { --noop:1; }
+    .world, .pl { transition:none !important; }
+    body.rm .sL { transform: rotateY(20deg) translate3d(-17%,0,-130px); }
+    body.rm .sR { transform: rotateY(-18deg) translate3d(16%,0,-110px); }
+    body.rm .tL { transform: rotateY(9deg) translate3d(-6%,-1%,160px) scale(1.05); }
+    body.rm .tR { transform: rotateY(-8deg) translate3d(7%,-2%,200px) scale(1.09); }
+    body.rm .hu { transform: translateZ(110px) scale(1.12); }
+    body.rm .st span { opacity:1; transform:none; }
+    .veil { opacity:0; }
+  }
+</style>
+</head>
+<body>
+<p class="tag">[ FS ] RND-F · <b>REALITY FRACTURE</b> · Das Foto öffnet sich entlang der echten Stämme</p>
+<div class="vp">
+  <div class="world" id="w">
+    <div class="pl sL"><img src="/rnd/assets/slabL.webp" alt=""></div>
+    <div class="pl sM"><img src="/rnd/assets/slabM.webp" alt=""></div>
+    <div class="pl sR"><img src="/rnd/assets/slabR.webp" alt=""></div>
+    <div class="pl hu"><img src="/media/M-01__climber__1440.webp" alt=""></div>
+    <div class="pl tL"><img src="/media/M-01__trunkL__1440.webp" alt=""></div>
+    <div class="pl tR"><img src="/media/M-01__trunkR__1440.webp" alt=""></div>
+    <div class="fx"><i class="f1"></i><i class="f2"></i></div>
+  </div>
+</div>
+<div class="st"><span class="a">Realität,</span><span class="b">geöffnet.</span></div>
+<div class="veil"></div>
+<script>
+(function () {
+  var b = document.body, w = document.getElementById('w');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { b.classList.add('rm'); return; }
+  var timers = [];
+  function at(t, fn) { timers.push(setTimeout(fn, t)); }
+  function run() {
+    timers.forEach(clearTimeout); timers = [];
+    b.className = '';
+    void b.offsetWidth;
+    at(60,   function () { b.classList.add('on'); });
+    at(1500, function () { b.classList.add('crack'); });   // Bruchlinien blitzen auf
+    at(1850, function () { b.classList.add('open'); });    // Platten oeffnen, Kamera faehrt durch den Spalt
+    at(8600, function () { b.classList.remove('open'); b.classList.add('snap'); }); // magnetische Rueckkehr
+    at(9700, function () { b.classList.remove('crack','snap'); });
+    at(11600,function () { b.classList.remove('on'); });
+    at(12500, run);
+  }
+  addEventListener('pointermove', function (e) {
+    if (!b.classList.contains('open')) { w.style.rotate = ''; return; }
+    var ry = (e.clientX / innerWidth - .5) * 8;
+    w.style.rotate = 'y ' + ry + 'deg';
+  }, { passive: true });
+  addEventListener('click', run);
+  run();
+})();
+</script>
+</body>
+</html>

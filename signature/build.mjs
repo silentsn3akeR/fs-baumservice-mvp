@@ -29,8 +29,12 @@ await copyFile(path.join(ROOT, "src", "site.css"), path.join(DIST, "site.css"));
 // RND-Prototypen (isoliert, kein Produktions-Routing)
 const { readdir } = await import("node:fs/promises");
 await mkdir(path.join(DIST, "rnd"), { recursive: true });
-for (const f of await readdir(path.join(ROOT, "rnd"))) {
-  await copyFile(path.join(ROOT, "rnd", f), path.join(DIST, "rnd", f));
+for (const dir of ["rnd", "rnd2"]) {
+  await mkdir(path.join(DIST, dir), { recursive: true });
+  for (const f of await readdir(path.join(ROOT, dir))) {
+    if (f === "assets") continue;
+    await copyFile(path.join(ROOT, dir, f), path.join(DIST, dir, f));
+  }
 }
 await copyFile(path.join(ROOT, "src", "site.js"), path.join(DIST, "site.js")).catch(() => writeFile(path.join(DIST, "site.js"), ""));
 console.log("done");

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>RND E — Scale Collapse</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root { --ink:#26242e; --leaf:#b5d36e; --paper:#edecef; }
+  * { margin:0; box-sizing:border-box; }
+  html,body { height:100%; background:var(--ink); overflow:hidden; font-family:Archivo,sans-serif; }
+  .stage { position:fixed; inset:0; }
+  .L { position:absolute; inset:0; opacity:0; }
+  .L img, .L video { width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* L1: Gesamtprojekt — Beschleunigung auf den Kletterer (Origin 48/36) */
+  .L1 { opacity:1; transform-origin:48% 36%; }
+  .z1 .L1 { transform: scale(7.2); transition: transform 2.9s cubic-bezier(.65,.03,.4,1), filter 2.9s ease; filter: blur(2px); }
+  /* L2: Kletterer-Crop — Weiterflug auf den Stiefel (Origin 68/65) */
+  .L2 { transform-origin:68% 65%; transform: scale(.62); }
+  .z2 .L2 { opacity:1; transform: scale(3.6); transition: opacity .4s ease, transform 2.3s cubic-bezier(.5,.05,.35,1), filter 2.3s ease; filter: blur(3px); }
+  .z1 .L1 { }
+  .hideL1 .L1 { opacity:0; transition: opacity .25s ease; }
+  /* L3: Stiefel-Frame — Ankunft, Mikro-Verlangsamung */
+  .L3 { transform: scale(1.42); }
+  .z3 .L3 { opacity:1; transform: scale(1); transition: opacity .45s ease, transform 1.1s cubic-bezier(.16,.8,.22,1); }
+  .hideL2 .L2 { opacity:0; transition: opacity .25s ease; }
+  /* L4: dasselbe Detail — LEBENDIG (POV-Video, Stiefel-Segment) */
+  .z4 .L4 { opacity:1; transition: opacity .6s ease; }
+
+  /* Rueckflug: die ganze Reise in einem Atemzug */
+  .rev .L4, .rev .L3 { opacity:0 !important; transition: opacity .3s ease; }
+  .rev .L2 { opacity:0 !important; transform: scale(.62); transition: transform .9s cubic-bezier(.6,0,.8,.4), opacity .5s ease .3s; }
+  .rev .L1 { opacity:1; transform: scale(1); filter:none; transition: transform 1.15s cubic-bezier(.25,.6,.2,1); }
+
+  .bracket { position:fixed; left:45%; top:30%; width:7rem; height:7rem; opacity:0; z-index:6;
+    transition: opacity .3s ease, transform .45s cubic-bezier(.2,1.4,.4,1); transform:scale(1.6); }
+  .bracket::before,.bracket::after { content:""; position:absolute; top:0; bottom:0; width:1.3rem; border:3px solid var(--leaf); }
+  .bracket::before { left:0; border-right:0; } .bracket::after { right:0; border-left:0; }
+  .acq .bracket { opacity:1; transform:scale(1); }
+  .z1 .bracket { opacity:0; transform:scale(.5); transition: opacity .5s ease, transform 1.2s cubic-bezier(.7,0,.6,1); }
+
+  .st { position:fixed; left:6vw; bottom:8vh; z-index:7; pointer-events:none; }
+  .st span { display:block; color:var(--paper); font-weight:880; font-variation-settings:"wdth" 122;
+    text-transform:uppercase; font-size:min(6.6vw,5.2rem); line-height:.95; opacity:0; transform:translateY(60px);
+    transition:opacity .45s ease, transform .6s cubic-bezier(.16,.84,.24,1); }
+  .st .b { color:var(--leaf); transition-delay:.1s; }
+  .z3 .st span, .z4 .st span { opacity:1; transform:none; }
+  .rev .st span { opacity:0; }
+
+  .veil { position:fixed; inset:0; background:var(--ink); opacity:1; transition:opacity .7s ease; pointer-events:none; z-index:9; }
+  .on .veil { opacity:0; }
+  .tag { position:fixed; left:1.2rem; top:1rem; color:var(--paper); font-family:"IBM Plex Mono",monospace;
+    font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; opacity:.75; z-index:10; }
+  .tag b { color:var(--leaf); font-weight:500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .L3, .st span { opacity:1 !important; transform:none !important; }
+    .L1 { opacity:0; } .veil { opacity:0; }
+  }
+</style>
+</head>
+<body>
+<p class="tag">[ FS ] RND-E · <b>SCALE COLLAPSE</b> · Vom ganzen Projekt in den Tritt</p>
+<div class="stage">
+  <div class="L L1"><img src="/media/M-01__hero__1920.jpg" alt=""></div>
+  <div class="L L2"><img src="/media/M-01__crop-kletterer__960.webp" alt=""></div>
+  <div class="L L3"><img src="/media/V-06__stiefel-seil__720.jpg" alt=""></div>
+  <div class="L L4"><video id="v" src="/media/V-06__pov-loop.mp4" muted playsinline preload="auto"></video></div>
+</div>
+<span class="bracket"></span>
+<div class="st"><span class="a">Ein Projekt.</span><span class="b">Ein Tritt.</span></div>
+<div class="veil"></div>
+<script>
+(function () {
+  var b = document.body, v = document.getElementById('v');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var timers = [];
+  function at(t, fn) { timers.push(setTimeout(fn, t)); }
+  function run() {
+    timers.forEach(clearTimeout); timers = [];
+    b.className = ''; v.pause();
+    void b.offsetWidth;
+    at(60,   function () { b.classList.add('on'); });
+    at(500,  function () { b.classList.add('acq'); });      // Klammer erfasst das Ziel
+    at(1400, function () { b.classList.add('z1'); });       // Beschleunigung auf den Kletterer
+    at(3600, function () { b.classList.add('z2'); });       // Res-Swap: Crop uebernimmt
+    at(3950, function () { b.classList.add('hideL1'); });
+    at(5700, function () { b.classList.add('z3'); });       // Ankunft: der Stiefel als Landschaft
+    at(6050, function () { b.classList.add('hideL2'); });
+    at(7300, function () { v.currentTime = 4.2; v.play(); b.classList.add('z4'); }); // Detail wird LEBENDIG
+    at(10300,function () { b.classList.add('rev'); v.pause(); });  // Rueckflug in einem Atemzug
+    at(11800,function () { b.classList.remove('on'); });
+    at(12700, run);
+  }
+  addEventListener('click', run);
+  run();
+})();
+</script>
+</body>
+</html>
