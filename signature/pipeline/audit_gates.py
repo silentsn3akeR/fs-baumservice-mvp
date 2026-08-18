@@ -5,7 +5,9 @@ import json, os, time, urllib.request
 from cdp import Tab
 
 BASE = "http://127.0.0.1:8814"
-PAGES = ["/", "/spezialfaellung/", "/projekte/winterfaellung-am-wohnhaus/", "/kontakt/", "/impressum/", "/datenschutz/"]
+PAGES = ["/", "/spezialfaellung/", "/projekte/winterfaellung-am-wohnhaus/", "/kontakt/", "/impressum/", "/datenschutz/",
+  "/leistungen/", "/leistungen/baumfaellung/", "/leistungen/baumpflege/", "/leistungen/wurzelstockfraesen/",
+  "/leistungen/heckenschnitt/", "/leistungen/rollrasen/", "/projekte/", "/ueber-fs/", "/wissen/"]
 OUT = os.path.join(os.path.dirname(__file__), "..", "evidence")
 
 # ---- Kontrast (WCAG) über Token-Paare ----

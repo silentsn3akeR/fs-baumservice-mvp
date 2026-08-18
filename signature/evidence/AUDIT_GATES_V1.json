@@ -48,45 +48,45 @@
  "pages": {
   "/": {
    "desktop": [
-    "kleine Klickziele (<34px hoch): 13"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "mobile": [
-    "kleine Klickziele (<34px hoch): 12"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "tablet": [
-    "kleine Klickziele (<34px hoch): 13"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "weight": {
     "html_kb": 14,
     "total_all_refs_kb": 7916,
-    "critical_kb": 43
+    "critical_kb": 44
    }
   },
   "/spezialfaellung/": {
    "desktop": [
-    "kleine Klickziele (<34px hoch): 13"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "mobile": [
-    "kleine Klickziele (<34px hoch): 13"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "tablet": [
-    "kleine Klickziele (<34px hoch): 13"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "weight": {
     "html_kb": 13,
     "total_all_refs_kb": 7402,
-    "critical_kb": 42
+    "critical_kb": 43
    }
   },
   "/projekte/winterfaellung-am-wohnhaus/": {
    "desktop": [
-    "kleine Klickziele (<34px hoch): 11"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "mobile": [
-    "kleine Klickziele (<34px hoch): 11"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "tablet": [
-    "kleine Klickziele (<34px hoch): 11"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "weight": {
     "html_kb": 9,
@@ -96,13 +96,13 @@
   },
   "/kontakt/": {
    "desktop": [
-    "kleine Klickziele (<34px hoch): 10"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "mobile": [
-    "kleine Klickziele (<34px hoch): 11"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "tablet": [
-    "kleine Klickziele (<34px hoch): 11"
+    "kleine Klickziele (<34px hoch): 1"
    ],
    "weight": {
     "html_kb": 7,
@@ -112,36 +112,183 @@
   },
   "/impressum/": {
    "desktop": [
-    "kleine Klickziele (<34px hoch): 12"
+    "kleine Klickziele (<34px hoch): 3"
    ],
    "mobile": [
-    "kleine Klickziele (<34px hoch): 12"
+    "kleine Klickziele (<34px hoch): 3"
    ],
    "tablet": [
-    "kleine Klickziele (<34px hoch): 12"
-   ],
-   "weight": {
-    "html_kb": 4,
-    "total_all_refs_kb": 33,
-    "critical_kb": 33
-   }
-  },
-  "/datenschutz/": {
-   "desktop": [
-    "kleine Klickziele (<34px hoch): 11"
-   ],
-   "mobile": [
-    "kleine Klickziele (<34px hoch): 11"
-   ],
-   "tablet": [
-    "kleine Klickziele (<34px hoch): 11"
+    "kleine Klickziele (<34px hoch): 3"
    ],
    "weight": {
     "html_kb": 4,
     "total_all_refs_kb": 34,
     "critical_kb": 34
    }
+  },
+  "/datenschutz/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 2"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 2"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 2"
+   ],
+   "weight": {
+    "html_kb": 4,
+    "total_all_refs_kb": 34,
+    "critical_kb": 34
+   }
+  },
+  "/leistungen/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 6,
+    "total_all_refs_kb": 937,
+    "critical_kb": 36
+   }
+  },
+  "/leistungen/baumfaellung/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 6,
+    "total_all_refs_kb": 603,
+    "critical_kb": 36
+   }
+  },
+  "/leistungen/baumpflege/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 6,
+    "total_all_refs_kb": 1409,
+    "critical_kb": 35
+   }
+  },
+  "/leistungen/wurzelstockfraesen/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 6,
+    "total_all_refs_kb": 352,
+    "critical_kb": 36
+   }
+  },
+  "/leistungen/heckenschnitt/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 4,
+    "total_all_refs_kb": 34,
+    "critical_kb": 34
+   }
+  },
+  "/leistungen/rollrasen/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 4,
+    "total_all_refs_kb": 34,
+    "critical_kb": 34
+   }
+  },
+  "/projekte/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 7,
+    "total_all_refs_kb": 1712,
+    "critical_kb": 37
+   }
+  },
+  "/ueber-fs/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1",
+    "H-Overflow: 1436"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1",
+    "H-Overflow: 461"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 7,
+    "total_all_refs_kb": 1423,
+    "critical_kb": 37
+   }
+  },
+  "/wissen/": {
+   "desktop": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "mobile": [
+    "kleine Klickziele (<34px hoch): 1",
+    "H-Overflow: 459"
+   ],
+   "tablet": [
+    "kleine Klickziele (<34px hoch): 1"
+   ],
+   "weight": {
+    "html_kb": 6,
+    "total_all_refs_kb": 35,
+    "critical_kb": 35
+   }
   }
  },
- "keyboard_sample": "33 fokussierbare Elemente; erste: A.skip, A.wordmark, A"
+ "keyboard_sample": "37 fokussierbare Elemente; erste: A.skip, A.wordmark, A"
 }

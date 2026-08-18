@@ -6,7 +6,9 @@ import path from "node:path";
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, "dist");
 /* ---------- Build ---------- */
-const pages = ["index", "spezialfaellung", "projekt-winterfaellung", "kontakt", "impressum", "datenschutz"];
+const pages = ["index", "spezialfaellung", "projekt-winterfaellung", "kontakt", "impressum", "datenschutz",
+  "leistungen", "baumfaellung", "baumpflege", "wurzelstockfraesen", "heckenschnitt", "rollrasen",
+  "projekte", "ueber-fs", "wissen"];
 
 await mkdir(DIST, { recursive: true });
 for (const name of pages) {

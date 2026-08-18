@@ -66,9 +66,10 @@ ${PREVIEW ? '<p class="preview-note" aria-hidden="true">Preview — nicht veröf
 
 export function header(current, { onPaper = false } = {}) {
   const nav = [
+    ["/leistungen/", "Leistungen"],
     ["/spezialfaellung/", "Spezialfällung"],
-    ["/projekte/winterfaellung-am-wohnhaus/", "Projekte"],
-    ["/#leistungen", "Leistungen"],
+    ["/projekte/", "Projekte"],
+    ["/ueber-fs/", "Über FS"],
     ["/kontakt/", "Kontakt"],
   ];
   return `<header class="site-head${onPaper ? " site-head--onpaper" : ""}">
@@ -97,13 +98,16 @@ export function footer() {
       <div class="foot-col">
         <p class="foot-h">Leistungen</p>
         <a href="/spezialfaellung/">Spezialfällung</a>
-        <a href="/#leistungen">Baumfällung</a>
-        <a href="/#leistungen">Baumpflege</a>
-        <a href="/#leistungen">Wurzelstockfräsen</a>
+        <a href="/leistungen/baumfaellung/">Baumfällung</a>
+        <a href="/leistungen/baumpflege/">Baumpflege</a>
+        <a href="/leistungen/wurzelstockfraesen/">Wurzelstockfräsen</a>
+        <a href="/leistungen/">Alle Leistungen</a>
       </div>
       <div class="foot-col">
         <p class="foot-h">Betrieb</p>
-        <a href="/projekte/winterfaellung-am-wohnhaus/">Einsatzdokumentation</a>
+        <a href="/projekte/">Einsatzdokumentation</a>
+        <a href="/ueber-fs/">Über FS</a>
+        <a href="/wissen/">Wissen</a>
         <a href="/kontakt/">Kontakt &amp; Anfrage</a>
         <a href="${FS.instagram}" rel="noopener">Instagram</a>
       </div>

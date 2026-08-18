@@ -1,27 +1,110 @@
 {
-  "doc": "SEO_RELAUNCH_PREP_V1",
-  "date": "2026-08-18",
-  "preview_state": "alle Preview-Seiten noindex,nofollow — Release-Build entfernt das Flag (lib.mjs PREVIEW=false)",
-  "redirect_map": [
-    { "old": "/", "new": "/", "state": "KEEP" },
-    { "old": "/leistungen/", "new": "/leistungen/", "state": "KEEP_REBUILD_PENDING", "note": "Flaeche im Slice noch nicht neu gebaut; bis dahin bleibt Alt-Route gueltig" },
-    { "old": "/leistungen/baumfaellung/", "new": "/leistungen/baumfaellung/", "state": "KEEP_REBUILD_PENDING" },
-    { "old": "/leistungen/baumpflege/", "new": "/leistungen/baumpflege/", "state": "KEEP_REBUILD_PENDING" },
-    { "old": "/leistungen/heckenschnitt/", "new": "/leistungen/heckenschnitt/", "state": "KEEP_REBUILD_PENDING" },
-    { "old": "/leistungen/wurzelstockfraesen/", "new": "/leistungen/wurzelstockfraesen/", "state": "KEEP_REBUILD_PENDING" },
-    { "old": "/leistungen/rollrasen/", "new": "/leistungen/rollrasen/", "state": "KEEP_REBUILD_PENDING" },
-    { "old": "/referenzen/", "new": "/projekte/", "state": "REDIRECT_301_PLANNED", "note": "Insta-Grid ersetzt durch Einsatzdokumentation; /projekte/-Index noch zu bauen" },
-    { "old": "/angebot/", "new": "/kontakt/", "state": "REDIRECT_301_PLANNED", "note": "3D-Konfigurator ersetzt durch Anfrage-Flow" },
-    { "old": "/ueber-uns/", "new": "/ueber-fs/", "state": "REDIRECT_301_PLANNED", "note": "Flaeche noch zu bauen; bis dahin KEEP" },
-    { "old": "/kontakt/", "new": "/kontakt/", "state": "REBUILT" },
-    { "old": "/impressum/", "new": "/impressum/", "state": "REBUILT_LEGAL_REVIEW_OPEN" },
-    { "old": "/datenschutz/", "new": "/datenschutz/", "state": "REBUILT_LEGAL_REVIEW_OPEN" },
-    { "old": "/ratgeber/", "new": "/wissen/", "state": "REDIRECT_301_PLANNED", "note": "Ratgeber-Substanz (data-ratgeber.js) wird in ruhige Wissens-Flaeche ueberfuehrt" },
-    { "old": null, "new": "/spezialfaellung/", "state": "NEW", "note": "neuer Marken-Schwerpunkt; interne Verlinkung von Home/Leistungen" },
-    { "old": null, "new": "/projekte/winterfaellung-am-wohnhaus/", "state": "NEW" }
-  ],
-  "title_strategy": "Display-H1 (Markenstatement) und SEO-Title getrennt: z.B. H1 'Die Situation bestimmt die Technik.' vs. Title 'Spezialfaellung — Baeume an Gebaeuden sicher abtragen | FS Baumservice'. Bereits so implementiert.",
-  "structured_data_todo": "LocalBusiness-JSON-LD aus data.js:contact (nach Telefon-OWNER_CONFIRM), Service-Schema je Leistungsflaeche, ImageObject fuer Einsatzdokumentation.",
-  "sitemap_todo": "Release-Sitemap erst nach Vollausbau; Preview veroeffentlicht bewusst keine.",
-  "search_equity_note": "Alle rankenden Alt-Routen bleiben erreichbar (KEEP/301). Regionale Keywords (Bisingen, Balingen, Hechingen, Geislingen, Zollernalbkreis) in Meta + Copy aller Flaechen erhalten."
+ "doc": "SEO_RELAUNCH_PREP_V1",
+ "date": "2026-08-18",
+ "preview_state": "alle Preview-Seiten noindex,nofollow — Release-Build entfernt das Flag (lib.mjs PREVIEW=false)",
+ "redirect_map": [
+  {
+   "old": "/",
+   "new": "/",
+   "state": "KEEP"
+  },
+  {
+   "old": "/leistungen/",
+   "new": "/leistungen/",
+   "state": "REBUILT",
+   "note": "Flaeche im Slice noch nicht neu gebaut; bis dahin bleibt Alt-Route gueltig"
+  },
+  {
+   "old": "/leistungen/baumfaellung/",
+   "new": "/leistungen/baumfaellung/",
+   "state": "REBUILT"
+  },
+  {
+   "old": "/leistungen/baumpflege/",
+   "new": "/leistungen/baumpflege/",
+   "state": "REBUILT"
+  },
+  {
+   "old": "/leistungen/heckenschnitt/",
+   "new": "/leistungen/heckenschnitt/",
+   "state": "REBUILT_SECONDARY",
+   "note": "PREMIUM_PROMINENCE=LIMITED, RELEASE_DECISION=OWNER_CONFIRM"
+  },
+  {
+   "old": "/leistungen/wurzelstockfraesen/",
+   "new": "/leistungen/wurzelstockfraesen/",
+   "state": "REBUILT"
+  },
+  {
+   "old": "/leistungen/rollrasen/",
+   "new": "/leistungen/rollrasen/",
+   "state": "REBUILT_SECONDARY",
+   "note": "PREMIUM_PROMINENCE=LIMITED, RELEASE_DECISION=OWNER_CONFIRM"
+  },
+  {
+   "old": "/referenzen/",
+   "new": "/projekte/",
+   "state": "REDIRECT_301_READY",
+   "note": "/projekte/ ist gebaut"
+  },
+  {
+   "old": "/angebot/",
+   "new": "/kontakt/",
+   "state": "REDIRECT_301_PLANNED",
+   "note": "3D-Konfigurator ersetzt durch Anfrage-Flow"
+  },
+  {
+   "old": "/ueber-uns/",
+   "new": "/ueber-fs/",
+   "state": "REDIRECT_301_READY",
+   "note": "/ueber-fs/ ist gebaut"
+  },
+  {
+   "old": "/kontakt/",
+   "new": "/kontakt/",
+   "state": "REBUILT"
+  },
+  {
+   "old": "/impressum/",
+   "new": "/impressum/",
+   "state": "REBUILT_LEGAL_REVIEW_OPEN"
+  },
+  {
+   "old": "/datenschutz/",
+   "new": "/datenschutz/",
+   "state": "REBUILT_LEGAL_REVIEW_OPEN"
+  },
+  {
+   "old": "/ratgeber/",
+   "new": "/wissen/",
+   "state": "REDIRECT_301_READY",
+   "note": "/wissen/ ist gebaut"
+  },
+  {
+   "old": null,
+   "new": "/spezialfaellung/",
+   "state": "NEW",
+   "note": "neuer Marken-Schwerpunkt; interne Verlinkung von Home/Leistungen"
+  },
+  {
+   "old": null,
+   "new": "/projekte/winterfaellung-am-wohnhaus/",
+   "state": "NEW"
+  },
+  {
+   "old": null,
+   "new": "/projekte/",
+   "state": "NEW_BUILT"
+  },
+  {
+   "old": null,
+   "new": "/wissen/",
+   "state": "NEW_BUILT"
+  }
+ ],
+ "title_strategy": "Display-H1 (Markenstatement) und SEO-Title getrennt: z.B. H1 'Die Situation bestimmt die Technik.' vs. Title 'Spezialfaellung — Baeume an Gebaeuden sicher abtragen | FS Baumservice'. Bereits so implementiert.",
+ "structured_data_todo": "LocalBusiness-JSON-LD aus data.js:contact (nach Telefon-OWNER_CONFIRM), Service-Schema je Leistungsflaeche, ImageObject fuer Einsatzdokumentation.",
+ "sitemap_todo": "Release-Sitemap erst nach Vollausbau; Preview veroeffentlicht bewusst keine.",
+ "search_equity_note": "Alle rankenden Alt-Routen bleiben erreichbar (KEEP/301). Regionale Keywords (Bisingen, Balingen, Hechingen, Geislingen, Zollernalbkreis) in Meta + Copy aller Flaechen erhalten.",
+ "deployment_note": "Alt-MVP ist live via origin/gh-pages (Subpfad-Deploy, C-019). Release = Pages-Quelle auf Neubau umstellen + Redirects — Owner-Boundary."
 }

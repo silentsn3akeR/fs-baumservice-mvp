@@ -22,7 +22,7 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add("in-view"); io.unobserve(en.target); }
       });
-    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
+    }, { threshold: 0.05 });
     document.querySelectorAll(".reveal, .reveal-media").forEach(function (el) { io.observe(el); });
   }
 

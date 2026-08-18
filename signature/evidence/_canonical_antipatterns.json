@@ -1,0 +1,50 @@
+[
+ {
+  "plain_language_name": "Aggressive CTA Pulse",
+  "canonical_key": "ANTI-WEB-AGGRESSIVE-CTA-PULSE"
+ },
+ {
+  "plain_language_name": "Aggressive Glassmorphism",
+  "canonical_key": "ANTI-WEB-AGGRESSIVE-GLASSMORPHISM"
+ },
+ {
+  "plain_language_name": "Card Monotony",
+  "canonical_key": "ANTI-WEB-DESIGN-MONOTONY"
+ },
+ {
+  "plain_language_name": "Fake Urgency",
+  "canonical_key": "ANTI-WEB-FAKE-URGENCY"
+ },
+ {
+  "plain_language_name": "Generic Stock Aesthetic",
+  "canonical_key": "ANTI-WEB-GENERIC-STOCK-AESTHETIC"
+ },
+ {
+  "plain_language_name": "Hidden Navigation",
+  "canonical_key": "ANTI-WEB-HIDDEN-NAVIGATION"
+ },
+ {
+  "plain_language_name": "Hover-only Mobile UX",
+  "canonical_key": "ANTI-WEB-HOVER-ONLY-MOBILE"
+ },
+ {
+  "plain_language_name": "Overanimation",
+  "canonical_key": "ANTI-WEB-OVERANIMATION"
+ },
+ {
+  "plain_language_name": "Oversized Video Hero",
+  "canonical_key": "ANTI-WEB-VIDEO-HERO-BLOAT"
+ },
+ {
+  "plain_language_name": "Scroll Hijacking",
+  "canonical_key": "ANTI-WEB-SCROLL-HIJACKING"
+ },
+ {
+  "plain_language_name": "Unclear CTA Hierarchy",
+  "canonical_key": "ANTI-WEB-WEAK-CTA-HIERARCHY"
+ },
+ {
+  "plain_language_name": "Uncontrolled Autoplay",
+  "canonical_key": "ANTI-WEB-UNCONTROLLED-AUTOPLAY"
+ }
+]
