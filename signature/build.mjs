@@ -26,5 +26,11 @@ for (const name of pages) {
   console.log("built", route || "/");
 }
 await copyFile(path.join(ROOT, "src", "site.css"), path.join(DIST, "site.css"));
+// RND-Prototypen (isoliert, kein Produktions-Routing)
+const { readdir } = await import("node:fs/promises");
+await mkdir(path.join(DIST, "rnd"), { recursive: true });
+for (const f of await readdir(path.join(ROOT, "rnd"))) {
+  await copyFile(path.join(ROOT, "rnd", f), path.join(DIST, "rnd", f));
+}
 await copyFile(path.join(ROOT, "src", "site.js"), path.join(DIST, "site.js")).catch(() => writeFile(path.join(DIST, "site.js"), ""));
 console.log("done");
