@@ -1,0 +1,358 @@
+{
+ "source": "CATALOG_PROJECTION_V1.json (DERIVED_READ_MODEL_ONLY)",
+ "anti_patterns": [
+  {
+   "key": "ANTI-WEB-AGGRESSIVE-CTA-PULSE",
+   "name": "Aggressive CTA Pulse",
+   "symptoms": [
+    "Dauerhaft pulsierende oder glühende CTA-Effekte erzeugen visuelle Unruhe und Druck."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Dauerhaft pulsierende oder glühende CTA-Effekte erzeugen visuelle Unruhe und Druck."
+  },
+  {
+   "key": "ANTI-WEB-AGGRESSIVE-GLASSMORPHISM",
+   "name": "Aggressive Glassmorphism",
+   "symptoms": [
+    "Übermäßiges Glassmorphism reduziert Kontrast, Klarheit und Markencharakter."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Übermäßiges Glassmorphism reduziert Kontrast, Klarheit und Markencharakter."
+  },
+  {
+   "key": "ANTI-WEB-DESIGN-MONOTONY",
+   "name": "Card Monotony",
+   "symptoms": [
+    "Eine Seite besteht aus zu vielen ähnlich gewichteten Cards ohne Abschnittsrhythmus oder visuelle Hierarchie."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Eine Seite besteht aus zu vielen ähnlich gewichteten Cards ohne Abschnittsrhythmus oder visuelle Hierarchie."
+  },
+  {
+   "key": "ANTI-WEB-FAKE-URGENCY",
+   "name": "Fake Urgency",
+   "symptoms": [
+    "Künstliche Verknappung oder Dringlichkeit manipuliert statt transparent zu überzeugen."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Künstliche Verknappung oder Dringlichkeit manipuliert statt transparent zu überzeugen."
+  },
+  {
+   "key": "ANTI-WEB-GENERIC-STOCK-AESTHETIC",
+   "name": "Generic Stock Aesthetic",
+   "symptoms": [
+    "Austauschbare Stock-Bildsprache schwächt Authentizität und spezifische Markenwirkung."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Austauschbare Stock-Bildsprache schwächt Authentizität und spezifische Markenwirkung."
+  },
+  {
+   "key": "ANTI-WEB-HIDDEN-NAVIGATION",
+   "name": "Hidden Navigation",
+   "symptoms": [
+    "Wesentliche Navigation wird unnötig versteckt oder schwer auffindbar."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Wesentliche Navigation wird unnötig versteckt oder schwer auffindbar."
+  },
+  {
+   "key": "ANTI-WEB-HOVER-ONLY-MOBILE",
+   "name": "Hover-only Mobile UX",
+   "symptoms": [
+    "Wichtige Information oder Bedienung ist nur über Hover erreichbar und auf Touch nicht zugänglich."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Wichtige Information oder Bedienung ist nur über Hover erreichbar und auf Touch nicht zugänglich."
+  },
+  {
+   "key": "ANTI-WEB-OVERANIMATION",
+   "name": "Overanimation",
+   "symptoms": [
+    "Zu viele konkurrierende Animationen schwächen Hierarchie, Ruhe und Performance."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Zu viele konkurrierende Animationen schwächen Hierarchie, Ruhe und Performance."
+  },
+  {
+   "key": "ANTI-WEB-VIDEO-HERO-BLOAT",
+   "name": "Oversized Video Hero",
+   "symptoms": [
+    "Große Video-Heroes belasten Ladezeit und lenken ohne klaren Mehrwert vom Inhalt ab."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Große Video-Heroes belasten Ladezeit und lenken ohne klaren Mehrwert vom Inhalt ab."
+  },
+  {
+   "key": "ANTI-WEB-SCROLL-HIJACKING",
+   "name": "Scroll Hijacking",
+   "symptoms": [
+    "Normales Scrollverhalten wird überschrieben und Nutzerkontrolle eingeschränkt."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Normales Scrollverhalten wird überschrieben und Nutzerkontrolle eingeschränkt."
+  },
+  {
+   "key": "ANTI-WEB-WEAK-CTA-HIERARCHY",
+   "name": "Unclear CTA Hierarchy",
+   "symptoms": [
+    "Mehrere gleichgewichtete Hauptaktionen erzeugen Entscheidungskonflikt."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Mehrere gleichgewichtete Hauptaktionen erzeugen Entscheidungskonflikt."
+  },
+  {
+   "key": "ANTI-WEB-UNCONTROLLED-AUTOPLAY",
+   "name": "Uncontrolled Autoplay",
+   "symptoms": [
+    "Automatisch startende Bewegung oder Medien ohne angemessene Pause- und Steueroption."
+   ],
+   "severity_state": "NOT_YET_VALIDATED",
+   "threshold_state": "NOT_YET_VALIDATED",
+   "what_it_is": "Automatisch startende Bewegung oder Medien ohne angemessene Pause- und Steueroption."
+  }
+ ],
+ "recalled_patterns": [
+  {
+   "key": "PATTERN-LAYOUT-ASYMMETRIC-GRID",
+   "name": "Asymmetric Grid",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Bewusst asymmetrische Rasterkomposition mit kontrollierter visueller Spannung.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-DESIGN-ATTENTION-GUIDANCE",
+   "name": "Attention / Gaze Guidance",
+   "family": "VISUAL_DIRECTION",
+   "what_it_is": "Blickführung über Kontrast, Weißraum, Richtung, Bewegung und visuelle Anker.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-LAYOUT-BENTO-GRID",
+   "name": "Bento Grid",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Modulares Kartenraster mit unterschiedlich großen Flächen für priorisierte Inhalte.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-LAYOUT-BROKEN-GRID",
+   "name": "Broken Grid",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Elemente durchbrechen kontrolliert ein zugrunde liegendes Raster.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-CONVERSION-CTA-HIERARCHY",
+   "name": "CTA Hierarchy",
+   "family": "CONVERSION_PATTERN",
+   "what_it_is": "Klare Priorisierung von Primary, Secondary, Sticky und wiederholten CTAs.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-TYPE-DISPLAY-TYPOGRAPHY",
+   "name": "Display Typography",
+   "family": "TYPOGRAPHY_PATTERN",
+   "what_it_is": "Große, charakteristische Typografie für zentrale Headlines und visuelle Hierarchie.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MEDIA-DOCUMENTARY-PHOTOGRAPHY",
+   "name": "Documentary Photography",
+   "family": "MEDIA_PATTERN",
+   "what_it_is": "Authentische Fotografie realer Arbeitssituationen statt generischer Stockmotive.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-LAYOUT-EDITORIAL",
+   "name": "Editorial Layout",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Magazinartige Komposition mit großer Typografie, starken Bildern und bewusst variierenden Flächen.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-JOURNEY-EMOTIONAL-JOURNEY",
+   "name": "Emotional Journey",
+   "family": "JOURNEY_PATTERN",
+   "what_it_is": "Stimmung verändert sich gezielt entlang der Customer Journey, während die Marken-DNA stabil bleibt.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MOTION-ENTRANCE-ANIMATION",
+   "name": "Entrance Animation System",
+   "family": "MOTION_PATTERN",
+   "what_it_is": "Einblendungsfamilie für das kontrollierte Auftauchen von Elementen.",
+   "motion_contract": true
+  },
+  {
+   "key": "PATTERN-LAYOUT-GRID-SYSTEM",
+   "name": "Grid System",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Rasterbasierte Anordnung mit konsistenten Spalten, Abständen und Ausrichtungen.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-HERO-HERO-SYSTEM",
+   "name": "Hero Section System",
+   "family": "SECTION_PATTERN",
+   "what_it_is": "Hero-Varianten für Einstieg, Positionierung, Beweis und Hauptaktion.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MEDIA-IMAGE-TEXT-RELATION",
+   "name": "Image / Text Relationship",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Definiert die räumliche und semantische Beziehung von Bild und Text.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MEDIA-IMAGE-COMPOSITION",
+   "name": "Image Composition",
+   "family": "MEDIA_PATTERN",
+   "what_it_is": "Kompositionsmuster bestimmen Motivposition, Copy-Space und Blickführung im Bild.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MEDIA-IMAGE-LANGUAGE",
+   "name": "Image Language",
+   "family": "MEDIA_PATTERN",
+   "what_it_is": "Projektweite Bildsprache nach Realitätsgrad, Perspektive, Motiv und Atmosphäre.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MEDIA-IMAGE-TREATMENT",
+   "name": "Image Treatment",
+   "family": "MEDIA_PATTERN",
+   "what_it_is": "Konsistente Behandlung von Bildern nach Crop, Farbe, Maske, Overlay und Bewegung.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-TYPE-KINETIC-TYPOGRAPHY",
+   "name": "Kinetic Typography",
+   "family": "TYPOGRAPHY_PATTERN",
+   "what_it_is": "Bewegte Typografie als Ausdrucks- und Hierarchiemittel.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MOTION-MOTION-CHARACTER",
+   "name": "Motion Character",
+   "family": "MOTION_PATTERN",
+   "what_it_is": "Projektweites Bewegungsprofil jenseits einzelner Animationen.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MOTION-SYSTEM",
+   "name": "Motion System",
+   "family": "MOTION_PATTERN",
+   "what_it_is": "Definierte Regeln für Dauer, Easing, Trigger, Hierarchie und Reduced Motion.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-CONVERSION-PROOF-TO-CTA",
+   "name": "Proof → CTA",
+   "family": "CONVERSION_PATTERN",
+   "what_it_is": "Beweis oder Vertrauenssignal wird direkt mit einer nächsten Handlung verknüpft.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-DESIGN-RHYTHM-PROFILE",
+   "name": "Rhythm Profile",
+   "family": "VISUAL_DIRECTION",
+   "what_it_is": "Verbindet räumlichen, visuellen, Bewegungs- und Content-Rhythmus zu einer konsistenten Experience.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-SCROLL-SCROLL-INTERACTION-SYSTEM",
+   "name": "Scroll Interaction System",
+   "family": "INTERACTION_PATTERN",
+   "what_it_is": "Scroll-gekoppelte Muster für Führung, Storytelling, Tiefe und zeitliche Steuerung.",
+   "motion_contract": true
+  },
+  {
+   "key": "PATTERN-MOTION-SCROLL-REVEAL",
+   "name": "Scroll Reveal",
+   "family": "MOTION_PATTERN",
+   "what_it_is": "Subtile Einblendung von Elementen beim Eintritt in den sichtbaren Bereich.",
+   "motion_contract": true
+  },
+  {
+   "key": "PATTERN-SCROLL-SCROLLYTELLING",
+   "name": "Scrollytelling",
+   "family": "JOURNEY_PATTERN",
+   "what_it_is": "Narrative wird durch Scrollposition schrittweise visuell und inhaltlich entfaltet.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-LAYOUT-SECTION-RHYTHM",
+   "name": "Section Rhythm",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Bewusster Wechsel aus ruhigen, dichten, visuellen und konversionsorientierten Abschnitten.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-DESIGN-SPACING-RHYTHM",
+   "name": "Spacing / Rhythm Profile",
+   "family": "VISUAL_DIRECTION",
+   "what_it_is": "Definiert Dichte, Abstandsraster und wiederkehrenden räumlichen Rhythmus.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-MOTION-STAGGER-REVEAL",
+   "name": "Staggered Reveal",
+   "family": "MOTION_PATTERN",
+   "what_it_is": "Mehrere Elemente erscheinen zeitlich versetzt als lesbare Sequenz.",
+   "motion_contract": true
+  },
+  {
+   "key": "PATTERN-MOTION-TEXT-REVEAL",
+   "name": "Text Reveal",
+   "family": "MOTION_PATTERN",
+   "what_it_is": "Typografische Einblendung über Zeilen, Wörter, Zeichen, Masken oder Clips.",
+   "motion_contract": true
+  },
+  {
+   "key": "PATTERN-CONVERSION-TRUST-SYSTEM",
+   "name": "Trust Pattern System",
+   "family": "CONVERSION_PATTERN",
+   "what_it_is": "Vertrauensmuster für Kompetenz, Sicherheit, Nachweis und Risikoreduktion.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-CONVERSION-TRUST-PROFILE",
+   "name": "Trust Profile",
+   "family": "CONVERSION_PATTERN",
+   "what_it_is": "Definiert, welche Art von Vertrauen im Projekt primär aufgebaut werden muss.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-TYPE-TYPOGRAPHY-PROFILE",
+   "name": "Typography Profile",
+   "family": "TYPOGRAPHY_PATTERN",
+   "what_it_is": "Projektbezogenes Profil aus Font Pairing, Hierarchie, Scale, Weight, Tracking, Line-height, Fallback und Ladebudget.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-TYPE-TYPOGRAPHY-SYSTEM",
+   "name": "Typography System",
+   "family": "TYPOGRAPHY_PATTERN",
+   "what_it_is": "Gesamtsystem für Schriftwahl, Hierarchie, Skalierung, Gewicht, Rhythmus und Lesbarkeit.",
+   "motion_contract": false
+  },
+  {
+   "key": "PATTERN-LAYOUT-WHITESPACE",
+   "name": "Whitespace / Negative Space",
+   "family": "LAYOUT_PATTERN",
+   "what_it_is": "Bewusst freigelassener Raum zur Verbesserung von Fokus, Hierarchie und Wertigkeit.",
+   "motion_contract": false
+  }
+ ]
+}

@@ -227,7 +227,22 @@ a { color: inherit; }
 }
 .hero-annot { top: 33%; left: 45.5%; display: grid; gap: .45rem; }
 .hero-annot .annot-label { order: -1; transform: translateY(-.2rem); }
-@media (max-width: 47.9rem) { .hero-annot { top: 32%; left: 33%; } }
+/* Atlas-E2E-Finding: unter 64rem okkludierte das Label den Kletterer
+   (ATTENTION-GUIDANCE / IMAGE-TEXT-RELATION). Tablet: Label links neben der
+   Zone ueber der ruhigen Einfahrt; Mobile: Label oberhalb, Zone hoeher. */
+@media (max-width: 63.9rem) {
+  .hero-annot .annot-label {
+    position: absolute; right: calc(100% + 5rem); top: .9rem;
+    order: 0; transform: none; white-space: nowrap;
+  }
+}
+@media (max-width: 47.9rem) {
+  .hero-annot { top: 30%; left: 33%; }
+  .hero-annot .annot-label {
+    position: static; order: -1; transform: translateY(-.2rem);
+    white-space: normal;
+  }
+}
 .hero-inner { position: relative; z-index: 1; padding-block: var(--space-4) var(--space-3); display: grid; gap: var(--space-2); }
 .hero-protocol { color: var(--paper); max-width: 46rem; }
 .hero-headline {
