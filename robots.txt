@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://silentsn3akeR.github.io/fs-baumservice-mvp/sitemap.xml

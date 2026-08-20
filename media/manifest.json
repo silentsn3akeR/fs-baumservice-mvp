@@ -1,0 +1,743 @@
+[
+ {
+  "file": "M-01__hero__2560.webp",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 2560,
+  "h": 1440,
+  "kb": 438
+ },
+ {
+  "file": "M-01__hero__2560.jpg",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 2560,
+  "h": 1440,
+  "kb": 651
+ },
+ {
+  "file": "M-01__hero__1920.webp",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 1920,
+  "h": 1080,
+  "kb": 305
+ },
+ {
+  "file": "M-01__hero__1920.jpg",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 1920,
+  "h": 1080,
+  "kb": 422
+ },
+ {
+  "file": "M-01__hero__1440.webp",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 1440,
+  "h": 810,
+  "kb": 205
+ },
+ {
+  "file": "M-01__hero__1440.jpg",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 1440,
+  "h": 810,
+  "kb": 268
+ },
+ {
+  "file": "M-01__hero__960.webp",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 960,
+  "h": 540,
+  "kb": 111
+ },
+ {
+  "file": "M-01__hero__960.jpg",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 960,
+  "h": 540,
+  "kb": 134
+ },
+ {
+  "file": "M-01__hero__640.webp",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 640,
+  "h": 360,
+  "kb": 56
+ },
+ {
+  "file": "M-01__hero__640.jpg",
+  "master": "M-01",
+  "slot": "hero",
+  "w": 640,
+  "h": 360,
+  "kb": 64
+ },
+ {
+  "file": "M-01__heromob__960.webp",
+  "master": "M-01",
+  "slot": "heromob",
+  "w": 960,
+  "h": 1200,
+  "kb": 171
+ },
+ {
+  "file": "M-01__heromob__960.jpg",
+  "master": "M-01",
+  "slot": "heromob",
+  "w": 960,
+  "h": 1200,
+  "kb": 237
+ },
+ {
+  "file": "M-01__heromob__640.webp",
+  "master": "M-01",
+  "slot": "heromob",
+  "w": 640,
+  "h": 800,
+  "kb": 100
+ },
+ {
+  "file": "M-01__heromob__640.jpg",
+  "master": "M-01",
+  "slot": "heromob",
+  "w": 640,
+  "h": 800,
+  "kb": 126
+ },
+ {
+  "file": "M-03__monument__1920.webp",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 1920,
+  "h": 1280,
+  "kb": 369
+ },
+ {
+  "file": "M-03__monument__1920.jpg",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 1920,
+  "h": 1280,
+  "kb": 487
+ },
+ {
+  "file": "M-03__monument__1440.webp",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 1440,
+  "h": 960,
+  "kb": 228
+ },
+ {
+  "file": "M-03__monument__1440.jpg",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 1440,
+  "h": 960,
+  "kb": 294
+ },
+ {
+  "file": "M-03__monument__960.webp",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 960,
+  "h": 640,
+  "kb": 112
+ },
+ {
+  "file": "M-03__monument__960.jpg",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 960,
+  "h": 640,
+  "kb": 141
+ },
+ {
+  "file": "M-03__monument__640.webp",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 640,
+  "h": 427,
+  "kb": 55
+ },
+ {
+  "file": "M-03__monument__640.jpg",
+  "master": "M-03",
+  "slot": "monument",
+  "w": 640,
+  "h": 427,
+  "kb": 68
+ },
+ {
+  "file": "M-04__scale__1440.webp",
+  "master": "M-04",
+  "slot": "scale",
+  "w": 1440,
+  "h": 1080,
+  "kb": 342
+ },
+ {
+  "file": "M-04__scale__1440.jpg",
+  "master": "M-04",
+  "slot": "scale",
+  "w": 1440,
+  "h": 1080,
+  "kb": 406
+ },
+ {
+  "file": "M-04__scale__960.webp",
+  "master": "M-04",
+  "slot": "scale",
+  "w": 960,
+  "h": 720,
+  "kb": 161
+ },
+ {
+  "file": "M-04__scale__960.jpg",
+  "master": "M-04",
+  "slot": "scale",
+  "w": 960,
+  "h": 720,
+  "kb": 188
+ },
+ {
+  "file": "M-04__scale__640.webp",
+  "master": "M-04",
+  "slot": "scale",
+  "w": 640,
+  "h": 480,
+  "kb": 72
+ },
+ {
+  "file": "M-04__scale__640.jpg",
+  "master": "M-04",
+  "slot": "scale",
+  "w": 640,
+  "h": 480,
+  "kb": 85
+ },
+ {
+  "file": "M-05__action__1440.webp",
+  "master": "M-05",
+  "slot": "action",
+  "w": 1440,
+  "h": 1080,
+  "kb": 136
+ },
+ {
+  "file": "M-05__action__1440.jpg",
+  "master": "M-05",
+  "slot": "action",
+  "w": 1440,
+  "h": 1080,
+  "kb": 194
+ },
+ {
+  "file": "M-05__action__960.webp",
+  "master": "M-05",
+  "slot": "action",
+  "w": 960,
+  "h": 720,
+  "kb": 66
+ },
+ {
+  "file": "M-05__action__960.jpg",
+  "master": "M-05",
+  "slot": "action",
+  "w": 960,
+  "h": 720,
+  "kb": 92
+ },
+ {
+  "file": "M-05__action__640.webp",
+  "master": "M-05",
+  "slot": "action",
+  "w": 640,
+  "h": 480,
+  "kb": 32
+ },
+ {
+  "file": "M-05__action__640.jpg",
+  "master": "M-05",
+  "slot": "action",
+  "w": 640,
+  "h": 480,
+  "kb": 43
+ },
+ {
+  "file": "M-07__praezision__1440.webp",
+  "master": "M-07",
+  "slot": "praezision",
+  "w": 1440,
+  "h": 1080,
+  "kb": 303
+ },
+ {
+  "file": "M-07__praezision__1440.jpg",
+  "master": "M-07",
+  "slot": "praezision",
+  "w": 1440,
+  "h": 1080,
+  "kb": 365
+ },
+ {
+  "file": "M-07__praezision__960.webp",
+  "master": "M-07",
+  "slot": "praezision",
+  "w": 960,
+  "h": 720,
+  "kb": 143
+ },
+ {
+  "file": "M-07__praezision__960.jpg",
+  "master": "M-07",
+  "slot": "praezision",
+  "w": 960,
+  "h": 720,
+  "kb": 169
+ },
+ {
+  "file": "M-07__praezision__640.webp",
+  "master": "M-07",
+  "slot": "praezision",
+  "w": 640,
+  "h": 480,
+  "kb": 64
+ },
+ {
+  "file": "M-07__praezision__640.jpg",
+  "master": "M-07",
+  "slot": "praezision",
+  "w": 640,
+  "h": 480,
+  "kb": 77
+ },
+ {
+  "file": "M-09__silence__1600.webp",
+  "master": "M-09",
+  "slot": "silence",
+  "w": 1600,
+  "h": 1200,
+  "kb": 404
+ },
+ {
+  "file": "M-09__silence__1600.jpg",
+  "master": "M-09",
+  "slot": "silence",
+  "w": 1600,
+  "h": 1200,
+  "kb": 454
+ },
+ {
+  "file": "M-09__silence__960.webp",
+  "master": "M-09",
+  "slot": "silence",
+  "w": 960,
+  "h": 720,
+  "kb": 161
+ },
+ {
+  "file": "M-09__silence__960.jpg",
+  "master": "M-09",
+  "slot": "silence",
+  "w": 960,
+  "h": 720,
+  "kb": 192
+ },
+ {
+  "file": "M-09__silence__640.webp",
+  "master": "M-09",
+  "slot": "silence",
+  "w": 640,
+  "h": 480,
+  "kb": 73
+ },
+ {
+  "file": "M-09__silence__640.jpg",
+  "master": "M-09",
+  "slot": "silence",
+  "w": 640,
+  "h": 480,
+  "kb": 87
+ },
+ {
+  "file": "M-06__action2__1440.webp",
+  "master": "M-06",
+  "slot": "action2",
+  "w": 1440,
+  "h": 1080,
+  "kb": 137
+ },
+ {
+  "file": "M-06__action2__1440.jpg",
+  "master": "M-06",
+  "slot": "action2",
+  "w": 1440,
+  "h": 1080,
+  "kb": 195
+ },
+ {
+  "file": "M-06__action2__960.webp",
+  "master": "M-06",
+  "slot": "action2",
+  "w": 960,
+  "h": 720,
+  "kb": 68
+ },
+ {
+  "file": "M-06__action2__960.jpg",
+  "master": "M-06",
+  "slot": "action2",
+  "w": 960,
+  "h": 720,
+  "kb": 96
+ },
+ {
+  "file": "M-10__kran-abend__1440.webp",
+  "master": "M-10",
+  "slot": "kran-abend",
+  "w": 1440,
+  "h": 960,
+  "kb": 222
+ },
+ {
+  "file": "M-10__kran-abend__1440.jpg",
+  "master": "M-10",
+  "slot": "kran-abend",
+  "w": 1440,
+  "h": 960,
+  "kb": 291
+ },
+ {
+  "file": "M-10__kran-abend__960.webp",
+  "master": "M-10",
+  "slot": "kran-abend",
+  "w": 960,
+  "h": 640,
+  "kb": 113
+ },
+ {
+  "file": "M-10__kran-abend__960.jpg",
+  "master": "M-10",
+  "slot": "kran-abend",
+  "w": 960,
+  "h": 640,
+  "kb": 143
+ },
+ {
+  "file": "M-02__luft__1440.webp",
+  "master": "M-02",
+  "slot": "luft",
+  "w": 1440,
+  "h": 810,
+  "kb": 207
+ },
+ {
+  "file": "M-02__luft__1440.jpg",
+  "master": "M-02",
+  "slot": "luft",
+  "w": 1440,
+  "h": 810,
+  "kb": 269
+ },
+ {
+  "file": "M-02__luft__960.webp",
+  "master": "M-02",
+  "slot": "luft",
+  "w": 960,
+  "h": 540,
+  "kb": 113
+ },
+ {
+  "file": "M-02__luft__960.jpg",
+  "master": "M-02",
+  "slot": "luft",
+  "w": 960,
+  "h": 540,
+  "kb": 137
+ },
+ {
+  "file": "M-02__luft__640.webp",
+  "master": "M-02",
+  "slot": "luft",
+  "w": 640,
+  "h": 360,
+  "kb": 57
+ },
+ {
+  "file": "M-02__luft__640.jpg",
+  "master": "M-02",
+  "slot": "luft",
+  "w": 640,
+  "h": 360,
+  "kb": 65
+ },
+ {
+  "file": "M-01__crop-kletterer__960.webp",
+  "master": "M-01",
+  "slot": "crop-kletterer",
+  "w": 960,
+  "h": 955,
+  "kb": 76
+ },
+ {
+  "file": "M-01__crop-kletterer__960.jpg",
+  "master": "M-01",
+  "slot": "crop-kletterer",
+  "w": 960,
+  "h": 955,
+  "kb": 130
+ },
+ {
+  "file": "M-01__crop-kletterer__640.webp",
+  "master": "M-01",
+  "slot": "crop-kletterer",
+  "w": 640,
+  "h": 637,
+  "kb": 48
+ },
+ {
+  "file": "M-01__crop-kletterer__640.jpg",
+  "master": "M-01",
+  "slot": "crop-kletterer",
+  "w": 640,
+  "h": 637,
+  "kb": 74
+ },
+ {
+  "file": "M-01__crop-haus__960.webp",
+  "master": "M-01",
+  "slot": "crop-haus",
+  "w": 960,
+  "h": 630,
+  "kb": 68
+ },
+ {
+  "file": "M-01__crop-haus__960.jpg",
+  "master": "M-01",
+  "slot": "crop-haus",
+  "w": 960,
+  "h": 630,
+  "kb": 104
+ },
+ {
+  "file": "M-01__crop-haus__640.webp",
+  "master": "M-01",
+  "slot": "crop-haus",
+  "w": 640,
+  "h": 420,
+  "kb": 40
+ },
+ {
+  "file": "M-01__crop-haus__640.jpg",
+  "master": "M-01",
+  "slot": "crop-haus",
+  "w": 640,
+  "h": 420,
+  "kb": 56
+ },
+ {
+  "file": "M-01__crop-seile__960.webp",
+  "master": "M-01",
+  "slot": "crop-seile",
+  "w": 960,
+  "h": 540,
+  "kb": 78
+ },
+ {
+  "file": "M-01__crop-seile__960.jpg",
+  "master": "M-01",
+  "slot": "crop-seile",
+  "w": 960,
+  "h": 540,
+  "kb": 108
+ },
+ {
+  "file": "M-01__crop-seile__640.webp",
+  "master": "M-01",
+  "slot": "crop-seile",
+  "w": 640,
+  "h": 360,
+  "kb": 45
+ },
+ {
+  "file": "M-01__crop-seile__640.jpg",
+  "master": "M-01",
+  "slot": "crop-seile",
+  "w": 640,
+  "h": 360,
+  "kb": 57
+ },
+ {
+  "file": "V-05__kronenflug__720.webp",
+  "master": "V-05",
+  "slot": "kronenflug",
+  "w": 720,
+  "h": 1280,
+  "kb": 59
+ },
+ {
+  "file": "V-05__kronenflug__720.jpg",
+  "master": "V-05",
+  "slot": "kronenflug",
+  "w": 720,
+  "h": 1280,
+  "kb": 105
+ },
+ {
+  "file": "V-05__maschinenflug__720.webp",
+  "master": "V-05",
+  "slot": "maschinenflug",
+  "w": 720,
+  "h": 1280,
+  "kb": 75
+ },
+ {
+  "file": "V-05__maschinenflug__720.jpg",
+  "master": "V-05",
+  "slot": "maschinenflug",
+  "w": 720,
+  "h": 1280,
+  "kb": 118
+ },
+ {
+  "file": "V-06__stiefel-seil__720.webp",
+  "master": "V-06",
+  "slot": "stiefel-seil",
+  "w": 720,
+  "h": 1280,
+  "kb": 42
+ },
+ {
+  "file": "V-06__stiefel-seil__720.jpg",
+  "master": "V-06",
+  "slot": "stiefel-seil",
+  "w": 720,
+  "h": 1280,
+  "kb": 85
+ },
+ {
+  "file": "V-06__pov-daecher__720.webp",
+  "master": "V-06",
+  "slot": "pov-daecher",
+  "w": 720,
+  "h": 1280,
+  "kb": 98
+ },
+ {
+  "file": "V-06__pov-daecher__720.jpg",
+  "master": "V-06",
+  "slot": "pov-daecher",
+  "w": 720,
+  "h": 1280,
+  "kb": 147
+ },
+ {
+  "file": "V-03__absperrung__720.webp",
+  "master": "V-03",
+  "slot": "absperrung",
+  "w": 720,
+  "h": 1280,
+  "kb": 201
+ },
+ {
+  "file": "V-03__absperrung__720.jpg",
+  "master": "V-03",
+  "slot": "absperrung",
+  "w": 720,
+  "h": 1280,
+  "kb": 238
+ },
+ {
+  "file": "V-02__schnittflaeche__720.webp",
+  "master": "V-02",
+  "slot": "schnittflaeche",
+  "w": 720,
+  "h": 1280,
+  "kb": 136
+ },
+ {
+  "file": "V-02__schnittflaeche__720.jpg",
+  "master": "V-02",
+  "slot": "schnittflaeche",
+  "w": 720,
+  "h": 1280,
+  "kb": 180
+ },
+ {
+  "file": "V-02__nebel__720.webp",
+  "master": "V-02",
+  "slot": "nebel",
+  "w": 720,
+  "h": 1280,
+  "kb": 18
+ },
+ {
+  "file": "V-02__nebel__720.jpg",
+  "master": "V-02",
+  "slot": "nebel",
+  "w": 720,
+  "h": 1280,
+  "kb": 43
+ },
+ {
+  "file": "V-07__hangmulcher__720.webp",
+  "master": "V-07",
+  "slot": "hangmulcher",
+  "w": 720,
+  "h": 1280,
+  "kb": 268
+ },
+ {
+  "file": "V-07__hangmulcher__720.jpg",
+  "master": "V-07",
+  "slot": "hangmulcher",
+  "w": 720,
+  "h": 1280,
+  "kb": 282
+ },
+ {
+  "file": "V-04__ergebnis__720.webp",
+  "master": "V-04",
+  "slot": "ergebnis",
+  "w": 720,
+  "h": 1280,
+  "kb": 205
+ },
+ {
+  "file": "V-04__ergebnis__720.jpg",
+  "master": "V-04",
+  "slot": "ergebnis",
+  "w": 720,
+  "h": 1280,
+  "kb": 232
+ },
+ {
+  "file": "V-06__pov-loop.mp4",
+  "master": "V-06",
+  "slot": "pov-loop",
+  "kb": 3081,
+  "type": "loop"
+ },
+ {
+  "file": "V-05__flug-loop.mp4",
+  "master": "V-05",
+  "slot": "flug-loop",
+  "kb": 1410,
+  "type": "loop"
+ },
+ {
+  "file": "V-07__mulcher-loop.mp4",
+  "master": "V-07",
+  "slot": "mulcher-loop",
+  "kb": 2716,
+  "type": "loop"
+ }
+]
