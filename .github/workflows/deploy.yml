@@ -40,6 +40,9 @@ jobs:
           ! grep -rIl "0173 346 3959" "$d" || { echo "FAIL: old phone in release"; exit 1; }
           ! grep -rIl "fonts.googleapis.com\|fonts.gstatic.com" "$d" || { echo "FAIL: external fonts"; exit 1; }
           ! test -e "$d/rnd" && ! test -e "$d/rnd2" || { echo "FAIL: rnd exposed"; exit 1; }
+          if grep -rohE '[a-zA-Z-]+="/[^"]*"' --include='*.html' "$d" | grep -v '="/fs-baumservice-mvp' | grep -q .; then
+            echo "FAIL: root-absolute ref outside base"; exit 1
+          fi
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
