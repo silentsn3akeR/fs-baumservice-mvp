@@ -21,7 +21,7 @@ if (RELEASE && INCLUDE_RND) throw new Error("INCLUDE_RND ist im Release-Build ni
    wurzel-absoluten Attribut-URLs (/x) auf BASE + /x umgeschrieben. site.css und
    site.js enthalten bewusst keine absoluten URLs; Font-Pfade in der CSS sind
    relativ zur CSS-Datei und damit automatisch base-path-korrekt. */
-const ATTR = /\b(href|src|content)="(\/(?!\/)[^"]*)"/g;
+const ATTR = /\b(href|src|content|poster|action|formaction|data)="(\/(?!\/)[^"]*)"/g;
 const SRCSET = /\bsrcset="([^"]*)"/g;
 function applyBase(html) {
   if (!BASE) return html;
