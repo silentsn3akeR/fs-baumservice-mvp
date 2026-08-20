@@ -1,0 +1,27 @@
+{
+  "record": "FS_FRESH_MAIN_RECONCILIATION_V1",
+  "date": "2026-08-18",
+  "old_base": "a3f03ada9b2076dcc6dbbbe4d233e01c9b3dab30",
+  "new_base": "7401a7ac7de27e38effc4c2fed40a8480fbdc1c3 (origin/main, frisch gemessen)",
+  "delta_commits": 49,
+  "strategy": "Lokales main per ff-only auf origin/main; Signature-Branch (4 additive Commits, nur signature/ + .gitignore) konfliktfrei per rebase --onto auf neues main. Kein Cherry-Pick noetig, keine MVP-UI-Rueckholung.",
+  "delta_classification": {
+    "DEPLOYMENT": [".github/workflows/deploy.yml — GitHub Pages Deploy auf gh-pages mit Subpfad", "origin/gh-pages Branch existiert: Alt-MVP ist LIVE deployed"],
+    "BUSINESS_FACT_RISK": [
+      "Testimonials mit Klarnamen + 5 Sternen (Karl M./Balingen, Familie L./Bisingen, ...) — Herkunft unbelegt",
+      "Stats-Strip '5 Jahre regionale Erfahrung' — kollidiert mit llms.txt-Regel 'kein Gruendungsjahr unbestaetigt'"
+    ],
+    "SOURCE_CONTENT": ["data-ratgeber.js +77 Zeilen: Schaedlingskunde (EPS, Kastanienminiermotte, Stadtbaumstress), Saisonkalender — fuer /wissen/ migrierbar (fachliche Aussagen gehedged)", "ueber-uns Founder-Neufassung (Alt-UI, Substanz pruefen bei /ueber-fs/-Bau)"],
+    "SEO": ["OG-Tags, LocalBusiness-JSON-LD (telephone = contact.phone = 0172 — konsistent mit C-004-Kandidat)", "sitemap http->https", "canonical links"],
+    "LEGAL": ["data-legal.js: nur rel=noopener — Telefonkonflikt 0173 im Impressum BESTEHT WEITER"],
+    "MEDIA": ["favicon.svg NEU: generischer Baum-Glyph, NICHT logo-abgeleitet — fuer Neubau als Alt-Design eingestuft", "Bild-/Video-Master UNVERAENDERT (frisch verifiziert: Duplikat-Blob identisch, 20180314 weiterhin beschaedigt, 7 Videos)"],
+    "DESIGN_ONLY_DISCARDED": ["Glow/Gradient/Card-Shine, Noise/Topo/Tree-Rings, Masonry-Galerie, Timeline, FAQ-Accordion-UI, Seasonal Strip, WhatsApp-Wizard-UI, Outfit-Selfhost — Alt-MVP-Aesthetik, per Mission nicht Design-Autoritaet"]
+  },
+  "preserved": ["Gesamte Signature-Arbeit (Buildsystem, 6 Flaechen, Pipeline, Gates, Truth/Media-Registries)"],
+  "reconciled": ["Branch-Basis auf 7401a7a", "Claims C-017..C-020 ergaenzt", "Media-Kernfunde frisch bestaetigt statt uebernommen"],
+  "superseded": ["Alter Fresh-Truth-Stand a3f03ad", "sitemap-http-Annahme"],
+  "conflicting": ["Keine Datei-Konflikte (Signature ist additiv)"],
+  "owner_confirm": ["Testimonial-Echtheit", "5-Jahre-Angabe", "Telefon 0172/0173", "USt-ID", "Sekundaer-Service-Prioritaet"],
+  "discarded_as_old_design": ["Alt-MVP-UI-Evolution der 49 Commits (siehe DESIGN_ONLY_DISCARDED)", "neues generisches Favicon"],
+  "gate": "FS_FRESH_MAIN_RECONCILIATION = PASS"
+}

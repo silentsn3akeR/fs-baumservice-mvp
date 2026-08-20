@@ -1,0 +1,50 @@
+{
+  "doc": "ATLAS_FINDINGS_V2",
+  "date": "2026-08-18",
+  "canonical_source": "docs/design-atlas-catalog/CATALOG_PROJECTION_V1.json (DERIVED_READ_MODEL_ONLY, 138 Objekte: 123 VISUAL_PATTERN, 12 ANTI_PATTERN, 2 RECIPE, 1 COMPONENT_ARCHETYPE)",
+  "atlas_evidence_mode": "CANONICAL_OBJECT_RECALL + LOCAL_DIAGNOSTIC_PROXY (Render-Screenshots via CDP + DOM-Signale). Es existiert KEIN kanonisches Mess-/Discriminator-Subsystem fuer externe Seiten — Symptomerkennung ist Experten-Review gegen kanonische Objektnamen, KEINE kanonische Atlas-Evaluation.",
+  "status": {
+    "ATLAS-01_CANONICAL_AUTHORITY_LOCATED": "PASS (Projektion + Schema + Relation-Contract identifiziert; Live-Quelle Supabase read-only, nicht angefasst)",
+    "ATLAS-02_SURFACE_INTENT_CREATED": "PASS (docs/ATLAS_SURFACE_INTENT.json, 12 Flaechen)",
+    "ATLAS-03_STATIC_DISCRIMINATION": "PASS als LOCAL_DIAGNOSTIC_PROXY",
+    "ATLAS-04_MOTION_DISCRIMINATION": "PASS als LOCAL_DIAGNOSTIC_PROXY",
+    "ATLAS-05_RESPONSIVE_DISCRIMINATION": "PASS als LOCAL_DIAGNOSTIC_PROXY (360/390/768/1440 Overflow+Struktur; visuelle Tiefe auf Kernflaechen)",
+    "ATLAS-06_FINDINGS_RESOLVED": "PASS (Reveal-Bottom-Bug, Ueber-FS-Crop, Wissen-Grid — alle gefixt)",
+    "ATLAS-07_BEFORE_AFTER": "PASS (strukturell, siehe before_after)",
+    "ATLAS-08_NO_SECOND_AUTHORITY": "PASS (nur Read der Projektion; eigene Messwerte klar als Proxy etikettiert)",
+    "CANONICAL_ATLAS_BINDING": "PARTIAL — Objekt-Recall kanonisch verfuegbar und genutzt; Render-Evaluation BLOCKED (kein kanonischer Scorer vorhanden)"
+  },
+  "anti_pattern_check_full_site": [
+    { "key": "ANTI-WEB-DESIGN-MONOTONY", "name": "Card Monotony", "verdict": "PASS", "evidence": "Kein Card-Grid; Register-Zeilen, Evidence-Splits, Silence-Flaechen, je Flaeche eigene Komposition (fx_sheet.png)" },
+    { "key": "ANTI-WEB-SCROLL-HIJACKING", "name": "Scroll Hijacking", "verdict": "PASS", "evidence": "Natives Scrollen ueberall; Reveals beeinflussen Scroll nicht" },
+    { "key": "ANTI-WEB-FAKE-URGENCY", "name": "Fake Urgency", "verdict": "PASS", "evidence": "Keine Countdown/Drohkulisse; 'Akut'-Option ist nutzergewaehlte Dringlichkeit im Formular" },
+    { "key": "ANTI-WEB-OVERANIMATION", "name": "Overanimation", "verdict": "PASS", "evidence": "4 Tier-S-Momente + Reveals; reduced-motion deaktiviert alles; keine Deko-Loops" },
+    { "key": "ANTI-WEB-UNCONTROLLED-AUTOPLAY", "name": "Uncontrolled Autoplay", "verdict": "PASS", "evidence": "Ein Loop sitewide (Spezialfaellung), muted, preload=none, nur in-view, per Kapitel anhaltbar" },
+    { "key": "ANTI-WEB-AGGRESSIVE-GLASSMORPHISM", "name": "Aggressive Glassmorphism", "verdict": "PASS", "evidence": "Null Glass-Flaechen im gesamten System" },
+    { "key": "ANTI-WEB-AGGRESSIVE-CTA-PULSE", "name": "Aggressive CTA Pulse", "verdict": "PASS", "evidence": "CTAs statisch, Hover nur Farbwechsel" },
+    { "key": "ANTI-WEB-HIDDEN-NAVIGATION", "name": "Hidden Navigation", "verdict": "PASS", "evidence": "Nav immer sichtbar; mobil Scroll-Zeile statt Burger" },
+    { "key": "ANTI-WEB-HOVER-ONLY-MOBILE", "name": "Hover-only Mobile UX", "verdict": "PASS", "evidence": "Hover nur additiv (Pfeile); alle Ziele als volle Links/Buttons" },
+    { "key": "ANTI-WEB-VIDEO-HERO-BLOAT", "name": "Oversized Video Hero", "verdict": "PASS", "evidence": "Hero ist priorisiertes Standbild; Video nur unterhalb, lazy" },
+    { "key": "ANTI-WEB-WEAK-CTA-HIERARCHY", "name": "Unclear CTA Hierarchy", "verdict": "PASS", "evidence": "Ein Primaer-CTA (solid leaf) je Flaeche, Telefon als Mono-Sekundaer, Textlinks tertaer — konsistent" },
+    { "key": "ANTI-WEB-GENERIC-STOCK-AESTHETIC", "name": "Generic Stock Aesthetic", "verdict": "PASS", "evidence": "100% eigene Einsatzmedien mit Lineage; Sekundaerleistungen bewusst OHNE Fake-Bild" }
+  ],
+  "canonical_pattern_bindings": [
+    { "key": "PATTERN-JOURNEY-REQUEST-WIZARD", "name": "Request Wizard (RECIPE)", "usage": "/kontakt/ 5-Schritt-Flow — mailto-Variante ohne Speicherung" },
+    { "key": "PATTERN-CONVERSION-AUTHORITY-BLOCK", "name": "Authority Block (RECIPE)", "usage": "Hero-Facts-Zeile + Ueber-FS 'Wie wir arbeiten' — NUR belegte Fakten (keine Badges/Testimonials, C-017)" },
+    { "key": "PATTERN-CONVERSION-TRUST-STRIP", "name": "Trust Strip (ARCHETYPE)", "usage": "hero-facts als faktenbasierte Auspraegung; bewusst ohne Sterne/Zahlen" }
+  ],
+  "rhythm_check": "FS-Regel (nach intensiver Sektion mind. 2 Reduktionen) eingehalten: Home Hero(hoch)->Register(2 Reduktionen: Motion, Mediendominanz); Beweis(dunkel/hoch)->Silence(Typo-Skala, Dichte); Spezialfaellung Methode->Technik-Register. Keine dokumentierten Ausnahmen noetig.",
+  "before_after": {
+    "mode": "strukturell — KEINE Conversion-/Trust-/Premium-Behauptung",
+    "rows": [
+      { "dimension": "Autoplay", "old": "Alle 7 Reels autoplay (Commit 'Restore autoplay to all videos') = ANTI-WEB-UNCONTROLLED-AUTOPLAY", "new": "1 kontrollierter Loop, in-view, anhaltbar" },
+      { "dimension": "CTA", "old": "Pulse-Glow-CTA (Commit 'pulse glow') = ANTI-WEB-AGGRESSIVE-CTA-PULSE", "new": "statische CTA-Hierarchie" },
+      { "dimension": "Material", "old": "Glass-Landschaft (--glass-border System) = ANTI-WEB-AGGRESSIVE-GLASSMORPHISM", "new": "Papier/Ink-Flaechen, Radius 0" },
+      { "dimension": "Karten", "old": "Benefit-/Trust-/Testimonial-/3D-Cards = ANTI-WEB-DESIGN-MONOTONY", "new": "Register/Evidence/Silence-Kompositionen" },
+      { "dimension": "Animation", "old": "Scroll-Anims + Noise + Topo + Tree-Rings + Card-Shine gleichzeitig = ANTI-WEB-OVERANIMATION-Risiko", "new": "4 begruendete Motion-Momente, reduced-motion-sicher" },
+      { "dimension": "Bildsprache", "old": "SVG-Platzhalter (Rollrasen), stark gegradete Banner", "new": "ausschliesslich reale Einsatzmedien mit SHA-Lineage; ehrliche Luecken statt Platzhalter" },
+      { "dimension": "Wahrheit", "old": "Testimonials + '5 Jahre'-Zahl unbelegt im UI", "new": "Claim-Registry mit Zustaenden; unbelegtes ausgeschlossen (C-017/C-018)" },
+      { "dimension": "Galerie", "old": "Masonry-Grid + Insta-Embed", "new": "Einsatzdokumentation mit Beweisstruktur (SITUATION->METHODE->ERGEBNIS)" }
+    ]
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "schema": "FS_CLAIM_AUTHORITY_V1",
+  "generated": "2026-08-17",
+  "states": [
+    "FACT",
+    "SUPPORTED",
+    "OWNER_CONFIRM",
+    "UNVERIFIED",
+    "DO_NOT_PUBLISH"
+  ],
+  "claims": [
+    {
+      "claim_id": "C-001",
+      "subject": "Unternehmen",
+      "predicate": "Name",
+      "value": "FS Baumservice (rechtlich: Florian Stuck Baumservice)",
+      "state": "FACT",
+      "source_refs": [
+        "data.js:contact",
+        "llms.txt",
+        "logo",
+        "video:20260331 endcard"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-002",
+      "subject": "Inhaber",
+      "predicate": "Person",
+      "value": "Florian Stuck",
+      "state": "FACT",
+      "source_refs": [
+        "data.js",
+        "llms.txt",
+        "impressum"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-003",
+      "subject": "Adresse",
+      "predicate": "Anschrift",
+      "value": "Balinger Str. 59, 72406 Bisingen-Steinhofen",
+      "state": "SUPPORTED",
+      "source_refs": [
+        "data.js",
+        "llms.txt"
+      ],
+      "notes": "Impressum nennt nur '72406 Bisingen' ohne Strasse. Fuer Release Owner-Bestaetigung der vollstaendigen Anschrift einholen.",
+      "owner_confirmation": "RECOMMENDED",
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-004",
+      "subject": "Telefon",
+      "predicate": "Nummer",
+      "value": "0172 7256462 (+49 172 7256462)",
+      "state": "OWNER_CONFIRM",
+      "source_refs": [
+        "data.js:contact (30+ Vorkommen)",
+        "llms.txt",
+        "FOTO-KORROBORATION: video 20260313 @29s, FS-LKW-Beschriftung endet auf '2 56 462'"
+      ],
+      "conflict": "impressum/index.html + data-legal.js nennen abweichend '0173 346 3959'",
+      "notes": "Preview verwendet 0172 (dominant + fotografisch gestuetzt am Fahrzeug). P0-RELEASE-BLOCKER: Owner muss die kanonische Nummer bestaetigen und das Impressum vereinheitlichen.",
+      "public_safe": "PREVIEW_ONLY"
+    },
+    {
+      "claim_id": "C-005",
+      "subject": "E-Mail",
+      "predicate": "Adresse",
+      "value": "info@fs-baumservice.de",
+      "state": "FACT",
+      "source_refs": [
+        "alle Quellen konsistent, 11 Vorkommen"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-006",
+      "subject": "Einsatzgebiet",
+      "predicate": "Region",
+      "value": "Bisingen, Bisingen-Steinhofen, Balingen, Geislingen, Hechingen, Zollernalbkreis",
+      "state": "SUPPORTED",
+      "source_refs": [
+        "data.js:areaServed",
+        "llms.txt",
+        "alte Website"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-007",
+      "subject": "Leistungen",
+      "predicate": "Angebot",
+      "value": "Baumfaellung, Baumpflege, Heckenschnitt, Wurzelstockfraesen, Rollrasen",
+      "state": "SUPPORTED",
+      "source_refs": [
+        "data.js:services",
+        "llms.txt",
+        "FOTO: FS-Anhaenger-Beschriftung (video 20260319 @30s) listet Baumfaellung/Baumpflege/Wurzelstockfraesen/Rollrasen"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-008",
+      "subject": "Qualifikation",
+      "predicate": "BG Gartenbau",
+      "value": "Qualifiziert und ausgeruestet laut bisheriger Website ('von der Berufsgenossenschaft fuer Gartenbau qualifiziert')",
+      "state": "OWNER_CONFIRM",
+      "source_refs": [
+        "alte Website via data.js:baumfaellung.description"
+      ],
+      "notes": "Nur mit Herkunftshinweis verwenden oder vor Release bestaetigen lassen.",
+      "public_safe": "HEDGED_ONLY"
+    },
+    {
+      "claim_id": "C-009",
+      "subject": "Arbeitsweise",
+      "predicate": "ZTV-Baumpflege",
+      "value": "Baumpflege nach ZTV-Baumpflege und gueltigen Regelwerken (laut bisheriger Website)",
+      "state": "SUPPORTED",
+      "source_refs": [
+        "alte Website via data.js:baumpflege.benefits"
+      ],
+      "public_safe": "HEDGED_ONLY"
+    },
+    {
+      "claim_id": "C-010",
+      "subject": "Maschine",
+      "predicate": "Wurzelfraese",
+      "value": "Eigene Wurzelfraese, Durchfahrt ab ca. 90 cm (laut bisheriger Website)",
+      "state": "SUPPORTED",
+      "machine_relation": "FS_OWNED_PER_OLD_SITE",
+      "source_refs": [
+        "alte Website via data.js:wurzelstockfraesen"
+      ],
+      "public_safe": "HEDGED_ONLY"
+    },
+    {
+      "claim_id": "C-011",
+      "subject": "Maschine",
+      "predicate": "Autokran",
+      "value": "Autokran-Einsaetze mit externen Kranpartnern (Kran-Branding 'NEU Autokrane Rottenburg/Boeblingen' und weiteres Fremd-Branding sichtbar)",
+      "state": "FACT",
+      "machine_relation": "PARTNER_EQUIPMENT_OR_RENTAL",
+      "source_refs": [
+        "video 20260219 @7s (NEU Autokrane)",
+        "video 20260227 @3s",
+        "IMG_0718.jpg (W-Branding)"
+      ],
+      "notes": "NIEMALS als FS-eigener Kran darstellen. Formulierung: 'bei Bedarf mit Autokran-Unterstuetzung'.",
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-012",
+      "subject": "Maschine",
+      "predicate": "Ferngesteuerter Hangmulcher",
+      "value": "Einsatz eines ferngesteuerten Raupen-Mulchers an Steilhaengen dokumentiert",
+      "state": "SUPPORTED",
+      "machine_relation": "FS_OPERATED_OWNERSHIP_UNKNOWN",
+      "source_refs": [
+        "video 20260331 (gesamter Clip)"
+      ],
+      "notes": "Eigentum unklar; nur Einsatz behaupten, kein Besitz.",
+      "public_safe": "HEDGED_ONLY"
+    },
+    {
+      "claim_id": "C-013",
+      "subject": "Social",
+      "predicate": "Kanaele",
+      "value": "Instagram @fs_baumservice, Facebook FS.Baumservice",
+      "state": "FACT",
+      "source_refs": [
+        "data.js:contact",
+        "Video-Dateinamen (Instagram-Exporte)"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-014",
+      "subject": "Recht",
+      "predicate": "USt-ID",
+      "value": "FEHLT — Impressum sagt 'Wird nachgereicht / auf Anfrage'",
+      "state": "DO_NOT_PUBLISH",
+      "source_refs": [
+        "data-legal.js"
+      ],
+      "notes": "P0-RELEASE-BLOCKER: Impressum unvollstaendig (USt-ID bzw. Kleinunternehmer-Status klaeren).",
+      "public_safe": false
+    },
+    {
+      "claim_id": "C-015",
+      "subject": "Verbotene Behauptungen",
+      "predicate": "Ohne Owner-Freigabe",
+      "value": "Keine Bewertungen, kein Notdienst, kein Gruendungsjahr, keine unbelegten Zertifikate, keine konkreten Projektorte",
+      "state": "DO_NOT_PUBLISH",
+      "source_refs": [
+        "llms.txt:'Nicht ohne Inhaberpruefung behaupten'"
+      ],
+      "public_safe": false
+    },
+    {
+      "claim_id": "C-016",
+      "subject": "Projektdarstellung",
+      "predicate": "Ortsangaben",
+      "value": "Projekte nur mit Regions-Granularitaet (Einsatzgebiet), keine konkreten Orte/Adressen ohne Freigabe",
+      "state": "FACT",
+      "source_refs": [
+        "llms.txt Regel",
+        "abgeleitete Redaktionsregel"
+      ],
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-017",
+      "subject": "Bewertungen",
+      "predicate": "Testimonials",
+      "value": "Alt-Site (neues main) zeigt namentliche 5-Sterne-Testimonials (Karl M./Balingen u.a.) — Herkunft unbelegt",
+      "state": "OWNER_CONFIRM",
+      "source_refs": [
+        "origin/main build-site.mjs Testimonial-Grid"
+      ],
+      "notes": "llms.txt verbietet erfundene Bewertungen. Neubau publiziert KEINE Testimonials ohne Owner-Beleg.",
+      "public_safe": false
+    },
+    {
+      "claim_id": "C-018",
+      "subject": "Erfahrung",
+      "predicate": "Jahre",
+      "value": "'5 Jahre regionale Erfahrung' (Stats-Strip neues main)",
+      "state": "OWNER_CONFIRM",
+      "source_refs": [
+        "origin/main build-site.mjs stats-strip"
+      ],
+      "notes": "Gruendungsjahr-nahe Angabe ohne Beleg — Neubau nutzt sie nicht.",
+      "public_safe": false
+    },
+    {
+      "claim_id": "C-019",
+      "subject": "Deployment",
+      "predicate": "GitHub Pages",
+      "value": "Alt-MVP live via origin/gh-pages (Deploy-Workflow mit Subpfad)",
+      "state": "FACT",
+      "source_refs": [
+        ".github/workflows/deploy.yml",
+        "origin/gh-pages"
+      ],
+      "notes": "Release-Planung muss Pages-Umstellung beruecksichtigen; Owner-Boundary.",
+      "public_safe": true
+    },
+    {
+      "claim_id": "C-020",
+      "subject": "Wissen",
+      "predicate": "Fachaussagen Ratgeber",
+      "value": "Schaedlings-/Saisonaussagen (EPS-Gesundheitsgefahr etc.) aus Alt-Site — allgemeines Fachwissen, nicht FS-spezifisch belegt",
+      "state": "SUPPORTED",
+      "source_refs": [
+        "data-ratgeber.js @ 7401a7a"
+      ],
+      "notes": "Migration nach /wissen/ nur gehedged, keine absoluten Rechts-/Gesundheitszusagen.",
+      "public_safe": "HEDGED_ONLY"
+    }
+  ]
+}

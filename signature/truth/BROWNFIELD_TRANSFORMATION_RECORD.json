@@ -1,0 +1,53 @@
+{
+  "record": "BROWNFIELD_TRANSFORMATION_RECORD_V1",
+  "date": "2026-08-18",
+  "source_sha": "a3f03ad (fs-baumservice-mvp main)",
+  "work_branch": "signature/ultra-plus-v1 @ C:/Obscura/projects/fs-baumservice-signature",
+  "source_routes": ["/", "/leistungen/(+5)", "/referenzen/", "/angebot/", "/ueber-uns/", "/kontakt/", "/ratgeber/", "/impressum/", "/datenschutz/"],
+  "source_assets": "15 Bilder + 1 SVG + 7 Reels — vollstaendige SHA-Lineage in truth/media.json",
+  "source_claims": "truth/claims.json C-001..C-016",
+
+  "preserved": [
+    "Original-Logo als Marken-DNA-Quelle (nicht als UI-Asset kopiert, sondern in Tokens uebersetzt)",
+    "Alle realen Bilder/Videos als Master mit Lineage",
+    "Geschaeftssubstanz: Name, Inhaber, Adresse, E-Mail, Region, 5 Leistungen",
+    "Wahrheits-Hedges der Alt-Site ('laut aktueller Website', ZTV, 90cm, BG-Qualifikation)",
+    "Alle Alt-Routen (KEEP oder geplantes 301 — nichts stirbt kommentarlos)",
+    "Rechtstexte als historische Quelle (markiert 'in Pruefung')"
+  ],
+  "transformed": [
+    "IA: /angebot/-3D-Konfigurator -> /kontakt/-Anfrage-Flow (mailto, ohne Datenspeicherung)",
+    "/referenzen/-Instagram-Grid -> Einsatzdokumentation mit Shot-Level-Verwertung der Reels",
+    "Reels: 7x Hochformat-Rohmaterial -> kuratierte Standbilder + 3 stumme Loops (<=2.5MB)",
+    "drohne-026.jpg -> Hero-Master mit Mobil-Crop 4:5 + 3 Dekonstruktions-Crops",
+    "Alt-Impressum-Telefonkonflikt -> sichtbar markierter OWNER_CONFIRM-Claim"
+  ],
+  "rejected": [
+    { "was": "Dark+Lime-SaaS-Look, Glassmorphism, Sidebar, WhatsApp-FAB, Custom Cursor, Pill-UI des MVP", "why": "Mission: MVP ist Quellmaterial, nicht Design-Autoritaet; Positionierung verlangt Editorial-Dokumentation statt Template-Aesthetik" },
+    { "was": "Outfit-Font", "why": "Logo-DNA verlangt industrielles Grotesk (Archivo) + Dokumentations-Mono (IBM Plex Mono)" },
+    { "was": "Instagram-Embed (Elfsight)", "why": "Datenschutz + Performance; echte Medien liegen lokal vor" },
+    { "was": "Foto-Upload im Anfrage-Flow", "why": "Transport/Speicherung/Loeschung undefiniert — Missionsregel verbietet Upload ohne Definition" },
+    { "was": "heckenschnitt-*.jpg / wurzelstockfraesen-*.jpg als Belegbilder ihrer Leistungen", "why": "Forensik: Bildinhalt widerspricht Dateinamen — Wahrheitsregel bindet nach Inhalt" },
+    { "was": "20180314_104619.jpg", "why": "Datei beschaedigt (nur oberer Streifen dekodierbar)" }
+  ],
+  "created": [
+    "signature/truth/{claims,media}.json — Claim- und Medien-Autoritaet",
+    "signature/docs/ART_DIRECTION.md — Logo-DNA -> Token-Ableitung",
+    "signature/{build,lib}.mjs + pages/* — dependency-freies Buildsystem, 6 Flaechen",
+    "signature/pipeline/* — Medien-Derivate, CDP-Render-Harness, Audit-Gates",
+    "signature/evidence/* — Gate-Resultate (STATIC_WOW, AUDIT, RESILIENCE, ATLAS_PROXY, PERSONA)",
+    "signature/docs/SEO_RELAUNCH_PREP_V1.json — Redirect-/Release-Plan"
+  ],
+  "decisions": [
+    { "decision": "Licht-Editorial statt Dark-Site", "why": "Differenzierung von Alt-MVP + 'generic SaaS dark'; Winter-Medien tragen kuehles Papier", "source": "Logo-Wortmarke #EAEAEC + Medienbestand", "alternatives": "Dark-only (abgelehnt: Alt-MVP-Naehe), Warm-Creme (abgelehnt: AI-Default)" },
+    { "decision": "Klammer [ ] als Signature-Element", "why": "Direkt aus Logo-Form; systemisch wiederverwendbar bis in den Fokus-Ring", "source": "Logo-Pixelanalyse", "alternatives": "Baum-Silhouette als Ornament (abgelehnt: Deko ohne Funktion)" },
+    { "decision": "Ein Variable-Grotesk (Archivo) + Mono statt Font-Mix", "why": "Wortmarken-DNA, Performance (1 Font-Familie), Monument-bis-Caption-Spanne", "source": "Wortmarken-Beobachtung", "alternatives": "Barlow/Anton/Space Grotesk (abgelehnt: schwaechere Breiten-Achse bzw. AI-Default)" },
+    { "decision": "Projektseite erzaehlt NUR Cluster A", "why": "V-05-Material ist ein anderer Einsatz — keine Projektvermischung", "source": "Medien-Forensik", "alternatives": "Material mischen (abgelehnt: wuerde Beweis faelschen)" },
+    { "decision": "Anfrage ohne Server-Backend (mailto)", "why": "Kein definierter Speicherpfad; Preview muss privacy-clean sein", "source": "Missionsregel Upload-Definition", "alternatives": "Formspree o.ae. (abgelehnt: Drittanbieter ohne Owner-Freigabe)" }
+  ],
+  "evidence": [
+    "evidence/STATIC_WOW_GATE_V1.json", "evidence/AUDIT_GATES_V1.json",
+    "evidence/RESILIENCE_V1.json", "evidence/ATLAS_PROXY_V1.json",
+    "evidence/MULTI_PERSONA_REVIEW_V1.json", "evidence/renders/ (lokal, reproduzierbar)"
+  ]
+}

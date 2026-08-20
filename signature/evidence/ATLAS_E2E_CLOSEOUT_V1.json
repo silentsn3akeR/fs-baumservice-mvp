@@ -1,0 +1,77 @@
+{
+  "doc": "FS_ATLAS_CANONICAL_E2E_DOGFOOD_AND_FINAL_CLOSEOUT_V1",
+  "date": "2026-08-18",
+  "capability_separation": {
+    "CANONICAL_DATA": "docs/design-atlas-catalog/CATALOG_PROJECTION_V1.json (DERIVED_READ_MODEL_ONLY): 123 VISUAL_PATTERN (what_it_is/why_it_works/best_for/not_good_for/motion_contract), 12 ANTI_PATTERN MIT kanonischen Symptom-Saetzen, 2 RECIPE, 1 ARCHETYPE. WICHTIG: anti.severity/threshold/affected_goals sind IM KANON SELBST 'NOT_YET_VALIDATED' (value null).",
+    "CANONICAL_EXECUTABLE_CAPABILITY": "Nur Katalog-Publikation/Viewer/Validator (design_atlas_publish_v1, owner_catalog_viewer_v1, contract_validator). KEIN Modul nimmt HTML/URL/Screenshot als Input; die Dimensionen ATTENTION_DEMAND/VISUAL_INTENSITY/MOTION_LOAD/DENSITY existieren nirgends im Repo-Code.",
+    "OWNER_DB_ONLY_CAPABILITY": "Supabase-Live-Quelle + Owner-lokale Snapshots (C:/Obscura/_external_inputs/: OWNER_CATALOG_SOURCE_V1.json 663KB, FULL_CATALOG_SNAPSHOT_V1.json 873KB, catalog/relations.json) — vorhanden, aber nicht konsumiert: Projektion ist das kanonische Read-Model; zweiter Konsumpfad wuerde Zweit-Autoritaet riskieren. Validierung von severity/threshold liegt beim Owner-Prozess.",
+    "LOCAL_DIAGNOSTIC_PROXY": "CDP-Renders (echte Browser-Pixel), DOM-Signalzaehlung (autoplay/cards/glass/pulse/animation), Experten-Matching der kanonischen Symptom-Saetze gegen Render-Evidenz."
+  },
+  "honesty_correction": "Die frueheren '12x PASS'-Verdicts (ATLAS_FINDINGS_V2) sind praezisiert: Es sind SYMPTOM-EBENEN-Urteile (kanonische Symptom-Saetze x reale Renders x DOM-Signale) — KEINE threshold-/severity-validierte kanonische Evaluation, denn diese Validierung existiert im Kanon selbst noch nicht.",
+  "home_e2e": {
+    "loop": "RECALL (33 Pattern-Objekte + 12 AP-Symptome) -> INTENT (ATLAS_SURFACE_INTENT.HOME) -> REAL RENDER (e2e_home_1440/768/390.png, frisch) -> SYMPTOM-DISKRIMINATION -> INTERPRETATION -> FINDING -> MINIMAL-FIX -> RE-RENDER -> VERIFIKATION",
+    "finding": "Auf 768px und 390px okkludierte das Annotations-Label 'SEILKLETTERTECHNIK · GESICHERT' den Kletterer (Helm/Oberkoerper) — das Subjekt der Hero-Komposition. Desktop 1440 war frei. Prozent-Anker + Label-ueber-Zone skalierten nicht mit.",
+    "canonical_sources": ["PATTERN-DESIGN-ATTENTION-GUIDANCE (Blickfuehrung ZUM Subjekt)", "PATTERN-MEDIA-IMAGE-TEXT-RELATION (Text darf Bildsubjekt nicht schwaechen)"],
+    "evidence_mode": "REAL_BROWSER_RENDER + CANONICAL_OBJECT_RECALL; Matching = LOCAL_DIAGNOSTIC_PROXY",
+    "interpretation": "Der Arbeitszonen-Marker soll Aufmerksamkeit auf die reale Arbeitsposition lenken; wenn sein Label das Subjekt verdeckt, kehrt sich das Muster in sein Anti-Muster um — Beweiskraft des Dokumentarfotos sinkt genau auf den Breiten, auf denen die meisten Besucher kommen.",
+    "before_render": ["e2e_home_768.png (Label ueber Helm)", "e2e_home_390.png (Label ueber Helm, 2-zeilig)"],
+    "change": "Nur CSS, minimal: <64rem Label absolut links neben der Zone ueber der ruhigen Einfahrt (right: calc(100%+5rem)); <48rem Label oberhalb, Zone auf 30% angehoben. Iteration v1 (Label unter Zone) wurde durch Re-Render als NICHT aufloesend verworfen und ersetzt.",
+    "after_render": ["e2e_home_after2_768.png", "e2e_home_after2_390.png", "e2e_after2_sheet.png"],
+    "verification": "Geometrie-Beweis 768px: Label-Box endet x=255, Zone (Kletterer) beginnt x=343 -> 88px frei; 390px: Label (y<=290) liegt vollstaendig ueber der hellen Hausflaeche, Helm ab y~300 frei. FINDING = RESOLVED.",
+    "state": "PASS"
+  },
+  "project_e2e": {
+    "scope": "Frische Renders e2e_projekt_1440/390.png; Symptom-Check: keine Annotation-Okklusion (Flaeche nutzt keine), 0 Videos, 0 Cards, Dekonstruktion mit Herkunftslabels; Monument-Typo konkurriert auf 390 nicht mit dem Kletterer (Headline unterhalb der Bildmitte).",
+    "finding": "Kein materielles Finding auf Symptom-Ebene.",
+    "state": "PARTIAL — Loop ohne Fix-Zyklus durchlaufen (kein Finding), geringere Pruefungstiefe als HOME"
+  },
+  "responsive_differential": {
+    "widths": [390, 768, 1440],
+    "result": "Desktop-PASS war nachweislich KEIN Mobile-PASS: das Home-Finding existierte NUR unter 64rem. Nach Fix: alle drei Breiten frei; Kompositions-Divergenz ist dokumentiert erwuenscht (Label-Position je Breakpoint unterschiedlich statt erzwungener Gleichheit).",
+    "state": "PASS"
+  },
+  "pattern_stacking_check": {
+    "hero_depth": "5 kanonische Familien statisch (Documentary Photography, Display Typography, Hero System, Attention Guidance, CTA Hierarchy) + Entrance Animation = am Intent-Cap, nichts hinzugefuegt",
+    "signature_project_section": "4 Familien (Foto, Typo, Protokoll-Meta, Reveal)",
+    "video_freeze_explain": "4 Familien (Video, Kapitel-UI, Annotation, Reveal) — einziges Bewegtbild der Site, nutzergesteuert",
+    "adjacent_quiet": "Register/Technik-Register/Silence = 2-3 Familien; FS-Rhythmus-Regel (2 Reduktionen nach intensiver Sektion) haelt",
+    "verdict": "kein superlineares Stacking; keine neuen visuellen Systeme im Closeout ergaenzt",
+    "state": "PASS (LOCAL_DIAGNOSTIC_PROXY)"
+  },
+  "brownfield_differential": {
+    "method": "ECHTE Renders beider Systeme (Alt-MVP von origin/main auf :8815, Neubau auf :8814) + DOM-Signale, gemappt auf kanonische Keys",
+    "old_mvp_home": { "autoplay_videos": 13, "card_elements": 23, "pulse_glow_signale": ">=1", "glass_backdrop_filter": 1 },
+    "new_home": { "autoplay_videos": 0, "card_elements": 0, "pulse_glow_signale": 0, "glass_backdrop_filter": 0, "gebundene_animationen": 4 },
+    "canonical_mapping": [
+      "ANTI-WEB-UNCONTROLLED-AUTOPLAY: Symptom woertlich erfuellt im Alt-MVP (13 autostartende Medien ohne Pause-Option) — Neubau 0, einziger Loop nutzergesteuert",
+      "ANTI-WEB-DESIGN-MONOTONY: 23 Card-Elemente Alt vs 0 Neu (Register/Evidence-Kompositionen)",
+      "ANTI-WEB-AGGRESSIVE-CTA-PULSE: Puls/Glow-Signale Alt vorhanden, Neu 0",
+      "ANTI-WEB-AGGRESSIVE-GLASSMORPHISM: backdrop-filter Alt 1, Neu 0",
+      "ANTI-WEB-GENERIC-STOCK-AESTHETIC: beide nutzen echte Medien; Neu ohne SVG-Platzhalter/Grading-Banner"
+    ],
+    "no_outcome_claims": "Keine Premium-/Trust-/Conversion-Aussage — rein strukturelle Symptom-Differenz.",
+    "renders": ["e2e_oldmvp_1440.png", "e2e_oldmvp_390.png", "e2e_home_1440.png", "e2e_home_390.png"],
+    "state": "PASS"
+  },
+  "final_states": {
+    "CANONICAL_ATLAS_AUTHORITY": "PASS (Projektion als einziges Read-Model identifiziert und genutzt)",
+    "CANONICAL_PATTERN_RECALL": "PASS (echte Objekte inkl. Symptom-Saetzen; Extrakt: ATLAS_CANONICAL_EXTRACT_V1.json)",
+    "CANONICAL_DISCRIMINATOR": "BLOCKED (existiert nicht als ausfuehrbare Faehigkeit)",
+    "CANONICAL_INTERPRETER": "BLOCKED (existiert nicht; 'discriminator' im Atlas-Code meint Eintrags-TYP-Unterscheidung)",
+    "HOME_E2E_DOGFOOD": "PASS (Symptom-Ebene, mit realem Finding, Minimal-Fix, bewiesener Aufloesung)",
+    "PROJECT_E2E_DOGFOOD": "PARTIAL (Loop durchlaufen, kein materielles Finding, geringere Tiefe)",
+    "RESPONSIVE_ATLAS": "PASS (390/768/1440-Differential; Finding war breakpoint-spezifisch)",
+    "BEFORE_AFTER_ATLAS": "PASS (echte Renders + DOM-Signale beider Systeme, kanonische Keys)",
+    "LOCAL_PROXY_STATUS": "DEKLARIERT — jede Messung als LOCAL_DIAGNOSTIC_PROXY etikettiert, nie als kanonische Evaluation",
+    "NO_SECOND_AUTHORITY": "PASS (nur Read der Projektion; Owner-Snapshots identifiziert, bewusst nicht konsumiert; kein eigener 'Atlas' erschaffen)"
+  },
+  "FS_AS_ATLAS_E2E_DOGFOOD": "PASS — auf der real existierenden kanonischen Faehigkeitsebene (Objekt+Symptom-Recall x reale Renders), mit dokumentiertem Gap darueber",
+  "ATLAS_CAPABILITY_GAP": {
+    "exact_missing_component": "Ausfuehrbarer Render-Discriminator + Interpreter: (1) Extraktion beobachtbarer Signale aus DOM/Screenshot, (2) Matching gegen kanonische anti.symptoms, (3) severity/threshold-Bewertung — Letzteres zusaetzlich blockiert, weil severity/threshold/affected_goals im Kanon selbst NOT_YET_VALIDATED sind (Owner-Validierung ausstehend).",
+    "available_upstream": "Kanonische Objekte mit Symptom-Saetzen (Projektion), Relations-Contract, Fit-Vokabular, Supabase-Read-Adapter",
+    "available_downstream": "FS-seitige CDP-Render-Harness (cdp.py/gate_renders.py) als moeglicher Signal-Lieferant eines kuenftigen kanonischen Scorers",
+    "minimal_future_obscura_requirement": "1) Owner validiert severity/threshold der 12 Anti-Patterns; 2) kanonisches Modul 'design_atlas_render_discriminator_v1' mit Input {render_png, dom_signals} -> Output {symptom_matches[], canonical_keys[]}; 3) Interpreter-Schicht, die Matches gegen Surface-Intents in Handlungsempfehlungen uebersetzt."
+  },
+  "website_freeze_respected": "Einzige Aenderung: CSS-Annotation-Positionierung <64rem (durch Finding erzwungen). Keine Redesigns, keine Scope-Erweiterung, keine Owner-Blocker beruehrt.",
+  "boundaries": "NO PUSH / NO PR / NO MERGE / NO RELEASE — eingehalten."
+}

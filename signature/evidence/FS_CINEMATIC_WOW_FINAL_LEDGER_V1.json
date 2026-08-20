@@ -1,0 +1,62 @@
+{
+ "ledger": "FS_CINEMATIC_WOW_FINAL_LEDGER_V1",
+ "date": "2026-08-18",
+ "base": {
+  "origin_main": "7401a7ac",
+  "start_commit": "420958a",
+  "branch": "signature/ultra-plus-v1"
+ },
+ "status_matrix": {
+  "FRESH_MAIN_PROVENANCE": "PASS",
+  "CURRENT_INFORMATION_ARCHITECTURE_PRESERVED": "PASS (15 Routen unveraendert; nur Hero/Beweis-Sektion Home + vchapter Spezialfaellung)",
+  "FS_CINEMATIC_INTERACTION_LANGUAGE": "PASS (REALITY->FOCUS->DEPTH->DECONSTRUCT->EXPLAIN->REASSEMBLE->SILENCE implementiert)",
+  "SPATIAL_HERO": "PASS (Typo-Okklusion real, statisch stark, 3 eigene Kompositionen)",
+  "SEMANTIC_EXPLODED_VIEW": "PASS (S0-S4 deterministisch, 15 Temporal-Captures schema-valid)",
+  "CINEMATIC_PROOF": "PASS (V0-V5: Freeze->Explode->Explain->Resume verifiziert)",
+  "TECHNICAL_GHOST": "JUSTIFIED_DEFER (keine verifizierten Zusatzfakten; Stacking-Budget geschont)",
+  "PORTAL_PILOT": "KEEP (View-Transition auf identische Szene, nativ, degradiert sauber)",
+  "STATIC_WOW": "PASS (Okklusion + Platte existieren ohne Motion)",
+  "COMPETITOR_SWAP": "HARD_PASS (Komposition haengt an DIESEM Foto: Staemme-Masken, Kletterer-Cutout, Klammer — Logo-Tausch ergibt sichtbar fremdes Material)",
+  "PATTERN_STACKING_CONTROL": "PASS (Hero 6 kontrollierte Ebenen; danach Facts(3)->Register(5)->Exploded(9)->Silence(2); Ghost deferred)",
+  "RESPONSIVE_WOW": "PASS (eigene Kompositionen 390/768/1440, Overflow-Sweep sauber)",
+  "REDUCED_MOTION_EQUIVALENCE": "PASS (STATIC_DEPTH_COMPOSITION + STATIC_DECONSTRUCTION_PLATE + REAL_FRAME+ANNOTATION; keine Info nur in Motion)",
+  "PERFORMANCE": "PASS (Masken 17-58KB webp; keine neuen Libraries; transform/opacity-only; 1 Video lazy)",
+  "RESILIENCE": "PASS (No-JS-Platte, Broken-Media-Erbe, reine ScrollY-Funktion ohne Stuck-States)",
+  "CANONICAL_ATLAS_RECALL": "PASS",
+  "CANONICAL_ATLAS_SYMPTOM_RECALL": "PASS",
+  "CANONICAL_EXECUTABLE_DISCRIMINATOR": "BLOCKED_BY_PROVEN_PLATFORM_GAP",
+  "CANONICAL_EXECUTABLE_INTERPRETER": "BLOCKED_BY_PROVEN_PLATFORM_GAP",
+  "NO_SECOND_AUTHORITY": "PASS",
+  "PUBLICATION_BOUNDARY_RESPECTED": "PASS (kein Push/PR/Merge/Domain)"
+ },
+ "persona_findings_fixed": [
+  "Creative Dev: Voll-Okklusion loeschte Statement -> Masken-Taper + Re-Emergenz (AIR-SPATIAL-HERO-001)",
+  "Frontend: .hero-annot Stacking-Context machte Label-z wirkungslos -> z-index auto + Label z3",
+  "Atlas-Analyst: ARBEITSRAUM-Label beruehrte Kletterer-Cutout (occl=1) -> Position 17%/56%",
+  "Motion: Ghosting-Risiko bei Masken-Parallax -> Foto+Maske als EINE Ebene, Typo slippt"
+ ],
+ "artifacts": [
+  "MEDIA_CAPABILITY_PROJECTION_V1.json (schema-valid)",
+  "MEDIA_SURFACE_COVERAGE_MATRIX_V1.json",
+  "ATLAS_SIGNATURE_RECALL_BINDINGS_V1.json",
+  "ATLAS_IMPACT_RECEIPT_SPATIAL_HERO.json (schema-valid)",
+  "ATLAS_TEMPORAL_SEMANTIC_EXPLODED_VIEW.json (schema-valid, 15 Captures)",
+  "ATLAS_TEMPORAL_CINEMATIC_PROOF.json (schema-valid)",
+  "ATLAS_RESPONSIVE_DIFFERENTIAL_WOW_V1.json",
+  "PORTAL_PILOT_DECISION.json (schema-valid)"
+ ],
+ "before_after": {
+  "hero": "renders/e2e_home_1440.png -> renders/sig01_hero_1440_v2.png (Typo IN der Szene statt AUF dem Bild)",
+  "signature_project": "evidence-Block (statisch) -> xv_temporal_1440_{0..100}.png (S0-S4)",
+  "cinematic_proof": "Freeze+Chip -> cp_v0/v3/v5 (Explode-Stufe, Dim, Zonen-Klammer)"
+ },
+ "owner_blockers_untouched": [
+  "C-004 Telefon",
+  "C-014 USt-ID",
+  "Rechte",
+  "Legal",
+  "Formular-Backend",
+  "Fonts",
+  "Deployment"
+ ]
+}

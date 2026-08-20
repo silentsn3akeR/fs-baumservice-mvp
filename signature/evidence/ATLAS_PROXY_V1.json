@@ -1,0 +1,55 @@
+{
+ "gate": "ATLAS_DISCRIMINATION_PROXY_V1",
+ "date": "2026-08-18",
+ "method": "DOM-Messung ueber CDP; Atlas-Dimensionen als Proxy (ATTENTION/DENSITY/MOTION_LOAD/COLOR_ENERGY/PATTERN_STACKING). Kein Premium-/Trust-/Conversion-Score \u2014 UNKNOWN bleibt UNKNOWN.",
+ "pages": {
+  "/": {
+   "textChars": 3314,
+   "imgs": 6,
+   "vids": 0,
+   "revealCandidates": 18,
+   "accentEls": 8,
+   "domNodes": 175,
+   "visibleNodes": 163,
+   "pageHeightVh": 7.2,
+   "patternFamilies": 7,
+   "nodesPerViewport": 23
+  },
+  "/spezialfaellung/": {
+   "textChars": 3550,
+   "imgs": 5,
+   "vids": 1,
+   "revealCandidates": 18,
+   "accentEls": 10,
+   "domNodes": 167,
+   "visibleNodes": 156,
+   "pageHeightVh": 6.9,
+   "patternFamilies": 4,
+   "nodesPerViewport": 22
+  },
+  "/projekte/winterfaellung-am-wohnhaus/": {
+   "textChars": 1960,
+   "imgs": 5,
+   "vids": 0,
+   "revealCandidates": 12,
+   "accentEls": 9,
+   "domNodes": 116,
+   "visibleNodes": 106,
+   "pageHeightVh": 4.9,
+   "patternFamilies": 3,
+   "nodesPerViewport": 22
+  },
+  "/kontakt/": {
+   "textChars": 1913,
+   "imgs": 0,
+   "vids": 0,
+   "revealCandidates": 7,
+   "accentEls": 3,
+   "domNodes": 126,
+   "visibleNodes": 122,
+   "pageHeightVh": 3,
+   "patternFamilies": 2,
+   "nodesPerViewport": 41
+  }
+ }
+}

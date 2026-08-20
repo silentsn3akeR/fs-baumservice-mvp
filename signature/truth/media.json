@@ -1,0 +1,221 @@
+{
+  "schema": "FS_MEDIA_AUTHORITY_V1",
+  "generated": "2026-08-17",
+  "rights_default": "OWNER_SOURCED_ASSUMED — Material stammt aus Alt-Website/Instagram des Inhabers; Preview-sicher, Release erfordert Owner-Bestaetigung (Fotograf/Drittrechte).",
+  "masters": [
+    {
+      "master_id": "M-01",
+      "path": "assets/img/drohne-026.jpg",
+      "sha256": "e1037806c12edc504ed6640644b6ae7dd7e477a31bbf4ccf719ad637e5324cdd",
+      "px": "4000x2250",
+      "content": "Drohnen-/Hochsicht: Kletterer in Signalkleidung zwischen zwei entasteten Fichtenstaemmen, Seile sichtbar, darunter verschneites Wohngrundstueck mit Haus, Hecke, Auto.",
+      "truth_role": "PROJECT_PROOF + MONUMENT",
+      "scene_cluster": "A_WINTER_DISMANTLING",
+      "slots": ["HOME_HERO", "PROJEKT_SIGNATURE"],
+      "notes": "Bestes Master-Asset. Zwei Vertikalstaemme rahmen den Menschen — echoet die Logo-Klammer."
+    },
+    {
+      "master_id": "M-02",
+      "path": "assets/img/baumservice-luftbild-projekt.jpg",
+      "sha256": "c5faebd59883f888f1e2be759856e91e2227335319c3a7c012d7e7385c54dfd3",
+      "px": "1600x900",
+      "content": "Gleiche Szene wie M-01, anderer Moment.",
+      "truth_role": "PROJECT_PROOF",
+      "scene_cluster": "A_WINTER_DISMANTLING",
+      "duplicate_of_blob": "baumservice-maschineneinsatz-bisingen.jpg",
+      "notes": "BYTE-IDENTISCHES Duplikat unter zwei Namen — zaehlt als EIN Beweis-Asset. Dateiname 'maschineneinsatz' ist semantisch irrefuehrend."
+    },
+    {
+      "master_id": "M-03",
+      "path": "assets/img/IMG_0718.jpg",
+      "sha256": "0472ae4e1efa8d3ac3f2c4a609a0447ab7fd3a26c581a9d4cc5cb9763320a520",
+      "px": "3456x2304",
+      "content": "Untersicht: oranger Autokran (Fremd-Branding 'W') ausgefahren zu grossem kahlem Laubbaum direkt neben Wohnhausdach, dunkle Stimmung.",
+      "truth_role": "TECHNICAL + MONUMENT",
+      "scene_cluster": "B_AUTOKRAN_AM_HAUS",
+      "slots": ["SPEZIALFAELLUNG_MONUMENT", "TECHNIK"],
+      "third_party_branding": "Kranfirma 'W' — Partner-/Mietkran (C-011)"
+    },
+    {
+      "master_id": "M-04",
+      "path": "assets/img/SAM_0275.jpg",
+      "sha256": "2fa02fc36857ee6184d6a0e80a587214cbac001ef8353053558f9449c498e35c",
+      "px": "3264x2448",
+      "content": "Weite Totale: grosser kahler Baum, Kletterer winzig in der Krone (oben rechts).",
+      "truth_role": "SCALE",
+      "scene_cluster": "B_AUTOKRAN_AM_HAUS",
+      "slots": ["MASSSTAB / DOCUMENTARY_SILENCE"]
+    },
+    {
+      "master_id": "M-05",
+      "path": "assets/img/IMG_0274.jpg",
+      "sha256": "e63c23a09f0441add297942c08b0866f897cec148ce8cc650a80138159610e3b",
+      "px": "4000x3000",
+      "content": "Kletterer hoch in kahler Krone, abgetrenntes Stueck faellt sichtbar durch die Luft, dunkle Koniferen als Hintergrund.",
+      "truth_role": "ACTION",
+      "scene_cluster": "D_SEILKLETTER_ACTION",
+      "slots": ["BAUMFAELLUNG / METHODE"]
+    },
+    {
+      "master_id": "M-06",
+      "path": "assets/img/baumfaellung-bisingen-seilklettertechnik.jpg",
+      "sha256": "bf0f5a5db960ae69c85065b2192b0366cca7c7902986e9375553753e707dfcd9",
+      "px": "1600x1200",
+      "content": "Wie M-05, kleineres Derivat/anderer Moment derselben Session.",
+      "truth_role": "ACTION",
+      "scene_cluster": "D_SEILKLETTER_ACTION"
+    },
+    {
+      "master_id": "M-07",
+      "path": "assets/img/SAM_0337.jpg",
+      "sha256": "c7a799e6c8cc5874e59b697ada4ad9fa93465d8501edc70363f95463868a8f15",
+      "px": "3264x2448",
+      "content": "Stammsegment haengt am Seil ueber Hausecke/Hecke, Arbeiter sichert, Dachziegel und Regenrinne unmittelbar daneben, Handlauf im Vordergrund.",
+      "truth_role": "DOCUMENTARY (Praezision am Gebaeude)",
+      "scene_cluster": "C_ABTRAGEN_AM_GEBAEUDE",
+      "slots": ["PROJEKT / PRAEZISION"]
+    },
+    {
+      "master_id": "M-08",
+      "path": "assets/img/wurzelstockfraesen-baumservice.jpg",
+      "sha256": "32c89204abb49c3d6020dc6ae5bb04d33c1accab82ec5367aa60f41055a30e73",
+      "px": "1600x1200",
+      "content": "Gleiche Szene wie M-07 (Stamm ueber Hausecke). KEINE Wurzelfraese sichtbar.",
+      "truth_role": "DOCUMENTARY",
+      "scene_cluster": "C_ABTRAGEN_AM_GEBAEUDE",
+      "notes": "DATEINAME IRREFUEHREND — darf NICHT als Fraesen-Beleg dienen."
+    },
+    {
+      "master_id": "M-09",
+      "path": "assets/img/baumpflege-zollernalb-arbeitseinsatz.jpg",
+      "sha256": "019d0aba9963d2cb4d2d93576c6c506a8b3fb8db90305997ca9cb27749a7b9a2",
+      "px": "1600x1200",
+      "content": "Kletterer-Silhouette hoch in grosser kahler Krone, dramatischer Himmel.",
+      "truth_role": "SCALE / SILHOUETTE",
+      "scene_cluster": "E_KRONENSILHOUETTE",
+      "slots": ["BAUMPFLEGE / RUHIGE PASSAGEN"]
+    },
+    {
+      "master_id": "M-10",
+      "path": "assets/img/heckenschnitt-grundstueckspflege.jpg",
+      "sha256": "eb63f9b46c1b24cee302ec9e3c4acde425879216cc002783c9bfcd4f8416043e",
+      "px": "1600x1067",
+      "content": "Abendszene: Autokran + grosser Baum + Hausdach. KEINE Hecke.",
+      "truth_role": "TECHNICAL",
+      "scene_cluster": "B_AUTOKRAN_AM_HAUS",
+      "notes": "DATEINAME IRREFUEHREND — kein Heckenschnitt-Beleg. Heckenschnitt hat aktuell KEIN echtes Bildmaterial."
+    },
+    {
+      "master_id": "M-11",
+      "path": "assets/img/baumservice-header-bisingen.jpg",
+      "sha256": "65dfda3fea2c309d6846a482e2ca78c563bc83839c1c20ad51660280f17607db",
+      "px": "1000x288",
+      "content": "Bannercrop, stark gruen gegradet: Arbeiter mit Kettensaege und Helm am dicken Stamm.",
+      "truth_role": "DETAIL (nur klein nutzbar)",
+      "scene_cluster": "F_SAEGE_DETAIL"
+    },
+    {
+      "master_id": "M-12",
+      "path": "assets/img/florian_stuck_bk002.jpg",
+      "sha256": "6f3d72c335fae2dabcc6d297542afa4b5b4da58a53ee797883842e825cb0e6ec",
+      "px": "1000x288",
+      "content": "Nahezu identische Szene wie M-11 (Saege am Stamm), anderes Grading. Dateiname deutet auf Florian Stuck als abgebildete Person.",
+      "truth_role": "HUMAN_CANDIDATE (schwach: nur 288px hoch, stark gegradet)",
+      "scene_cluster": "F_SAEGE_DETAIL",
+      "notes": "Einziges namentlich Florian zugeordnetes Bild. Fuer hochwertigen Human-Moment NICHT ausreichend — Video-Frames (POV 20260319) sind die bessere Human-Quelle. Personenzuordnung = OWNER_CONFIRM."
+    },
+    {
+      "master_id": "M-13",
+      "path": "assets/img/20180314_104619.jpg",
+      "sha256": "b9e0e90c453404f61e39e2d9f028e1c9371705a58ae4816cf41ccb72cd99f004",
+      "px": "4128x3096",
+      "content": "BESCHAEDIGT: nur oberer Streifen dekodierbar (Kranarm, Hangdorf); Rest grau.",
+      "truth_role": "DAMAGED — nicht verwenden",
+      "scene_cluster": null
+    },
+    {
+      "master_id": "M-14",
+      "path": "assets/img/fs-baumservice-logo-original.jpg",
+      "sha256": "cc72d8501b0ba5260b7dee599b14d8843e506a5e6965175d1bd912e8b189bc20",
+      "px": "441x393",
+      "content": "Original-Logo: gruener Baum in weisser eckiger Klammer auf Anthrazit-Violett, 'FLORIAN STUCK' gesperrt, 'BAUMSERVICE' fett.",
+      "truth_role": "BRAND_SOURCE",
+      "scene_cluster": null
+    },
+    {
+      "master_id": "M-15",
+      "path": "assets/img/rollrasen-gruenflaeche-fs-baumservice.svg",
+      "sha256": "dcb675646b5ccffea76a230a4bcdef0f8489555a7b0fedb665a2cd5d2841dbad",
+      "content": "SVG-Platzhaltergrafik (kein Foto).",
+      "truth_role": "PLACEHOLDER — Rollrasen hat KEIN echtes Bildmaterial",
+      "scene_cluster": null
+    },
+    {
+      "master_id": "V-01",
+      "path": "assets/video/instagram/20260219_DU9IjqCCPH5_1.mp4",
+      "sha256": "9ca764db6e17be545a1d7f204488e1e1b677b272b26a75339a415f8cf5bb8c3a",
+      "px": "720x1280", "dur_s": 35.1,
+      "shots": "Kran-Grosseinsatz an oeffentlichem Gebaeude; NEU-Autokran; Luftbilder Hof; ganze Kronenteile fliegen am Haken (29s, 33s).",
+      "truth_role": "ESTABLISHING + SCALE + ACTION",
+      "third_party_branding": "NEU Autokrane"
+    },
+    {
+      "master_id": "V-02",
+      "path": "assets/video/instagram/20260226_DVPHv_IiJYu_1.mp4",
+      "sha256": "851908e37ff050449d179826c35ca10d49b5b7af56d43802e7936b893f1dc793",
+      "px": "720x1280", "dur_s": 49.1,
+      "shots": "Nebel-Einsatz Konifere; Kletterer im Nebel (9s); frischer Schnitt-Stumpf nah (15s); FS-Van mit Logo (40s).",
+      "truth_role": "ATMOSPHERE + DETAIL + BRAND_PROOF"
+    },
+    {
+      "master_id": "V-03",
+      "path": "assets/video/instagram/20260227_DVR2eCCDGgQ_1.mp4",
+      "sha256": "9a3d5068deeb3d932aaa9662b58fbb2d2cb506092ad0592bf9cf1959a8fe76f6",
+      "px": "720x1280", "dur_s": 42.5,
+      "shots": "Stadteinsatz: Warndreieck 'Baumfaellarbeiten' (8s), Altbaustrasse, Kranblick ueber Daecher (13s), Stumpf-Draufsicht (19s), Rigging (35s).",
+      "truth_role": "URBAN_DOCUMENTARY + TECHNICAL"
+    },
+    {
+      "master_id": "V-04",
+      "path": "assets/video/instagram/20260305_DVgrYMriAml_1.mp4",
+      "sha256": "8126072d44d629412c591b1457b93a96248f00f8f4e1ec5aafed84ea05a12f1a",
+      "px": "720x1280", "dur_s": 46.2,
+      "shots": "Kiefernfaellung bei Blauhimmel: Garten, liegender Stamm (14s), Efeu-Stumpf (20s), Bagger (26s), FS-Konvoi (32s), Kranhub (43s).",
+      "truth_role": "RESULT + MACHINE"
+    },
+    {
+      "master_id": "V-05",
+      "path": "assets/video/instagram/20260313_DV15j08CA4g_1.mp4",
+      "sha256": "7f129b5a70e900c8553013adc534227e9c9f7ac5d2642ebcb7dc79f922ae186a",
+      "px": "720x1280", "dur_s": 42.8,
+      "shots": "ZUGANGS-STORY: ganze Konifere fliegt am Kran ueber Daecher (8s); Stumpf + Saege (19s); FS-LKW mit Telefonnummer (29s); MINI-DUMPER WIRD UEBERS HAUS GEKRANT (35s, 40s).",
+      "truth_role": "ACCESS + LOGISTICS — bestes 'warum komplex'-Material",
+      "claim_evidence": ["C-004 Telefon-Korroboration"]
+    },
+    {
+      "master_id": "V-06",
+      "path": "assets/video/instagram/20260319_DWFOXXbCIA2_1.mp4",
+      "sha256": "ea552f140dd97e855e4bd5b368064516ba1add55b5df5443788abcb6a3c594b3",
+      "px": "720x1280", "dur_s": 36.7,
+      "shots": "POV-Reel: Kletterer-POV ueber roten Daechern (7s), Blick senkrecht nach unten (21s), STIEFEL + SEIL AUF AST in Ego-Perspektive (25s), FS-Anhaenger mit Leistungsliste (30s).",
+      "truth_role": "HUMAN + HEIGHT — bester Freeze-Explain-Kandidat",
+      "claim_evidence": ["C-007 Leistungsliste am Anhaenger"]
+    },
+    {
+      "master_id": "V-07",
+      "path": "assets/video/instagram/20260331_DWigl6XCGvF_1.mp4",
+      "sha256": "e5909d9fcad0810127c8bbcc630d35d8fb012eae4ff7217350ef498efb81e5e6",
+      "px": "720x1280", "dur_s": 24.6,
+      "shots": "Ferngesteuerter Raupen-Mulcher arbeitet Steilhang; Person oben am Hang; FS-LOGO-ENDCARD (23s).",
+      "truth_role": "TECHNICAL + BRAND (Endcard)",
+      "claim_evidence": ["C-012"]
+    }
+  ],
+  "derivative_rule": "Alle Ableitungen entstehen per Build-Pipeline aus diesen Mastern mit deterministischen Namen: <master_id>__<slot>__<w>.<fmt>. Kein manueller Datei-Wildwuchs. Crop/Grade/Sharpen erlaubt, Bedeutungsaenderung verboten.",
+  "hard_gaps": [
+    "Heckenschnitt: kein echtes Foto",
+    "Rollrasen: kein echtes Foto (nur SVG-Platzhalter)",
+    "Florian-Portraet: kein hochaufloesendes Bild einer identifizierten Person",
+    "Wurzelstockfraesen: kein Foto der Fraese im Einsatz"
+  ]
+}

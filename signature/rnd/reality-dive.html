@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RND A — Reality Dive</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root { --ink:#26242e; --leaf:#b5d36e; --paper:#edecef; }
+  * { margin:0; box-sizing:border-box; }
+  html,body { height:100%; background:var(--ink); overflow:hidden; font-family:Archivo,sans-serif; }
+
+  /* KAMERA: perspective-Viewport; WELT faehrt auf die Kamera zu.
+     Registrierung: jede Ebene traegt translateZ(z) scale((P-z)/P) mit P=900
+     -> in Ruhe ergibt sich exakt das flache Originalfoto. */
+  .vp { position:fixed; inset:0; perspective:900px; perspective-origin:50% 42%; }
+  .world { position:absolute; inset:0; transform-style:preserve-3d;
+    animation: dolly 12s cubic-bezier(.45,.05,.2,1) infinite; }
+  .plane { position:absolute; inset:0; backface-visibility:hidden; }
+  .plane img { width:100%; height:100%; object-fit:cover; object-position:50% 32%; display:block; }
+  .p-bg     { transform: translateZ(-450px) scale(1.5); }
+  .p-human  { transform: translateZ(-160px) scale(1.178); }
+  .p-trunkR { transform: translateZ(200px)  scale(0.778); }
+  .p-trunkL { transform: translateZ(330px)  scale(0.633); }
+
+  @keyframes dolly {
+    0%   { transform: translate3d(0,0,0); }
+    8%   { transform: translate3d(0,0,0); }                      /* atmosphaerischer Hold */
+    46%  { transform: translate3d(-52px, 26px, 430px); }         /* Fahrt DURCH die Staemme */
+    60%  { transform: translate3d(-58px, 30px, 455px); }         /* Ankunft beim Kletterer */
+    78%  { transform: translate3d(-58px, 30px, 455px); }         /* FREEZE / Statement */
+    96%  { transform: translate3d(0,0,0); }                      /* dramatischer Pull-out */
+    100% { transform: translate3d(0,0,0); }
+  }
+
+  /* Statement lebt IM Raum (zwischen Kletterer und Staemmen) */
+  .p-type { transform: translateZ(-120px) scale(1.154); display:grid; place-content:end start;
+    padding:7vh 6vw; pointer-events:none; }
+  .line { display:block; color:var(--paper); font-weight:880; font-variation-settings:"wdth" 122;
+    text-transform:uppercase; font-size:min(7.2vw,6.2rem); line-height:.95; opacity:0;
+    animation: rise 12s cubic-bezier(.16,.84,.24,1) infinite; }
+  .line.l2 { color:var(--leaf); animation-name: rise2; }
+  .line.l3 { animation-name: rise3; }
+  @keyframes rise  { 0%,46% {opacity:0; transform:translateY(90px)} 52%,88% {opacity:1; transform:none} 94%,100% {opacity:0} }
+  @keyframes rise2 { 0%,49% {opacity:0; transform:translateY(90px)} 55%,88% {opacity:1; transform:none} 94%,100% {opacity:0} }
+  @keyframes rise3 { 0%,52% {opacity:0; transform:translateY(90px)} 58%,88% {opacity:1; transform:none} 94%,100% {opacity:0} }
+
+  /* FS-Klammer snappt am Kletterer im Freeze */
+  .bracket { position:absolute; left:44%; top:26%; width:12rem; height:12rem; opacity:0;
+    transform: translateZ(-158px) scale(1.18); animation: brk 12s ease infinite; }
+  .bracket::before,.bracket::after { content:""; position:absolute; top:0; bottom:0; width:2.2rem;
+    border:3px solid var(--leaf); }
+  .bracket::before { left:0; border-right:0; } .bracket::after { right:0; border-left:0; }
+  @keyframes brk { 0%,58% {opacity:0; transform:translateZ(-158px) scale(1.5)} 63%,86% {opacity:1; transform:translateZ(-158px) scale(1.18)} 92%,100% {opacity:0} }
+
+  .veil { position:fixed; inset:0; background:var(--ink); pointer-events:none;
+    animation: veil 12s ease infinite; }
+  @keyframes veil { 0% {opacity:1} 6% {opacity:0} 94% {opacity:0} 100% {opacity:1} }
+
+  .tag { position:fixed; left:1.2rem; top:1rem; color:var(--paper); font-family:"IBM Plex Mono",monospace;
+    font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; opacity:.75; z-index:5; }
+  .tag b { color:var(--leaf); font-weight:500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .world, .line, .bracket, .veil { animation: none !important; }
+    .world { transform: translate3d(-58px, 30px, 455px); }
+    .line, .bracket { opacity:1; } .veil { opacity:0; }
+  }
+</style>
+</head>
+<body>
+<p class="tag">[ FS ] RND-A · <b>REALITY DIVE</b> · Echtes Einsatzfoto, 4 Tiefenebenen</p>
+<div class="vp">
+  <div class="world" id="w">
+    <div class="plane p-bg"><img src="/media/M-01__hero__1920.jpg" alt=""></div>
+    <div class="plane p-human"><img src="/media/M-01__climber__1440.webp" alt=""></div>
+    <div class="p-type plane">
+      <span class="line l1">Wenn ein Baum</span>
+      <span class="line l2">nicht einfach</span>
+      <span class="line l3">fallen kann.</span>
+    </div>
+    <span class="bracket"></span>
+    <div class="plane p-trunkR"><img src="/media/M-01__trunkR__1440.webp" alt=""></div>
+    <div class="plane p-trunkL"><img src="/media/M-01__trunkL__1440.webp" alt=""></div>
+  </div>
+</div>
+<div class="veil"></div>
+<script>
+  // Pointer-Parallax: minimale Kamerarotation — "ich stehe im Raum"
+  var w = document.getElementById('w');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointermove', function (e) {
+      var rx = (e.clientY / innerHeight - .5) * -2.4;
+      var ry = (e.clientX / innerWidth - .5) * 3.2;
+      w.style.rotate = 'y ' + ry + 'deg';
+      w.style.setProperty('--tilt', rx + 'deg');
+      w.style.transformOrigin = '50% 42%';
+      w.style.rotate = ry + 'deg';
+      w.style.rotate = 'y ' + ry + 'deg';
+    }, { passive: true });
+  }
+</script>
+</body>
+</html>

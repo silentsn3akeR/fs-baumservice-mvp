@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RND B — Time Slice</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root { --ink:#26242e; --leaf:#b5d36e; --paper:#edecef; }
+  * { margin:0; box-sizing:border-box; }
+  html,body { height:100%; background:var(--ink); overflow:hidden; font-family:Archivo,sans-serif; }
+
+  .vp { position:fixed; inset:0; perspective:1200px; display:grid; place-items:center; }
+  .world { position:relative; width:min(38vw,430px); aspect-ratio:9/16; transform-style:preserve-3d;
+    transition: transform 1.1s cubic-bezier(.3,.7,.2,1); }
+
+  video, .card { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .card { background-size:cover; background-position:center; opacity:0;
+    transition: transform .9s cubic-bezier(.2,.85,.25,1.08), opacity .5s ease;
+    border:1px solid rgba(237,236,239,.14); }
+  .card i { position:absolute; left:.6rem; bottom:.5rem; font-style:normal; color:var(--paper);
+    font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.2em; opacity:.8; }
+
+  /* FAN: echte Nachbar-Frames als Zeitband */
+  .fanned .c0 { transform: translate3d(-118%, 2%, -340px) rotateY(34deg); opacity:.92; }
+  .fanned .c1 { transform: translate3d(-58%, 1%, -170px) rotateY(20deg); opacity:.96; }
+  .fanned .c2 { transform: translateZ(60px); opacity:1; border-color:var(--leaf); }
+  .fanned .c3 { transform: translate3d(58%, -1%, -170px) rotateY(-20deg); opacity:.96; }
+  .fanned .c4 { transform: translate3d(118%, -2%, -340px) rotateY(-34deg); opacity:.92; }
+  .fanned video { opacity:0; transition: opacity .4s ease; }
+  .fanned .world-glow { opacity:1; }
+
+  .fanned.orbit .world { animation: orbit 7s ease-in-out infinite alternate; }
+  @keyframes orbit { from { transform: rotateY(-7deg) rotateX(1.5deg); } to { transform: rotateY(7deg) rotateX(-1.5deg); } }
+
+  .bracket { position:absolute; left:56%; top:8%; width:5.5rem; height:5.5rem; opacity:0; z-index:6;
+    transition: opacity .4s ease .6s, transform .5s cubic-bezier(.2,1.4,.4,1) .6s; transform: scale(1.4); }
+  .bracket::before,.bracket::after { content:""; position:absolute; top:0; bottom:0; width:1.1rem; border:2.5px solid var(--leaf); }
+  .bracket::before { left:0; border-right:0; } .bracket::after { right:0; border-left:0; }
+  .fanned .c2 .bracket { opacity:1; transform: scale(1); }
+
+  .statement { position:fixed; left:6vw; bottom:7vh; z-index:8; pointer-events:none; }
+  .statement span { display:block; color:var(--paper); font-weight:880; font-variation-settings:"wdth" 122;
+    text-transform:uppercase; font-size:min(6vw,4.6rem); line-height:.96; opacity:0; transform:translateY(60px);
+    transition: opacity .5s ease, transform .7s cubic-bezier(.16,.84,.24,1); }
+  .statement .s2 { color:var(--leaf); transition-delay:.12s; }
+  .fanned .statement span { opacity:1; transform:none; }
+  .timecode { position:fixed; right:6vw; bottom:7vh; z-index:8; color:var(--paper); text-align:right;
+    font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.22em; opacity:0; transition:opacity .5s ease .8s; }
+  .timecode b { color:var(--leaf); font-weight:500; }
+  .fanned .timecode { opacity:.9; }
+
+  .tag { position:fixed; left:1.2rem; top:1rem; color:var(--paper); font-family:"IBM Plex Mono",monospace;
+    font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; opacity:.75; z-index:9; }
+  .tag b { color:var(--leaf); font-weight:500; }
+  .hint { position:fixed; right:1.2rem; top:1rem; color:var(--paper); font-family:"IBM Plex Mono",monospace;
+    font-size:.6rem; letter-spacing:.2em; opacity:.55; z-index:9; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .world, .fanned.orbit .world { animation:none !important; transition:none; }
+  }
+</style>
+</head>
+<body class="">
+<p class="tag">[ FS ] RND-B · <b>TIME SLICE</b> · 5 echte Frames desselben Moments</p>
+<p class="hint">KLICK / SCROLL = ZEIT ANHALTEN</p>
+<div class="vp">
+  <div class="world" id="world">
+    <div class="card c0" style="background-image:url(/rnd/assets/slice_0.jpg)"><i>T−0.6s</i></div>
+    <div class="card c1" style="background-image:url(/rnd/assets/slice_1.jpg)"><i>T−0.3s</i></div>
+    <div class="card c2" style="background-image:url(/rnd/assets/slice_2.jpg)"><i>T0 · MASCHINENFLUG</i><span class="bracket"></span></div>
+    <div class="card c3" style="background-image:url(/rnd/assets/slice_3.jpg)"><i>T+0.3s</i></div>
+    <div class="card c4" style="background-image:url(/rnd/assets/slice_4.jpg)"><i>T+0.6s</i></div>
+    <video id="v" src="/media/V-05__flug-loop.mp4" muted playsinline></video>
+  </div>
+</div>
+<div class="statement"><span class="s1">Ein Moment.</span><span class="s2">Auseinander&shy;gelegt.</span></div>
+<p class="timecode">MASCHINE AM KRANHAKEN<br><b>±0,6 SEKUNDEN · ECHTES MATERIAL</b></p>
+<script>
+  var v = document.getElementById('v'), body = document.body, world = document.getElementById('world');
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var FREEZE_T = 2.5; // = Quelle 35.5s (Maschinenflug uebers Dach)
+  var state = 'play';
+  function freeze() {
+    if (state !== 'play') return;
+    state = 'fanned';
+    v.pause(); v.currentTime = FREEZE_T;
+    body.classList.add('fanned');
+    if (!reduced) body.classList.add('orbit');
+  }
+  function resume() {
+    if (state !== 'fanned') return;
+    state = 'play';
+    body.classList.remove('fanned', 'orbit');
+    setTimeout(function () { v.currentTime = FREEZE_T; v.play(); }, 950);
+  }
+  if (reduced) { v.currentTime = FREEZE_T; freeze(); state = 'fanned'; body.classList.add('fanned'); }
+  else {
+    v.play();
+    v.addEventListener('timeupdate', function () { if (state === 'play' && v.currentTime >= FREEZE_T && v.currentTime < FREEZE_T + 0.3) freeze(); });
+    v.addEventListener('ended', function () { v.currentTime = 0; v.play(); });
+  }
+  addEventListener('click', function () { state === 'fanned' ? resume() : freeze(); });
+  addEventListener('wheel', function (e) { e.deltaY > 0 ? freeze() : resume(); }, { passive: true });
+  // Pointer-Orbit im Freeze
+  addEventListener('pointermove', function (e) {
+    if (state !== 'fanned' || reduced) return;
+    var ry = (e.clientX / innerWidth - .5) * 26;
+    var rx = (e.clientY / innerHeight - .5) * -8;
+    body.classList.remove('orbit');
+    world.style.transform = 'rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
+  }, { passive: true });
+</script>
+</body>
+</html>

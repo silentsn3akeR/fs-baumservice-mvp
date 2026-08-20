@@ -1,0 +1,13 @@
+{
+ "portal_pilot_decisions": [
+  {
+   "scene_id": "FS_SIG_05_PORTAL_ZOOM",
+   "decision": "KEEP",
+   "semantic_connection": true,
+   "navigation_value": "MEDIUM",
+   "performance_state": "PASS",
+   "mobile_state": "PASS",
+   "reason": "Cross-Document View Transition auf DIESELBE reale Szene (M-01): Exploded-View-CTA morpht in den Projekt-Hero — Detail-Relation wird raeumlich erklaert. Native API (kein JS-Gewicht), reduced-motion-gegated, ohne Support normale Navigation (Smoke-Test: /projekte/winterfaellung-am-wohnhaus/ erreicht). Kein Portfolio-Gimmick: gleiche Szene, gleiche Wahrheit."
+  }
+ ]
+}

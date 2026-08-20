@@ -1,0 +1,52 @@
+{
+  "ledger": "FS_FRESH_MAIN_RECONCILIATION_TO_FULL_GOAL_V1",
+  "date": "2026-08-18",
+  "provenance": {
+    "start_base_stale": "a3f03ada9b2076dcc6dbbbe4d233e01c9b3dab30",
+    "current_origin_main": "7401a7ac7de27e38effc4c2fed40a8480fbdc1c3 (frisch gemessen)",
+    "FRESH_MAIN_PROVENANCE": "PASS (main ff-merged, Signature-Branch konfliktfrei auf origin/main rebased)",
+    "reconciliation": "truth/RECONCILIATION_RECORD.json — FS_FRESH_MAIN_RECONCILIATION = PASS"
+  },
+  "gates": [
+    { "gate": "HOME", "state": "PASS", "evidence": "final_home_1440.png, STATIC_WOW_GATE_V1" },
+    { "gate": "SERVICES_INDEX", "state": "PASS", "evidence": "fx_leistungen.png" },
+    { "gate": "BAUMFAELLUNG", "state": "PASS", "evidence": "audit+overflow sweep, Pragmatic-Control-Komposition" },
+    { "gate": "BAUMPFLEGE", "state": "PASS", "evidence": "Quiet-Precision-Komposition, Silence-Einstieg" },
+    { "gate": "SPEZIALFAELLUNG", "state": "PASS", "evidence": "spezial_1440.png, Freeze-Explain getestet" },
+    { "gate": "WURZELSTOCK", "state": "PASS", "evidence": "Technical-Practicality, ehrliche Medienlage (kein Fraesen-Foto)" },
+    { "gate": "SECONDARY_SERVICES", "state": "PASS_LIMITED", "evidence": "Heckenschnitt/Rollrasen kompakt erhalten; RELEASE_DECISION=OWNER_CONFIRM" },
+    { "gate": "PROJECTS_INDEX", "state": "PASS", "evidence": "fx_projekte.png — Voll-Case + Kurzdokumentationen ehrlich getrennt" },
+    { "gate": "SIGNATURE_PROJECT", "state": "PASS", "evidence": "projekt_1440.png, Dekonstruktion aus Cluster A" },
+    { "gate": "ABOUT_FS", "state": "PASS", "evidence": "fix_ueberfs_bottom.png; Human ohne Values-Wall/Badges" },
+    { "gate": "CONTACT", "state": "PASS", "evidence": "kontakt2_head.png; mailto-Flow ohne Speicherung" },
+    { "gate": "LEGAL_SHELLS", "state": "PASS_REVIEW_OPEN", "evidence": "in-Pruefung-Marker; Elfsight entfernt, Fonts benannt" },
+    { "gate": "KNOWLEDGE_MIGRATION", "state": "PASS_SCOPED", "evidence": "/wissen/ kompakt, gehedged (C-020); Ratgeber-Substanz migriert statt Textwueste" },
+    { "gate": "MOBILE", "state": "PASS", "evidence": "eigene Hero-Crops/Breaks; Overflow-Sweep 360-1920 + 200%-Zoom ohne H-Scroll auf allen 15 Routen" },
+    { "gate": "A11Y", "state": "PASS_PARTIAL", "evidence": "AUDIT_GATES_V1.json: Kontraste PASS, Headings PASS, Labels PASS; Rest-PARTIAL: AAA-44px fuer kompakte Mono-Links (AA erfuellt)" },
+    { "gate": "PERFORMANCE", "state": "PASS", "evidence": "kritischer Pfad 33-44KB/Seite + Fonts; Loops <=2.5MB; 1 Video sitewide lazy; Fonts-CDN als Release-TODO" },
+    { "gate": "RESILIENCE", "state": "PASS", "evidence": "RESILIENCE_V1.json: no-js, broken-media, reduced-motion" },
+    { "gate": "STATIC_WOW", "state": "PASS (Slice vollstaendig) / PARTIAL_WITH_JUSTIFICATION (Greyscale/Logo-Removal-Renders nur Home; neue Flaechen strukturell + Anti-Pattern-Check)", "evidence": "STATIC_WOW_GATE_V1.json + ATLAS_FINDINGS_V2.json" },
+    { "gate": "MOTION", "state": "PASS", "evidence": "4 Tier-S-Momente; Reveal-Bottom-Bug gefunden+gefixt; reduced-motion-sicher" },
+    { "gate": "SEO_MIGRATION", "state": "PASS_PREPARED", "evidence": "SEO_RELAUNCH_PREP_V1.json: alle Alt-Routen KEEP/REBUILT/301_READY; Preview noindex" },
+    { "gate": "ATLAS", "state": "siehe ATLAS_FINDINGS_V2.status — Binding PARTIAL (Recall kanonisch, Render-Scoring existiert kanonisch nicht)", "evidence": "ATLAS_FINDINGS_V2.json" },
+    { "gate": "MULTI_PERSONA", "state": "PASS", "evidence": "MULTI_PERSONA_REVIEW_V1.json + Fixes dieses Runs (Register-Links, Reveal-Bug, Crop)" },
+    { "gate": "BROWNFIELD_EVIDENCE", "state": "PASS", "evidence": "BROWNFIELD_TRANSFORMATION_RECORD.json + ATLAS_FINDINGS_V2.before_after" }
+  ],
+  "FS_FULL_BUILD_GATE": "PASS",
+  "PUBLICATION_READY_LOCAL": "YES — technisch; Release nur durch Owner-Blocker unten begrenzt",
+  "FS_FULL_ULTRA_PLUS_REBUILD_READY": "YES (mit dokumentierten OWNER_CONFIRM-Punkten)",
+  "owner_blockers": [
+    { "id": "C-004", "topic": "Telefon 0172 (foto-korroboriert) vs 0173 (Impressum)", "blocks": "Impressum + finale Kontaktangabe", "state": "OWNER_CONFIRM_REQUIRED" },
+    { "id": "C-014", "topic": "USt-ID fehlt", "blocks": "Impressum-Vollstaendigkeit", "state": "OWNER_CONFIRM_REQUIRED" },
+    { "id": "C-008/C-009/C-010", "topic": "BG-Qualifikation, ZTV, eigene Fraese/90cm", "blocks": "Enthedgen der Formulierungen", "state": "OWNER_CONFIRM_RECOMMENDED" },
+    { "id": "C-017/C-018", "topic": "Testimonials + '5 Jahre' aus Alt-Site", "blocks": "Nichts im Neubau (bewusst ausgeschlossen); nur falls Owner sie belegt zurueckwill", "state": "OWNER_DECISION" },
+    { "id": "RIGHTS", "topic": "Medienrechte final (OWNER_SOURCED_ASSUMED)", "blocks": "Publikation", "state": "OWNER_CONFIRM_REQUIRED" },
+    { "id": "LEGAL", "topic": "Juristische Pruefung Impressum/Datenschutz", "blocks": "Publikation", "state": "OWNER_CONFIRM_REQUIRED" },
+    { "id": "FORM", "topic": "Formular-Backend (Transport/Speicherung/Loeschung)", "blocks": "Nur Upgrade des mailto-Flows", "state": "OWNER_DEFINITION_REQUIRED" },
+    { "id": "FONTS", "topic": "Font-Self-Hosting (Download war nicht autorisiert)", "blocks": "DSGVO-saubere Font-Auslieferung", "state": "OWNER_AUTHORIZATION_REQUIRED" },
+    { "id": "DEPLOY", "topic": "gh-pages/Domain-Umstellung", "blocks": "Release selbst", "state": "OWNER_BOUNDARY" }
+  ],
+  "next_action": "Owner beantwortet C-004 (Telefon) + autorisiert Font-Download; danach: PREVIEW=false-Build + Redirect-Umsetzung + Pages-Umstellung (alles vorbereitet).",
+  "how_to_view": "Launch-Config 'fs-signature' -> http://127.0.0.1:8814 (15 Routen)",
+  "branch": "signature/ultra-plus-v1 auf origin/main 7401a7a — NICHT gepusht (Owner-Boundary eingehalten)"
+}
