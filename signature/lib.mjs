@@ -1,13 +1,22 @@
 // FS Signature — Template-Bibliothek (Shell, Header, Footer, Medien-Helper).
 // Quelle der Wahrheit: signature/truth/*.json (Claims + Medien-Lineage).
-const PREVIEW = true; // Release-Build setzt dies auf false (entfernt noindex + Banner)
+// Release-Posture: der Release-Build setzt FS_RELEASE=1 (entfernt noindex + Preview-Banner).
+// Ohne die Variable bleibt der lokale Build bewusst auf Preview (noindex).
+const PREVIEW = process.env.FS_RELEASE !== "1";
+
+// Publikations-Basis. Lokal "/", auf GitHub Pages (Project Site) "/fs-baumservice-mvp/".
+// Kanonischer Mechanismus: hier definiert, in build.mjs auf das erzeugte HTML angewendet.
+const RAW_BASE = process.env.PUBLIC_BASE || "/";
+export const BASE = ("/" + RAW_BASE.replace(/^\/+|\/+$/g, "")).replace(/^\/$/, "");
+export const SITE_ORIGIN = (process.env.SITE_ORIGIN || "https://silentsn3akeR.github.io").replace(/\/+$/, "");
+export const withBase = (p) => (p.startsWith("/") ? BASE + p : p);
 
 /* ---------- Kontakt-Wahrheit (claims.json C-001..C-006) ---------- */
 export const FS = {
   name: "FS Baumservice",
   legal: "Florian Stuck Baumservice",
   owner: "Florian Stuck",
-  phoneDisplay: "0172 7256462", // C-004: OWNER_CONFIRM offen; preview-safe (foto-korroboriert)
+  phoneDisplay: "0172 7256462", // C-004: OWNER-entschieden (RELEASE_DECISIONS_20260820) — kanonische Nummer
   phoneHref: "tel:+491727256462",
   email: "info@fs-baumservice.de",
   region: "Bisingen · Balingen · Hechingen · Geislingen · Zollernalbkreis",
@@ -38,6 +47,7 @@ export const protocol = (label, opts = {}) => {
 
 /* ---------- Shell ---------- */
 export function pageShell({ title, desc, path: pagePath, body, current, headerOnPaper = false }) {
+  const canonical = SITE_ORIGIN + BASE + (pagePath || "/");
   return `<!doctype html>
 <html lang="de">
 <head>
@@ -46,9 +56,17 @@ export function pageShell({ title, desc, path: pagePath, body, current, headerOn
 <title>${title}</title>
 <meta name="description" content="${desc}">
 ${PREVIEW ? '<meta name="robots" content="noindex, nofollow">' : ""}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FS Baumservice">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:image" content="${SITE_ORIGIN}${BASE}/media/M-01__hero__1440.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/ibm-plex-mono-500-latin.woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
 </head>
 <body>

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "archivo-latin-var.woff2",
+    "family": "Archivo",
+    "weight": "100 900",
+    "stretch": "62% 125%",
+    "bytes": 90104,
+    "source": "https://fonts.gstatic.com/s/archivo/v25/k3kQo8UDI-1M0wlSfdnoLg.woff2"
+  },
+  {
+    "file": "ibm-plex-mono-400-latin.woff2",
+    "family": "IBM Plex Mono",
+    "weight": "400",
+    "stretch": null,
+    "bytes": 14708,
+    "source": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2"
+  },
+  {
+    "file": "ibm-plex-mono-500-latin.woff2",
+    "family": "IBM Plex Mono",
+    "weight": "500",
+    "stretch": null,
+    "bytes": 14888,
+    "source": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2"
+  }
+]

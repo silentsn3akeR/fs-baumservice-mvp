@@ -1,0 +1,14 @@
+{
+  "schema": "FS_RELEASE_DECISIONS_V1",
+  "date": "2026-08-20",
+  "authorization": "FS_BAUMSERVICE_FINAL_PUBLICATION_AND_LIVE_PROOF_V1 (Owner-Prompt)",
+  "decisions": [
+    { "claim": "C-004", "topic": "Telefon", "owner_value": "0172 7256462", "effect": "Kanonische oeffentliche Nummer ueberall (inkl. Impressum). 0173 346 3959 verbleibt nur in historischen Evidenz-/Truth-Artefakten." },
+    { "claim": "C-014", "topic": "USt-ID", "owner_value": "NONE", "effect": "Keine USt-IdNr. vorhanden; Impressum-Abschnitt entfaellt ersatzlos. Keine Kleinunternehmer-Aussage abgeleitet." },
+    { "claim": "RIGHTS", "topic": "Medienrechte", "owner_value": "AUTHORIZED", "effect": "Publikation der FS-Bilder/-Videos freigegeben." },
+    { "claim": "LEGAL", "topic": "Impressum/Datenschutz", "owner_value": "AUTHORIZED", "effect": "Bestehende Rechtstexte als Release-Fassung freigegeben; Preview-/Unresolved-Platzhalter entfernt." },
+    { "claim": "FONTS", "topic": "Schrift-Selbsthosting", "owner_value": "AUTHORIZED (Archivo, IBM Plex Mono)", "effect": "woff2 latin self-hosted (SIL OFL 1.1, Lizenztexte in signature/fonts/); kein Google-Fonts-CDN zur Laufzeit." },
+    { "claim": "DEPLOY", "topic": "Publikationsziel", "owner_value": "GitHub Pages Project Site", "effect": "PUBLIC_BASE=/fs-baumservice-mvp/, Origin https://silentsn3akeR.github.io — keine Custom-Domain in diesem Release." }
+  ],
+  "note": "Historische Claim-Staende in claims.json/RECONCILIATION_RECORD.json bleiben als Provenienz unveraendert; dieses Dokument ist der additive Release-Entscheid."
+}

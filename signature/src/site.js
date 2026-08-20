@@ -133,7 +133,7 @@
     });
   });
 
-  /* ---- Anfrage-Flow: mailto-Compose (bewusst ohne Server, Preview-Stand) ---- */
+  /* ---- Anfrage-Flow: mailto-Compose (bewusst ohne Server-Backend) ---- */
   var form = document.getElementById("anfrage");
   if (form) {
     form.addEventListener("submit", function (e) {

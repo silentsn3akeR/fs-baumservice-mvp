@@ -18,7 +18,7 @@ export async function render() {
       <div class="tech-row"><span class="t-name">Anschluss</span><span class="t-desc">Fläche wird für Rasen, Bepflanzung oder <a class="textlink" href="/leistungen/rollrasen/">Rollrasen</a> vorbereitet</span></div>
     </div>
   </div>
-  <p class="muted mt-4" style="font-size:.78rem">* Angaben aus der bisherigen Website; werden zur Veröffentlichung mit dem Betrieb verifiziert.</p>
+  <p class="muted mt-4" style="font-size:.78rem">* Angaben aus der bisherigen Website des Betriebs.</p>
 </section>
 
 <section class="section dark" aria-labelledby="ws-ablauf">

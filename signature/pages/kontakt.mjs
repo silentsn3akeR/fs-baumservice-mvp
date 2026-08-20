@@ -75,7 +75,6 @@ export async function render() {
       <button class="cta cta--solid" type="submit">Anfrage senden</button>
       <span class="muted" style="font-size:.78rem;max-width:24em">Öffnet Ihre E-Mail mit der fertigen Anfrage — es werden keine Daten auf dieser Website gespeichert.</span>
     </div>
-    <p class="flow-note">Preview-Hinweis: Der direkte Formularversand wird mit Freigabe des Betriebs aktiviert. Bis dahin läuft die Anfrage über Ihr eigenes E-Mail-Programm.</p>
   </form>
 </section>
 

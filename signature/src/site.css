@@ -2,6 +2,36 @@
    Herkunft: signature/docs/ART_DIRECTION.md (Logo-DNA-Ableitung)
    Schichten: TOKENS → PRIMITIVES → COMPOSITIONS → SURFACES */
 
+/* ============ SCHRIFTEN (self-hosted, SIL OFL 1.1) ============
+   Lokale Auslieferung ohne Drittanbieter-Verbindung (kein Google-Fonts-CDN).
+   Lizenztexte: signature/fonts/OFL-Archivo.txt, signature/fonts/OFL-IBMPlexMono.txt
+   Pfade sind relativ zu dieser CSS-Datei und daher base-path-unabhaengig. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("fonts/archivo-latin-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ibm-plex-mono-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/ibm-plex-mono-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ============ TOKENS ============ */
 :root {
   --ink: #34323e;
@@ -96,6 +126,7 @@ a { color: inherit; }
   letter-spacing: .22em;
   text-transform: uppercase;
   display: flex; align-items: center; gap: 1em;
+  flex-wrap: wrap;
   min-width: 0;
 }
 .protocol::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
@@ -170,7 +201,8 @@ a { color: inherit; }
 .shell { max-width: 96rem; margin-inline: auto; padding-inline: var(--gutter); }
 .section { padding-block: var(--space-6); }
 .grid { display: grid; gap: var(--space-3) var(--gutter); }
-.grid > *, .evidence > *, .human > *, .decon-stage > * { min-width: 0; }
+.grid > *, .evidence > *, .human > *, .decon-stage > *,
+.stack-2 > *, .stack-3 > * { min-width: 0; }
 @media (min-width: 64rem) {
   .grid--12 { grid-template-columns: repeat(12, 1fr); }
 }

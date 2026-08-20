@@ -8,8 +8,14 @@ from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 import imageio_ffmpeg
 
-REPO = r"C:\Users\s\.gemini\antigravity-ide\scratch\fs-baumservice-mvp"
-OUT = os.path.join(os.path.dirname(__file__), "..", "dist", "media")
+# Repository-relativ: pipeline/ -> signature/ -> Repo-Wurzel. Kein Maschinenpfad.
+# Ueberschreibbar via FS_REPO_ROOT, falls die Master anderswo liegen.
+REPO = os.environ.get(
+    "FS_REPO_ROOT",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")),
+)
+# Ziel ist die versionierte Release-Asset-Quelle; build.mjs kopiert sie nach dist/media.
+OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "media"))
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 
 IMG = lambda p: os.path.join(REPO, "assets", "img", p)

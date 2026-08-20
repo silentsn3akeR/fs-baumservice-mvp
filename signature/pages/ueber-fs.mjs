@@ -42,7 +42,7 @@ export async function render() {
           <div class="ev-beat"><span class="b-key">Regional</span><span class="b-val">${FS.region} — kurze Wege, ein Ansprechpartner.</span></div>
           <div class="ev-beat"><span class="b-key">Sauber</span><span class="b-val">Jedes Grundstück wird so verlassen, wie es vorgefunden wurde.</span></div>
         </div>
-        <p class="muted" style="font-size:.78rem">* Angaben aus der bisherigen Website; werden zur Veröffentlichung mit dem Betrieb verifiziert.</p>
+        <p class="muted" style="font-size:.78rem">* Angaben aus der bisherigen Website des Betriebs.</p>
       </div>
     </div>
   </div>

@@ -157,7 +157,7 @@ export async function render() {
       <span class="chip">eigene Technik*</span>
     </div>
   </div>
-  <p class="muted mt-4" style="font-size:.78rem">* Angabe aus der bisherigen Website; wird zur Veröffentlichung mit dem Betrieb verifiziert.</p>
+  <p class="muted mt-4" style="font-size:.78rem">* Angabe aus der bisherigen Website des Betriebs.</p>
 </section>
 
 <section class="section dark" aria-labelledby="cta2-h">
